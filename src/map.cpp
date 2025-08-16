@@ -9,8 +9,6 @@
 #include <chrono>
 #include <stack>
 #include <statsutil.h>
-
-//#include <dai/alldai.h>  // Include main libDAI header file
 #include <dai/factor.h>
 #include <dai/factorgraph.h>
 #include <dai/map.h>
@@ -32,7 +30,6 @@ namespace dai {
 
 using namespace std;
 
-
 void LogFactors(std::vector<dai::Factor> &factors, dai::LibLogger &logger)
 {
     for (dai::Factor &factor : factors)
@@ -41,8 +38,8 @@ void LogFactors(std::vector<dai::Factor> &factors, dai::LibLogger &logger)
     }
 }
 
-
-std::pair<size_t,BigInt> boundTreewidth1( const FactorGraph &fg, greedyVariableElimination::eliminationCostFunction fn, size_t maxStates ) {
+// TODO: need to figure out what this does...
+std::pair<size_t,BigInt> getTreeWidth( const FactorGraph &fg, greedyVariableElimination::eliminationCostFunction fn, size_t maxStates ) {
     // Create cluster graph from factor graph
     ClusterGraph _cg( fg, true );
 
@@ -69,7 +66,6 @@ std::pair<size_t,BigInt> boundTreewidth1( const FactorGraph &fg, greedyVariableE
 
     return make_pair(treewidth, nrstates);
 }
-
 
 template<class EliminationChoice>
 vector<size_t> getUnconstrainedElimOrder(const FactorGraph &fg, EliminationChoice f, std::vector<unsigned int> query_vars, std::vector<unsigned int> evidence_vars  ){
@@ -110,7 +106,6 @@ vector<size_t> getUnconstrainedElimOrder(const FactorGraph &fg, EliminationChoic
     return elimOrder;
 
 }
-
 
 template<class EliminationChoice>
 vector<size_t> getConstrainedElimOrder(const FactorGraph &fg, EliminationChoice f, std::vector<unsigned int> map_vars, std::vector<unsigned int> evidence_vars  ){
@@ -165,11 +160,9 @@ vector<size_t> getConstrainedElimOrder(const FactorGraph &fg, EliminationChoice 
 
 }
 
-
-std::pair<size_t,BigInt> calculateEliminationWidth(dai::FactorGraph fg, vector<size_t> elimOrder){
+std::pair<size_t,BigInt> simulateVariableElim(dai::FactorGraph fg, vector<size_t> elimOrder){
 
     // Get list of factors in this form ([A], [B], [A, B, C], [D], [E, B], [F, C, E, D])
-
 
     // keep track of the largest factor constructed
     std::uint16_t maxVars = 0;
@@ -287,7 +280,7 @@ dai::Factor variableElimination(dai::FactorGraph fg, std::vector<unsigned int> q
     logger.log(LogLevel::INFO, "Elimination Order: " + vecToString(constrainedElimOrder));
 
     // Calculate treewidth of elim order
-    std::pair<size_t,BigInt> data = calculateEliminationWidth(fg, constrainedElimOrder);
+    std::pair<size_t,BigInt> data = simulateVariableElim(fg, constrainedElimOrder);
     logger.log(LogLevel::INFO, "Treewidth: " + std::to_string(data.first));
     logger.log(LogLevel::INFO, "Maximum States in a single cluster: " + data.second.get_str());
     
@@ -439,8 +432,6 @@ std::vector<unsigned long int> extractMax(dai::Factor factor, LibLogger &logger)
 }
 
 
-
-
 dai::Factor get_map_ve(dai::FactorGraph fg, std::vector<unsigned int> map_vars, std::vector<unsigned int> evidence_vars,
                        std::vector<unsigned int> evidence_values, bool mapList, LibLogger &logger)
 {
@@ -489,7 +480,7 @@ dai::Factor get_map_ve(dai::FactorGraph fg, std::vector<unsigned int> map_vars, 
         logger.log(LogLevel::INFO, "[MAP] Elimination Order: " + vecToString(constrainedElimOrder));
 
         //boundTreewidth1(fg, eliminationCost_MinFill, 0);
-        std::pair<size_t,BigInt> data = calculateEliminationWidth(fg, constrainedElimOrder);
+        std::pair<size_t,BigInt> data = simulateVariableElim(fg, constrainedElimOrder);
         logger.log(LogLevel::INFO, "Treewidth: " + std::to_string(data.first));
         logger.log(LogLevel::INFO, "Maximum States in a single cluster: " + data.second.get_str());
         
@@ -622,7 +613,7 @@ dai::Factor get_map_ve(dai::FactorGraph fg, std::vector<unsigned int> map_vars, 
 }
 
 std::vector<unsigned long int> get_map_jt(dai::FactorGraph fg, std::vector<unsigned int> hypothesis_vars, std::vector<unsigned int> evidence_vars,
-	std::vector<unsigned int> evidence_values, bool mapList, dai::LibLogger& logger)
+                                          std::vector<unsigned int> evidence_values, bool mapList, dai::LibLogger& logger)
 {
 	// returns the map, the joint value assignment to the hypothesis vars that has maximum posterior probability given the evidence
 	// while marginalizing over the (relevant) intermediate variables. As libDAI has no MAP function we just compute the distribution

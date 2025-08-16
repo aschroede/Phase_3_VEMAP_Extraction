@@ -1,12 +1,11 @@
-#include <dai/factorgraph.h>
 #include "cxxopts.hpp"
-#include <dai/map.h>
 #include <chrono>
 #include <ctime>
 #include <filesystem>
 #include "example_map.h"
 #include <dai/logger.h>
-
+#include <dai/factorgraph.h>
+#include <dai/map.h>
 
 
 using namespace std;
