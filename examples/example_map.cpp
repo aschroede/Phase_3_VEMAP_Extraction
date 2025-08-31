@@ -2,11 +2,10 @@
 #include <chrono>
 #include <ctime>
 #include <filesystem>
-#include "example_map.h"
+//#include "example_map.h"
 #include <dai/logger.h>
 #include <dai/factorgraph.h>
 #include <dai/map.h>
-
 
 using namespace std;
 using namespace dai;
