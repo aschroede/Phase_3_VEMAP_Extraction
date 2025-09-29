@@ -129,10 +129,12 @@ BOOST_AUTO_TEST_SUITE_END()
 
 /**
  * @brief Creates a 6-node tree graph with the following structure:
- * 0 -- 1
- * / \
- * 2   3
- * /     \
+ *      0
+ *      |
+ *      1
+ *    /  \
+ *   2    3
+ *  /     \
  * 4       5
  * Variable indices: 0, 1, 2, 3, 4, 5 (all size 2).
  */
@@ -162,32 +164,26 @@ FactorGraph createSixNodeNetwork() {
 
 BOOST_AUTO_TEST_SUITE(EliminationOrderTests)
 
-// // Test 1: Fully Unconstrained (No Query/Evidence)
-// BOOST_AUTO_TEST_CASE(TestSixNodeFullyUnconstrained) {
-//     // Network: 0-1-(2,3), 2-4, 3-5. All 6 nodes are non-query/non-evidence.
-//     // Min-Fill heuristic prioritizes leaves (degree 1) first.
-//     // Leaves: 0, 4, 5. Intermediate: 2, 3. Root: 1.
-//     FactorGraph fg = createSixNodeNetwork();
-//     std::vector<unsigned int> query_vars = {};
-//     std::vector<unsigned int> evidence_vars = {};
-//
-//     // Use MinFill heuristic
-//     greedyVariableElimination f(eliminationCost_MinFill);
-//
-//     std::vector<size_t> actualOrder = getUnconstrainedElimOrder(fg, f, query_vars, evidence_vars);
-//
-//     // Expected order for MinFill (prioritizing lower index in case of ties):
-//     // 1. Eliminate 0 (Min-Fill picks lowest index leaf)
-//     // 2. Eliminate 4 (Next lowest index leaf)
-//     // 3. Eliminate 5 (Remaining leaf)
-//     // 4. Eliminate 2 (Intermediate)
-//     // 5. Eliminate 3 (Intermediate)
-//     // 6. Eliminate 1 (Root)
-//     std::vector<size_t> expectedOrder = {0, 4, 5, 2, 3, 1};
-//
-//     BOOST_CHECK_EQUAL_COLLECTIONS(actualOrder.begin(), actualOrder.end(),
-//                                   expectedOrder.begin(), expectedOrder.end());
-// }
+// Test 1: Fully Unconstrained (No Query/Evidence)
+BOOST_AUTO_TEST_CASE(TestSixNodeFullyUnconstrained) {
+    // Network: 0-1-(2,3), 2-4, 3-5. All 6 nodes are non-query/non-evidence.
+    // Min-Fill heuristic prioritizes leaves (degree 1) first.
+    // Leaves: 0, 4, 5. Intermediate: 2, 3. Root: 1.
+    FactorGraph fg = createSixNodeNetwork();
+    std::vector<unsigned int> query_vars = {};
+    std::vector<unsigned int> evidence_vars = {};
+
+    // Use MinFill heuristic
+    greedyVariableElimination f(eliminationCost_MinFill);
+
+    std::vector<size_t> actualOrder = getUnconstrainedElimOrder(fg, f, query_vars, evidence_vars);
+
+    // Note there are multiple valid elimination orders here
+    std::vector<size_t> expectedOrder = {0, 4, 2, 1, 3, 5};
+
+    BOOST_CHECK_EQUAL_COLLECTIONS(actualOrder.begin(), actualOrder.end(),
+                                  expectedOrder.begin(), expectedOrder.end());
+}
 
 // Test 2: Two Query Variables, Four Non-Query
 BOOST_AUTO_TEST_CASE(TestSixNodeQueryAndNonQuery) {
