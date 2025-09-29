@@ -13,8 +13,12 @@ const Real tol = 1e-8;
 #include <boost/test/tools/floating_point_comparison.hpp>
 
 
-// --- Helper Functions to create known FactorGraphs ---
+std::string outputfile = "unitTests/UnitTestLog";
+LogLevel logLevel = LogLevel::INFO;
+dai::LibLogger logger = dai::LibLogger(outputfile, logLevel);
 
+
+// --- Helper Functions to create known FactorGraphs ---
 /**
  * @brief Creates a simple chain graph (A-B, B-C) where all variables have 2 states.
  * Expected max clique size (treewidth + 1) is 2. Max states is 2^2 = 4.
@@ -94,6 +98,57 @@ FactorGraph createSixNodeNetwork() {
 
     return dai::FactorGraph(factors);
 }
+
+/**
+ * @brief Creates a 6-node tree graph with simple CPTs for testing variable elimination.
+ * V0--V1, V1--V2, V1--V3, V2--V4, V3--V5 (All vars size 2).
+ * V_i = 0 is first state, V_i = 1 is second state.
+ * CPTs are highly biased/deterministic for easy manual verification.
+ */
+FactorGraph createSixNodeNetworkWithCPTs() {
+    dai::Var V0(0, 2);
+    dai::Var V1(1, 2);
+    dai::Var V2(2, 2);
+    dai::Var V3(3, 2);
+    dai::Var V4(4, 2);
+    dai::Var V5(5, 2);
+
+    std::vector<dai::Factor> factors;
+
+    // Use the constructor TFactor(const VarSet& vars, const std::vector<S> &x)
+
+    // 1. P(V0): Uniform prior
+    // P(V0=0)=0.5, P(V0=1)=0.5
+    factors.push_back(dai::Factor(dai::VarSet({V0}), std::vector<double>{0.5, 0.5}));
+
+    // 2. P(V1|V0): Strong correlation (V1=V0 is 0.8 likely)
+    // Values stored in order: P(V1, V0). (V0=0, V1=0), (V0=1, V1=0), (V0=0, V1=1), (V0=1, V1=1)
+    // 00=0.8, 10=0.2, 01=0.2, 11=0.8
+    factors.push_back(dai::Factor(dai::VarSet(V0, V1), std::vector<double>{0.8, 0.2, 0.2, 0.8}));
+
+    // 3. P(V2|V1): Deterministic V2 = V1
+    // Values stored in order: P(V2, V1). (V1=0, V2=0), (V1=1, V2=0), (V1=0, V2=1), (V1=1, V2=1)
+    // 00=1.0, 10=0.0, 01=0.0, 11=1.0
+    factors.push_back(dai::Factor(dai::VarSet(V1, V2), std::vector<double>{1.0, 0.0, 0.0, 1.0}));
+
+    // 4. P(V3|V1): Deterministic V3 = V1
+    // Values stored in order: P(V3, V1). (V1=0, V3=0), (V1=1, V3=0), (V1=0, V3=1), (V1=1, V3=1)
+    // 00=1.0, 10=0.0, 01=0.0, 11=1.0
+    factors.push_back(dai::Factor(dai::VarSet(V1, V3), std::vector<double>{1.0, 0.0, 0.0, 1.0}));
+    // 5. P(V4|V2): Deterministic V4 = V2
+    // Values stored in order: P(V4, V2). (V2=0, V4=0), (V2=1, V4=0), (V2=0, V4=1), (V2=1, V4=1)
+    // 00=1.0, 10=0.0, 01=0.0, 11=1.0
+    factors.push_back(dai::Factor(dai::VarSet(V2, V4), std::vector<double>{1.0, 0.0, 0.0, 1.0}));
+
+    // 6. P(V5|V3): Deterministic V5 = V3
+    // Values stored in order: P(V5, V3). (V3=0, V5=0), (V3=1, V5=0), (V3=0, V5=1), (V3=1, V5=1)
+    // 00=1.0, 10=0.0, 01=0.0, 11=1.0
+    factors.push_back(dai::Factor(dai::VarSet(V3, V5), std::vector<double>{1.0, 0.0, 0.0, 1.0}));
+
+    return dai::FactorGraph(factors);
+}
+
+
 
 // Helper function for Boost Test to print BigInt values if an assertion fails
 namespace boost {
@@ -333,6 +388,83 @@ BOOST_AUTO_TEST_CASE(TestSixNodeSuboptimalTreeWidth) {
     // Expected: Max states = 2^4 = 16
     BOOST_CHECK_EQUAL(result.first, 4);
     BOOST_CHECK_EQUAL(result.second, 16);
+}
+
+BOOST_AUTO_TEST_SUITE_END()
+
+BOOST_AUTO_TEST_SUITE(VariableEliminationTests)
+
+// Test 6: Unconstrained Marginal Probability (P(V0))
+BOOST_AUTO_TEST_CASE(TestSixNodeMarginalP_V0) {
+    FactorGraph fg = createSixNodeNetworkWithCPTs();
+
+    // Query: P(V0)
+    std::vector<unsigned int> query_vars = {0};
+    std::vector<unsigned int> evidence_vars = {};
+    std::vector<unsigned int> evidence_values = {};
+
+    dai::Factor resultFactor = variableElimination(fg, query_vars, evidence_vars, evidence_values, logger);
+
+    // Expected: Since V0 is the root with a uniform prior, and all factors are conditional
+    // on V0's children, eliminating the children should just normalize the initial prior.
+    // P(V0) should be uniform: (0.5, 0.5)
+
+    BOOST_CHECK_EQUAL(resultFactor.vars().size(), 1);
+    BOOST_CHECK_EQUAL(resultFactor.vars().contains(dai::Var(0, 2)), true);
+
+    // Check marginal values: P(V0=0) and P(V0=1)
+    BOOST_CHECK_CLOSE(resultFactor.get(0), 0.5, 0.001); // P(V0=0)
+    BOOST_CHECK_CLOSE(resultFactor.get(1), 0.5, 0.001); // P(V0=1)
+}
+
+// Test 7: Constrained Marginal Probability (P(V0 | V4=1))
+BOOST_AUTO_TEST_CASE(TestSixNodeMarginalP_V0_Given_V4_Eq_1) {
+    FactorGraph fg = createSixNodeNetworkWithCPTs();
+
+    // Query: P(V0)
+    std::vector<unsigned int> query_vars = {0};
+    // Evidence: V4 = 1 (index 4, value 1)
+    std::vector<unsigned int> evidence_vars = {4};
+    std::vector<unsigned int> evidence_values = {1}; // State 1 (the second state)
+
+    dai::Factor resultFactor = variableElimination(fg, query_vars, evidence_vars, evidence_values, logger);
+
+    // Expected manual calculation:
+    // Clamping V4=1 implies V2=1 => V1=1 => V0=1 is favored.
+    // P(V0=0 | V4=1) propto P(V0=0) * P(V1=1|V0=0) = 0.5 * 0.2 = 0.1
+    // P(V0=1 | V4=1) propto P(V0=1) * P(V1=1|V0=1) = 0.5 * 0.8 = 0.4
+    // Normalized: P(V0=0)=0.1/0.5 = 0.2, P(V0=1)=0.4/0.5 = 0.8
+
+    BOOST_CHECK_EQUAL(resultFactor.vars().size(), 1);
+
+    // Check marginal values: P(V0=0) and P(V0=1)
+    BOOST_CHECK_CLOSE(resultFactor.get(0), 0.2, 0.001); // P(V0=0)
+    BOOST_CHECK_CLOSE(resultFactor.get(1), 0.8, 0.001); // P(V0=1)
+}
+
+
+// Test 8: Multiple Query Variables (P(V0, V5))
+BOOST_AUTO_TEST_CASE(TestSixNodeJointMarginalP_V0_V5) {
+    FactorGraph fg = createSixNodeNetworkWithCPTs();
+
+    // Query: P(V0, V5)
+    std::vector<unsigned int> query_vars = {0, 5};
+    std::vector<unsigned int> evidence_vars = {};
+    std::vector<unsigned int> evidence_values = {};
+
+    dai::Factor resultFactor = variableElimination(fg, query_vars, evidence_vars, evidence_values, logger);
+
+    // Expected: V0 and V5 are marginally independent in the initial graph (V0-V1-V3-V5)
+    // P(V0, V5) = P(V0) * P(V5). Since P(V0) is uniform, P(V5) is also uniform (due to symmetry and deterministic CPTs).
+    // P(V0, V5) = 0.5 * 0.5 = 0.25 for all four states (00, 10, 01, 11).
+
+    BOOST_CHECK_EQUAL(resultFactor.vars().size(), 2);
+
+    // Check joint marginal values:
+    BOOST_CHECK_CLOSE(resultFactor.get(0), 0.25, 0.001); // P(V0=0, V5=0)
+    BOOST_CHECK_CLOSE(resultFactor.get(1), 0.25, 0.001); // P(V0=1, V5=0)
+    BOOST_CHECK_CLOSE(resultFactor.get(2), 0.25, 0.001); // P(V0=0, V5=1)
+    BOOST_CHECK_CLOSE(resultFactor.get(3), 0.25, 0.001); // P(V0=1, V5=1)
 }
 
 BOOST_AUTO_TEST_SUITE_END()

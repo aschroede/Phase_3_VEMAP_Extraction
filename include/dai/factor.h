@@ -391,7 +391,7 @@ class TFactor {
                 _vs |= g._vs;
                 size_t N = BigInt_size_t( _vs.nrStates() );
 
-                std::cout << "Number of states in new table: " << N << std::endl;
+                //std::cout << "Number of states in new table: " << N << std::endl;
 
                 IndexFor i_f( f._vs, _vs );
                 IndexFor i_g( g._vs, _vs );

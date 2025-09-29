@@ -276,7 +276,7 @@ dai::Factor variableElimination(dai::FactorGraph fg, std::vector<unsigned int> q
         fg.clampReduce(evidence_vars[i], evidence_values[i], false);
     }
     auto end = std::chrono::steady_clock::now();
-    std::cout << "Clamping evidence " << std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count() << " ns" << std::endl;
+    logger.log(LogLevel::DEBUG, "Clamping evidence: " + std::to_string(std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count()) + "ns");
 
     // Log initial factors and those after clamping
     std::vector<dai::Factor> factors = fg.factors();
