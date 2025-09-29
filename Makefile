@@ -34,7 +34,7 @@ else
 endif
 
 # Define build targets
-TARGETS:=lib examples
+TARGETS:=lib examples unittests
 
 # Define conditional build targets
 NAMES:=graph dag bipgraph varset daialg alldai clustergraph factor factorgraph properties regiongraph cobwebgraph util weightedgraph exceptions exactinf evidence emalg io
@@ -84,6 +84,11 @@ utils : utils/createfg$(EE) utils/fg2dot$(EE) utils/fginfo$(EE) utils/uai2fg$(EE
 
 lib: $(LIB)/libdai$(LE)
 
+unittests : unitTests/map_test$(EE)
+	@echo 'Running unit tests...'
+	@echo
+	unitTests/map_test$(EE)
+
 
 # OBJECTS
 ##########
@@ -131,6 +136,11 @@ $(OBJ_DIR)/glc$(OE) : $(SRC)/glc.cpp $(INC)/glc.h $(HEADERS) $(INC)/cobwebgraph.
 examples/example_map$(EE) : examples/example_map.cpp $(HEADERS) $(LIB)/libdai$(LE)
 	$(CC) $(CCO)$@ $< $(LIBS)
 
+
+# UNIT TESTS
+#############
+unitTests/%$(EE) : unitTests/%.cpp $(HEADERS) $(LIB)/libdai$(LE)
+	$(CC) -DBOOST_TEST_DYN_LINK $(CCO)$@ $< $(LIBS) $(BOOSTLIBS_UTF)
 
 # UTILS
 ########
@@ -182,45 +192,7 @@ endif
 ########
 
 .PHONY : clean
-ifneq ($(OS),WINDOWS)
 clean :
 	-rm -rf $(OBJ_DIR)
-	-rm matlab/*$(ME)
-	-rm examples/example$(EE) examples/example_bipgraph$(EE) examples/example_varset$(EE) examples/example_permute$(EE) examples/example_sprinkler$(EE) examples/example_sprinkler_gibbs$(EE) examples/example_sprinkler_em$(EE) examples/example_imagesegmentation$(EE)
-	-rm tests/testdai$(EE) tests/testem/testem$(EE) tests/testbbp$(EE)
-	-rm tests/unit/var_test$(EE) tests/unit/smallset_test$(EE) tests/unit/varset_test$(EE) tests/unit/graph_test$(EE) tests/unit/dag_test$(EE) tests/unit/bipgraph_test$(EE) tests/unit/weightedgraph_test$(EE) tests/unit/enum_test$(EE) tests/unit/util_test$(EE) tests/unit/exceptions_test$(EE) tests/unit/properties_test$(EE) tests/unit/index_test$(EE) tests/unit/prob_test$(EE) tests/unit/factor_test$(EE) tests/unit/factorgraph_test$(EE) tests/unit/clustergraph_test$(EE) tests/unit/regiongraph_test$(EE) tests/unit/daialg_test$(EE) tests/unit/alldai_test$(EE)
-	-rm factorgraph_test.fg alldai_test.aliases
-	-rm utils/fg2dot$(EE) utils/createfg$(EE) utils/fginfo$(EE) utils/uai2fg$(EE)
-	-rm -R doc
-	-rm -R lib
-else
-clean :
-	-del *.obj
-	-del *.ilk
-	-del *.pdb
-	-del matlab\*$(ME)
-	-del examples\*$(EE)
-	-del examples\*$(EE).manifest
-	-del examples\*.ilk
-	-del examples\*.pdb
-	-del tests\*$(EE)
-	-del tests\*$(EE).manifest
-	-del tests\*.pdb
-	-del tests\*.ilk
-	-del tests\testem\*$(EE)
-	-del tests\testem\*$(EE).manifest
-	-del tests\testem\*.pdb
-	-del tests\testem\*.ilk
-	-del utils\*$(EE)
-	-del utils\*$(EE).manifest
-	-del utils\*.pdb
-	-del utils\*.ilk
-	-del tests\unit\*_test$(EE)
-	-del tests\unit\*_test$(EE).manifest
-	-del tests\unit\*_test.pdb
-	-del tests\unit\*_test.ilk
-	-del factorgraph_test.fg
-	-del alldai_test.aliases
-	-del $(LIB)\libdai$(LE)
-	-rmdir lib
-endif
+	-rm examples/example_map$(EE)
+	-rm unitTests/map_test$(EE)

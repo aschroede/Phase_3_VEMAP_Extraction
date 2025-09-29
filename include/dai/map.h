@@ -6,10 +6,18 @@
 #include <vector>
 #include <dai/factorgraph.h>
 #include <dai/logger.h>
+#include <dai/clustergraph.h>
+
 
 namespace dai {
 
     using namespace std;
+
+
+    std::pair<size_t, BigInt> getTreeWidth(const FactorGraph& fg, greedyVariableElimination::eliminationCostFunction fn, size_t maxStates);
+
+    template<class EliminationChoice>
+    vector<size_t> getUnconstrainedElimOrder(const FactorGraph& fg, EliminationChoice f, std::vector<unsigned int> query_vars, std::vector<unsigned int> evidence_vars);
 
     template<class EliminationChoice>
     vector<size_t> getConstrainedElimOrder(const FactorGraph &fg, EliminationChoice f, std::vector<unsigned int> map_vars);
