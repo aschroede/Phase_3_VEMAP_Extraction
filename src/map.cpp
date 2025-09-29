@@ -49,47 +49,6 @@ void LogFactors(std::vector<dai::Factor>& factors, dai::LibLogger& logger) {
 }
 
 /**
- * @brief Calculates the treewidth and maximum number of states for an unconstrained elimination order.
- *
- * This function uses a specified variable elimination cost function to determine a greedy elimination
- * order for a factor graph. It then calculates and returns the treewidth and the maximum number of
- * states of the largest factor created during this elimination process. This is typically used to
- * estimate the computational complexity of a variable elimination algorithm.
- *
- * @param fg The input factor graph.
- * @param fn The cost function used for greedy variable elimination (e.g., `eliminationCost_MinFill`).
- * @param maxStates A parameter for `VarElim`, indicating a maximum number of states. TODO: Clarify what maxStates is for
- * @return A pair containing the treewidth (size_t) and the maximum number of states (BigInt).
- */
-std::pair<size_t, BigInt> getTreeWidth(const FactorGraph& fg, greedyVariableElimination::eliminationCostFunction fn, size_t maxStates) {
-    // Create cluster graph from factor graph
-    ClusterGraph _cg(fg, true);
-
-    ClusterGraph ElimVec;
-    std::vector<size_t> ElimOrder;
-
-    // Obtain elimination sequence
-    tie(ElimVec, ElimOrder) = _cg.VarElim(greedyVariableElimination(fn), maxStates);
-    std::vector<dai::VarSet> ElimCliques = ElimVec.eraseNonMaximal().clusters();
-
-    // Calculate treewidth
-    size_t treewidth = 0;
-    BigInt nStates = 0.0;
-    for (size_t i = 0; i < ElimCliques.size(); i++) {
-        if (ElimCliques[i].size() > treewidth)
-            treewidth = ElimCliques[i].size();
-        BigInt s = ElimCliques[i].nrStates();
-        if (s > nStates)
-            nStates = s;
-    }
-
-    std::cout << "Unconstrained tree width (BoundTreeWidth): " << treewidth << std::endl;
-    std::cout << "Unconstrained state number (BoundTreeWidth): " << nStates << std::endl;
-
-    return make_pair(treewidth, nStates);
-}
-
-/**
  * @brief Generates an unconstrained variable elimination order for a factor graph.
  *
  * This template function determines a variable elimination order that is "unconstrained". For the MAP algorithm
@@ -212,12 +171,14 @@ vector<size_t> getConstrainedElimOrder(const FactorGraph& fg, EliminationChoice 
  * of each factor to determine the size and number of states of the largest factor created. This
  * provides an estimate of the memory and computational complexity without a full run.
  *
+ * This allows us to see the treewidth and number of states in the constrained elimination order. Useful for diagnosis
+ *
  * @param fg The input factor graph.
  * @param elimOrder The variable elimination order as a vector of variable indices.
  * @return A pair containing the treewidth (size_t, number of variables) and the maximum number of states (BigInt).
  */
-std::pair<size_t, BigInt> simulateVariableElim(dai::FactorGraph fg, vector<size_t> elimOrder) {
-    std::uint16_t maxVars = 0;
+std::pair<size_t, BigInt> getElimOrderTreeWidth(dai::FactorGraph fg, vector<size_t> elimOrder) {
+    std::uint16_t treeWidth = 0;
     dai::BigInt maxStates = 0;
 
     std::vector<dai::VarSet> factorVarSets;
@@ -248,8 +209,8 @@ std::pair<size_t, BigInt> simulateVariableElim(dai::FactorGraph fg, vector<size_
         if (newFactorVarSet.nrStates() > maxStates) {
             maxStates = newFactorVarSet.nrStates();
         }
-        if (newFactorVarSet.size() > maxVars) {
-            maxVars = newFactorVarSet.size();
+        if (newFactorVarSet.size() > treeWidth) {
+            treeWidth = newFactorVarSet.size();
         }
 
         // "Sum out" the variable by removing it from the new factor's variable set
@@ -272,12 +233,12 @@ std::pair<size_t, BigInt> simulateVariableElim(dai::FactorGraph fg, vector<size_
         if (newFactorVarSet.nrStates() > maxStates) {
             maxStates = newFactorVarSet.nrStates();
         }
-        if (newFactorVarSet.size() > maxVars) {
-            maxVars = newFactorVarSet.size();
+        if (newFactorVarSet.size() > treeWidth) {
+            treeWidth = newFactorVarSet.size();
         }
     }
 
-    return make_pair(maxVars, maxStates);
+    return make_pair(treeWidth, maxStates);
 }
 
 /**
@@ -305,7 +266,7 @@ dai::Factor variableElimination(dai::FactorGraph fg, std::vector<unsigned int> q
     logger.log(LogLevel::INFO, "Elimination Order: " + vecToString(elimOrder));
 
     // Calculate and log treewidth for the given elimination order
-    std::pair<size_t, BigInt> data = simulateVariableElim(fg, elimOrder);
+    std::pair<size_t, BigInt> data = getElimOrderTreeWidth(fg, elimOrder);
     logger.log(LogLevel::INFO, "Treewidth: " + std::to_string(data.first));
     logger.log(LogLevel::INFO, "Maximum States in a single cluster: " + data.second.get_str());
 
@@ -448,7 +409,7 @@ dai::Factor get_map_ve(dai::FactorGraph fg, std::vector<unsigned int> map_vars, 
         logger.log(LogLevel::INFO, "[MAP] Elimination Order: " + vecToString(constrainedElimOrder));
 
         // Calculate treewidth for logging purposes
-        std::pair<size_t, BigInt> data = simulateVariableElim(fg, constrainedElimOrder);
+        std::pair<size_t, BigInt> data = getElimOrderTreeWidth(fg, constrainedElimOrder);
         logger.log(LogLevel::INFO, "Treewidth: " + std::to_string(data.first));
         logger.log(LogLevel::INFO, "Maximum States in a single cluster: " + data.second.get_str());
 

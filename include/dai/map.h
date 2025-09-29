@@ -14,13 +14,13 @@ namespace dai {
     using namespace std;
 
 
-    std::pair<size_t, BigInt> getTreeWidth(const FactorGraph& fg, greedyVariableElimination::eliminationCostFunction fn, size_t maxStates);
-
     template<class EliminationChoice>
     vector<size_t> getUnconstrainedElimOrder(const FactorGraph& fg, EliminationChoice f, std::vector<unsigned int> query_vars, std::vector<unsigned int> evidence_vars);
 
     template<class EliminationChoice>
-    vector<size_t> getConstrainedElimOrder(const FactorGraph &fg, EliminationChoice f, std::vector<unsigned int> map_vars);
+    vector<size_t> getConstrainedElimOrder(const FactorGraph& fg, EliminationChoice f, std::vector<unsigned int> map_vars, std::vector<unsigned int> evidence_vars);
+
+    std::pair<size_t, BigInt> getElimOrderTreeWidth(dai::FactorGraph fg, vector<size_t> elimOrder);
 
     dai::Factor get_map_ve(dai::FactorGraph fg, std::vector<unsigned int> map_vars, std::vector<unsigned int> evidence_vars,
             std::vector<unsigned int> evidence_values, bool mapList, LibLogger &logger);

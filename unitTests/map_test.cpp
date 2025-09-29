@@ -63,70 +63,6 @@ FactorGraph createTriangleGraph() {
     return dai::FactorGraph(factors);
 }
 
-// --- BOOST TEST SUITE ---
-
-// Helper function for Boost Test to print BigInt values if an assertion fails
-namespace boost {
-    namespace test_tools {
-        template<>
-        struct tt_detail::print_log_value<dai::BigInt> {
-            void operator()(std::ostream& os, const dai::BigInt& v) {
-                // Assuming BigInt has a conversion to string or double for logging purposes
-                os << v;
-            }
-        };
-    }
-}
-
-BOOST_AUTO_TEST_SUITE(TreeWidthTests)
-
-BOOST_AUTO_TEST_CASE(TestChainGraphMinFill) {
-    // A-B-C chain: Min-Fill elimination order results in a largest clique of size 2.
-    // Max states = 2^2 = 4.
-    FactorGraph fg = createChainGraph();
-    size_t maxStatesLimit = 0; // No limit
-
-    auto result = getTreeWidth(fg, eliminationCost_MinFill, maxStatesLimit);
-
-    size_t treewidth = result.first;
-    dai::BigInt maxStates = result.second;
-
-    BOOST_CHECK_EQUAL(treewidth, 2);
-    BOOST_CHECK_EQUAL(maxStates, dai::BigInt(4));
-
-}
-
-BOOST_AUTO_TEST_CASE(TestTriangleGraphMinFill) {
-    // A-B-C-A triangle (clique of size 3): Min-Fill elimination results in a largest clique of size 3.
-    // Max states = 2^3 = 8.
-    FactorGraph fg = createTriangleGraph();
-    size_t maxStatesLimit = 0; // No limitprint_log_value
-
-    auto result = getTreeWidth(fg,eliminationCost_MinFill, maxStatesLimit);
-
-    size_t treewidth = result.first;
-    dai::BigInt maxStates = result.second;
-
-    BOOST_CHECK_EQUAL(treewidth, 3);
-    BOOST_CHECK_EQUAL(maxStates, dai::BigInt(8));
-}
-
-BOOST_AUTO_TEST_CASE(TestMaxStatesLimitPassThrough) {
-    // This test ensures the maxStates argument is passed to VarElim correctly.
-    // Since the actual effect of a low maxStates limit on a small graph is hard to predict
-    // without full DAI knowledge, we assert the function simply runs and produces a valid result.
-    FactorGraph fg = createChainGraph();
-    size_t maxStatesLimit = 10; // A non-zero limit
-
-    auto result = getTreeWidth(fg, eliminationCost_MinFill, maxStatesLimit);
-
-    // Asserting the expected (unlimited) result should hold for a non-restrictive limit
-    BOOST_CHECK_EQUAL(result.first, 2);
-    BOOST_CHECK_EQUAL(result.second, dai::BigInt(4));
-}
-
-BOOST_AUTO_TEST_SUITE_END()
-
 /**
  * @brief Creates a 6-node tree graph with the following structure:
  *      0
@@ -159,8 +95,18 @@ FactorGraph createSixNodeNetwork() {
     return dai::FactorGraph(factors);
 }
 
-
-// --- BOOST TEST SUITE ---
+// Helper function for Boost Test to print BigInt values if an assertion fails
+namespace boost {
+    namespace test_tools {
+        template<>
+        struct tt_detail::print_log_value<dai::BigInt> {
+            void operator()(std::ostream& os, const dai::BigInt& v) {
+                // Assuming BigInt has a conversion to string or double for logging purposes
+                os << v;
+            }
+        };
+    }
+}
 
 BOOST_AUTO_TEST_SUITE(EliminationOrderTests)
 
@@ -252,5 +198,141 @@ BOOST_AUTO_TEST_CASE(TestSixNodeOnlyQueryVars) {
                                   expectedOrder.begin(), expectedOrder.end());
 }
 
+// Test 5: Standard MAP Case (MAP last)
+BOOST_AUTO_TEST_CASE(TestConstrainedStandardMAP) {
+    // Network: MAP={1, 2}. Non-MAP={0, 3, 4, 5}. Evidence={}.
+    // Expected: Non-MAP eliminated first, then MAP.
+    FactorGraph fg = createSixNodeNetwork();
+    std::vector<unsigned int> map_vars = {1, 2};
+    std::vector<unsigned int> evidence_vars = {};
+
+    greedyVariableElimination f(eliminationCost_MinFill);
+
+    std::vector<size_t> actualOrder = getConstrainedElimOrder(fg, f, map_vars, evidence_vars);
+
+    // Phase 1 (Non-MAP: {0, 3, 4, 5})
+    // Min-Fill order on this set: (0, 4, 5, 3)
+
+    // Phase 2 (MAP: {1, 2}) - run on the residual graph after 0, 4, 5, 3 are gone.
+    // At this point, the remaining variables 1 and 2 are disconnected from the graph.
+    // Min-Fill picks the lowest index first: (1, 2)
+    std::vector<size_t> expectedOrder = {0, 4, 5, 3, 1, 2};
+
+    BOOST_CHECK_EQUAL_COLLECTIONS(actualOrder.begin(), actualOrder.end(),
+                                  expectedOrder.begin(), expectedOrder.end());
+}
+
+// Test 6: MAP and Evidence Variables Present
+BOOST_AUTO_TEST_CASE(TestConstrainedMapAndEvidence) {
+    // Network: Evidence={0, 5}. MAP={2, 3}. Non-MAP={1, 4}.
+    // Expected: Evidence {0, 5} excluded. Non-MAP {1, 4} eliminated first, then MAP {2, 3}.
+    FactorGraph fg = createSixNodeNetwork();
+    std::vector<unsigned int> map_vars = {2, 3};
+    std::vector<unsigned int> evidence_vars = {0, 5};
+
+    greedyVariableElimination f(eliminationCost_MinFill);
+
+    std::vector<size_t> actualOrder = getConstrainedElimOrder(fg, f, map_vars, evidence_vars);
+
+    // Phase 1 (Non-MAP: {1, 4})
+    // The graph is simplified because 0 and 5 are instantiated (removed).
+    // Now 1 is connected to 2 (degree 1 in residual graph). 4 is connected to 2 (degree 1).
+    // Min-Fill picks lowest index first: (1, 4)
+
+    // Phase 2 (MAP: {2, 3}) - run on the residual graph after 1 and 4 are gone.
+    // 2 and 3 are now fully disconnected from each other.
+    // Min-Fill picks lowest index: (2, 3)
+    std::vector<size_t> expectedOrder = {4, 1, 2, 3};
+
+    BOOST_CHECK_EQUAL_COLLECTIONS(actualOrder.begin(), actualOrder.end(),
+                                  expectedOrder.begin(), expectedOrder.end());
+}
+
+// Test 7: Only MAP Variables (Non-MAP phase is skipped)
+BOOST_AUTO_TEST_CASE(TestConstrainedOnlyMAP) {
+    // Network: MAP={0, 1, 2, 3, 4, 5}. Non-MAP={}. Evidence={}.
+    // Expected: Non-MAP phase skipped. All MAP variables eliminated by heuristic.
+    FactorGraph fg = createSixNodeNetwork();
+    std::vector<unsigned int> map_vars = {0, 1, 2, 3, 4, 5};
+    std::vector<unsigned int> evidence_vars = {};
+
+    greedyVariableElimination f(eliminationCost_MinFill);
+
+    std::vector<size_t> actualOrder = getConstrainedElimOrder(fg, f, map_vars, evidence_vars);
+
+    // Phase 1 (Non-MAP: {}) -> Empty
+
+    // Phase 2 (MAP: {0, 1, 2, 3, 4, 5})
+    // This is equivalent to the fully unconstrained case (Test 5), just limited to the MAP set.
+    // Multiple correct answers here
+    std::vector<size_t> expectedOrder = {0, 4, 2, 1, 3, 5};
+
+    BOOST_CHECK_EQUAL_COLLECTIONS(actualOrder.begin(), actualOrder.end(),
+                                  expectedOrder.begin(), expectedOrder.end());
+}
+
+BOOST_AUTO_TEST_SUITE_END()
+
+BOOST_AUTO_TEST_SUITE(getElimOrderTreeWidthTests)
+
+// Test 1: Simple Chain Graph (0-1-2) with Optimal Order
+BOOST_AUTO_TEST_CASE(TestChainTreeWidth) {
+    // Optimal elimination order: 0, 2, 1
+    // Max Clique Size is 2 ({0, 1} or {1, 2}).
+    FactorGraph fg = createChainGraph();
+    std::vector<size_t> order = {0, 2, 1}; // Eliminating leaves first
+
+    std::pair<size_t, BigInt> result = getElimOrderTreeWidth(fg, order);
+
+    // Expected: Max variables in a clique = 2 (e.g., {0, 1} before 0 is summed out)
+    // Expected: Max states = 2^2 = 4
+    BOOST_CHECK_EQUAL(result.first, 2);
+    BOOST_CHECK_EQUAL(result.second, 4);
+}
+
+// Test 2: Triangle Graph (0-1-2-0) with any order
+BOOST_AUTO_TEST_CASE(TestTriangleTreeWidth) {
+    // This graph is a clique. Eliminating any variable forces the creation of a clique of size 3.
+    FactorGraph fg = createTriangleGraph();
+    std::vector<size_t> order = {0, 1, 2};
+
+    std::pair<size_t, BigInt> result = getElimOrderTreeWidth(fg, order);
+
+    // Expected: Max variables in a clique = 3 ({0, 1, 2} when 0 is summed out)
+    // Expected: Max states = 2^3 = 8
+    BOOST_CHECK_EQUAL(result.first, 3);
+    BOOST_CHECK_EQUAL(result.second, 8);
+}
+
+// Test 3: 6-Node Network (0-4-5-2-3-1) - Optimal Order
+BOOST_AUTO_TEST_CASE(TestSixNodeOptimalTreeWidth) {
+    // The 6-node network is a tree, so the optimal treewidth is 2.
+    // Optimal elimination order (Min-Fill): 0, 4, 5, 2, 3, 1
+    FactorGraph fg = createSixNodeNetwork();
+    std::vector<size_t> order = {0, 4, 5, 2, 3, 1};
+
+    std::pair<size_t, BigInt> result = getElimOrderTreeWidth(fg, order);
+
+    // Expected: Max variables in a clique = 2
+    // (The maximum factor size remains 2 throughout the tree elimination)
+    // Expected: Max states = 2^2 = 4
+    BOOST_CHECK_EQUAL(result.first, 2);
+    BOOST_CHECK_EQUAL(result.second, 4);
+}
+
+// Test 4: 6-Node Network (Suboptimal Order)
+BOOST_AUTO_TEST_CASE(TestSixNodeSuboptimalTreeWidth) {
+    // Suboptimal order: Eliminate the central node (1) first.
+    // 1 is connected to {0, 2, 3}. Eliminating 1 forces the creation of a clique over {0, 2, 3}.
+    FactorGraph fg = createSixNodeNetwork();
+    std::vector<size_t> order = {1, 0, 2, 3, 4, 5};
+
+    std::pair<size_t, BigInt> result = getElimOrderTreeWidth(fg, order);
+
+    // Expected: Max variables in a clique = 4 ({0, 1, 2, 3} combined before 1 is summed out)
+    // Expected: Max states = 2^4 = 16
+    BOOST_CHECK_EQUAL(result.first, 4);
+    BOOST_CHECK_EQUAL(result.second, 16);
+}
 
 BOOST_AUTO_TEST_SUITE_END()
