@@ -1,0 +1,1158 @@
+This file was freshly created or overwritten.
+[DEBUG] **** Starting Variable Elimination ****
+[DEBUG] Heuristic Used: MinFill
+[DEBUG] Elimination Order: (4, 2, 5, 3, 1)
+[DEBUG] Treewidth: 2
+[DEBUG] Maximum States in a single cluster: 4
+[DEBUG] Clamping evidence: 1397ns
+[DEBUG] Initial set of factors:
+[DEBUG] 
+{x0}
+{x0->0} 0.5
+{x0->1} 0.5
+
+[DEBUG] 
+{x0, x1}
+{x0->0, x1->0} 0.8
+{x0->1, x1->0} 0.2
+{x0->0, x1->1} 0.2
+{x0->1, x1->1} 0.8
+
+[DEBUG] 
+{x1, x2}
+{x1->0, x2->0} 1
+{x1->1, x2->0} 0
+{x1->0, x2->1} 0
+{x1->1, x2->1} 1
+
+[DEBUG] 
+{x1, x3}
+{x1->0, x3->0} 1
+{x1->1, x3->0} 0
+{x1->0, x3->1} 0
+{x1->1, x3->1} 1
+
+[DEBUG] 
+{x2, x4}
+{x2->0, x4->0} 1
+{x2->1, x4->0} 0
+{x2->0, x4->1} 0
+{x2->1, x4->1} 1
+
+[DEBUG] 
+{x3, x5}
+{x3->0, x5->0} 1
+{x3->1, x5->0} 0
+{x3->0, x5->1} 0
+{x3->1, x5->1} 1
+
+[DEBUG] Variable to Eliminate: 4
+[DEBUG] Factors to multiply: 
+[DEBUG] 
+{x2, x4}
+{x2->0, x4->0} 1
+{x2->1, x4->0} 0
+{x2->0, x4->1} 0
+{x2->1, x4->1} 1
+
+[DEBUG] Multiplication Result: 
+[DEBUG] 
+{x2, x4}
+{x2->0, x4->0} 1
+{x2->1, x4->0} 0
+{x2->0, x4->1} 0
+{x2->1, x4->1} 1
+
+[DEBUG] After marginalising out 4
+[DEBUG] 
+{x2}
+{x2->0} 1
+{x2->1} 1
+
+[DEBUG] New List of Factors:
+[DEBUG] 
+{x0}
+{x0->0} 0.5
+{x0->1} 0.5
+
+[DEBUG] 
+{x0, x1}
+{x0->0, x1->0} 0.8
+{x0->1, x1->0} 0.2
+{x0->0, x1->1} 0.2
+{x0->1, x1->1} 0.8
+
+[DEBUG] 
+{x1, x2}
+{x1->0, x2->0} 1
+{x1->1, x2->0} 0
+{x1->0, x2->1} 0
+{x1->1, x2->1} 1
+
+[DEBUG] 
+{x1, x3}
+{x1->0, x3->0} 1
+{x1->1, x3->0} 0
+{x1->0, x3->1} 0
+{x1->1, x3->1} 1
+
+[DEBUG] 
+{x3, x5}
+{x3->0, x5->0} 1
+{x3->1, x5->0} 0
+{x3->0, x5->1} 0
+{x3->1, x5->1} 1
+
+[DEBUG] 
+{x2}
+{x2->0} 1
+{x2->1} 1
+
+[DEBUG] Variable to Eliminate: 2
+[DEBUG] Factors to multiply: 
+[DEBUG] 
+{x1, x2}
+{x1->0, x2->0} 1
+{x1->1, x2->0} 0
+{x1->0, x2->1} 0
+{x1->1, x2->1} 1
+
+[DEBUG] 
+{x2}
+{x2->0} 1
+{x2->1} 1
+
+[DEBUG] Multiplication Result: 
+[DEBUG] 
+{x1, x2}
+{x1->0, x2->0} 1
+{x1->1, x2->0} 0
+{x1->0, x2->1} 0
+{x1->1, x2->1} 1
+
+[DEBUG] After marginalising out 2
+[DEBUG] 
+{x1}
+{x1->0} 1
+{x1->1} 1
+
+[DEBUG] New List of Factors:
+[DEBUG] 
+{x0}
+{x0->0} 0.5
+{x0->1} 0.5
+
+[DEBUG] 
+{x0, x1}
+{x0->0, x1->0} 0.8
+{x0->1, x1->0} 0.2
+{x0->0, x1->1} 0.2
+{x0->1, x1->1} 0.8
+
+[DEBUG] 
+{x1, x3}
+{x1->0, x3->0} 1
+{x1->1, x3->0} 0
+{x1->0, x3->1} 0
+{x1->1, x3->1} 1
+
+[DEBUG] 
+{x3, x5}
+{x3->0, x5->0} 1
+{x3->1, x5->0} 0
+{x3->0, x5->1} 0
+{x3->1, x5->1} 1
+
+[DEBUG] 
+{x1}
+{x1->0} 1
+{x1->1} 1
+
+[DEBUG] Variable to Eliminate: 5
+[DEBUG] Factors to multiply: 
+[DEBUG] 
+{x3, x5}
+{x3->0, x5->0} 1
+{x3->1, x5->0} 0
+{x3->0, x5->1} 0
+{x3->1, x5->1} 1
+
+[DEBUG] Multiplication Result: 
+[DEBUG] 
+{x3, x5}
+{x3->0, x5->0} 1
+{x3->1, x5->0} 0
+{x3->0, x5->1} 0
+{x3->1, x5->1} 1
+
+[DEBUG] After marginalising out 5
+[DEBUG] 
+{x3}
+{x3->0} 1
+{x3->1} 1
+
+[DEBUG] New List of Factors:
+[DEBUG] 
+{x0}
+{x0->0} 0.5
+{x0->1} 0.5
+
+[DEBUG] 
+{x0, x1}
+{x0->0, x1->0} 0.8
+{x0->1, x1->0} 0.2
+{x0->0, x1->1} 0.2
+{x0->1, x1->1} 0.8
+
+[DEBUG] 
+{x1, x3}
+{x1->0, x3->0} 1
+{x1->1, x3->0} 0
+{x1->0, x3->1} 0
+{x1->1, x3->1} 1
+
+[DEBUG] 
+{x1}
+{x1->0} 1
+{x1->1} 1
+
+[DEBUG] 
+{x3}
+{x3->0} 1
+{x3->1} 1
+
+[DEBUG] Variable to Eliminate: 3
+[DEBUG] Factors to multiply: 
+[DEBUG] 
+{x1, x3}
+{x1->0, x3->0} 1
+{x1->1, x3->0} 0
+{x1->0, x3->1} 0
+{x1->1, x3->1} 1
+
+[DEBUG] 
+{x3}
+{x3->0} 1
+{x3->1} 1
+
+[DEBUG] Multiplication Result: 
+[DEBUG] 
+{x1, x3}
+{x1->0, x3->0} 1
+{x1->1, x3->0} 0
+{x1->0, x3->1} 0
+{x1->1, x3->1} 1
+
+[DEBUG] After marginalising out 3
+[DEBUG] 
+{x1}
+{x1->0} 1
+{x1->1} 1
+
+[DEBUG] New List of Factors:
+[DEBUG] 
+{x0}
+{x0->0} 0.5
+{x0->1} 0.5
+
+[DEBUG] 
+{x0, x1}
+{x0->0, x1->0} 0.8
+{x0->1, x1->0} 0.2
+{x0->0, x1->1} 0.2
+{x0->1, x1->1} 0.8
+
+[DEBUG] 
+{x1}
+{x1->0} 1
+{x1->1} 1
+
+[DEBUG] 
+{x1}
+{x1->0} 1
+{x1->1} 1
+
+[DEBUG] Variable to Eliminate: 1
+[DEBUG] Factors to multiply: 
+[DEBUG] 
+{x0, x1}
+{x0->0, x1->0} 0.8
+{x0->1, x1->0} 0.2
+{x0->0, x1->1} 0.2
+{x0->1, x1->1} 0.8
+
+[DEBUG] 
+{x1}
+{x1->0} 1
+{x1->1} 1
+
+[DEBUG] 
+{x1}
+{x1->0} 1
+{x1->1} 1
+
+[DEBUG] Multiplication Result: 
+[DEBUG] 
+{x0, x1}
+{x0->0, x1->0} 0.8
+{x0->1, x1->0} 0.2
+{x0->0, x1->1} 0.2
+{x0->1, x1->1} 0.8
+
+[DEBUG] After marginalising out 1
+[DEBUG] 
+{x0}
+{x0->0} 1
+{x0->1} 1
+
+[DEBUG] New List of Factors:
+[DEBUG] 
+{x0}
+{x0->0} 0.5
+{x0->1} 0.5
+
+[DEBUG] 
+{x0}
+{x0->0} 1
+{x0->1} 1
+
+[DEBUG] Completed marginalisation. Multiplying remaining factors...
+[DEBUG] Final Result (normalized): 
+[INFO] 
+
+{x0}
+{x0->0} 0.5
+{x0->1} 0.5
+
+[DEBUG] **** Variable Elimination complete ****
+[DEBUG] **** Starting Variable Elimination ****
+[DEBUG] Heuristic Used: MinFill
+[DEBUG] Elimination Order: (5, 3, 1, 2)
+[DEBUG] Treewidth: 3
+[DEBUG] Maximum States in a single cluster: 8
+[DEBUG] Clamping evidence: 16273ns
+[DEBUG] Initial set of factors:
+[DEBUG] 
+{x0}
+{x0->0} 0.5
+{x0->1} 0.5
+
+[DEBUG] 
+{x0, x1}
+{x0->0, x1->0} 0.8
+{x0->1, x1->0} 0.2
+{x0->0, x1->1} 0.2
+{x0->1, x1->1} 0.8
+
+[DEBUG] 
+{x1, x2}
+{x1->0, x2->0} 1
+{x1->1, x2->0} 0
+{x1->0, x2->1} 0
+{x1->1, x2->1} 1
+
+[DEBUG] 
+{x1, x3}
+{x1->0, x3->0} 1
+{x1->1, x3->0} 0
+{x1->0, x3->1} 0
+{x1->1, x3->1} 1
+
+[DEBUG] 
+{x2}
+{x2->0} 0
+{x2->1} 1
+
+[DEBUG] 
+{x3, x5}
+{x3->0, x5->0} 1
+{x3->1, x5->0} 0
+{x3->0, x5->1} 0
+{x3->1, x5->1} 1
+
+[DEBUG] Variable to Eliminate: 5
+[DEBUG] Factors to multiply: 
+[DEBUG] 
+{x3, x5}
+{x3->0, x5->0} 1
+{x3->1, x5->0} 0
+{x3->0, x5->1} 0
+{x3->1, x5->1} 1
+
+[DEBUG] Multiplication Result: 
+[DEBUG] 
+{x3, x5}
+{x3->0, x5->0} 1
+{x3->1, x5->0} 0
+{x3->0, x5->1} 0
+{x3->1, x5->1} 1
+
+[DEBUG] After marginalising out 5
+[DEBUG] 
+{x3}
+{x3->0} 1
+{x3->1} 1
+
+[DEBUG] New List of Factors:
+[DEBUG] 
+{x0}
+{x0->0} 0.5
+{x0->1} 0.5
+
+[DEBUG] 
+{x0, x1}
+{x0->0, x1->0} 0.8
+{x0->1, x1->0} 0.2
+{x0->0, x1->1} 0.2
+{x0->1, x1->1} 0.8
+
+[DEBUG] 
+{x1, x2}
+{x1->0, x2->0} 1
+{x1->1, x2->0} 0
+{x1->0, x2->1} 0
+{x1->1, x2->1} 1
+
+[DEBUG] 
+{x1, x3}
+{x1->0, x3->0} 1
+{x1->1, x3->0} 0
+{x1->0, x3->1} 0
+{x1->1, x3->1} 1
+
+[DEBUG] 
+{x2}
+{x2->0} 0
+{x2->1} 1
+
+[DEBUG] 
+{x3}
+{x3->0} 1
+{x3->1} 1
+
+[DEBUG] Variable to Eliminate: 3
+[DEBUG] Factors to multiply: 
+[DEBUG] 
+{x1, x3}
+{x1->0, x3->0} 1
+{x1->1, x3->0} 0
+{x1->0, x3->1} 0
+{x1->1, x3->1} 1
+
+[DEBUG] 
+{x3}
+{x3->0} 1
+{x3->1} 1
+
+[DEBUG] Multiplication Result: 
+[DEBUG] 
+{x1, x3}
+{x1->0, x3->0} 1
+{x1->1, x3->0} 0
+{x1->0, x3->1} 0
+{x1->1, x3->1} 1
+
+[DEBUG] After marginalising out 3
+[DEBUG] 
+{x1}
+{x1->0} 1
+{x1->1} 1
+
+[DEBUG] New List of Factors:
+[DEBUG] 
+{x0}
+{x0->0} 0.5
+{x0->1} 0.5
+
+[DEBUG] 
+{x0, x1}
+{x0->0, x1->0} 0.8
+{x0->1, x1->0} 0.2
+{x0->0, x1->1} 0.2
+{x0->1, x1->1} 0.8
+
+[DEBUG] 
+{x1, x2}
+{x1->0, x2->0} 1
+{x1->1, x2->0} 0
+{x1->0, x2->1} 0
+{x1->1, x2->1} 1
+
+[DEBUG] 
+{x2}
+{x2->0} 0
+{x2->1} 1
+
+[DEBUG] 
+{x1}
+{x1->0} 1
+{x1->1} 1
+
+[DEBUG] Variable to Eliminate: 1
+[DEBUG] Factors to multiply: 
+[DEBUG] 
+{x0, x1}
+{x0->0, x1->0} 0.8
+{x0->1, x1->0} 0.2
+{x0->0, x1->1} 0.2
+{x0->1, x1->1} 0.8
+
+[DEBUG] 
+{x1, x2}
+{x1->0, x2->0} 1
+{x1->1, x2->0} 0
+{x1->0, x2->1} 0
+{x1->1, x2->1} 1
+
+[DEBUG] 
+{x1}
+{x1->0} 1
+{x1->1} 1
+
+[DEBUG] Multiplication Result: 
+[DEBUG] 
+{x0, x1, x2}
+{x0->0, x1->0, x2->0} 0.8
+{x0->1, x1->0, x2->0} 0.2
+{x0->0, x1->1, x2->0} 0
+{x0->1, x1->1, x2->0} 0
+{x0->0, x1->0, x2->1} 0
+{x0->1, x1->0, x2->1} 0
+{x0->0, x1->1, x2->1} 0.2
+{x0->1, x1->1, x2->1} 0.8
+
+[DEBUG] After marginalising out 1
+[DEBUG] 
+{x0, x2}
+{x0->0, x2->0} 0.8
+{x0->1, x2->0} 0.2
+{x0->0, x2->1} 0.2
+{x0->1, x2->1} 0.8
+
+[DEBUG] New List of Factors:
+[DEBUG] 
+{x0}
+{x0->0} 0.5
+{x0->1} 0.5
+
+[DEBUG] 
+{x2}
+{x2->0} 0
+{x2->1} 1
+
+[DEBUG] 
+{x0, x2}
+{x0->0, x2->0} 0.8
+{x0->1, x2->0} 0.2
+{x0->0, x2->1} 0.2
+{x0->1, x2->1} 0.8
+
+[DEBUG] Variable to Eliminate: 2
+[DEBUG] Factors to multiply: 
+[DEBUG] 
+{x2}
+{x2->0} 0
+{x2->1} 1
+
+[DEBUG] 
+{x0, x2}
+{x0->0, x2->0} 0.8
+{x0->1, x2->0} 0.2
+{x0->0, x2->1} 0.2
+{x0->1, x2->1} 0.8
+
+[DEBUG] Multiplication Result: 
+[DEBUG] 
+{x0, x2}
+{x0->0, x2->0} 0
+{x0->1, x2->0} 0
+{x0->0, x2->1} 0.2
+{x0->1, x2->1} 0.8
+
+[DEBUG] After marginalising out 2
+[DEBUG] 
+{x0}
+{x0->0} 0.2
+{x0->1} 0.8
+
+[DEBUG] New List of Factors:
+[DEBUG] 
+{x0}
+{x0->0} 0.5
+{x0->1} 0.5
+
+[DEBUG] 
+{x0}
+{x0->0} 0.2
+{x0->1} 0.8
+
+[DEBUG] Completed marginalisation. Multiplying remaining factors...
+[DEBUG] Final Result (normalized): 
+[INFO] 
+
+{x0}
+{x0->0} 0.2
+{x0->1} 0.8
+
+[DEBUG] **** Variable Elimination complete ****
+[DEBUG] **** Starting Variable Elimination ****
+[DEBUG] Heuristic Used: MinFill
+[DEBUG] Elimination Order: (4, 2, 1, 3)
+[DEBUG] Treewidth: 3
+[DEBUG] Maximum States in a single cluster: 8
+[DEBUG] Clamping evidence: 1397ns
+[DEBUG] Initial set of factors:
+[DEBUG] 
+{x0}
+{x0->0} 0.5
+{x0->1} 0.5
+
+[DEBUG] 
+{x0, x1}
+{x0->0, x1->0} 0.8
+{x0->1, x1->0} 0.2
+{x0->0, x1->1} 0.2
+{x0->1, x1->1} 0.8
+
+[DEBUG] 
+{x1, x2}
+{x1->0, x2->0} 1
+{x1->1, x2->0} 0
+{x1->0, x2->1} 0
+{x1->1, x2->1} 1
+
+[DEBUG] 
+{x1, x3}
+{x1->0, x3->0} 1
+{x1->1, x3->0} 0
+{x1->0, x3->1} 0
+{x1->1, x3->1} 1
+
+[DEBUG] 
+{x2, x4}
+{x2->0, x4->0} 1
+{x2->1, x4->0} 0
+{x2->0, x4->1} 0
+{x2->1, x4->1} 1
+
+[DEBUG] 
+{x3, x5}
+{x3->0, x5->0} 1
+{x3->1, x5->0} 0
+{x3->0, x5->1} 0
+{x3->1, x5->1} 1
+
+[DEBUG] Variable to Eliminate: 4
+[DEBUG] Factors to multiply: 
+[DEBUG] 
+{x2, x4}
+{x2->0, x4->0} 1
+{x2->1, x4->0} 0
+{x2->0, x4->1} 0
+{x2->1, x4->1} 1
+
+[DEBUG] Multiplication Result: 
+[DEBUG] 
+{x2, x4}
+{x2->0, x4->0} 1
+{x2->1, x4->0} 0
+{x2->0, x4->1} 0
+{x2->1, x4->1} 1
+
+[DEBUG] After marginalising out 4
+[DEBUG] 
+{x2}
+{x2->0} 1
+{x2->1} 1
+
+[DEBUG] New List of Factors:
+[DEBUG] 
+{x0}
+{x0->0} 0.5
+{x0->1} 0.5
+
+[DEBUG] 
+{x0, x1}
+{x0->0, x1->0} 0.8
+{x0->1, x1->0} 0.2
+{x0->0, x1->1} 0.2
+{x0->1, x1->1} 0.8
+
+[DEBUG] 
+{x1, x2}
+{x1->0, x2->0} 1
+{x1->1, x2->0} 0
+{x1->0, x2->1} 0
+{x1->1, x2->1} 1
+
+[DEBUG] 
+{x1, x3}
+{x1->0, x3->0} 1
+{x1->1, x3->0} 0
+{x1->0, x3->1} 0
+{x1->1, x3->1} 1
+
+[DEBUG] 
+{x3, x5}
+{x3->0, x5->0} 1
+{x3->1, x5->0} 0
+{x3->0, x5->1} 0
+{x3->1, x5->1} 1
+
+[DEBUG] 
+{x2}
+{x2->0} 1
+{x2->1} 1
+
+[DEBUG] Variable to Eliminate: 2
+[DEBUG] Factors to multiply: 
+[DEBUG] 
+{x1, x2}
+{x1->0, x2->0} 1
+{x1->1, x2->0} 0
+{x1->0, x2->1} 0
+{x1->1, x2->1} 1
+
+[DEBUG] 
+{x2}
+{x2->0} 1
+{x2->1} 1
+
+[DEBUG] Multiplication Result: 
+[DEBUG] 
+{x1, x2}
+{x1->0, x2->0} 1
+{x1->1, x2->0} 0
+{x1->0, x2->1} 0
+{x1->1, x2->1} 1
+
+[DEBUG] After marginalising out 2
+[DEBUG] 
+{x1}
+{x1->0} 1
+{x1->1} 1
+
+[DEBUG] New List of Factors:
+[DEBUG] 
+{x0}
+{x0->0} 0.5
+{x0->1} 0.5
+
+[DEBUG] 
+{x0, x1}
+{x0->0, x1->0} 0.8
+{x0->1, x1->0} 0.2
+{x0->0, x1->1} 0.2
+{x0->1, x1->1} 0.8
+
+[DEBUG] 
+{x1, x3}
+{x1->0, x3->0} 1
+{x1->1, x3->0} 0
+{x1->0, x3->1} 0
+{x1->1, x3->1} 1
+
+[DEBUG] 
+{x3, x5}
+{x3->0, x5->0} 1
+{x3->1, x5->0} 0
+{x3->0, x5->1} 0
+{x3->1, x5->1} 1
+
+[DEBUG] 
+{x1}
+{x1->0} 1
+{x1->1} 1
+
+[DEBUG] Variable to Eliminate: 1
+[DEBUG] Factors to multiply: 
+[DEBUG] 
+{x0, x1}
+{x0->0, x1->0} 0.8
+{x0->1, x1->0} 0.2
+{x0->0, x1->1} 0.2
+{x0->1, x1->1} 0.8
+
+[DEBUG] 
+{x1, x3}
+{x1->0, x3->0} 1
+{x1->1, x3->0} 0
+{x1->0, x3->1} 0
+{x1->1, x3->1} 1
+
+[DEBUG] 
+{x1}
+{x1->0} 1
+{x1->1} 1
+
+[DEBUG] Multiplication Result: 
+[DEBUG] 
+{x0, x1, x3}
+{x0->0, x1->0, x3->0} 0.8
+{x0->1, x1->0, x3->0} 0.2
+{x0->0, x1->1, x3->0} 0
+{x0->1, x1->1, x3->0} 0
+{x0->0, x1->0, x3->1} 0
+{x0->1, x1->0, x3->1} 0
+{x0->0, x1->1, x3->1} 0.2
+{x0->1, x1->1, x3->1} 0.8
+
+[DEBUG] After marginalising out 1
+[DEBUG] 
+{x0, x3}
+{x0->0, x3->0} 0.8
+{x0->1, x3->0} 0.2
+{x0->0, x3->1} 0.2
+{x0->1, x3->1} 0.8
+
+[DEBUG] New List of Factors:
+[DEBUG] 
+{x0}
+{x0->0} 0.5
+{x0->1} 0.5
+
+[DEBUG] 
+{x3, x5}
+{x3->0, x5->0} 1
+{x3->1, x5->0} 0
+{x3->0, x5->1} 0
+{x3->1, x5->1} 1
+
+[DEBUG] 
+{x0, x3}
+{x0->0, x3->0} 0.8
+{x0->1, x3->0} 0.2
+{x0->0, x3->1} 0.2
+{x0->1, x3->1} 0.8
+
+[DEBUG] Variable to Eliminate: 3
+[DEBUG] Factors to multiply: 
+[DEBUG] 
+{x3, x5}
+{x3->0, x5->0} 1
+{x3->1, x5->0} 0
+{x3->0, x5->1} 0
+{x3->1, x5->1} 1
+
+[DEBUG] 
+{x0, x3}
+{x0->0, x3->0} 0.8
+{x0->1, x3->0} 0.2
+{x0->0, x3->1} 0.2
+{x0->1, x3->1} 0.8
+
+[DEBUG] Multiplication Result: 
+[DEBUG] 
+{x0, x3, x5}
+{x0->0, x3->0, x5->0} 0.8
+{x0->1, x3->0, x5->0} 0.2
+{x0->0, x3->1, x5->0} 0
+{x0->1, x3->1, x5->0} 0
+{x0->0, x3->0, x5->1} 0
+{x0->1, x3->0, x5->1} 0
+{x0->0, x3->1, x5->1} 0.2
+{x0->1, x3->1, x5->1} 0.8
+
+[DEBUG] After marginalising out 3
+[DEBUG] 
+{x0, x5}
+{x0->0, x5->0} 0.8
+{x0->1, x5->0} 0.2
+{x0->0, x5->1} 0.2
+{x0->1, x5->1} 0.8
+
+[DEBUG] New List of Factors:
+[DEBUG] 
+{x0}
+{x0->0} 0.5
+{x0->1} 0.5
+
+[DEBUG] 
+{x0, x5}
+{x0->0, x5->0} 0.8
+{x0->1, x5->0} 0.2
+{x0->0, x5->1} 0.2
+{x0->1, x5->1} 0.8
+
+[DEBUG] Completed marginalisation. Multiplying remaining factors...
+[DEBUG] Final Result (normalized): 
+[INFO] 
+
+{x0, x5}
+{x0->0, x5->0} 0.4
+{x0->1, x5->0} 0.1
+{x0->0, x5->1} 0.1
+{x0->1, x5->1} 0.4
+
+[DEBUG] **** Variable Elimination complete ****
+[INFO] Map instantiation (1, 1) has probability 0.900000
+[INFO] [MAP] Heuristic Used: MinFill
+[INFO] [MAP] Elimination Order: (2, 5, 3, 1)
+[INFO] Treewidth: 2
+[INFO] Maximum States in a single cluster: 4
+[DEBUG] Initial set of factors:
+[DEBUG] 
+{x0}
+{x0->0} 0.5
+{x0->1} 0.5
+
+[DEBUG] 
+{x0, x1}
+{x0->0, x1->0} 0.8
+{x0->1, x1->0} 0.2
+{x0->0, x1->1} 0.2
+{x0->1, x1->1} 0.8
+
+[DEBUG] 
+{x1, x2}
+{x1->0, x2->0} 1
+{x1->1, x2->0} 0
+{x1->0, x2->1} 0
+{x1->1, x2->1} 1
+
+[DEBUG] 
+{x1, x3}
+{x1->0, x3->0} 1
+{x1->1, x3->0} 0
+{x1->0, x3->1} 0
+{x1->1, x3->1} 1
+
+[DEBUG] 
+{x2}
+{x2->0} 0
+{x2->1} 1
+
+[DEBUG] 
+{x3, x5}
+{x3->0, x5->0} 1
+{x3->1, x5->0} 0
+{x3->0, x5->1} 0
+{x3->1, x5->1} 1
+
+[DEBUG] Variable to Eliminate: 2
+[DEBUG] Factors to multiply: 
+[DEBUG] 
+{x1, x2}
+{x1->0, x2->0} 1
+{x1->1, x2->0} 0
+{x1->0, x2->1} 0
+{x1->1, x2->1} 1
+
+[DEBUG] 
+{x2}
+{x2->0} 0
+{x2->1} 1
+
+[DEBUG] Multiplication Result: 
+[DEBUG] 
+{x1, x2}
+{x1->0, x2->0} 0
+{x1->1, x2->0} 0
+{x1->0, x2->1} 0
+{x1->1, x2->1} 1
+
+[DEBUG] After marginalising out 2
+[DEBUG] 
+{x1}
+{x1->0} 0
+{x1->1} 1
+
+[DEBUG] New List of Factors:
+[DEBUG] 
+{x0}
+{x0->0} 0.5
+{x0->1} 0.5
+
+[DEBUG] 
+{x0, x1}
+{x0->0, x1->0} 0.8
+{x0->1, x1->0} 0.2
+{x0->0, x1->1} 0.2
+{x0->1, x1->1} 0.8
+
+[DEBUG] 
+{x1, x3}
+{x1->0, x3->0} 1
+{x1->1, x3->0} 0
+{x1->0, x3->1} 0
+{x1->1, x3->1} 1
+
+[DEBUG] 
+{x3, x5}
+{x3->0, x5->0} 1
+{x3->1, x5->0} 0
+{x3->0, x5->1} 0
+{x3->1, x5->1} 1
+
+[DEBUG] 
+{x1}
+{x1->0} 0
+{x1->1} 1
+
+[DEBUG] Variable to Eliminate: 5
+[DEBUG] Factors to multiply: 
+[DEBUG] 
+{x3, x5}
+{x3->0, x5->0} 1
+{x3->1, x5->0} 0
+{x3->0, x5->1} 0
+{x3->1, x5->1} 1
+
+[DEBUG] Multiplication Result: 
+[DEBUG] 
+{x3, x5}
+{x3->0, x5->0} 1
+{x3->1, x5->0} 0
+{x3->0, x5->1} 0
+{x3->1, x5->1} 1
+
+[DEBUG] After marginalising out 5
+[DEBUG] 
+{x3}
+{x3->0} 1
+{x3->1} 1
+
+[DEBUG] New List of Factors:
+[DEBUG] 
+{x0}
+{x0->0} 0.5
+{x0->1} 0.5
+
+[DEBUG] 
+{x0, x1}
+{x0->0, x1->0} 0.8
+{x0->1, x1->0} 0.2
+{x0->0, x1->1} 0.2
+{x0->1, x1->1} 0.8
+
+[DEBUG] 
+{x1, x3}
+{x1->0, x3->0} 1
+{x1->1, x3->0} 0
+{x1->0, x3->1} 0
+{x1->1, x3->1} 1
+
+[DEBUG] 
+{x1}
+{x1->0} 0
+{x1->1} 1
+
+[DEBUG] 
+{x3}
+{x3->0} 1
+{x3->1} 1
+
+[DEBUG] Variable to Eliminate: 3
+[DEBUG] Factors to multiply: 
+[DEBUG] 
+{x1, x3}
+{x1->0, x3->0} 1
+{x1->1, x3->0} 0
+{x1->0, x3->1} 0
+{x1->1, x3->1} 1
+
+[DEBUG] 
+{x3}
+{x3->0} 1
+{x3->1} 1
+
+[DEBUG] Multiplication Result: 
+[DEBUG] 
+{x1, x3}
+{x1->0, x3->0} 1
+{x1->1, x3->0} 0
+{x1->0, x3->1} 0
+{x1->1, x3->1} 1
+
+[DEBUG] After marginalising out 3
+[DEBUG] 
+{x1}
+{x1->0} 1
+{x1->1} 1
+
+[DEBUG] New List of Factors:
+[DEBUG] 
+{x0}
+{x0->0} 0.5
+{x0->1} 0.5
+
+[DEBUG] 
+{x0, x1}
+{x0->0, x1->0} 0.8
+{x0->1, x1->0} 0.2
+{x0->0, x1->1} 0.2
+{x0->1, x1->1} 0.8
+
+[DEBUG] 
+{x1}
+{x1->0} 0
+{x1->1} 1
+
+[DEBUG] 
+{x1}
+{x1->0} 1
+{x1->1} 1
+
+[DEBUG] Variable to Eliminate: 1
+[DEBUG] Factors to multiply: 
+[DEBUG] 
+{x0, x1}
+{x0->0, x1->0} 0.8
+{x0->1, x1->0} 0.2
+{x0->0, x1->1} 0.2
+{x0->1, x1->1} 0.8
+
+[DEBUG] 
+{x1}
+{x1->0} 0
+{x1->1} 1
+
+[DEBUG] 
+{x1}
+{x1->0} 1
+{x1->1} 1
+
+[DEBUG] Multiplication Result: 
+[DEBUG] 
+{x0, x1}
+{x0->0, x1->0} 0
+{x0->1, x1->0} 0
+{x0->0, x1->1} 0.2
+{x0->1, x1->1} 0.8
+
+[DEBUG] After marginalising out 1
+[DEBUG] 
+{x0}
+{x0->0} 0.2
+{x0->1} 0.8
+
+[DEBUG] New List of Factors:
+[DEBUG] 
+{x0}
+{x0->0} 0.5
+{x0->1} 0.5
+
+[DEBUG] 
+{x0}
+{x0->0} 0.2
+{x0->1} 0.8
+
+[DEBUG] Completed marginalisation. Multiplying remaining factors...
+[DEBUG] Final Result (normalized): 
+[INFO] 
+
+{x0}
+{x0->0} 0.2
+{x0->1} 0.8
+
+[DEBUG] **** Variable Elimination complete ****
+[INFO] Map instantiation (1) has probability 0.800000
+[INFO] [MAP] Heuristic Used: MinFill
+[INFO] [MAP] Elimination Order: (0, 4, 2, 1, 3, 5)
+[INFO] MAP] Treewidth: 2
+[INFO] [MAP] Maximum States in a single cluster: 4
+[INFO] [MAP] JT run 551895 ns
+[INFO] [MAP] Marginal time 4749 ns
+[INFO] [MAP] MAP time 9987 ns
+[INFO] [MAP] Total JT time: 566631 ns
+[INFO] [MAP] Instantiation: (1) has probability 0.800000
