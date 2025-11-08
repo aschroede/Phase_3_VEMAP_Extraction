@@ -89,19 +89,6 @@ vector<size_t> getUnconstrainedElimOrder(const FactorGraph& fg, EliminationChoic
         nonQueryVarindices.erase(i);
     }
 
-    // TODO: This feels strange - I thought unconstrained meant we didn't have to preserve order and stuff?
-    // Add remaining variables (which are the query variables) at the end
-    std::set<size_t> remainingVars;
-    for (size_t i = 0; i < cl.vars().size(); ++i) {
-        bool isEvidence = (std::find(evidence_vars.begin(), evidence_vars.end(), i) != evidence_vars.end());
-        if (!isEvidence && std::find(elimOrder.begin(), elimOrder.end(), i) == elimOrder.end()) {
-            remainingVars.insert(i);
-        }
-    }
-    for (size_t var : remainingVars) {
-        elimOrder.push_back(var);
-    }
-
     return elimOrder;
 }
 
@@ -150,14 +137,6 @@ vector<size_t> getConstrainedElimOrder(const FactorGraph& fg, EliminationChoice 
         cl.elimVar(i);
         elimOrder.push_back(i);
         nonMapVarindices.erase(i);
-    }
-
-    // Then eliminate MAP variables
-    while (!MapVarindices.empty()) {
-        size_t i = f(cl, MapVarindices);
-        cl.elimVar(i);
-        elimOrder.push_back(i);
-        MapVarindices.erase(i);
     }
 
     return elimOrder;
@@ -241,44 +220,8 @@ std::pair<size_t, BigInt> getElimOrderTreeWidth(dai::FactorGraph fg, vector<size
     return make_pair(treeWidth, maxStates);
 }
 
-/**
- * @brief Performs variable elimination to compute marginal probabilities.
- *
- * This function performs the Variable Elimination (VE) algorithm to compute the marginal distribution
- * over a set of query variables. It first clamps the evidence variables, then determines an
- * elimination order, and iteratively multiplies and marginalizes factors to reduce the graph.
- *
- * @param fg The input factor graph.
- * @param query_vars A vector of indices for the variables whose marginal distribution is to be calculated.
- * @param evidence_vars A vector of indices for the evidence variables.
- * @param evidence_values A vector of values corresponding to the evidence variables.
- * @param logger A reference to the `dai::LibLogger` for logging progress and results.
- * @return A `dai::Factor` representing the joint marginal probability distribution over the query variables.
- */
-dai::Factor variableElimination(dai::FactorGraph fg, std::vector<unsigned int> query_vars, std::vector<unsigned int> evidence_vars,
-    std::vector<unsigned int> evidence_values, LibLogger& logger) {
-
-    // Generate a suitable variable elimination order
-    greedyVariableElimination::eliminationCostFunction ec = eliminationCost_MinFill;
-    logger.log(LogLevel::INFO, "Heuristic Used: " + functionNames.at(ec));
-
-    vector<size_t> elimOrder = getUnconstrainedElimOrder(fg, greedyVariableElimination(ec), query_vars, evidence_vars);
-    logger.log(LogLevel::INFO, "Elimination Order: " + vecToString(elimOrder));
-
-    // Calculate and log treewidth for the given elimination order
-    std::pair<size_t, BigInt> data = getElimOrderTreeWidth(fg, elimOrder);
-    logger.log(LogLevel::INFO, "Treewidth: " + std::to_string(data.first));
-    logger.log(LogLevel::INFO, "Maximum States in a single cluster: " + data.second.get_str());
-
-    // Clamp evidence variables
-    auto start = std::chrono::steady_clock::now();
-    for (size_t i = 0; i < evidence_vars.size(); ++i) {
-        fg.clampReduce(evidence_vars[i], evidence_values[i], false);
-    }
-    auto end = std::chrono::steady_clock::now();
-    logger.log(LogLevel::DEBUG, "Clamping evidence: " + std::to_string(std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count()) + "ns");
-
-    // Log initial factors and those after clamping
+dai::Factor elim_vars(dai::FactorGraph fg, LibLogger& logger, vector<size_t> elimOrder)
+{
     std::vector<dai::Factor> factors = fg.factors();
     logger.log(LogLevel::DEBUG, "Initial set of factors:");
     LogFactors(factors, logger);
@@ -333,10 +276,53 @@ dai::Factor variableElimination(dai::FactorGraph fg, std::vector<unsigned int> q
     }
     finalFactor.normalize();
 
-    logger.log(LogLevel::DEBUG, "Final Result (un-normalized): ");
+    logger.log(LogLevel::DEBUG, "Final Result (normalized): ");
     logger.log(LogLevel::INFO, "\n" + finalFactor.toStringNice());
 
+    logger.log(LogLevel::DEBUG, "**** Variable Elimination complete ****");
     return finalFactor;
+}
+
+/**
+ * @brief Performs variable elimination to compute marginal probabilities.
+ *
+ * This function performs the Variable Elimination (VE) algorithm to compute the marginal distribution
+ * over a set of query variables. It first clamps the evidence variables, then determines an
+ * elimination order, and iteratively multiplies and marginalizes factors to reduce the graph.
+ *
+ * @param fg The input factor graph.
+ * @param query_vars A vector of indices for the variables whose marginal distribution is to be calculated.
+ * @param evidence_vars A vector of indices for the evidence variables.
+ * @param evidence_values A vector of values corresponding to the evidence variables.
+ * @param logger A reference to the `dai::LibLogger` for logging progress and results.
+ * @return A `dai::Factor` representing the joint marginal probability distribution over the query variables.
+ */
+dai::Factor variableElimination(dai::FactorGraph fg, std::vector<unsigned int> query_vars, std::vector<unsigned int> evidence_vars,
+    std::vector<unsigned int> evidence_values, LibLogger& logger) {
+
+    logger.log(LogLevel::DEBUG, "**** Starting Variable Elimination ****");
+
+    // Generate a suitable variable elimination order
+    greedyVariableElimination::eliminationCostFunction ec = eliminationCost_MinFill;
+    logger.log(LogLevel::DEBUG, "Heuristic Used: " + functionNames.at(ec));
+
+    vector<size_t> elimOrder = getUnconstrainedElimOrder(fg, greedyVariableElimination(ec), query_vars, evidence_vars);
+    logger.log(LogLevel::DEBUG, "Elimination Order: " + vecToString(elimOrder));
+
+    // Calculate and log treewidth for the given elimination order
+    std::pair<size_t, BigInt> data = getElimOrderTreeWidth(fg, elimOrder);
+    logger.log(LogLevel::DEBUG, "Treewidth: " + std::to_string(data.first));
+    logger.log(LogLevel::DEBUG, "Maximum States in a single cluster: " + data.second.get_str());
+
+    // Clamp evidence variables
+    auto start = std::chrono::steady_clock::now();
+    for (size_t i = 0; i < evidence_vars.size(); ++i) {
+        fg.clampReduce(evidence_vars[i], evidence_values[i], false);
+    }
+    auto end = std::chrono::steady_clock::now();
+    logger.log(LogLevel::DEBUG, "Clamping evidence: " + std::to_string(std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count()) + "ns");
+
+    return elim_vars(fg, logger, elimOrder);
 }
 
 /**
@@ -390,97 +376,30 @@ std::vector<unsigned long int> extractMax(dai::Factor factor, LibLogger& logger)
  * @param logger A reference to the `dai::LibLogger` for logging progress and results.
  * @return A `dai::Factor` representing the MAP assignment and its probability.
  */
+
 dai::Factor get_map_ve(dai::FactorGraph fg, std::vector<unsigned int> map_vars, std::vector<unsigned int> evidence_vars,
     std::vector<unsigned int> evidence_values, bool mapList, LibLogger& logger) {
-    try {
-        // Clamp evidence
-        auto start = std::chrono::steady_clock::now();
-        for (size_t i = 0; i < evidence_vars.size(); ++i) {
-            fg.clampReduce(evidence_vars[i], evidence_values[i], false);
-        }
-        auto end = std::chrono::steady_clock::now();
-        std::cout << "Clamping evidence " << std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count() << " ns" << std::endl;
 
-        // Get constrained elimination order using a heuristic
-        greedyVariableElimination::eliminationCostFunction ec = eliminationCost_MinFill;
-        logger.log(LogLevel::INFO, "[MAP] Heuristic Used: " + functionNames.at(ec));
-
-        vector<size_t> constrainedElimOrder = getConstrainedElimOrder(fg, greedyVariableElimination(ec), map_vars, evidence_vars);
-        logger.log(LogLevel::INFO, "[MAP] Elimination Order: " + vecToString(constrainedElimOrder));
-
-        // Calculate treewidth for logging purposes
-        std::pair<size_t, BigInt> data = getElimOrderTreeWidth(fg, constrainedElimOrder);
-        logger.log(LogLevel::INFO, "Treewidth: " + std::to_string(data.first));
-        logger.log(LogLevel::INFO, "Maximum States in a single cluster: " + data.second.get_str());
-
-        std::vector<dai::Factor> factors = fg.factors();
-
-        // Perform Variable Elimination
-        for (size_t varIndex : constrainedElimOrder) {
-            std::cout << "Eliminate: " << varIndex << endl;
-
-            // Find and multiply factors that contain the variable
-            std::vector<dai::Factor> toMultiply;
-            for (const auto& factor : factors) {
-                if (factor.vars().contains(fg.var(varIndex))) {
-                    toMultiply.push_back(factor);
-                }
-            }
-
-            if (toMultiply.empty()) {
-                continue;
-            }
-
-            dai::Factor newFactor = toMultiply[0];
-            for (size_t i = 1; i < toMultiply.size(); ++i) {
-                newFactor *= toMultiply[i];
-            }
-
-            // Perform max-marginalization for MAP variables, sum-marginalization otherwise
-            bool isMapVar = (std::find(map_vars.begin(), map_vars.end(), varIndex) != map_vars.end());
-            dai::Var varToRemove = fg.var(varIndex);
-            dai::VarSet varsToKeep = newFactor.vars() / varToRemove;
-
-            if (isMapVar) {
-                newFactor = newFactor.maxMarginalTransparent(varsToKeep, false);
-            } else {
-                newFactor = newFactor.marginal(varsToKeep, false);
-            }
-
-            // Update the list of factors
-            for (const auto& oldFactor : toMultiply) {
-                factors.erase(std::find(factors.begin(), factors.end(), oldFactor));
-            }
-            factors.push_back(newFactor);
-        }
-
-        // Multiply remaining factors to get the final result
-        dai::Factor finalFactor = factors[0];
-        for (size_t i = 1; i < factors.size(); ++i) {
-            finalFactor *= factors[i];
-        }
-
-        std::cout << "Returning last factor" << std::endl;
-        return finalFactor;
-
-    } catch (Exception& e) {
-        // Exception handling and logging for debugging
-        std::cerr << "An exception occurred: " << e.what() << std::endl;
-        std::ofstream mapsFile("proc_self_maps_copy.txt");
-        if (mapsFile.is_open()) {
-            std::ifstream maps("/proc/self/maps");
-            if (maps.is_open()) {
-                mapsFile << maps.rdbuf();
-                maps.close();
-            } else {
-                std::cerr << "Failed to open /proc/self/maps for reading." << std::endl;
-            }
-            mapsFile.close();
-        } else {
-            std::cerr << "Failed to open proc_self_maps_copy.txt for writing." << std::endl;
-        }
-        return dai::Factor();
+    auto start = std::chrono::steady_clock::now();
+    for (size_t i = 0; i < evidence_vars.size(); ++i) {
+        fg.clampReduce(evidence_vars[i], evidence_values[i], false);
     }
+    auto end = std::chrono::steady_clock::now();
+    std::cout << "Clamping evidence " << std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count() << " ns" << std::endl;
+
+    // Get constrained elimination order using a heuristic
+    greedyVariableElimination::eliminationCostFunction ec = eliminationCost_MinFill;
+    logger.log(LogLevel::INFO, "[MAP] Heuristic Used: " + functionNames.at(ec));
+
+    vector<size_t> constrainedElimOrder = getConstrainedElimOrder(fg, greedyVariableElimination(ec), map_vars, evidence_vars);
+    logger.log(LogLevel::INFO, "[MAP] Elimination Order: " + vecToString(constrainedElimOrder));
+
+    // Calculate treewidth for logging purposes
+    std::pair<size_t, BigInt> data = getElimOrderTreeWidth(fg, constrainedElimOrder);
+    logger.log(LogLevel::INFO, "Treewidth: " + std::to_string(data.first));
+    logger.log(LogLevel::INFO, "Maximum States in a single cluster: " + data.second.get_str());
+
+    return elim_vars(fg, logger, constrainedElimOrder);
 }
 
 /**

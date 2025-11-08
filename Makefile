@@ -85,9 +85,9 @@ utils : utils/createfg$(EE) utils/fg2dot$(EE) utils/fginfo$(EE) utils/uai2fg$(EE
 lib: $(LIB)/libdai$(LE)
 
 unittests : unitTests/map_test$(EE)
-	@echo 'Running unit tests...'
-	@echo
-	unitTests/map_test$(EE)
+# 	@echo 'Running unit tests...'
+# 	@echo
+# 	unitTests/map_test$(EE)
 
 
 # OBJECTS

@@ -13,8 +13,8 @@ const Real tol = 1e-8;
 #include <boost/test/tools/floating_point_comparison.hpp>
 
 
-std::string outputfile = "unitTests/UnitTestLog";
-LogLevel logLevel = LogLevel::INFO;
+std::string outputfile = "UnitTestLog";
+LogLevel logLevel = LogLevel::DEBUG;
 dai::LibLogger logger = dai::LibLogger(outputfile, logLevel);
 
 
@@ -204,8 +204,8 @@ BOOST_AUTO_TEST_CASE(TestSixNodeQueryAndNonQuery) {
     // 2. Eliminate 4 -> {0, 4}
     // 3. Eliminate 5 -> {0, 4, 5}
     // 4. Eliminate 3 -> {0, 4, 5, 3}
-    // Append phase (Query {1, 2} in index order): {1, 2}
-    std::vector<size_t> expectedOrder = {0, 4, 5, 3, 1, 2};
+    // Note we do not append the query variables since they are not eliminated
+    std::vector<size_t> expectedOrder = {0, 4, 5, 3};
 
     BOOST_CHECK_EQUAL_COLLECTIONS(actualOrder.begin(), actualOrder.end(),
                                   expectedOrder.begin(), expectedOrder.end());
@@ -226,8 +226,7 @@ BOOST_AUTO_TEST_CASE(TestSixNodeMixedVariables) {
     // Elimination phase (MinFill on {3, 4}):
     // 1. Eliminate 4 (Min-Fill picks 4 over 3 based on network structure/tie-breaking) -> {4}
     // 2. Eliminate 3 -> {4, 3}
-    // Append phase (Query {1, 2} in index order): {1, 2}
-    std::vector<size_t> expectedOrder = {4, 3, 1, 2};
+    std::vector<size_t> expectedOrder = {4, 3};
 
     BOOST_CHECK_EQUAL_COLLECTIONS(actualOrder.begin(), actualOrder.end(),
                                   expectedOrder.begin(), expectedOrder.end());
@@ -246,8 +245,7 @@ BOOST_AUTO_TEST_CASE(TestSixNodeOnlyQueryVars) {
     std::vector<size_t> actualOrder = getUnconstrainedElimOrder(fg, f, query_vars, evidence_vars);
 
     // Elimination phase (heuristic): empty. Order: []
-    // Remaining variables (append phase): {0, 1, 2, 3, 4, 5} are appended in numerical order.
-    std::vector<size_t> expectedOrder = {0, 1, 2, 3, 4, 5};
+    std::vector<size_t> expectedOrder = {};
 
     BOOST_CHECK_EQUAL_COLLECTIONS(actualOrder.begin(), actualOrder.end(),
                                   expectedOrder.begin(), expectedOrder.end());
@@ -268,10 +266,7 @@ BOOST_AUTO_TEST_CASE(TestConstrainedStandardMAP) {
     // Phase 1 (Non-MAP: {0, 3, 4, 5})
     // Min-Fill order on this set: (0, 4, 5, 3)
 
-    // Phase 2 (MAP: {1, 2}) - run on the residual graph after 0, 4, 5, 3 are gone.
-    // At this point, the remaining variables 1 and 2 are disconnected from the graph.
-    // Min-Fill picks the lowest index first: (1, 2)
-    std::vector<size_t> expectedOrder = {0, 4, 5, 3, 1, 2};
+    std::vector<size_t> expectedOrder = {0, 4, 5, 3};
 
     BOOST_CHECK_EQUAL_COLLECTIONS(actualOrder.begin(), actualOrder.end(),
                                   expectedOrder.begin(), expectedOrder.end());
@@ -294,10 +289,7 @@ BOOST_AUTO_TEST_CASE(TestConstrainedMapAndEvidence) {
     // Now 1 is connected to 2 (degree 1 in residual graph). 4 is connected to 2 (degree 1).
     // Min-Fill picks lowest index first: (1, 4)
 
-    // Phase 2 (MAP: {2, 3}) - run on the residual graph after 1 and 4 are gone.
-    // 2 and 3 are now fully disconnected from each other.
-    // Min-Fill picks lowest index: (2, 3)
-    std::vector<size_t> expectedOrder = {4, 1, 2, 3};
+    std::vector<size_t> expectedOrder = {4, 1};
 
     BOOST_CHECK_EQUAL_COLLECTIONS(actualOrder.begin(), actualOrder.end(),
                                   expectedOrder.begin(), expectedOrder.end());
@@ -317,10 +309,9 @@ BOOST_AUTO_TEST_CASE(TestConstrainedOnlyMAP) {
 
     // Phase 1 (Non-MAP: {}) -> Empty
 
-    // Phase 2 (MAP: {0, 1, 2, 3, 4, 5})
     // This is equivalent to the fully unconstrained case (Test 5), just limited to the MAP set.
     // Multiple correct answers here
-    std::vector<size_t> expectedOrder = {0, 4, 2, 1, 3, 5};
+    std::vector<size_t> expectedOrder = {};
 
     BOOST_CHECK_EQUAL_COLLECTIONS(actualOrder.begin(), actualOrder.end(),
                                   expectedOrder.begin(), expectedOrder.end());
@@ -408,7 +399,6 @@ BOOST_AUTO_TEST_CASE(TestSixNodeMarginalP_V0) {
     // Expected: Since V0 is the root with a uniform prior, and all factors are conditional
     // on V0's children, eliminating the children should just normalize the initial prior.
     // P(V0) should be uniform: (0.5, 0.5)
-
     BOOST_CHECK_EQUAL(resultFactor.vars().size(), 1);
     BOOST_CHECK_EQUAL(resultFactor.vars().contains(dai::Var(0, 2)), true);
 
@@ -444,7 +434,8 @@ BOOST_AUTO_TEST_CASE(TestSixNodeMarginalP_V0_Given_V4_Eq_1) {
 
 
 // Test 8: Multiple Query Variables (P(V0, V5))
-BOOST_AUTO_TEST_CASE(TestSixNodeJointMarginalP_V0_V5) {
+BOOST_AUTO_TEST_CASE(TestSixNodeJointMarginalP_V0_V5)
+{
     FactorGraph fg = createSixNodeNetworkWithCPTs();
 
     // Query: P(V0, V5)
@@ -454,17 +445,62 @@ BOOST_AUTO_TEST_CASE(TestSixNodeJointMarginalP_V0_V5) {
 
     dai::Factor resultFactor = variableElimination(fg, query_vars, evidence_vars, evidence_values, logger);
 
-    // Expected: V0 and V5 are marginally independent in the initial graph (V0-V1-V3-V5)
-    // P(V0, V5) = P(V0) * P(V5). Since P(V0) is uniform, P(V5) is also uniform (due to symmetry and deterministic CPTs).
-    // P(V0, V5) = 0.5 * 0.5 = 0.25 for all four states (00, 10, 01, 11).
+    // P(VO, V5) = P(V0) * P(V1=V5|V0))
 
     BOOST_CHECK_EQUAL(resultFactor.vars().size(), 2);
 
     // Check joint marginal values:
-    BOOST_CHECK_CLOSE(resultFactor.get(0), 0.25, 0.001); // P(V0=0, V5=0)
-    BOOST_CHECK_CLOSE(resultFactor.get(1), 0.25, 0.001); // P(V0=1, V5=0)
-    BOOST_CHECK_CLOSE(resultFactor.get(2), 0.25, 0.001); // P(V0=0, V5=1)
-    BOOST_CHECK_CLOSE(resultFactor.get(3), 0.25, 0.001); // P(V0=1, V5=1)
+    BOOST_CHECK_CLOSE(resultFactor.get(0), 0.4, 0.001); // P(V0=0, V5=0)
+    BOOST_CHECK_CLOSE(resultFactor.get(1), 0.1, 0.001); // P(V0=1, V5=0)
+    BOOST_CHECK_CLOSE(resultFactor.get(2), 0.1, 0.001); // P(V0=0, V5=1)
+    BOOST_CHECK_CLOSE(resultFactor.get(3), 0.4, 0.001); // P(V0=1, V5=1)
+}
+
+
+BOOST_AUTO_TEST_SUITE_END()
+//
+//
+BOOST_AUTO_TEST_SUITE(MapAndExtractMaxTests)
+//
+//// Test: extractMax should return the assignment for the highest-probability state
+BOOST_AUTO_TEST_CASE(TestExtractMaxSimpleFactor)
+{
+    // Create a simple binary factor over variables {0,1} with a clear maximum at index 3 (1,1)
+    dai::Var A(0, 2);
+    dai::Var B(1, 2);
+    dai::Factor f(dai::VarSet(A, B), std::vector<double>{0.1, 0.7, 0.2, 0.9});
+    std::vector<unsigned long int> maxAssign = dai::extractMax(f, logger);
+    BOOST_CHECK_EQUAL(maxAssign.size(), 2);
+    // Expect A=1, B=1 (index 3 -> binary 11)
+    BOOST_CHECK_EQUAL(maxAssign[0], 1);
+    BOOST_CHECK_EQUAL(maxAssign[1], 1);
+}
+
+
+//// Test: get_map_ve should compute MAP using variable elimination (test with evidence that forces a known MAP)
+BOOST_AUTO_TEST_CASE(TestGetMapVE_SingleVarGivenEvidence)
+{
+    dai::FactorGraph fg = createSixNodeNetworkWithCPTs();
+    // Hypothesis: V0 is the MAP variable. Evidence: V4 = 1 forces V0 = 1 in this CPT setup.
+    std::vector<unsigned int> map_vars = {0};
+    std::vector<unsigned int> evidence_vars = {4};
+    std::vector<unsigned int> evidence_values = {1};
+    dai::Factor mapFactor = dai::get_map_ve(fg, map_vars, evidence_vars, evidence_values, false, logger);
+    std::vector<unsigned long int> mapAssign = dai::extractMax(mapFactor, logger);
+    BOOST_CHECK_EQUAL(mapAssign.size(), 1); // This is failing here...
+    BOOST_CHECK_EQUAL(mapAssign[0], 1);
+}
+
+//// Test: get_map_jt should compute MAP using the Junction Tree algorithm (same evidence-driven case)
+BOOST_AUTO_TEST_CASE(TestGetMapJT_SingleVarGivenEvidence)
+{
+    dai::FactorGraph fg = createSixNodeNetworkWithCPTs();
+    std::vector<unsigned int> hypothesis_vars = {0};
+    std::vector<unsigned int> evidence_vars = {4};
+    std::vector<unsigned int> evidence_values = {1};
+    std::vector<unsigned long int> mapAssign = dai::get_map_jt(fg, hypothesis_vars, evidence_vars, evidence_values, false, logger);
+    BOOST_CHECK_EQUAL(mapAssign.size(), 1);
+    BOOST_CHECK_EQUAL(mapAssign[0], 1);
 }
 
 BOOST_AUTO_TEST_SUITE_END()

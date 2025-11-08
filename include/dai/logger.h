@@ -24,7 +24,7 @@ namespace dai {
             
             LibLogger();
 
-            LibLogger(const std::string& filename, LogLevel minLevel);
+            LibLogger(const std::string& filepath, LogLevel minLevel);
 
             ~LibLogger();
 
