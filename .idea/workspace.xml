@@ -30,21 +30,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="25ae54f2-4d07-4be3-bb2b-47d1ad3cb969" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/copilot.data.migration.agent.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/copilot.data.migration.ask.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/copilot.data.migration.ask2agent.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/copilot.data.migration.edit.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/customTargets.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/makefile.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UnitTestLog" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/dai/logger.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/dai/logger.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logger.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/logger.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/map.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/map.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unitTests/UnitTestLog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/example_map" beforeDir="false" afterPath="$PROJECT_DIR$/examples/example_map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/unitTests/map_test" beforeDir="false" afterPath="$PROJECT_DIR$/unitTests/map_test" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unitTests/map_test.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/unitTests/map_test.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,7 +125,7 @@
     "RunOnceActivity.readMode.enableVisualFormatting": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "cidr.known.project.marker": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "71b44a9c",
     "junie.onboarding.icon.badge.shown": "true",
     "last_opened_file_path": "/home/andrew/Documents/School/Semester_1/libDAI/Phase_3_VEMAP_Extraction/Makefile",
     "node.js.detected.package.eslint": "true",
@@ -154,6 +143,11 @@
     </key>
   </component>
   <component name="RunManager" selected="Native Application.unittests">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Makefile" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Phase_3_VEMAP_Extraction" TARGET_NAME="Makefile" CONFIG_NAME="Makefile" version="1">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
@@ -187,11 +181,6 @@
     <configuration name="utils" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Phase_3_VEMAP_Extraction" TARGET_NAME="utils" CONFIG_NAME="utils" version="1">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
     <list>
