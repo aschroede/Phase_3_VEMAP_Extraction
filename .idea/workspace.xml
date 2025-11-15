@@ -31,9 +31,6 @@
   <component name="ChangeListManager">
     <list default="true" id="25ae54f2-4d07-4be3-bb2b-47d1ad3cb969" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/example_map" beforeDir="false" afterPath="$PROJECT_DIR$/examples/example_map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unitTests/map_test" beforeDir="false" afterPath="$PROJECT_DIR$/unitTests/map_test" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,7 +122,7 @@
     "RunOnceActivity.readMode.enableVisualFormatting": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "cidr.known.project.marker": "true",
-    "git-widget-placeholder": "71b44a9c",
+    "git-widget-placeholder": "5323ba1d",
     "junie.onboarding.icon.badge.shown": "true",
     "last_opened_file_path": "/home/andrew/Documents/School/Semester_1/libDAI/Phase_3_VEMAP_Extraction/Makefile",
     "node.js.detected.package.eslint": "true",

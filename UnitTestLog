@@ -4,7 +4,7 @@ This file was freshly created or overwritten.
 [DEBUG] Elimination Order: (4, 2, 5, 3, 1)
 [DEBUG] Treewidth: 2
 [DEBUG] Maximum States in a single cluster: 4
-[DEBUG] Clamping evidence: 978ns
+[DEBUG] Clamping evidence: 1396ns
 [DEBUG] Initial set of factors:
 [DEBUG] 
 {x0}
@@ -330,7 +330,7 @@ This file was freshly created or overwritten.
 [DEBUG] Elimination Order: (5, 3, 1, 2)
 [DEBUG] Treewidth: 3
 [DEBUG] Maximum States in a single cluster: 8
-[DEBUG] Clamping evidence: 16204ns
+[DEBUG] Clamping evidence: 16970ns
 [DEBUG] Initial set of factors:
 [DEBUG] 
 {x0}
@@ -600,7 +600,7 @@ This file was freshly created or overwritten.
 [DEBUG] Elimination Order: (4, 2, 1, 3)
 [DEBUG] Treewidth: 3
 [DEBUG] Maximum States in a single cluster: 8
-[DEBUG] Clamping evidence: 1397ns
+[DEBUG] Clamping evidence: 1467ns
 [DEBUG] Initial set of factors:
 [DEBUG] 
 {x0}
@@ -1151,8 +1151,8 @@ This file was freshly created or overwritten.
 [INFO] [MAP] Elimination Order: (0, 4, 2, 1, 3, 5)
 [INFO] MAP] Treewidth: 2
 [INFO] [MAP] Maximum States in a single cluster: 4
-[INFO] [MAP] JT run 494284 ns
-[INFO] [MAP] Marginal time 4819 ns
-[INFO] [MAP] MAP time 10127 ns
-[INFO] [MAP] Total JT time: 509230 ns
+[INFO] [MAP] JT run 439630 ns
+[INFO] [MAP] Marginal time 4680 ns
+[INFO] [MAP] MAP time 9778 ns
+[INFO] [MAP] Total JT time: 454088 ns
 [INFO] [MAP] Instantiation: (1) has probability 0.800000
