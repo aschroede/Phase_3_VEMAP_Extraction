@@ -37,11 +37,12 @@ endif
 TARGETS:=lib examples unittests
 
 # Define conditional build targets
-NAMES:=graph dag bipgraph varset daialg alldai clustergraph factor factorgraph properties regiongraph cobwebgraph util weightedgraph exceptions exactinf evidence emalg io
-NAMES:=$(NAMES) bp fbp trwbp mf hak lc treeep jtree mr gibbs bbp cbp bp_dual decmap glc map logger
+NAMES:=varset factor exceptions bipgraph regiongraph util weightedgraph factorgraph clustergraph graph
+NAMES:=$(NAMES) jtree map logger
 
 # Define standard libDAI header dependencies, source file names and object file names
-HEADERS=$(foreach name,graph dag bipgraph index var factor varset smallset prob daialg properties alldai enum exceptions util,$(INC)/$(name).h)
+HEADERS=$(foreach name,varset factor exceptions bipgraph regiongraph util weightedgraph factorgraph clustergraph graph,$(INC)/$(name).h)
+
 SOURCES:=$(foreach name,$(NAMES),$(SRC)/$(name).cpp)
 
 # This generates the object files in the root directory. It is responsible for the mess
@@ -80,15 +81,15 @@ EXAMPLES=$(foreach name,example_map,examples/$(name)$(EE))
 # Rule to build the examples
 examples : $(EXAMPLES)
 
-utils : utils/createfg$(EE) utils/fg2dot$(EE) utils/fginfo$(EE) utils/uai2fg$(EE)
+# utils : utils/createfg$(EE) utils/fg2dot$(EE) utils/fginfo$(EE) utils/uai2fg$(EE)
 
 lib: $(LIB)/libdai$(LE)
 
 unittests : unitTests/map_test$(EE)
-	@echo 'Running unit tests...'
-	./unitTests/map_test$(EE)
+	@echo Running unit tests...
 	@echo
-	@echo 'All unit tests passed!'
+	./unitTests/map_test$(EE)
+
 
 # OBJECTS
 ##########
@@ -196,3 +197,4 @@ clean :
 	-rm -rf $(OBJ_DIR)
 	-rm examples/example_map$(EE)
 	-rm unitTests/map_test$(EE)
+	-rm lib/libdai$(LE)

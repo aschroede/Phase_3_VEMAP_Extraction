@@ -14,6 +14,7 @@
   </component>
   <component name="CMakeRunConfigurationManager">
     <generated>
+      <config projectName="Phase_3_VEMAP_Extraction" targetName="obj" />
       <config projectName="Phase_3_VEMAP_Extraction" targetName="lib" />
       <config projectName="Phase_3_VEMAP_Extraction" targetName="unittests" />
       <config projectName="Phase_3_VEMAP_Extraction" targetName="all" />
@@ -28,11 +29,8 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="25ae54f2-4d07-4be3-bb2b-47d1ad3cb969" name="Changes" comment="Fixed all unit tests.">
+    <list default="true" id="25ae54f2-4d07-4be3-bb2b-47d1ad3cb969" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/example_map" beforeDir="false" afterPath="$PROJECT_DIR$/examples/example_map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unitTests/UnitTestLog" beforeDir="false" afterPath="$PROJECT_DIR$/unitTests/UnitTestLog" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,13 +59,7 @@
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///home/andrew/Documents/School/Semester_1/libDAI/Phase_3_VEMAP_Extraction/src/map.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/andrew/Documents/School/Semester_1/libDAI/Phase_3_VEMAP_Extraction/src/map.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/andrew/Documents/School/Semester_1/libDAI/Phase_3_VEMAP_Extraction/src/map.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/andrew/Documents/School/Semester_1/libDAI/Phase_3_VEMAP_Extraction/src/map.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/andrew/Documents/School/Semester_1/libDAI/Phase_3_VEMAP_Extraction/unitTests/map_test.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/unitTests/map_test.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///home/andrew/Documents/School/Semester_1/libDAI/Phase_3_VEMAP_Extraction/unitTests/map_test.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/andrew/Documents/School/Semester_1/libDAI/Phase_3_VEMAP_Extraction/unitTests/map_test.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="file:///usr/include/c++/13/bits/stl_vector.h" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MakefileLocalSettings">
@@ -112,42 +104,47 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Custom Build Application.map_test.executor&quot;: &quot;Debug&quot;,
-    &quot;Custom Build Application.map_test1.executor&quot;: &quot;Debug&quot;,
-    &quot;Makefile Target.UnitTests.executor&quot;: &quot;Run&quot;,
-    &quot;Makefile Target.all.executor&quot;: &quot;Run&quot;,
-    &quot;Makefile Target.clean.executor&quot;: &quot;Run&quot;,
-    &quot;Makefile Target.unittests.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;Native Application.unittests.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.RadMigrateCodeStyle&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/andrew/Documents/School/Semester_1/libDAI/Phase_3_VEMAP_Extraction/Makefile&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;CLionExternalConfigurable&quot;,
-    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Custom Build Application.map_test.executor": "Debug",
+    "Custom Build Application.map_test1.executor": "Debug",
+    "Makefile Target.UnitTests.executor": "Run",
+    "Makefile Target.all.executor": "Run",
+    "Makefile Target.clean.executor": "Run",
+    "Makefile Target.unittests.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Native Application.unittests.executor": "Run",
+    "RunOnceActivity.RadMigrateCodeStyle": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "cidr.known.project.marker": "true",
+    "git-widget-placeholder": "5323ba1d",
+    "junie.onboarding.icon.badge.shown": "true",
+    "last_opened_file_path": "/home/andrew/Documents/School/Semester_1/libDAI/Phase_3_VEMAP_Extraction/Makefile",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "CLionExternalConfigurable",
+    "to.speed.mode.migration.done": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/UnitTests" />
     </key>
   </component>
   <component name="RunManager" selected="Native Application.unittests">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Makefile" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Phase_3_VEMAP_Extraction" TARGET_NAME="Makefile" CONFIG_NAME="Makefile" version="1">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
@@ -168,6 +165,11 @@
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
+    <configuration name="obj" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Phase_3_VEMAP_Extraction" TARGET_NAME="obj" CONFIG_NAME="obj" version="1">
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="unittests" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Phase_3_VEMAP_Extraction" TARGET_NAME="unittests" CONFIG_NAME="unittests" version="1" RUN_PATH="$PROJECT_DIR$/unitTests/map_test">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
@@ -178,16 +180,12 @@
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
     <list>
-      <item itemvalue="Native Application.Makefile" />
       <item itemvalue="Native Application.all" />
       <item itemvalue="Native Application.examples" />
       <item itemvalue="Native Application.lib" />
+      <item itemvalue="Native Application.Makefile" />
+      <item itemvalue="Native Application.obj" />
       <item itemvalue="Native Application.unittests" />
       <item itemvalue="Native Application.utils" />
     </list>
@@ -207,19 +205,8 @@
       <workItem from="1761393550513" duration="672000" />
       <workItem from="1761396172698" duration="9046000" />
       <workItem from="1761469757728" duration="4664000" />
-      <workItem from="1762624333348" duration="11401000" />
-      <workItem from="1762636668981" duration="2000" />
-      <workItem from="1762636680719" duration="9000" />
+      <workItem from="1762624333348" duration="10170000" />
     </task>
-    <task id="LOCAL-00001" summary="Fixed all unit tests.">
-      <option name="closed" value="true" />
-      <created>1762635889152</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1762635889153</updated>
-    </task>
-    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -230,27 +217,11 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="HEAD" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixed all unit tests." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed all unit tests." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
