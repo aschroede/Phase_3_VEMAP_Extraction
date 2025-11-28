@@ -1,0 +1,94 @@
+\doxysection{dai\+::greedy\+Variable\+Elimination Class Reference}
+\hypertarget{classdai_1_1greedyVariableElimination}{}\label{classdai_1_1greedyVariableElimination}\index{dai::greedyVariableElimination@{dai::greedyVariableElimination}}
+
+
+Helper object for \doxylink{classdai_1_1ClusterGraph_a2298aa1f67002915ddc6b778980ac61e}{dai\+::\+Cluster\+Graph\+::\+Var\+Elim()}  
+
+
+
+
+{\ttfamily \#include $<$dai/clustergraph.\+h$>$}
+
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef size\+\_\+t(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classdai_1_1greedyVariableElimination_a4df26af88ad423ec9489da4cf418a4be}{elimination\+Cost\+Function}}) (const \mbox{\hyperlink{classdai_1_1ClusterGraph}{Cluster\+Graph}} \&, size\+\_\+t)
+\begin{DoxyCompactList}\small\item\em Type of cost functions to be used for greedy variable elimination. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classdai_1_1greedyVariableElimination_ad38098f89c197e0202c1d657a37743bf}{greedy\+Variable\+Elimination}} (\mbox{\hyperlink{classdai_1_1greedyVariableElimination_a4df26af88ad423ec9489da4cf418a4be}{elimination\+Cost\+Function}} h)
+\begin{DoxyCompactList}\small\item\em Construct from cost function. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classdai_1_1greedyVariableElimination_a54d0f7a94af04a274884c546bcad79c9}{operator()}} (const \mbox{\hyperlink{classdai_1_1ClusterGraph}{Cluster\+Graph}} \&cl, const std\+::set$<$ size\+\_\+t $>$ \&remaining\+Vars)
+\begin{DoxyCompactList}\small\item\em Returns the best variable from {\itshape remaining\+Vars} to eliminate in the cluster graph {\itshape cl} by greedily minimizing the cost function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classdai_1_1greedyVariableElimination_a4df26af88ad423ec9489da4cf418a4be}{elimination\+Cost\+Function}} \mbox{\hyperlink{classdai_1_1greedyVariableElimination_a44669e055300d237eec99ae736079af0}{heuristic}}
+\begin{DoxyCompactList}\small\item\em Pointer to the cost function used. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Helper object for \doxylink{classdai_1_1ClusterGraph_a2298aa1f67002915ddc6b778980ac61e}{dai\+::\+Cluster\+Graph\+::\+Var\+Elim()} 
+
+Chooses the next variable to eliminate greedily by taking the one that minimizes a given heuristic cost function. 
+
+\doxysubsection{Member Typedef Documentation}
+\Hypertarget{classdai_1_1greedyVariableElimination_a4df26af88ad423ec9489da4cf418a4be}\label{classdai_1_1greedyVariableElimination_a4df26af88ad423ec9489da4cf418a4be} 
+\index{dai::greedyVariableElimination@{dai::greedyVariableElimination}!eliminationCostFunction@{eliminationCostFunction}}
+\index{eliminationCostFunction@{eliminationCostFunction}!dai::greedyVariableElimination@{dai::greedyVariableElimination}}
+\doxysubsubsection{\texorpdfstring{eliminationCostFunction}{eliminationCostFunction}}
+{\footnotesize\ttfamily typedef size\+\_\+t(\texorpdfstring{$\ast$}{*} dai\+::greedy\+Variable\+Elimination\+::elimination\+Cost\+Function) (const \mbox{\hyperlink{classdai_1_1ClusterGraph}{Cluster\+Graph}} \&, size\+\_\+t)}
+
+
+
+Type of cost functions to be used for greedy variable elimination. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classdai_1_1greedyVariableElimination_ad38098f89c197e0202c1d657a37743bf}\label{classdai_1_1greedyVariableElimination_ad38098f89c197e0202c1d657a37743bf} 
+\index{dai::greedyVariableElimination@{dai::greedyVariableElimination}!greedyVariableElimination@{greedyVariableElimination}}
+\index{greedyVariableElimination@{greedyVariableElimination}!dai::greedyVariableElimination@{dai::greedyVariableElimination}}
+\doxysubsubsection{\texorpdfstring{greedyVariableElimination()}{greedyVariableElimination()}}
+{\footnotesize\ttfamily dai\+::greedy\+Variable\+Elimination\+::greedy\+Variable\+Elimination (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classdai_1_1greedyVariableElimination_a4df26af88ad423ec9489da4cf418a4be}{elimination\+Cost\+Function}}}]{h }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct from cost function. 
+
+\begin{DoxyNote}{Note}
+Examples of cost functions are elimination\+Cost\+\_\+\+Min\+Fill() and elimination\+Cost\+\_\+\+Weighted\+Min\+Fill(). 
+\end{DoxyNote}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classdai_1_1greedyVariableElimination_a54d0f7a94af04a274884c546bcad79c9}\label{classdai_1_1greedyVariableElimination_a54d0f7a94af04a274884c546bcad79c9} 
+\index{dai::greedyVariableElimination@{dai::greedyVariableElimination}!operator()@{operator()}}
+\index{operator()@{operator()}!dai::greedyVariableElimination@{dai::greedyVariableElimination}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}}
+{\footnotesize\ttfamily size\+\_\+t dai\+::greedy\+Variable\+Elimination\+::operator() (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classdai_1_1ClusterGraph}{Cluster\+Graph}} \&}]{cl,  }\item[{const std\+::set$<$ size\+\_\+t $>$ \&}]{remaining\+Vars }\end{DoxyParamCaption})}
+
+
+
+Returns the best variable from {\itshape remaining\+Vars} to eliminate in the cluster graph {\itshape cl} by greedily minimizing the cost function. 
+
+This function calculates the cost for eliminating each variable in {\itshape remaing\+Vars} and returns the variable which has lowest cost. 
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classdai_1_1greedyVariableElimination_a44669e055300d237eec99ae736079af0}\label{classdai_1_1greedyVariableElimination_a44669e055300d237eec99ae736079af0} 
+\index{dai::greedyVariableElimination@{dai::greedyVariableElimination}!heuristic@{heuristic}}
+\index{heuristic@{heuristic}!dai::greedyVariableElimination@{dai::greedyVariableElimination}}
+\doxysubsubsection{\texorpdfstring{heuristic}{heuristic}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classdai_1_1greedyVariableElimination_a4df26af88ad423ec9489da4cf418a4be}{elimination\+Cost\+Function}} dai\+::greedy\+Variable\+Elimination\+::heuristic\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Pointer to the cost function used. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/dai/\mbox{\hyperlink{clustergraph_8h}{clustergraph.\+h}}\item 
+src/clustergraph.\+cpp\end{DoxyCompactItemize}

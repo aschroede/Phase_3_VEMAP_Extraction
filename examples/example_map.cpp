@@ -19,9 +19,11 @@ using namespace dai;
 	#define DEBUG(a) ;
 #endif	
 
+// Defaults
 std::string testdir = "TestResults";
 std::string inputfile = "./alarm.fg";
 std::string outputfile = "./results";
+
 LogLevel logLevel = LogLevel::INFO;
 std::vector<unsigned int> hypothesisVars;
 std::vector<unsigned int> evidenceVars;
@@ -148,30 +150,24 @@ cxxopts::ParseResult parse(int argc, char* argv[])
 
 void VEMap(dai::FactorGraph &fg, LibLogger &logger)
 {
-    logger.log(LogLevel::INFO, "\n[MAP] Computing MAP with Variable Elimination ");
+    logger.log(LogLevel::INFO, "Computing MAP with Variable Elimination ");
 
     // Start clock
     auto start = std::chrono::steady_clock::now();
 
     // Perform VE Map
-    dai::Factor MAP = get_map_ve(fg, hypothesisVars, evidenceVars, evidenceValues, false, logger);
+    tuple<map<Var,unsigned long>,double> map = get_map_ve(fg, hypothesisVars, evidenceVars, evidenceValues, false, logger);
 
     // Stop clock
     auto end = std::chrono::steady_clock::now();
 
-    // Format instantiation data
-    string instantiation = "";
-    for (const auto &myMap : MAP.i())
+    std::cout << "MAP Assignment: ";
+    for (const auto &entry : std::get<0>(map))
     {
-        for (const auto &entry : myMap)
-        {
-            instantiation += std::to_string(entry.second) + " ";
-        }
+        std::cout << "X" << entry.first.label() << "=" << entry.second << ", ";
     }
+    std::cout << " with probability " << std::get<1>(map) << std::endl;
 
-    logger.log(LogLevel::INFO, "[MAP] Total Time: " + std::to_string(std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count()) + " ns");
-    logger.log(LogLevel::INFO, "[MAP] Instantiation: " + instantiation + " has probability " + probToString(MAP.p()));
-    
 }
 
 void JTMap(dai::FactorGraph &fg, LibLogger &logger)
@@ -215,15 +211,14 @@ int main( int argc, char *argv[] ) {
     if(!fs::exists(testdir)){
 
         if(!fs::create_directory(testdir)){
-            std::cerr << "Error creating direcotyr: " << testdir << std::endl;
+            std::cerr << "Error creating directory: " << testdir << std::endl;
         }
     }
 	ofs.open (filepath.c_str(), std::ofstream::out | std::ofstream::app);
 
     
     dai::LibLogger logger = dai::LibLogger(testdir + "/" + outputfile, logLevel);
-    logger.log(LogLevel::DEBUG, "This is a test");
-    
+
     // Write command to output file for reference
     std:: string command = "command: ";
     for (int i = 0; i < argc; i++)
@@ -231,7 +226,13 @@ int main( int argc, char *argv[] ) {
     logger.log(LogLevel::INFO, command);
 
     // Record relevent parameters in log file
-    logger.log(LogLevel::INFO, inputfile + " simulation results " + ctime(&now));
+    logger.log(LogLevel::INFO, inputfile + " simulation results");
+
+    std::string ts = ctime(&now);
+    ts.pop_back();
+    logger.log(LogLevel::INFO, "Date and Time: " + ts);
+    logger.log(LogLevel::INFO, "Log Level: " + string(LOG_LEVEL_STRINGS[static_cast<int>(logLevel)]));
+
     
     std::ostringstream oss;
     logger.log(LogLevel::INFO, "hypothesis vars " + vecToString(hypothesisVars));

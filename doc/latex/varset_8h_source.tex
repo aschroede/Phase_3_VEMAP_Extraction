@@ -1,0 +1,91 @@
+\doxysection{varset.\+h}
+\hypertarget{varset_8h_source}{}\label{varset_8h_source}\index{include/dai/varset.h@{include/dai/varset.h}}
+\mbox{\hyperlink{varset_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*\ \ This\ file\ is\ part\ of\ libDAI\ -\/\ http://www.libdai.org/}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ \ Copyright\ (c)\ 2006-\/2011,\ The\ libDAI\ authors.\ All\ rights\ reserved.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ Use\ of\ this\ source\ code\ is\ governed\ by\ a\ BSD-\/style\ license\ that\ can\ be\ found\ in\ the\ LICENSE\ file.}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ \_\_defined\_libdai\_varset\_h}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ \_\_defined\_libdai\_varset\_h}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <ostream>}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{var_8h}{dai/var.h}}>}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{util_8h}{dai/util.h}}>}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{smallset_8h}{dai/smallset.h}}>}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{keyword}{namespace\ }dai\ \{}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{comment}{//\ Predefine\ for\ definitions\ of\ calcLinearState()\ and\ calcState()}}
+\DoxyCodeLine{00029\ \textcolor{keyword}{class\ }VarSet;}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00060\ \textcolor{keywordtype}{size\_t}\ calcLinearState(\ \textcolor{keyword}{const}\ VarSet\ \&vs,\ \textcolor{keyword}{const}\ std::map<Var,\ size\_t>\ \&state\ );}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00085\ std::map<Var,\ size\_t>\ calcState(\ \textcolor{keyword}{const}\ VarSet\ \&vs,\ \textcolor{keywordtype}{size\_t}\ linearState\ );}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00094\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classdai_1_1VarSet}{VarSet}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classdai_1_1SmallSet}{SmallSet}}<Var>\ \{}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdai_1_1VarSet_a933a982d2d7f8c2f796610ab351d728b}{VarSet}}()\ :\ \mbox{\hyperlink{classdai_1_1SmallSet}{SmallSet}}<\mbox{\hyperlink{classdai_1_1Var}{Var}}>()\ \{\}}
+\DoxyCodeLine{00100\ \ \ \ \ }
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdai_1_1VarSet_a38c683ce0ce0532625780e76f5eb5b9b}{VarSet}}(\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classdai_1_1SmallSet}{SmallSet<Var>}}\ \&x\ )\ :\ \mbox{\hyperlink{classdai_1_1SmallSet}{SmallSet}}<\mbox{\hyperlink{classdai_1_1Var}{Var}}>(x)\ \{\}}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdai_1_1VarSet_ac9e2eee9017df71e91f5ef4f01956de7}{VarSet}}(\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classdai_1_1Var}{Var}}\ \&v\ )\ :\ \mbox{\hyperlink{classdai_1_1SmallSet}{SmallSet}}<\mbox{\hyperlink{classdai_1_1Var}{Var}}>(v)\ \{\}}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdai_1_1VarSet_ae45f3b824a354219f7ee3ab8ee432fb2}{VarSet}}(\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classdai_1_1Var}{Var}}\ \&v1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classdai_1_1Var}{Var}}\ \&v2\ )\ :\ \mbox{\hyperlink{classdai_1_1SmallSet}{SmallSet}}<\mbox{\hyperlink{classdai_1_1Var}{Var}}>(v1,v2)\ \{\}}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ VarIterator>}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdai_1_1VarSet_a63eeef9921a86d79984e47850e2c2d09}{VarSet}}(\ VarIterator\ \mbox{\hyperlink{classdai_1_1SmallSet_a3edafa1c2258b97745ba6e7662a529e8}{begin}},\ VarIterator\ \mbox{\hyperlink{classdai_1_1SmallSet_addbe167f8e2bfee5bba7ad1ccf014e7a}{end}},\ \textcolor{keywordtype}{size\_t}\ sizeHint=0\ )\ :\ \mbox{\hyperlink{classdai_1_1SmallSet}{SmallSet}}<\mbox{\hyperlink{classdai_1_1Var}{Var}}>(\mbox{\hyperlink{classdai_1_1SmallSet_a3edafa1c2258b97745ba6e7662a529e8}{begin}},\mbox{\hyperlink{classdai_1_1SmallSet_addbe167f8e2bfee5bba7ad1ccf014e7a}{end}},sizeHint)\ \{\}}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{util_8h_acc277bd4f0edae875fca22f063a37220}{BigInt}}\ \mbox{\hyperlink{classdai_1_1VarSet_a0e247794f03ee52544e10a8b9f280c41}{nrStates}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{util_8h_acc277bd4f0edae875fca22f063a37220}{BigInt}}\ states\ =\ 1;}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\ \mbox{\hyperlink{classdai_1_1SmallSet_aa922e181341753250416ea1649de390a}{VarSet::const\_iterator}}\ n\ =\ \mbox{\hyperlink{classdai_1_1SmallSet_a3edafa1c2258b97745ba6e7662a529e8}{begin}}();\ n\ !=\ \mbox{\hyperlink{classdai_1_1SmallSet_addbe167f8e2bfee5bba7ad1ccf014e7a}{end}}();\ n++\ )}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ states\ *=\ (\mbox{\hyperlink{util_8h_acc277bd4f0edae875fca22f063a37220}{BigInt}})n-\/>states();}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ states;}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ std::ostream\&\ \mbox{\hyperlink{classdai_1_1VarSet_a56629cc54bf4862a485997bed8c72dc8}{operator<<}}(\ std::ostream\ \&os,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classdai_1_1VarSet}{VarSet}}\ \&vs\ )\ \ \{}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\{"{}};}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\ \mbox{\hyperlink{classdai_1_1SmallSet_aa922e181341753250416ea1649de390a}{VarSet::const\_iterator}}\ v\ =\ vs.\mbox{\hyperlink{classdai_1_1SmallSet_a3edafa1c2258b97745ba6e7662a529e8}{begin}}();\ v\ !=\ vs.\mbox{\hyperlink{classdai_1_1SmallSet_addbe167f8e2bfee5bba7ad1ccf014e7a}{end}}();\ v++\ )}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ os\ <<\ (v\ !=\ vs.\mbox{\hyperlink{classdai_1_1SmallSet_a3edafa1c2258b97745ba6e7662a529e8}{begin}}()\ ?\ \textcolor{stringliteral}{"{},\ "{}}\ :\ \textcolor{stringliteral}{"{}"{}})\ <<\ *v;}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\}"{}};}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}(\ os\ );}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{classdai_1_1VarSet_a0eda7931fb0fd6bac8f0124c6ab6f583}{toString}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ std::stringstream\ ss;}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \ \ \ \ ss\ <<\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ss.str();}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00156\ \};}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00159\ \}\ \textcolor{comment}{//\ end\ of\ namespace\ dai}}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00172\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

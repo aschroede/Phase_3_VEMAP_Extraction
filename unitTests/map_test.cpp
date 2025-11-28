@@ -469,11 +469,20 @@ BOOST_AUTO_TEST_CASE(TestExtractMaxSimpleFactor)
     dai::Var A(0, 2);
     dai::Var B(1, 2);
     dai::Factor f(dai::VarSet(A, B), std::vector<double>{0.1, 0.7, 0.2, 0.9});
-    std::vector<unsigned long int> maxAssign = dai::extractMax(f, logger);
-    BOOST_CHECK_EQUAL(maxAssign.size(), 2);
-    // Expect A=1, B=1 (index 3 -> binary 11)
-    BOOST_CHECK_EQUAL(maxAssign[0], 1);
-    BOOST_CHECK_EQUAL(maxAssign[1], 1);
+    tuple<map<Var, unsigned long>, double> map = dai::extractMax(f, logger);
+
+
+    BOOST_CHECK_EQUAL(std::get<0>(map).size(), 2);
+
+    for (const auto& pair : std::get<0>(map)) {
+        if (pair.first.label() == 0) { // Variable A
+            BOOST_CHECK_EQUAL(pair.second, 1);
+        } else if (pair.first.label() == 1) { // Variable B
+            BOOST_CHECK_EQUAL(pair.second, 1);
+        } else {
+            BOOST_FAIL("Unexpected variable in map result");
+        }
+    }
 }
 
 
@@ -485,10 +494,10 @@ BOOST_AUTO_TEST_CASE(TestGetMapVE_SingleVarGivenEvidence)
     std::vector<unsigned int> map_vars = {0};
     std::vector<unsigned int> evidence_vars = {4};
     std::vector<unsigned int> evidence_values = {1};
-    dai::Factor mapFactor = dai::get_map_ve(fg, map_vars, evidence_vars, evidence_values, false, logger);
-    std::vector<unsigned long int> mapAssign = dai::extractMax(mapFactor, logger);
-    BOOST_CHECK_EQUAL(mapAssign.size(), 1); // This is failing here...
-    BOOST_CHECK_EQUAL(mapAssign[0], 1);
+    tuple<map<Var, unsigned long>, double> map = dai::get_map_ve(fg, map_vars, evidence_vars, evidence_values, false, logger);
+
+    BOOST_CHECK_EQUAL(std::get<0>(map).size(), 1);
+    BOOST_CHECK_EQUAL(std::get<0>(map).begin()->second, 1);
 }
 
 //// Test: get_map_jt should compute MAP using the Junction Tree algorithm (same evidence-driven case)

@@ -1,0 +1,266 @@
+\doxysection{bipgraph.\+h}
+\hypertarget{bipgraph_8h_source}{}\label{bipgraph_8h_source}\index{include/dai/bipgraph.h@{include/dai/bipgraph.h}}
+\mbox{\hyperlink{bipgraph_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*\ \ This\ file\ is\ part\ of\ libDAI\ -\/\ http://www.libdai.org/}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ \ Copyright\ (c)\ 2006-\/2011,\ The\ libDAI\ authors.\ All\ rights\ reserved.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ Use\ of\ this\ source\ code\ is\ governed\ by\ a\ BSD-\/style\ license\ that\ can\ be\ found\ in\ the\ LICENSE\ file.}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ \_\_defined\_libdai\_bipgraph\_h}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ \_\_defined\_libdai\_bipgraph\_h}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <ostream>}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{util_8h}{dai/util.h}}>}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{smallset_8h}{dai/smallset.h}}>}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{exceptions_8h}{dai/exceptions.h}}>}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{graph_8h}{dai/graph.h}}>}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{keyword}{namespace\ }dai\ \{}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00045\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classdai_1_1BipartiteGraph}{BipartiteGraph}}\ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ std::vector<Neighbors>\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a913ea0d6c734cc8cde8ddba4db192995}{\_nb1}};}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ std::vector<Neighbors>\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_aeff78b5b0f22831f98c2c1ebf481779f}{\_nb2}};}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structdai_1_1BipartiteGraph_1_1levelType}{levelType}}\ \{}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<size\_t>\ \mbox{\hyperlink{structdai_1_1BipartiteGraph_1_1levelType_a889e2f8d6f75fbcf9aff01c56880777f}{ind1}};\ \ \ \ \ \ \ }
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<size\_t>\ \mbox{\hyperlink{structdai_1_1BipartiteGraph_1_1levelType_a138808eda0c1efb0a5b88410be8f96ec}{ind2}};}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a24760961ac18ba4de4946d234690d1e0}{BipartiteGraph}}()\ :\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a913ea0d6c734cc8cde8ddba4db192995}{\_nb1}}(),\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_aeff78b5b0f22831f98c2c1ebf481779f}{\_nb2}}()\ \{\}}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a770b4955fa9d5549673e5a969b347c9f}{BipartiteGraph}}(\ \textcolor{keywordtype}{size\_t}\ nr1,\ \textcolor{keywordtype}{size\_t}\ nr2\ )\ :\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a913ea0d6c734cc8cde8ddba4db192995}{\_nb1}}(nr1),\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_aeff78b5b0f22831f98c2c1ebf481779f}{\_nb2}}(nr2)\ \{\}}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ EdgeInputIterator>}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a7707bc2fc22eb508883dedf0bb5703b0}{BipartiteGraph}}(\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a6b4f272b57126b4dfb572674eba5c035}{nrNodes1}},\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a709376c998449338193e10f9c2250e25}{nrNodes2}},\ EdgeInputIterator\ begin,\ EdgeInputIterator\ end,\ \textcolor{keywordtype}{bool}\ check=\textcolor{keyword}{true}\ )\ :\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a913ea0d6c734cc8cde8ddba4db192995}{\_nb1}}(),\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_aeff78b5b0f22831f98c2c1ebf481779f}{\_nb2}}()\ \{}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a6250d880f74abd043bea6db0e44beffc}{construct}}(\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a6b4f272b57126b4dfb572674eba5c035}{nrNodes1}},\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a709376c998449338193e10f9c2250e25}{nrNodes2}},\ begin,\ end,\ check\ );}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structdai_1_1Neighbor}{Neighbor}}\ \&\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a0b31bd0db6aff70fe8ba245882783607}{nb1}}(\ \textcolor{keywordtype}{size\_t}\ i1,\ \textcolor{keywordtype}{size\_t}\ \_i2\ )\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{exceptions_8h_ab0d3e811b3335ac42245ec03864ede45}{DAI\_DEBASSERT}}(\ i1\ <\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a913ea0d6c734cc8cde8ddba4db192995}{\_nb1}}.size()\ );}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{exceptions_8h_ab0d3e811b3335ac42245ec03864ede45}{DAI\_DEBASSERT}}(\ \_i2\ <\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a913ea0d6c734cc8cde8ddba4db192995}{\_nb1}}[i1].size()\ );}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a913ea0d6c734cc8cde8ddba4db192995}{\_nb1}}[i1][\_i2];}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structdai_1_1Neighbor}{Neighbor}}\ \&\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a838bb39ff2633f045337b326d06ce196}{nb1}}(\ \textcolor{keywordtype}{size\_t}\ i1,\ \textcolor{keywordtype}{size\_t}\ \_i2\ )\ \{}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{exceptions_8h_ab0d3e811b3335ac42245ec03864ede45}{DAI\_DEBASSERT}}(\ i1\ <\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a913ea0d6c734cc8cde8ddba4db192995}{\_nb1}}.size()\ );}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{exceptions_8h_ab0d3e811b3335ac42245ec03864ede45}{DAI\_DEBASSERT}}(\ \_i2\ <\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a913ea0d6c734cc8cde8ddba4db192995}{\_nb1}}[i1].size()\ );}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a913ea0d6c734cc8cde8ddba4db192995}{\_nb1}}[i1][\_i2];}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structdai_1_1Neighbor}{Neighbor}}\ \&\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a40516848225be41f68b6381d04f8db25}{nb2}}(\ \textcolor{keywordtype}{size\_t}\ i2,\ \textcolor{keywordtype}{size\_t}\ \_i1\ )\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{exceptions_8h_ab0d3e811b3335ac42245ec03864ede45}{DAI\_DEBASSERT}}(\ i2\ <\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_aeff78b5b0f22831f98c2c1ebf481779f}{\_nb2}}.size()\ );}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{exceptions_8h_ab0d3e811b3335ac42245ec03864ede45}{DAI\_DEBASSERT}}(\ \_i1\ <\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_aeff78b5b0f22831f98c2c1ebf481779f}{\_nb2}}[i2].size()\ );}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_aeff78b5b0f22831f98c2c1ebf481779f}{\_nb2}}[i2][\_i1];}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structdai_1_1Neighbor}{Neighbor}}\ \&\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a168d5397a905af99b51eaa3b4648e98f}{nb2}}(\ \textcolor{keywordtype}{size\_t}\ i2,\ \textcolor{keywordtype}{size\_t}\ \_i1\ )\ \{}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{exceptions_8h_ab0d3e811b3335ac42245ec03864ede45}{DAI\_DEBASSERT}}(\ i2\ <\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_aeff78b5b0f22831f98c2c1ebf481779f}{\_nb2}}.size()\ );}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{exceptions_8h_ab0d3e811b3335ac42245ec03864ede45}{DAI\_DEBASSERT}}(\ \_i1\ <\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_aeff78b5b0f22831f98c2c1ebf481779f}{\_nb2}}[i2].size()\ );}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_aeff78b5b0f22831f98c2c1ebf481779f}{\_nb2}}[i2][\_i1];}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{graph_8h_a14c563f2e5f6acf255903cae5c3b415c}{Neighbors}}\ \&\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_ac8f8ce76138f0cae2a5108ba48b3e77c}{nb1}}(\ \textcolor{keywordtype}{size\_t}\ i1\ )\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{exceptions_8h_ab0d3e811b3335ac42245ec03864ede45}{DAI\_DEBASSERT}}(\ i1\ <\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a913ea0d6c734cc8cde8ddba4db192995}{\_nb1}}.size()\ );}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a913ea0d6c734cc8cde8ddba4db192995}{\_nb1}}[i1];}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{graph_8h_a14c563f2e5f6acf255903cae5c3b415c}{Neighbors}}\ \&\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_ad6ad18c439409fc7c056900bd6e95b9d}{nb1}}(\ \textcolor{keywordtype}{size\_t}\ i1\ )\ \{}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{exceptions_8h_ab0d3e811b3335ac42245ec03864ede45}{DAI\_DEBASSERT}}(\ i1\ <\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a913ea0d6c734cc8cde8ddba4db192995}{\_nb1}}.size()\ );}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a913ea0d6c734cc8cde8ddba4db192995}{\_nb1}}[i1];}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{graph_8h_a14c563f2e5f6acf255903cae5c3b415c}{Neighbors}}\ \&\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a978f6d3644d65d422eb5febade67ef99}{nb2}}(\ \textcolor{keywordtype}{size\_t}\ i2\ )\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{exceptions_8h_ab0d3e811b3335ac42245ec03864ede45}{DAI\_DEBASSERT}}(\ i2\ <\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_aeff78b5b0f22831f98c2c1ebf481779f}{\_nb2}}.size()\ );}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_aeff78b5b0f22831f98c2c1ebf481779f}{\_nb2}}[i2];}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{graph_8h_a14c563f2e5f6acf255903cae5c3b415c}{Neighbors}}\ \&\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a412a359fe255ec07c93c413473ae3a61}{nb2}}(\ \textcolor{keywordtype}{size\_t}\ i2\ )\ \{}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{exceptions_8h_ab0d3e811b3335ac42245ec03864ede45}{DAI\_DEBASSERT}}(\ i2\ <\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_aeff78b5b0f22831f98c2c1ebf481779f}{\_nb2}}.size()\ );}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_aeff78b5b0f22831f98c2c1ebf481779f}{\_nb2}}[i2];}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ EdgeInputIterator>}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a6250d880f74abd043bea6db0e44beffc}{construct}}(\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a6b4f272b57126b4dfb572674eba5c035}{nrNodes1}},\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a709376c998449338193e10f9c2250e25}{nrNodes2}},\ EdgeInputIterator\ begin,\ EdgeInputIterator\ end,\ \textcolor{keywordtype}{bool}\ check=\textcolor{keyword}{true}\ );}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a3c2c1c65a254f1971be5c9fd6db23101}{addNode1}}()\ \{\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a913ea0d6c734cc8cde8ddba4db192995}{\_nb1}}.push\_back(\ \mbox{\hyperlink{graph_8h_a14c563f2e5f6acf255903cae5c3b415c}{Neighbors}}()\ );\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a913ea0d6c734cc8cde8ddba4db192995}{\_nb1}}.size()\ -\/\ 1;\ \}}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_ac36bfff6ffd2e7083500e0ea25a0a90a}{addNode2}}()\ \{\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_aeff78b5b0f22831f98c2c1ebf481779f}{\_nb2}}.push\_back(\ \mbox{\hyperlink{graph_8h_a14c563f2e5f6acf255903cae5c3b415c}{Neighbors}}()\ );\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_aeff78b5b0f22831f98c2c1ebf481779f}{\_nb2}}.size()\ -\/\ 1;\ \}}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ NodeInputIterator>}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_ab1ffefa10567411850e495107bcc4777}{addNode1}}(\ NodeInputIterator\ begin,\ NodeInputIterator\ end,\ \textcolor{keywordtype}{size\_t}\ sizeHint\ =\ 0\ )\ \{}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{graph_8h_a14c563f2e5f6acf255903cae5c3b415c}{Neighbors}}\ nbs1new;}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ nbs1new.reserve(\ sizeHint\ );}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ iter\ =\ 0;}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\ NodeInputIterator\ it\ =\ begin;\ it\ !=\ end;\ ++it\ )\ \{}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{exceptions_8h_af50adc4fad1e07093579e746302bc884}{DAI\_ASSERT}}(\ *it\ <\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a709376c998449338193e10f9c2250e25}{nrNodes2}}()\ );}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structdai_1_1Neighbor}{Neighbor}}\ nb1new(\ iter,\ *it,\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a40516848225be41f68b6381d04f8db25}{nb2}}(*it).size()\ );}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structdai_1_1Neighbor}{Neighbor}}\ nb2new(\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a40516848225be41f68b6381d04f8db25}{nb2}}(*it).size(),\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a6b4f272b57126b4dfb572674eba5c035}{nrNodes1}}(),\ iter++\ );}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ nbs1new.push\_back(\ nb1new\ );}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a40516848225be41f68b6381d04f8db25}{nb2}}(\ *it\ ).push\_back(\ nb2new\ );}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a913ea0d6c734cc8cde8ddba4db192995}{\_nb1}}.push\_back(\ nbs1new\ );}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a913ea0d6c734cc8cde8ddba4db192995}{\_nb1}}.size()\ -\/\ 1;}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00179\ }
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ NodeInputIterator>}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_aaeaf457912edc730a2702f223c507e39}{addNode2}}(\ NodeInputIterator\ begin,\ NodeInputIterator\ end,\ \textcolor{keywordtype}{size\_t}\ sizeHint\ =\ 0\ )\ \{}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{graph_8h_a14c563f2e5f6acf255903cae5c3b415c}{Neighbors}}\ nbs2new;}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \ \ \ \ nbs2new.reserve(\ sizeHint\ );}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ iter\ =\ 0;}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\ NodeInputIterator\ it\ =\ begin;\ it\ !=\ end;\ ++it\ )\ \{}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{exceptions_8h_af50adc4fad1e07093579e746302bc884}{DAI\_ASSERT}}(\ *it\ <\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a6b4f272b57126b4dfb572674eba5c035}{nrNodes1}}()\ );}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structdai_1_1Neighbor}{Neighbor}}\ nb2new(\ iter,\ *it,\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a0b31bd0db6aff70fe8ba245882783607}{nb1}}(*it).size()\ );}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structdai_1_1Neighbor}{Neighbor}}\ nb1new(\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a0b31bd0db6aff70fe8ba245882783607}{nb1}}(*it).size(),\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a709376c998449338193e10f9c2250e25}{nrNodes2}}(),\ iter++\ );}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ nbs2new.push\_back(\ nb2new\ );}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a0b31bd0db6aff70fe8ba245882783607}{nb1}}(\ *it\ ).push\_back(\ nb1new\ );}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdai_1_1BipartiteGraph_aeff78b5b0f22831f98c2c1ebf481779f}{\_nb2}}.push\_back(\ nbs2new\ );}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_aeff78b5b0f22831f98c2c1ebf481779f}{\_nb2}}.size()\ -\/\ 1;}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdai_1_1BipartiteGraph}{BipartiteGraph}}\&\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_adaa360aab7175a2510c3f22a708b8930}{addEdge}}(\ \textcolor{keywordtype}{size\_t}\ n1,\ \textcolor{keywordtype}{size\_t}\ n2,\ \textcolor{keywordtype}{bool}\ check\ =\ \textcolor{keyword}{true}\ );}
+\DoxyCodeLine{00206\ }
+\DoxyCodeLine{00208\ }
+\DoxyCodeLine{00209\ }
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a0193175890bf2ca160728ea0e30778b2}{eraseNode1}}(\ \textcolor{keywordtype}{size\_t}\ n1\ );}
+\DoxyCodeLine{00211\ }
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_afb309f7e1873ab7368d55092264b5e83}{eraseNode2}}(\ \textcolor{keywordtype}{size\_t}\ n2\ );}
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_ac8f471524e64a8dc2bd1d5031a68acc7}{eraseEdge}}(\ \textcolor{keywordtype}{size\_t}\ n1,\ \textcolor{keywordtype}{size\_t}\ n2\ );}
+\DoxyCodeLine{00218\ }
+\DoxyCodeLine{00220\ }
+\DoxyCodeLine{00221\ }
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a6b4f272b57126b4dfb572674eba5c035}{nrNodes1}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a913ea0d6c734cc8cde8ddba4db192995}{\_nb1}}.size();\ \}}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a709376c998449338193e10f9c2250e25}{nrNodes2}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_aeff78b5b0f22831f98c2c1ebf481779f}{\_nb2}}.size();\ \}}
+\DoxyCodeLine{00225\ }
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a5eb05f26b20896e6b6c9d8a801f92182}{nrEdges}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ sum\ =\ 0;}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\ \textcolor{keywordtype}{size\_t}\ i1\ =\ 0;\ i1\ <\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a6b4f272b57126b4dfb572674eba5c035}{nrNodes1}}();\ i1++\ )}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sum\ +=\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a0b31bd0db6aff70fe8ba245882783607}{nb1}}(i1).size();}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ sum;}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00233\ }
+\DoxyCodeLine{00235\ }
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_acb368c526245b1083e15b4d9d6a41d53}{hasEdge}}(\ \textcolor{keywordtype}{size\_t}\ n1,\ \textcolor{keywordtype}{size\_t}\ n2\ )\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a0b31bd0db6aff70fe8ba245882783607}{nb1}}(n1).size()\ <\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a40516848225be41f68b6381d04f8db25}{nb2}}(n2).size()\ )\ \{}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\ \textcolor{keywordtype}{size\_t}\ \_n2\ =\ 0;\ \_n2\ <\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a0b31bd0db6aff70fe8ba245882783607}{nb1}}(n1).size();\ \_n2++\ )}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a0b31bd0db6aff70fe8ba245882783607}{nb1}}(\ n1,\ \_n2\ )\ ==\ n2\ )}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\ \textcolor{keywordtype}{size\_t}\ \_n1\ =\ 0;\ \_n1\ <\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a40516848225be41f68b6381d04f8db25}{nb2}}(n2).size();\ \_n1++\ )}
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a40516848225be41f68b6381d04f8db25}{nb2}}(\ n2,\ \_n1\ )\ ==\ n1\ )}
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00249\ }
+\DoxyCodeLine{00251\ }
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a0e0700ad219eaf4010d390f3d9402975}{findNb1}}(\ \textcolor{keywordtype}{size\_t}\ n1,\ \textcolor{keywordtype}{size\_t}\ n2\ )\ \{}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\ \textcolor{keywordtype}{size\_t}\ \_n2\ =\ 0;\ \_n2\ <\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a0b31bd0db6aff70fe8ba245882783607}{nb1}}(n1).size();\ \_n2++\ )}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a0b31bd0db6aff70fe8ba245882783607}{nb1}}(\ n1,\ \_n2\ )\ ==\ n2\ )}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \_n2;}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \ \ \ \ DAI\_THROW(OBJECT\_NOT\_FOUND);}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a0b31bd0db6aff70fe8ba245882783607}{nb1}}(n1).size();}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00261\ }
+\DoxyCodeLine{00263\ }
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a657c7abd30121b6008a0b128d9bcd9dd}{findNb2}}(\ \textcolor{keywordtype}{size\_t}\ n1,\ \textcolor{keywordtype}{size\_t}\ n2\ )\ \{}
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\ \textcolor{keywordtype}{size\_t}\ \_n1\ =\ 0;\ \_n1\ <\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a40516848225be41f68b6381d04f8db25}{nb2}}(n2).size();\ \_n1++\ )}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a40516848225be41f68b6381d04f8db25}{nb2}}(\ n2,\ \_n1\ )\ ==\ n1\ )}
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \_n1;}
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ \ \ \ \ DAI\_THROW(OBJECT\_NOT\_FOUND);}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a40516848225be41f68b6381d04f8db25}{nb2}}(n2).size();}
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00273\ }
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdai_1_1SmallSet}{SmallSet<size\_t>}}\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_ab0b6540492c90db547153df72c73972c}{nb1Set}}(\ \textcolor{keywordtype}{size\_t}\ n1\ )\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00276\ }
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdai_1_1SmallSet}{SmallSet<size\_t>}}\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_ac02861eaf61e70951ad4a945ff8091fe}{nb2Set}}(\ \textcolor{keywordtype}{size\_t}\ n2\ )\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00279\ }
+\DoxyCodeLine{00281\ }
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdai_1_1SmallSet}{SmallSet<size\_t>}}\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a45cfd562148d24c28cea18e5b63d80d1}{delta1}}(\ \textcolor{keywordtype}{size\_t}\ n1,\ \textcolor{keywordtype}{bool}\ include\ =\ \textcolor{keyword}{false}\ )\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00285\ }
+\DoxyCodeLine{00287\ }
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdai_1_1SmallSet}{SmallSet<size\_t>}}\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a189609a5e5e391a3adee49588e274493}{delta2}}(\ \textcolor{keywordtype}{size\_t}\ n2,\ \textcolor{keywordtype}{bool}\ include\ =\ \textcolor{keyword}{false}\ )\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00291\ }
+\DoxyCodeLine{00293\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_ab570303519db10cefc118f8f894f9886}{isConnected}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00294\ }
+\DoxyCodeLine{00296\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a0ab096954d63f7225a23dff455fe36a8}{isTree}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00297\ }
+\DoxyCodeLine{00299\ }
+\DoxyCodeLine{00303\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_afc126dc58b4f242c16a9055a6b0db286}{operator==}}(\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classdai_1_1BipartiteGraph}{BipartiteGraph}}\&\ x\ )\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00304\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a6b4f272b57126b4dfb572674eba5c035}{nrNodes1}}()\ !=\ x.\mbox{\hyperlink{classdai_1_1BipartiteGraph_a6b4f272b57126b4dfb572674eba5c035}{nrNodes1}}()\ )}
+\DoxyCodeLine{00305\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00306\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a709376c998449338193e10f9c2250e25}{nrNodes2}}()\ !=\ x.\mbox{\hyperlink{classdai_1_1BipartiteGraph_a709376c998449338193e10f9c2250e25}{nrNodes2}}()\ )}
+\DoxyCodeLine{00307\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00308\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\ \textcolor{keywordtype}{size\_t}\ n1\ =\ 0;\ n1\ <\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a6b4f272b57126b4dfb572674eba5c035}{nrNodes1}}();\ n1++\ )\ \{}
+\DoxyCodeLine{00309\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a0b31bd0db6aff70fe8ba245882783607}{nb1}}(n1).size()\ !=\ x.\mbox{\hyperlink{classdai_1_1BipartiteGraph_a0b31bd0db6aff70fe8ba245882783607}{nb1}}(n1).size()\ )}
+\DoxyCodeLine{00310\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00311\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{util_8h_ab712ec4331593f848c40b97a80186850}{bforeach}}(\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structdai_1_1Neighbor}{Neighbor}}\ \&n2,\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a0b31bd0db6aff70fe8ba245882783607}{nb1}}(n1)\ )}
+\DoxyCodeLine{00312\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ !x.\mbox{\hyperlink{classdai_1_1BipartiteGraph_acb368c526245b1083e15b4d9d6a41d53}{hasEdge}}(\ n1,\ n2\ )\ )}
+\DoxyCodeLine{00313\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00314\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{util_8h_ab712ec4331593f848c40b97a80186850}{bforeach}}(\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structdai_1_1Neighbor}{Neighbor}}\ \&n2,\ x.\mbox{\hyperlink{classdai_1_1BipartiteGraph_a0b31bd0db6aff70fe8ba245882783607}{nb1}}(n1)\ )}
+\DoxyCodeLine{00315\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ !\mbox{\hyperlink{classdai_1_1BipartiteGraph_acb368c526245b1083e15b4d9d6a41d53}{hasEdge}}(\ n1,\ n2\ )\ )}
+\DoxyCodeLine{00316\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00317\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00318\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00319\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00320\ }
+\DoxyCodeLine{00322\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_aa0d183bd44d3ff5f73c2d33401d3acd4}{checkConsistency}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00324\ }
+\DoxyCodeLine{00326\ }
+\DoxyCodeLine{00327\ }
+\DoxyCodeLine{00328\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a17d1603e065bad1eb08064893648dad3}{printDot}}(\ std::ostream\&\ os\ )\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00329\ }
+\DoxyCodeLine{00331\ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ std::ostream\&\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a1f7fd6d3681e10e537ee865ac9fcc857}{operator<<}}(\ std::ostream\&\ os,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classdai_1_1BipartiteGraph}{BipartiteGraph}}\&\ g\ )\ \{}
+\DoxyCodeLine{00332\ \ \ \ \ \ \ \ \ \ \ \ \ g.\mbox{\hyperlink{classdai_1_1BipartiteGraph_a17d1603e065bad1eb08064893648dad3}{printDot}}(\ os\ );}
+\DoxyCodeLine{00333\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ os;}
+\DoxyCodeLine{00334\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00335\ }
+\DoxyCodeLine{00337\ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a4c80ed7a841456c8bc4661f70dd903e0}{toString}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00338\ \ \ \ \ \ \ \ \ \ \ \ \ std::stringstream\ ss;}
+\DoxyCodeLine{00339\ \ \ \ \ \ \ \ \ \ \ \ \ ss\ <<\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00340\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ss.str();}
+\DoxyCodeLine{00341\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00343\ \};}
+\DoxyCodeLine{00344\ }
+\DoxyCodeLine{00345\ }
+\DoxyCodeLine{00346\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ EdgeInputIterator>}
+\DoxyCodeLine{00347\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a6250d880f74abd043bea6db0e44beffc}{BipartiteGraph::construct}}(\ \textcolor{keywordtype}{size\_t}\ nrNodes1,\ \textcolor{keywordtype}{size\_t}\ nrNodes2,\ EdgeInputIterator\ begin,\ EdgeInputIterator\ end,\ \textcolor{keywordtype}{bool}\ check\ )\ \{}
+\DoxyCodeLine{00348\ \ \ \ \ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a913ea0d6c734cc8cde8ddba4db192995}{\_nb1}}.clear();}
+\DoxyCodeLine{00349\ \ \ \ \ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a913ea0d6c734cc8cde8ddba4db192995}{\_nb1}}.resize(\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a6b4f272b57126b4dfb572674eba5c035}{nrNodes1}}\ );}
+\DoxyCodeLine{00350\ \ \ \ \ \mbox{\hyperlink{classdai_1_1BipartiteGraph_aeff78b5b0f22831f98c2c1ebf481779f}{\_nb2}}.clear();}
+\DoxyCodeLine{00351\ \ \ \ \ \mbox{\hyperlink{classdai_1_1BipartiteGraph_aeff78b5b0f22831f98c2c1ebf481779f}{\_nb2}}.resize(\ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a709376c998449338193e10f9c2250e25}{nrNodes2}}\ );}
+\DoxyCodeLine{00352\ }
+\DoxyCodeLine{00353\ \ \ \ \ \textcolor{keywordflow}{for}(\ EdgeInputIterator\ e\ =\ begin;\ e\ !=\ end;\ e++\ )}
+\DoxyCodeLine{00354\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdai_1_1BipartiteGraph_adaa360aab7175a2510c3f22a708b8930}{addEdge}}(\ e-\/>first,\ e-\/>second,\ check\ );}
+\DoxyCodeLine{00355\ \}}
+\DoxyCodeLine{00356\ }
+\DoxyCodeLine{00357\ }
+\DoxyCodeLine{00358\ \}\ \textcolor{comment}{//\ end\ of\ namespace\ dai}}
+\DoxyCodeLine{00359\ }
+\DoxyCodeLine{00360\ }
+\DoxyCodeLine{00396\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

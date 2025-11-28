@@ -1,0 +1,462 @@
+\doxysection{include/dai/util.h File Reference}
+\hypertarget{util_8h}{}\label{util_8h}\index{include/dai/util.h@{include/dai/util.h}}
+
+
+Defines general utility functions and adds an abstraction layer for platform-\/dependent functionality.  
+
+
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$set$>$}\newline
+{\ttfamily \#include $<$map$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$boost/foreach.\+hpp$>$}\newline
+{\ttfamily \#include $<$boost/functional/hash.\+hpp$>$}\newline
+{\ttfamily \#include $<$boost/lexical\+\_\+cast.\+hpp$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$cerrno$>$}\newline
+{\ttfamily \#include $<$gmpxx.\+h$>$}\newline
+{\ttfamily \#include $<$dai/exceptions.\+h$>$}\newline
+{\ttfamily \#include $<$tr1/unordered\+\_\+map$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classdai_1_1hash__map}{dai\+::hash\+\_\+map$<$ T, U, H $>$}}
+\begin{DoxyCompactList}\small\item\em \doxylink{classdai_1_1hash__map}{hash\+\_\+map} is an alias for {\ttfamily std\+::tr1\+::unordered\+\_\+map}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{util_8h_ab712ec4331593f848c40b97a80186850}{bforeach}}~BOOST\+\_\+\+FOREACH
+\begin{DoxyCompactList}\small\item\em An alias to the BOOST\+\_\+\+FOREACH macro from the boost\+::bforeach library. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{util_8h_a96e01a7cbb43e22c9ad60c44dbd11b0e}{DAI\+\_\+\+PV}}(x)~do \{std\+::cerr $<$$<$ \#x "{}= "{} $<$$<$ (x) $<$$<$ std\+::endl;\} while(0)
+\begin{DoxyCompactList}\small\item\em "{}\+Print variable"{}. Prints the text of an expression, followed by its value (only if DAI\+\_\+\+DEBUG is defined) \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{util_8h_a9cfc7b5625e3614b60894303f222258e}{DAI\+\_\+\+DMSG}}(str)~do \{std\+::cerr $<$$<$ str $<$$<$ std\+::endl;\} while(0)
+\begin{DoxyCompactList}\small\item\em "{}\+Debugging message"{}\+: Prints a message (only if DAI\+\_\+\+DEBUG is defined) \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{util_8h_a1281e8d3038e33f33a18e8533e9698bd}{DAI\+\_\+\+IFVERB}}(n,  stmt)~if(props.\+verbose$>$=n) \{ std\+::cerr $<$$<$ stmt; \}
+\begin{DoxyCompactList}\small\item\em Macro to write message {\itshape stmt} to {\ttfamily std\+::cerr} if {\itshape props.\+verbose} \texorpdfstring{$>$}{>}= {\itshape n}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef double \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{dai\+::\+Real}}
+\begin{DoxyCompactList}\small\item\em Real number (alias for {\ttfamily double}, which could be changed to {\ttfamily long double} if necessary) \end{DoxyCompactList}\item 
+typedef mpz\+\_\+class \mbox{\hyperlink{util_8h_acc277bd4f0edae875fca22f063a37220}{dai\+::\+Big\+Int}}
+\begin{DoxyCompactList}\small\item\em Arbitrary precision integer number. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{util_8h_ae0d0ef753bd0ba57586e556ab6312677}{dai\+::\+Prob\+Norm\+Type}} \{ {\bfseries NORMPROB}
+, {\bfseries NORMLINF}
+ \}
+\begin{DoxyCompactList}\small\item\em Enumerates different ways of normalizing a probability measure. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{util_8h_aa2735a823696443089d2de23e8ee6ecb}{dai\+::\+Prob\+Dist\+Type}} \{ \newline
+{\bfseries DISTL1}
+, {\bfseries DISTLINF}
+, {\bfseries DISTTV}
+, {\bfseries DISTKL}
+, \newline
+{\bfseries DISTHEL}
+ \}
+\begin{DoxyCompactList}\small\item\em Enumerates different distance measures between probability measures. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+size\+\_\+t \mbox{\hyperlink{util_8h_a8f9fdd7b607434fcda10d5be59f512d1}{dai\+::\+Big\+Int\+\_\+size\+\_\+t}} (const \mbox{\hyperlink{util_8h_acc277bd4f0edae875fca22f063a37220}{Big\+Int}} \&N)
+\begin{DoxyCompactList}\small\item\em Safe down-\/cast of big integer to size\+\_\+t. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{util_8cpp_a9886ca4103eac52b3f82698e12e86672}{dai\+::isnan}} (\mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} x)
+\begin{DoxyCompactList}\small\item\em Returns true if argument is NAN (Not A Number) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} \mbox{\hyperlink{util_8h_a934491ad55f57c9072271b4a32ea4919}{dai\+::log}} (\mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} x)
+\begin{DoxyCompactList}\small\item\em Returns logarithm of {\itshape x}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} \mbox{\hyperlink{util_8h_a00375a4d7b55534c14f993c909b04c3c}{dai\+::log0}} (\mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} x)
+\begin{DoxyCompactList}\small\item\em Returns logarithm of {\itshape x}, or 0 if {\itshape x} == 0. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} \mbox{\hyperlink{util_8h_ac336ffb182b6e6fa3f7df13620aab012}{dai\+::exp}} (\mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} x)
+\begin{DoxyCompactList}\small\item\em Returns exponent of {\itshape x}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} \mbox{\hyperlink{util_8h_a16465ce3d62a6456fd06e9a226c966f2}{dai\+::pow}} (\mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} x, \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} y)
+\begin{DoxyCompactList}\small\item\em Returns {\itshape x} to the power {\itshape y}. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{util_8cpp_ab27c0799ddef29bb3833477e32c53862}{dai\+::toc}} ()
+\begin{DoxyCompactList}\small\item\em Returns wall clock time in seconds. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T $>$ }\\T \mbox{\hyperlink{util_8h_a89f208a23b353176f4797877a0b2b2a5}{dai\+::abs}} (const T \&t)
+\begin{DoxyCompactList}\small\item\em Returns absolute value of {\itshape t}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{util_8cpp_ae699eca7ca4d6e971b54c2b4a95942d4}{dai\+::rnd\+\_\+seed}} (size\+\_\+t seed)
+\begin{DoxyCompactList}\small\item\em Sets the random seed. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} \mbox{\hyperlink{util_8cpp_a129f3a9c518c632c985d045a4f8c60f9}{dai\+::rnd\+\_\+uniform}} ()
+\begin{DoxyCompactList}\small\item\em Returns a real number, distributed uniformly on \mbox{[}0,1) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} \mbox{\hyperlink{util_8cpp_ac3f6d317ca42fbb4b643aa8c82692d74}{dai\+::rnd\+\_\+stdnormal}} ()
+\begin{DoxyCompactList}\small\item\em Returns a real number from a standard-\/normal distribution. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{util_8cpp_ac02317b960b112637976333f90d1f937}{dai\+::rnd\+\_\+int}} (int min, int max)
+\begin{DoxyCompactList}\small\item\em Returns a random integer in interval \mbox{[}{\itshape min}, {\itshape max}\mbox{]}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{util_8h_affae7aacdd26b4a580fbb8790cbccc86}{dai\+::rnd}} (int n)
+\begin{DoxyCompactList}\small\item\em Returns a random integer in the half-\/open interval \mbox{[}0, {\itshape n}) \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T $>$ }\\std\+::string \mbox{\hyperlink{util_8h_a20efc75c125a2a3e97eda59fbb77b4f5}{dai\+::to\+String}} (const T \&x)
+\begin{DoxyCompactList}\small\item\em Converts a variable of type {\itshape T} to a {\ttfamily std\+::string} by using a {\ttfamily boost\+::lexical\+\_\+cast}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T $>$ }\\T \mbox{\hyperlink{util_8h_a94b4dd96324af3c0511584a0925f9c15}{dai\+::from\+String}} (const std\+::string \&x)
+\begin{DoxyCompactList}\small\item\em Converts a variable of type std\+::string to {\itshape T} by using a {\ttfamily boost\+::lexical\+\_\+cast}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T $>$ }\\std\+::ostream \& \mbox{\hyperlink{util_8h_a270453bc5ccbc6c6f030a162c8a849f0}{dai\+::operator$<$$<$}} (std\+::ostream \&os, const std\+::vector$<$ T $>$ \&x)
+\begin{DoxyCompactList}\small\item\em Writes a {\ttfamily std\+::vector$<$$>$} to a {\ttfamily std\+::ostream}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T $>$ }\\std\+::string \mbox{\hyperlink{util_8h_a9c6f69f86368caebc2d1dc8acf184fed}{dai\+::vec\+To\+String}} (const std\+::vector$<$ T $>$ \&x)
+\begin{DoxyCompactList}\small\item\em Writes a {\ttfamily std\+::vector$<$$>$} to a {\ttfamily std\+::string}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T $>$ }\\std\+::ostream \& \mbox{\hyperlink{util_8h_a65996d1eb37ec9b8f1a588c0ef696797}{dai\+::operator$<$$<$}} (std\+::ostream \&os, const std\+::set$<$ T $>$ \&x)
+\begin{DoxyCompactList}\small\item\em Writes a {\ttfamily std\+::set$<$$>$} to a {\ttfamily std\+::ostream}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T1 , class T2 $>$ }\\std\+::ostream \& \mbox{\hyperlink{util_8h_a46d91c2e9f92ba038e0fc0efb59d6681}{dai\+::operator$<$$<$}} (std\+::ostream \&os, const std\+::map$<$ T1, T2 $>$ \&x)
+\begin{DoxyCompactList}\small\item\em Writes a {\ttfamily std\+::map$<$$>$} to a {\ttfamily std\+::ostream}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T1 , class T2 $>$ }\\std\+::ostream \& \mbox{\hyperlink{util_8h_a758cf0f749f137682ea9abc882dd0594}{dai\+::operator$<$$<$}} (std\+::ostream \&os, const std\+::pair$<$ T1, T2 $>$ \&x)
+\begin{DoxyCompactList}\small\item\em Writes a {\ttfamily std\+::pair$<$$>$} to a {\ttfamily std\+::ostream}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T $>$ }\\std\+::vector$<$ T $>$ \mbox{\hyperlink{util_8h_a1b097501061c480599870cc973bb9fce}{dai\+::concat}} (const std\+::vector$<$ T $>$ \&u, const std\+::vector$<$ T $>$ \&v)
+\begin{DoxyCompactList}\small\item\em Concatenates two vectors. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{util_8cpp_a87303da2767f4906ea37216bdc9278ca}{dai\+::tokenize\+String}} (const std\+::string \&s, bool single\+Delim, const std\+::string \&delim="{}\textbackslash{}t\textbackslash{}n"{})
+\begin{DoxyCompactList}\small\item\em Split a string into tokens delimited by one of the characters in {\itshape delim}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Defines general utility functions and adds an abstraction layer for platform-\/dependent functionality. 
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{util_8h_ab712ec4331593f848c40b97a80186850}\label{util_8h_ab712ec4331593f848c40b97a80186850} 
+\index{util.h@{util.h}!bforeach@{bforeach}}
+\index{bforeach@{bforeach}!util.h@{util.h}}
+\doxysubsubsection{\texorpdfstring{bforeach}{bforeach}}
+{\footnotesize\ttfamily \#define bforeach~BOOST\+\_\+\+FOREACH}
+
+
+
+An alias to the BOOST\+\_\+\+FOREACH macro from the boost\+::bforeach library. 
+
+\Hypertarget{util_8h_a96e01a7cbb43e22c9ad60c44dbd11b0e}\label{util_8h_a96e01a7cbb43e22c9ad60c44dbd11b0e} 
+\index{util.h@{util.h}!DAI\_PV@{DAI\_PV}}
+\index{DAI\_PV@{DAI\_PV}!util.h@{util.h}}
+\doxysubsubsection{\texorpdfstring{DAI\_PV}{DAI\_PV}}
+{\footnotesize\ttfamily \#define DAI\+\_\+\+PV(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~do \{std\+::cerr $<$$<$ \#x "{}= "{} $<$$<$ (x) $<$$<$ std\+::endl;\} while(0)}
+
+
+
+"{}\+Print variable"{}. Prints the text of an expression, followed by its value (only if DAI\+\_\+\+DEBUG is defined) 
+
+Useful debugging macro to see what your code is doing. Example\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{util_8h_a96e01a7cbb43e22c9ad60c44dbd11b0e}{DAI\_PV}}(3+4)\ }
+
+\end{DoxyCode}
+ Output\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{3+4=\ 7\ }
+
+\end{DoxyCode}
+ \Hypertarget{util_8h_a9cfc7b5625e3614b60894303f222258e}\label{util_8h_a9cfc7b5625e3614b60894303f222258e} 
+\index{util.h@{util.h}!DAI\_DMSG@{DAI\_DMSG}}
+\index{DAI\_DMSG@{DAI\_DMSG}!util.h@{util.h}}
+\doxysubsubsection{\texorpdfstring{DAI\_DMSG}{DAI\_DMSG}}
+{\footnotesize\ttfamily \#define DAI\+\_\+\+DMSG(\begin{DoxyParamCaption}\item[{}]{str }\end{DoxyParamCaption})~do \{std\+::cerr $<$$<$ str $<$$<$ std\+::endl;\} while(0)}
+
+
+
+"{}\+Debugging message"{}\+: Prints a message (only if DAI\+\_\+\+DEBUG is defined) 
+
+\Hypertarget{util_8h_a1281e8d3038e33f33a18e8533e9698bd}\label{util_8h_a1281e8d3038e33f33a18e8533e9698bd} 
+\index{util.h@{util.h}!DAI\_IFVERB@{DAI\_IFVERB}}
+\index{DAI\_IFVERB@{DAI\_IFVERB}!util.h@{util.h}}
+\doxysubsubsection{\texorpdfstring{DAI\_IFVERB}{DAI\_IFVERB}}
+{\footnotesize\ttfamily \#define DAI\+\_\+\+IFVERB(\begin{DoxyParamCaption}\item[{}]{n,  }\item[{}]{stmt }\end{DoxyParamCaption})~if(props.\+verbose$>$=n) \{ std\+::cerr $<$$<$ stmt; \}}
+
+
+
+Macro to write message {\itshape stmt} to {\ttfamily std\+::cerr} if {\itshape props.\+verbose} \texorpdfstring{$>$}{>}= {\itshape n}. 
+
+
+
+\doxysubsection{Typedef Documentation}
+\Hypertarget{util_8h_ae7d0472fdc89a8635825d01940e91cbf}\label{util_8h_ae7d0472fdc89a8635825d01940e91cbf} 
+\index{util.h@{util.h}!Real@{Real}}
+\index{Real@{Real}!util.h@{util.h}}
+\doxysubsubsection{\texorpdfstring{Real}{Real}}
+{\footnotesize\ttfamily typedef double \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{dai\+::\+Real}}}
+
+
+
+Real number (alias for {\ttfamily double}, which could be changed to {\ttfamily long double} if necessary) 
+
+\Hypertarget{util_8h_acc277bd4f0edae875fca22f063a37220}\label{util_8h_acc277bd4f0edae875fca22f063a37220} 
+\index{util.h@{util.h}!BigInt@{BigInt}}
+\index{BigInt@{BigInt}!util.h@{util.h}}
+\doxysubsubsection{\texorpdfstring{BigInt}{BigInt}}
+{\footnotesize\ttfamily typedef mpz\+\_\+class \mbox{\hyperlink{util_8h_acc277bd4f0edae875fca22f063a37220}{dai\+::\+Big\+Int}}}
+
+
+
+Arbitrary precision integer number. 
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{util_8h_ae0d0ef753bd0ba57586e556ab6312677}\label{util_8h_ae0d0ef753bd0ba57586e556ab6312677} 
+\index{util.h@{util.h}!ProbNormType@{ProbNormType}}
+\index{ProbNormType@{ProbNormType}!util.h@{util.h}}
+\doxysubsubsection{\texorpdfstring{ProbNormType}{ProbNormType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{util_8h_ae0d0ef753bd0ba57586e556ab6312677}{dai\+::\+Prob\+Norm\+Type}}}
+
+
+
+Enumerates different ways of normalizing a probability measure. 
+
+
+\begin{DoxyItemize}
+\item NORMPROB means that the sum of all entries should be 1;
+\item NORMLINF means that the maximum absolute value of all entries should be 1. 
+\end{DoxyItemize}\Hypertarget{util_8h_aa2735a823696443089d2de23e8ee6ecb}\label{util_8h_aa2735a823696443089d2de23e8ee6ecb} 
+\index{util.h@{util.h}!ProbDistType@{ProbDistType}}
+\index{ProbDistType@{ProbDistType}!util.h@{util.h}}
+\doxysubsubsection{\texorpdfstring{ProbDistType}{ProbDistType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{util_8h_aa2735a823696443089d2de23e8ee6ecb}{dai\+::\+Prob\+Dist\+Type}}}
+
+
+
+Enumerates different distance measures between probability measures. 
+
+
+\begin{DoxyItemize}
+\item DISTL1 is the $\ell_1$ distance (sum of absolute values of pointwise difference);
+\item DISTLINF is the $\ell_\infty$ distance (maximum absolute value of pointwise difference);
+\item DISTTV is the total variation distance (half of the $\ell_1$ distance);
+\item DISTKL is the Kullback-\/\+Leibler distance ( $\sum_i p_i (\log p_i - \log q_i)$).
+\item DISTHEL is the Hellinger distance ( $\frac{1}{2}\sum_i (\sqrt{p_i}-\sqrt{q_i})^2$). 
+\end{DoxyItemize}
+
+\doxysubsection{Function Documentation}
+\Hypertarget{util_8h_a8f9fdd7b607434fcda10d5be59f512d1}\label{util_8h_a8f9fdd7b607434fcda10d5be59f512d1} 
+\index{util.h@{util.h}!BigInt\_size\_t@{BigInt\_size\_t}}
+\index{BigInt\_size\_t@{BigInt\_size\_t}!util.h@{util.h}}
+\doxysubsubsection{\texorpdfstring{BigInt\_size\_t()}{BigInt\_size\_t()}}
+{\footnotesize\ttfamily size\+\_\+t dai\+::\+Big\+Int\+\_\+size\+\_\+t (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{util_8h_acc277bd4f0edae875fca22f063a37220}{Big\+Int}} \&}]{N }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Safe down-\/cast of big integer to size\+\_\+t. 
+
+\Hypertarget{util_8cpp_a9886ca4103eac52b3f82698e12e86672}\label{util_8cpp_a9886ca4103eac52b3f82698e12e86672} 
+\index{util.h@{util.h}!isnan@{isnan}}
+\index{isnan@{isnan}!util.h@{util.h}}
+\doxysubsubsection{\texorpdfstring{isnan()}{isnan()}}
+{\footnotesize\ttfamily bool dai\+::isnan (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}}}]{x }\end{DoxyParamCaption})}
+
+
+
+Returns true if argument is NAN (Not A Number) 
+
+\Hypertarget{util_8h_a934491ad55f57c9072271b4a32ea4919}\label{util_8h_a934491ad55f57c9072271b4a32ea4919} 
+\index{util.h@{util.h}!log@{log}}
+\index{log@{log}!util.h@{util.h}}
+\doxysubsubsection{\texorpdfstring{log()}{log()}}
+{\footnotesize\ttfamily Real dai\+::log (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}}}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns logarithm of {\itshape x}. 
+
+\Hypertarget{util_8h_a00375a4d7b55534c14f993c909b04c3c}\label{util_8h_a00375a4d7b55534c14f993c909b04c3c} 
+\index{util.h@{util.h}!log0@{log0}}
+\index{log0@{log0}!util.h@{util.h}}
+\doxysubsubsection{\texorpdfstring{log0()}{log0()}}
+{\footnotesize\ttfamily Real dai\+::log0 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}}}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns logarithm of {\itshape x}, or 0 if {\itshape x} == 0. 
+
+\Hypertarget{util_8h_ac336ffb182b6e6fa3f7df13620aab012}\label{util_8h_ac336ffb182b6e6fa3f7df13620aab012} 
+\index{util.h@{util.h}!exp@{exp}}
+\index{exp@{exp}!util.h@{util.h}}
+\doxysubsubsection{\texorpdfstring{exp()}{exp()}}
+{\footnotesize\ttfamily Real dai\+::exp (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}}}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns exponent of {\itshape x}. 
+
+\Hypertarget{util_8h_a16465ce3d62a6456fd06e9a226c966f2}\label{util_8h_a16465ce3d62a6456fd06e9a226c966f2} 
+\index{util.h@{util.h}!pow@{pow}}
+\index{pow@{pow}!util.h@{util.h}}
+\doxysubsubsection{\texorpdfstring{pow()}{pow()}}
+{\footnotesize\ttfamily Real dai\+::pow (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}}}]{x,  }\item[{\mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}}}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns {\itshape x} to the power {\itshape y}. 
+
+We use the convention that division by zero yields zero; for powers, this means that if {\itshape x} == 0.\+0 and {\itshape y} \texorpdfstring{$<$}{<} 0.\+0, we return 0.\+0 instead of generating an error. \Hypertarget{util_8cpp_ab27c0799ddef29bb3833477e32c53862}\label{util_8cpp_ab27c0799ddef29bb3833477e32c53862} 
+\index{util.h@{util.h}!toc@{toc}}
+\index{toc@{toc}!util.h@{util.h}}
+\doxysubsubsection{\texorpdfstring{toc()}{toc()}}
+{\footnotesize\ttfamily double dai\+::toc (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns wall clock time in seconds. 
+
+\Hypertarget{util_8h_a89f208a23b353176f4797877a0b2b2a5}\label{util_8h_a89f208a23b353176f4797877a0b2b2a5} 
+\index{util.h@{util.h}!abs@{abs}}
+\index{abs@{abs}!util.h@{util.h}}
+\doxysubsubsection{\texorpdfstring{abs()}{abs()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T dai\+::abs (\begin{DoxyParamCaption}\item[{const T \&}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns absolute value of {\itshape t}. 
+
+\Hypertarget{util_8cpp_ae699eca7ca4d6e971b54c2b4a95942d4}\label{util_8cpp_ae699eca7ca4d6e971b54c2b4a95942d4} 
+\index{util.h@{util.h}!rnd\_seed@{rnd\_seed}}
+\index{rnd\_seed@{rnd\_seed}!util.h@{util.h}}
+\doxysubsubsection{\texorpdfstring{rnd\_seed()}{rnd\_seed()}}
+{\footnotesize\ttfamily void dai\+::rnd\+\_\+seed (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{seed }\end{DoxyParamCaption})}
+
+
+
+Sets the random seed. 
+
+\Hypertarget{util_8cpp_a129f3a9c518c632c985d045a4f8c60f9}\label{util_8cpp_a129f3a9c518c632c985d045a4f8c60f9} 
+\index{util.h@{util.h}!rnd\_uniform@{rnd\_uniform}}
+\index{rnd\_uniform@{rnd\_uniform}!util.h@{util.h}}
+\doxysubsubsection{\texorpdfstring{rnd\_uniform()}{rnd\_uniform()}}
+{\footnotesize\ttfamily Real dai\+::rnd\+\_\+uniform (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns a real number, distributed uniformly on \mbox{[}0,1) 
+
+\Hypertarget{util_8cpp_ac3f6d317ca42fbb4b643aa8c82692d74}\label{util_8cpp_ac3f6d317ca42fbb4b643aa8c82692d74} 
+\index{util.h@{util.h}!rnd\_stdnormal@{rnd\_stdnormal}}
+\index{rnd\_stdnormal@{rnd\_stdnormal}!util.h@{util.h}}
+\doxysubsubsection{\texorpdfstring{rnd\_stdnormal()}{rnd\_stdnormal()}}
+{\footnotesize\ttfamily Real dai\+::rnd\+\_\+stdnormal (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns a real number from a standard-\/normal distribution. 
+
+\Hypertarget{util_8cpp_ac02317b960b112637976333f90d1f937}\label{util_8cpp_ac02317b960b112637976333f90d1f937} 
+\index{util.h@{util.h}!rnd\_int@{rnd\_int}}
+\index{rnd\_int@{rnd\_int}!util.h@{util.h}}
+\doxysubsubsection{\texorpdfstring{rnd\_int()}{rnd\_int()}}
+{\footnotesize\ttfamily int dai\+::rnd\+\_\+int (\begin{DoxyParamCaption}\item[{int}]{min,  }\item[{int}]{max }\end{DoxyParamCaption})}
+
+
+
+Returns a random integer in interval \mbox{[}{\itshape min}, {\itshape max}\mbox{]}. 
+
+\Hypertarget{util_8h_affae7aacdd26b4a580fbb8790cbccc86}\label{util_8h_affae7aacdd26b4a580fbb8790cbccc86} 
+\index{util.h@{util.h}!rnd@{rnd}}
+\index{rnd@{rnd}!util.h@{util.h}}
+\doxysubsubsection{\texorpdfstring{rnd()}{rnd()}}
+{\footnotesize\ttfamily int dai\+::rnd (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns a random integer in the half-\/open interval \mbox{[}0, {\itshape n}) 
+
+\Hypertarget{util_8h_a20efc75c125a2a3e97eda59fbb77b4f5}\label{util_8h_a20efc75c125a2a3e97eda59fbb77b4f5} 
+\index{util.h@{util.h}!toString@{toString}}
+\index{toString@{toString}!util.h@{util.h}}
+\doxysubsubsection{\texorpdfstring{toString()}{toString()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+std\+::string dai\+::to\+String (\begin{DoxyParamCaption}\item[{const T \&}]{x }\end{DoxyParamCaption})}
+
+
+
+Converts a variable of type {\itshape T} to a {\ttfamily std\+::string} by using a {\ttfamily boost\+::lexical\+\_\+cast}. 
+
+\Hypertarget{util_8h_a94b4dd96324af3c0511584a0925f9c15}\label{util_8h_a94b4dd96324af3c0511584a0925f9c15} 
+\index{util.h@{util.h}!fromString@{fromString}}
+\index{fromString@{fromString}!util.h@{util.h}}
+\doxysubsubsection{\texorpdfstring{fromString()}{fromString()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T dai\+::from\+String (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{x }\end{DoxyParamCaption})}
+
+
+
+Converts a variable of type std\+::string to {\itshape T} by using a {\ttfamily boost\+::lexical\+\_\+cast}. 
+
+\Hypertarget{util_8h_a270453bc5ccbc6c6f030a162c8a849f0}\label{util_8h_a270453bc5ccbc6c6f030a162c8a849f0} 
+\index{util.h@{util.h}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!util.h@{util.h}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+std\+::ostream \& dai\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{const std\+::vector$<$ T $>$ \&}]{x }\end{DoxyParamCaption})}
+
+
+
+Writes a {\ttfamily std\+::vector$<$$>$} to a {\ttfamily std\+::ostream}. 
+
+\Hypertarget{util_8h_a9c6f69f86368caebc2d1dc8acf184fed}\label{util_8h_a9c6f69f86368caebc2d1dc8acf184fed} 
+\index{util.h@{util.h}!vecToString@{vecToString}}
+\index{vecToString@{vecToString}!util.h@{util.h}}
+\doxysubsubsection{\texorpdfstring{vecToString()}{vecToString()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+std\+::string dai\+::vec\+To\+String (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ T $>$ \&}]{x }\end{DoxyParamCaption})}
+
+
+
+Writes a {\ttfamily std\+::vector$<$$>$} to a {\ttfamily std\+::string}. 
+
+\Hypertarget{util_8h_a65996d1eb37ec9b8f1a588c0ef696797}\label{util_8h_a65996d1eb37ec9b8f1a588c0ef696797} 
+\index{util.h@{util.h}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!util.h@{util.h}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+std\+::ostream \& dai\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{const std\+::set$<$ T $>$ \&}]{x }\end{DoxyParamCaption})}
+
+
+
+Writes a {\ttfamily std\+::set$<$$>$} to a {\ttfamily std\+::ostream}. 
+
+\Hypertarget{util_8h_a46d91c2e9f92ba038e0fc0efb59d6681}\label{util_8h_a46d91c2e9f92ba038e0fc0efb59d6681} 
+\index{util.h@{util.h}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!util.h@{util.h}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily template$<$class T1 , class T2 $>$ \\
+std\+::ostream \& dai\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{const std\+::map$<$ T1, T2 $>$ \&}]{x }\end{DoxyParamCaption})}
+
+
+
+Writes a {\ttfamily std\+::map$<$$>$} to a {\ttfamily std\+::ostream}. 
+
+\Hypertarget{util_8h_a758cf0f749f137682ea9abc882dd0594}\label{util_8h_a758cf0f749f137682ea9abc882dd0594} 
+\index{util.h@{util.h}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!util.h@{util.h}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily template$<$class T1 , class T2 $>$ \\
+std\+::ostream \& dai\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{const std\+::pair$<$ T1, T2 $>$ \&}]{x }\end{DoxyParamCaption})}
+
+
+
+Writes a {\ttfamily std\+::pair$<$$>$} to a {\ttfamily std\+::ostream}. 
+
+\Hypertarget{util_8h_a1b097501061c480599870cc973bb9fce}\label{util_8h_a1b097501061c480599870cc973bb9fce} 
+\index{util.h@{util.h}!concat@{concat}}
+\index{concat@{concat}!util.h@{util.h}}
+\doxysubsubsection{\texorpdfstring{concat()}{concat()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+std\+::vector$<$ T $>$ dai\+::concat (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ T $>$ \&}]{u,  }\item[{const std\+::vector$<$ T $>$ \&}]{v }\end{DoxyParamCaption})}
+
+
+
+Concatenates two vectors. 
+
+\Hypertarget{util_8cpp_a87303da2767f4906ea37216bdc9278ca}\label{util_8cpp_a87303da2767f4906ea37216bdc9278ca} 
+\index{util.h@{util.h}!tokenizeString@{tokenizeString}}
+\index{tokenizeString@{tokenizeString}!util.h@{util.h}}
+\doxysubsubsection{\texorpdfstring{tokenizeString()}{tokenizeString()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::string $>$ dai\+::tokenize\+String (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{s,  }\item[{bool}]{single\+Delim,  }\item[{const std\+::string \&}]{delim = {\ttfamily "{}\textbackslash{}t\textbackslash{}n"{}} }\end{DoxyParamCaption})}
+
+
+
+Split a string into tokens delimited by one of the characters in {\itshape delim}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & the string to be split into tokens \\
+\hline
+{\em single\+Delim} & if {\ttfamily true}, any single delimiter forms a boundary between two tokens; if {\ttfamily false}, a maximal group of consecutive delimiters forms a boundary between two tokens \\
+\hline
+{\em delim} & delimiter characters \\
+\hline
+\end{DoxyParams}

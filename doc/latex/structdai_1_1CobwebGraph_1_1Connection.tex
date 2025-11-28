@@ -1,0 +1,135 @@
+\doxysection{dai\+::Cobweb\+Graph\+::Connection Struct Reference}
+\hypertarget{structdai_1_1CobwebGraph_1_1Connection}{}\label{structdai_1_1CobwebGraph_1_1Connection}\index{dai::CobwebGraph::Connection@{dai::CobwebGraph::Connection}}
+
+
+The information in connection between two regions.  
+
+
+
+
+{\ttfamily \#include $<$dai/cobwebgraph.\+h$>$}
+
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+size\+\_\+t \mbox{\hyperlink{structdai_1_1CobwebGraph_1_1Connection_a5caef5246097a6f06af08ac3a399232d}{my}}
+\begin{DoxyCompactList}\small\item\em Index of the first region (p) \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{structdai_1_1CobwebGraph_1_1Connection_a2cd1b4d5351accf9f72df7882330354f}{his}}
+\begin{DoxyCompactList}\small\item\em Index of the second region (q) \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{structdai_1_1CobwebGraph_1_1Connection_ae71d8f647cf8f112513202569ab4d4c4}{iter}}
+\begin{DoxyCompactList}\small\item\em Index of this connection in the connections of the first region. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{structdai_1_1CobwebGraph_1_1Connection_af4754fa5e2d065549cec66b4727a8469}{dual}}
+\begin{DoxyCompactList}\small\item\em Index of the mirror of this connection in the connections of the second region. (reference of this message in \+\_\+outM) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{factor_8h_a7515abf9952cd312e95a34ada0670e85}{Factor}} \mbox{\hyperlink{structdai_1_1CobwebGraph_1_1Connection_ab95906fccd75c9342ca19953dfed7a1f}{msg}}
+\begin{DoxyCompactList}\small\item\em The message sent from region q (his) to p (my) \end{DoxyCompactList}\item 
+std\+::vector$<$ size\+\_\+t $>$ \mbox{\hyperlink{structdai_1_1CobwebGraph_1_1Connection_a75543ef24427ba4d6f899c216560b51e}{varinds}}
+\begin{DoxyCompactList}\small\item\em "{}\+Index"{} of variables in the message \end{DoxyCompactList}\item 
+\mbox{\hyperlink{factor_8h_a7515abf9952cd312e95a34ada0670e85}{Factor}} \mbox{\hyperlink{structdai_1_1CobwebGraph_1_1Connection_a9072dfec3d0281668d29a5b3efdd8d6f}{newmsg}}
+\begin{DoxyCompactList}\small\item\em Used as a temporary factor only. \end{DoxyCompactList}\item 
+std\+::vector$<$ size\+\_\+t $>$ \mbox{\hyperlink{structdai_1_1CobwebGraph_1_1Connection_ac45884ceb67041ccc2e2dee0f86d859c}{fc}}
+\begin{DoxyCompactList}\small\item\em Index of factors in common. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{classdai_1_1VarSet}{Var\+Set}} $>$ \mbox{\hyperlink{structdai_1_1CobwebGraph_1_1Connection_a6a3c4b4c5a145125d0d4605f42bf4011}{subregions}}
+\begin{DoxyCompactList}\small\item\em Regions rho that are descendents of msg from q to p in p\textquotesingle{}s msg-\/region graph (not used in partitioning case) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The information in connection between two regions. 
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structdai_1_1CobwebGraph_1_1Connection_a5caef5246097a6f06af08ac3a399232d}\label{structdai_1_1CobwebGraph_1_1Connection_a5caef5246097a6f06af08ac3a399232d} 
+\index{dai::CobwebGraph::Connection@{dai::CobwebGraph::Connection}!my@{my}}
+\index{my@{my}!dai::CobwebGraph::Connection@{dai::CobwebGraph::Connection}}
+\doxysubsubsection{\texorpdfstring{my}{my}}
+{\footnotesize\ttfamily size\+\_\+t dai\+::\+Cobweb\+Graph\+::\+Connection\+::my}
+
+
+
+Index of the first region (p) 
+
+\Hypertarget{structdai_1_1CobwebGraph_1_1Connection_a2cd1b4d5351accf9f72df7882330354f}\label{structdai_1_1CobwebGraph_1_1Connection_a2cd1b4d5351accf9f72df7882330354f} 
+\index{dai::CobwebGraph::Connection@{dai::CobwebGraph::Connection}!his@{his}}
+\index{his@{his}!dai::CobwebGraph::Connection@{dai::CobwebGraph::Connection}}
+\doxysubsubsection{\texorpdfstring{his}{his}}
+{\footnotesize\ttfamily size\+\_\+t dai\+::\+Cobweb\+Graph\+::\+Connection\+::his}
+
+
+
+Index of the second region (q) 
+
+\Hypertarget{structdai_1_1CobwebGraph_1_1Connection_ae71d8f647cf8f112513202569ab4d4c4}\label{structdai_1_1CobwebGraph_1_1Connection_ae71d8f647cf8f112513202569ab4d4c4} 
+\index{dai::CobwebGraph::Connection@{dai::CobwebGraph::Connection}!iter@{iter}}
+\index{iter@{iter}!dai::CobwebGraph::Connection@{dai::CobwebGraph::Connection}}
+\doxysubsubsection{\texorpdfstring{iter}{iter}}
+{\footnotesize\ttfamily size\+\_\+t dai\+::\+Cobweb\+Graph\+::\+Connection\+::iter}
+
+
+
+Index of this connection in the connections of the first region. 
+
+\Hypertarget{structdai_1_1CobwebGraph_1_1Connection_af4754fa5e2d065549cec66b4727a8469}\label{structdai_1_1CobwebGraph_1_1Connection_af4754fa5e2d065549cec66b4727a8469} 
+\index{dai::CobwebGraph::Connection@{dai::CobwebGraph::Connection}!dual@{dual}}
+\index{dual@{dual}!dai::CobwebGraph::Connection@{dai::CobwebGraph::Connection}}
+\doxysubsubsection{\texorpdfstring{dual}{dual}}
+{\footnotesize\ttfamily size\+\_\+t dai\+::\+Cobweb\+Graph\+::\+Connection\+::dual}
+
+
+
+Index of the mirror of this connection in the connections of the second region. (reference of this message in \+\_\+outM) 
+
+\Hypertarget{structdai_1_1CobwebGraph_1_1Connection_ab95906fccd75c9342ca19953dfed7a1f}\label{structdai_1_1CobwebGraph_1_1Connection_ab95906fccd75c9342ca19953dfed7a1f} 
+\index{dai::CobwebGraph::Connection@{dai::CobwebGraph::Connection}!msg@{msg}}
+\index{msg@{msg}!dai::CobwebGraph::Connection@{dai::CobwebGraph::Connection}}
+\doxysubsubsection{\texorpdfstring{msg}{msg}}
+{\footnotesize\ttfamily \mbox{\hyperlink{factor_8h_a7515abf9952cd312e95a34ada0670e85}{Factor}} dai\+::\+Cobweb\+Graph\+::\+Connection\+::msg}
+
+
+
+The message sent from region q (his) to p (my) 
+
+\Hypertarget{structdai_1_1CobwebGraph_1_1Connection_a75543ef24427ba4d6f899c216560b51e}\label{structdai_1_1CobwebGraph_1_1Connection_a75543ef24427ba4d6f899c216560b51e} 
+\index{dai::CobwebGraph::Connection@{dai::CobwebGraph::Connection}!varinds@{varinds}}
+\index{varinds@{varinds}!dai::CobwebGraph::Connection@{dai::CobwebGraph::Connection}}
+\doxysubsubsection{\texorpdfstring{varinds}{varinds}}
+{\footnotesize\ttfamily std\+::vector$<$size\+\_\+t$>$ dai\+::\+Cobweb\+Graph\+::\+Connection\+::varinds}
+
+
+
+"{}\+Index"{} of variables in the message 
+
+\Hypertarget{structdai_1_1CobwebGraph_1_1Connection_a9072dfec3d0281668d29a5b3efdd8d6f}\label{structdai_1_1CobwebGraph_1_1Connection_a9072dfec3d0281668d29a5b3efdd8d6f} 
+\index{dai::CobwebGraph::Connection@{dai::CobwebGraph::Connection}!newmsg@{newmsg}}
+\index{newmsg@{newmsg}!dai::CobwebGraph::Connection@{dai::CobwebGraph::Connection}}
+\doxysubsubsection{\texorpdfstring{newmsg}{newmsg}}
+{\footnotesize\ttfamily \mbox{\hyperlink{factor_8h_a7515abf9952cd312e95a34ada0670e85}{Factor}} dai\+::\+Cobweb\+Graph\+::\+Connection\+::newmsg}
+
+
+
+Used as a temporary factor only. 
+
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000004}{Todo}}]Remove \doxylink{structdai_1_1CobwebGraph_1_1Connection_a9072dfec3d0281668d29a5b3efdd8d6f}{Cobweb\+Graph\+::\+Connection\+::newmsg} \end{DoxyRefDesc}
+\Hypertarget{structdai_1_1CobwebGraph_1_1Connection_ac45884ceb67041ccc2e2dee0f86d859c}\label{structdai_1_1CobwebGraph_1_1Connection_ac45884ceb67041ccc2e2dee0f86d859c} 
+\index{dai::CobwebGraph::Connection@{dai::CobwebGraph::Connection}!fc@{fc}}
+\index{fc@{fc}!dai::CobwebGraph::Connection@{dai::CobwebGraph::Connection}}
+\doxysubsubsection{\texorpdfstring{fc}{fc}}
+{\footnotesize\ttfamily std\+::vector$<$size\+\_\+t$>$ dai\+::\+Cobweb\+Graph\+::\+Connection\+::fc}
+
+
+
+Index of factors in common. 
+
+\Hypertarget{structdai_1_1CobwebGraph_1_1Connection_a6a3c4b4c5a145125d0d4605f42bf4011}\label{structdai_1_1CobwebGraph_1_1Connection_a6a3c4b4c5a145125d0d4605f42bf4011} 
+\index{dai::CobwebGraph::Connection@{dai::CobwebGraph::Connection}!subregions@{subregions}}
+\index{subregions@{subregions}!dai::CobwebGraph::Connection@{dai::CobwebGraph::Connection}}
+\doxysubsubsection{\texorpdfstring{subregions}{subregions}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{classdai_1_1VarSet}{Var\+Set}}$>$ dai\+::\+Cobweb\+Graph\+::\+Connection\+::subregions}
+
+
+
+Regions rho that are descendents of msg from q to p in p\textquotesingle{}s msg-\/region graph (not used in partitioning case) 
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/dai/\mbox{\hyperlink{cobwebgraph_8h}{cobwebgraph.\+h}}\end{DoxyCompactItemize}

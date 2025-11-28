@@ -1,0 +1,34 @@
+\chapter{Ideas worth exploring}
+\hypertarget{ideas}{}\label{ideas}\index{Ideas worth exploring@{Ideas worth exploring}}
+
+\begin{DoxyRefList}
+\item[Class \doxylink{classdai_1_1BipartiteGraph}{dai\+::Bipartite\+Graph} ]\label{ideas__ideas000001}%
+\Hypertarget{ideas__ideas000001}%
+ Cache second-\/order neighborhoods in \doxylink{classdai_1_1BipartiteGraph}{Bipartite\+Graph}.  
+\item[Class \doxylink{classdai_1_1DAIAlg}{dai\+::DAIAlg\texorpdfstring{$<$}{<} GRM \texorpdfstring{$>$}{>}} ]\label{ideas__ideas000003}%
+\Hypertarget{ideas__ideas000003}%
+ A \doxylink{classdai_1_1DAIAlg}{DAIAlg} should not inherit from a \doxylink{classdai_1_1FactorGraph}{Factor\+Graph} or \doxylink{classdai_1_1RegionGraph}{Region\+Graph}, but should store a reference to the graphical model object. This prevents needless copying of (possibly large) data structures. Disadvantage\+: the caller must not change the graphical model between calls to the inference algorithm (maybe a smart\+\_\+ptr or some locking mechanism would help here?).  
+\item[Class \doxylink{classdai_1_1FactorGraph}{dai\+::Factor\+Graph} ]\label{ideas__ideas000004}%
+\Hypertarget{ideas__ideas000004}%
+ Alternative implementation of undo factor changes\+: the only things that have to be undone currently are setting a factor to 1 and setting a factor to a Kronecker delta. This could also be implemented in the \doxylink{classdai_1_1TFactor}{TFactor} itself, which could maintain its state (ones/delta/full) and act accordingly. Update\+: it seems that the proposed functionality would not be enough for CBP, for which it would make more sense to add more levels of backup/restore. 
+\item[Class \doxylink{classdai_1_1IndexFor}{dai\+::Index\+For} ]\label{ideas__ideas000005}%
+\Hypertarget{ideas__ideas000005}%
+ Optimize all indices as follows\+: keep a cache of all (or only relatively small) indices that have been computed (use a hash). Then, instead of computing on the fly, use the precomputed ones. Here the labels of the variables don\textquotesingle{}t matter, but the ranges of the variables do.  
+\item[Class \doxylink{classdai_1_1InfAlg}{dai\+::Inf\+Alg} ]\label{ideas__ideas000002}%
+\Hypertarget{ideas__ideas000002}%
+ General marginalization functions like calc\+Marginal() now copy a complete \doxylink{classdai_1_1InfAlg}{Inf\+Alg} object. Instead, it would make more sense that they construct a new object without copying the \doxylink{classdai_1_1FactorGraph}{Factor\+Graph} or \doxylink{classdai_1_1RegionGraph}{Region\+Graph}. Or they can simply be made methods of the general \doxylink{classdai_1_1InfAlg}{Inf\+Alg} class. 
+
+
+
+Use a \doxylink{classdai_1_1PropertySet}{Property\+Set} as output of an \doxylink{classdai_1_1InfAlg}{Inf\+Alg}, instead of functions like \doxylink{classdai_1_1InfAlg_a915a659034eb4c85abde912d684f8dee}{max\+Diff()} and \doxylink{classdai_1_1InfAlg_a89986bbc1a42554905c6f417f2227ac5}{Iterations()}.  
+\item[Class \doxylink{classdai_1_1RegionGraph}{dai\+::Region\+Graph} ]\label{ideas__ideas000007}%
+\Hypertarget{ideas__ideas000007}%
+ Generalize the definition of region graphs to the one given in \mbox{[}YFW05\mbox{]}, i.\+e., replace the current implementation which uses a \doxylink{classdai_1_1BipartiteGraph}{Bipartite\+Graph} with one that uses a DAG. 
+
+
+
+The outer regions are products of factors; right now, this product is constantly cached\+: changing one factor results in an update of all relevant outer regions. This may not be the most efficient approach; an alternative would be to only precompute the factor products at the start of an inference algorithm -\/ e.\+g., in init(). This has the additional advantage that \doxylink{classdai_1_1FactorGraph}{Factor\+Graph} e can offer write access to its factors.  
+\item[Class \doxylink{classdai_1_1State}{dai\+::State} ]\label{ideas__ideas000006}%
+\Hypertarget{ideas__ideas000006}%
+ Make the \doxylink{classdai_1_1State}{State} class a more prominent part of lib\+DAI (and document it clearly, explaining the concept of state); add more optimized variants of the \doxylink{classdai_1_1State}{State} class like \doxylink{classdai_1_1IndexFor}{Index\+For} (e.\+g. for \doxylink{classdai_1_1TFactor_ae9a1373a51646795b1b6b39fd6746e79}{TFactor$<$$>$\+::slice()}). 
+\end{DoxyRefList}

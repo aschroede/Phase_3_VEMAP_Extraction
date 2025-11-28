@@ -1,0 +1,187 @@
+\doxysection{dai\+::multifor Class Reference}
+\hypertarget{classdai_1_1multifor}{}\label{classdai_1_1multifor}\index{dai::multifor@{dai::multifor}}
+
+
+multifor makes it easy to perform a dynamic number of nested {\ttfamily for} loops.  
+
+
+
+
+{\ttfamily \#include $<$dai/index.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classdai_1_1multifor_afe6bf38a8a7946632ec190368b19762f}{multifor}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1multifor_a7b19447bc1102c1dacd22e9b60097136}{multifor}} (const std\+::vector$<$ size\+\_\+t $>$ \&d)
+\begin{DoxyCompactList}\small\item\em Initialize from vector of index ranges. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1multifor_a132ed1a5fcfb7c18cc6e4b6d9e12c407}{operator size\+\_\+t}} () const
+\begin{DoxyCompactList}\small\item\em Returns linear index (i.\+e., the index in the Cartesian product space) \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classdai_1_1multifor_a0baf3724646966a16694b6e938ddcabf}{operator\mbox{[}$\,$\mbox{]}}} (size\+\_\+t k) const
+\begin{DoxyCompactList}\small\item\em Returns {\itshape k} \textquotesingle{}th index. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1multifor}{multifor}} \& \mbox{\hyperlink{classdai_1_1multifor_a1c57330854a0ea7067b258743b73def4}{operator++}} ()
+\begin{DoxyCompactList}\small\item\em Increments the current indices (prefix) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classdai_1_1multifor_a3b75dc920f4fe0a1f6b625f2ee2f2846}{operator++}} (int)
+\begin{DoxyCompactList}\small\item\em Increments the current indices (postfix) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1multifor}{multifor}} \& \mbox{\hyperlink{classdai_1_1multifor_a36925c7754f7b03be9d0e6ba8c861b5f}{reset}} ()
+\begin{DoxyCompactList}\small\item\em Resets the state. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classdai_1_1multifor_a2f1c4b39d719de5059b9ff46f620eda1}{valid}} () const
+\begin{DoxyCompactList}\small\item\em Returns {\ttfamily true} if the current indices are valid. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ size\+\_\+t $>$ \mbox{\hyperlink{classdai_1_1multifor_addc34300e3e6c875f369b223e44f8fea}{\+\_\+ranges}}
+\begin{DoxyCompactList}\small\item\em Stores the number of possible values of all indices. \end{DoxyCompactList}\item 
+std\+::vector$<$ size\+\_\+t $>$ \mbox{\hyperlink{classdai_1_1multifor_a3d3d35b1478b26f71203ddccd386d560}{\+\_\+indices}}
+\begin{DoxyCompactList}\small\item\em Stores the current values of all indices. \end{DoxyCompactList}\item 
+long \mbox{\hyperlink{classdai_1_1multifor_a22f8950958f001ee921e2dc697781416}{\+\_\+linear\+\_\+index}}
+\begin{DoxyCompactList}\small\item\em Stores the current linear index. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+multifor makes it easy to perform a dynamic number of nested {\ttfamily for} loops. 
+
+An example of the usage is as follows\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{std::vector<size\_t>\ ranges;}
+\DoxyCodeLine{ranges.push\_back(\ 3\ );}
+\DoxyCodeLine{ranges.push\_back(\ 4\ );}
+\DoxyCodeLine{ranges.push\_back(\ 5\ );}
+\DoxyCodeLine{\textcolor{keywordflow}{for}(\ \mbox{\hyperlink{classdai_1_1multifor_afe6bf38a8a7946632ec190368b19762f}{multifor}}\ s(ranges);\ s.valid();\ ++s\ )}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}linear\ index:\ "{}}\ <<\ (\textcolor{keywordtype}{size\_t})s\ <<\ \textcolor{stringliteral}{"{}\ corresponds\ to\ indices\ "{}}\ <<\ s[2]\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ s[1]\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ s[0]\ <<\ endl;}
+
+\end{DoxyCode}
+ which would be equivalent to\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{size\_t}\ s\ =\ 0;}
+\DoxyCodeLine{\textcolor{keywordflow}{for}(\ \textcolor{keywordtype}{size\_t}\ s2\ =\ 0;\ s2\ <\ 5;\ s2++\ )}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{for}(\ \textcolor{keywordtype}{size\_t}\ s1\ =\ 0;\ s1\ <\ 4;\ s1++\ )}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\ \textcolor{keywordtype}{size\_t}\ s0\ =\ 0;\ s0\ <\ 3;\ s++,\ s0++\ )}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}linear\ index:\ "{}}\ <<\ (\textcolor{keywordtype}{size\_t})s\ <<\ \textcolor{stringliteral}{"{}\ corresponds\ to\ indices\ "{}}\ <<\ s2\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ s1\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ s0\ <<\ endl;}
+
+\end{DoxyCode}
+ 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classdai_1_1multifor_afe6bf38a8a7946632ec190368b19762f}\label{classdai_1_1multifor_afe6bf38a8a7946632ec190368b19762f} 
+\index{dai::multifor@{dai::multifor}!multifor@{multifor}}
+\index{multifor@{multifor}!dai::multifor@{dai::multifor}}
+\doxysubsubsection{\texorpdfstring{multifor()}{multifor()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily dai\+::multifor\+::multifor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Default constructor. 
+
+\Hypertarget{classdai_1_1multifor_a7b19447bc1102c1dacd22e9b60097136}\label{classdai_1_1multifor_a7b19447bc1102c1dacd22e9b60097136} 
+\index{dai::multifor@{dai::multifor}!multifor@{multifor}}
+\index{multifor@{multifor}!dai::multifor@{dai::multifor}}
+\doxysubsubsection{\texorpdfstring{multifor()}{multifor()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily dai\+::multifor\+::multifor (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ size\+\_\+t $>$ \&}]{d }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Initialize from vector of index ranges. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classdai_1_1multifor_a132ed1a5fcfb7c18cc6e4b6d9e12c407}\label{classdai_1_1multifor_a132ed1a5fcfb7c18cc6e4b6d9e12c407} 
+\index{dai::multifor@{dai::multifor}!operator size\_t@{operator size\_t}}
+\index{operator size\_t@{operator size\_t}!dai::multifor@{dai::multifor}}
+\doxysubsubsection{\texorpdfstring{operator size\_t()}{operator size\_t()}}
+{\footnotesize\ttfamily dai\+::multifor\+::operator size\+\_\+t (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns linear index (i.\+e., the index in the Cartesian product space) 
+
+\Hypertarget{classdai_1_1multifor_a0baf3724646966a16694b6e938ddcabf}\label{classdai_1_1multifor_a0baf3724646966a16694b6e938ddcabf} 
+\index{dai::multifor@{dai::multifor}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!dai::multifor@{dai::multifor}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}}
+{\footnotesize\ttfamily size\+\_\+t dai\+::multifor\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{k }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns {\itshape k} \textquotesingle{}th index. 
+
+\Hypertarget{classdai_1_1multifor_a1c57330854a0ea7067b258743b73def4}\label{classdai_1_1multifor_a1c57330854a0ea7067b258743b73def4} 
+\index{dai::multifor@{dai::multifor}!operator++@{operator++}}
+\index{operator++@{operator++}!dai::multifor@{dai::multifor}}
+\doxysubsubsection{\texorpdfstring{operator++()}{operator++()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classdai_1_1multifor}{multifor}} \& dai\+::multifor\+::operator++ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Increments the current indices (prefix) 
+
+\Hypertarget{classdai_1_1multifor_a3b75dc920f4fe0a1f6b625f2ee2f2846}\label{classdai_1_1multifor_a3b75dc920f4fe0a1f6b625f2ee2f2846} 
+\index{dai::multifor@{dai::multifor}!operator++@{operator++}}
+\index{operator++@{operator++}!dai::multifor@{dai::multifor}}
+\doxysubsubsection{\texorpdfstring{operator++()}{operator++()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void dai\+::multifor\+::operator++ (\begin{DoxyParamCaption}\item[{int}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Increments the current indices (postfix) 
+
+\Hypertarget{classdai_1_1multifor_a36925c7754f7b03be9d0e6ba8c861b5f}\label{classdai_1_1multifor_a36925c7754f7b03be9d0e6ba8c861b5f} 
+\index{dai::multifor@{dai::multifor}!reset@{reset}}
+\index{reset@{reset}!dai::multifor@{dai::multifor}}
+\doxysubsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classdai_1_1multifor}{multifor}} \& dai\+::multifor\+::reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Resets the state. 
+
+\Hypertarget{classdai_1_1multifor_a2f1c4b39d719de5059b9ff46f620eda1}\label{classdai_1_1multifor_a2f1c4b39d719de5059b9ff46f620eda1} 
+\index{dai::multifor@{dai::multifor}!valid@{valid}}
+\index{valid@{valid}!dai::multifor@{dai::multifor}}
+\doxysubsubsection{\texorpdfstring{valid()}{valid()}}
+{\footnotesize\ttfamily bool dai\+::multifor\+::valid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns {\ttfamily true} if the current indices are valid. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classdai_1_1multifor_addc34300e3e6c875f369b223e44f8fea}\label{classdai_1_1multifor_addc34300e3e6c875f369b223e44f8fea} 
+\index{dai::multifor@{dai::multifor}!\_ranges@{\_ranges}}
+\index{\_ranges@{\_ranges}!dai::multifor@{dai::multifor}}
+\doxysubsubsection{\texorpdfstring{\_ranges}{\_ranges}}
+{\footnotesize\ttfamily std\+::vector$<$size\+\_\+t$>$ dai\+::multifor\+::\+\_\+ranges\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Stores the number of possible values of all indices. 
+
+\Hypertarget{classdai_1_1multifor_a3d3d35b1478b26f71203ddccd386d560}\label{classdai_1_1multifor_a3d3d35b1478b26f71203ddccd386d560} 
+\index{dai::multifor@{dai::multifor}!\_indices@{\_indices}}
+\index{\_indices@{\_indices}!dai::multifor@{dai::multifor}}
+\doxysubsubsection{\texorpdfstring{\_indices}{\_indices}}
+{\footnotesize\ttfamily std\+::vector$<$size\+\_\+t$>$ dai\+::multifor\+::\+\_\+indices\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Stores the current values of all indices. 
+
+\Hypertarget{classdai_1_1multifor_a22f8950958f001ee921e2dc697781416}\label{classdai_1_1multifor_a22f8950958f001ee921e2dc697781416} 
+\index{dai::multifor@{dai::multifor}!\_linear\_index@{\_linear\_index}}
+\index{\_linear\_index@{\_linear\_index}!dai::multifor@{dai::multifor}}
+\doxysubsubsection{\texorpdfstring{\_linear\_index}{\_linear\_index}}
+{\footnotesize\ttfamily long dai\+::multifor\+::\+\_\+linear\+\_\+index\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Stores the current linear index. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/dai/\mbox{\hyperlink{index_8h}{index.\+h}}\end{DoxyCompactItemize}

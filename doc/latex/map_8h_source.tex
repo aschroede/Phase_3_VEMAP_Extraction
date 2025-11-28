@@ -1,0 +1,53 @@
+\doxysection{map.\+h}
+\hypertarget{map_8h_source}{}\label{map_8h_source}\index{include/dai/map.h@{include/dai/map.h}}
+\mbox{\hyperlink{map_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#ifndef\ \_\_defined\_libdai\_map\_h}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#define\ \_\_defined\_libdai\_map\_h}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <set>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{factorgraph_8h}{dai/factorgraph.h}}>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <dai/logger.h>}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{clustergraph_8h}{dai/clustergraph.h}}>}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{namespace\ }dai\ \{}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ EliminationChoice>}
+\DoxyCodeLine{00027\ \ \ \ \ vector<size\_t>\ getUnconstrainedElimOrder(\textcolor{keyword}{const}\ FactorGraph\&\ fg,\ EliminationChoice\ f,\ std::vector<unsigned\ int>\ query\_vars,\ std::vector<unsigned\ int>\ evidence\_vars);}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ EliminationChoice>}
+\DoxyCodeLine{00030\ \ \ \ \ vector<size\_t>\ getConstrainedElimOrder(\textcolor{keyword}{const}\ FactorGraph\&\ fg,\ EliminationChoice\ f,\ std::vector<unsigned\ int>\ map\_vars,\ std::vector<unsigned\ int>\ evidence\_vars);}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ std::pair<size\_t,\ BigInt>\ getElimOrderTreeWidth(\mbox{\hyperlink{classdai_1_1FactorGraph}{dai::FactorGraph}}\ fg,\ vector<size\_t>\ elimOrder);}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ tuple<map<Var,\ unsigned\ long>,\ \textcolor{keywordtype}{double}>\ get\_map\_ve(\mbox{\hyperlink{classdai_1_1FactorGraph}{dai::FactorGraph}}\ fg,\ std::vector<unsigned\ int>\ map\_vars,}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<unsigned\ int>\ evidence\_vars,}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<unsigned\ int>\ evidence\_values,\ \textcolor{keywordtype}{bool}\ mapList,}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LibLogger\&\ logger);}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ std::vector<unsigned\ long\ int>\ get\_map\_jt(\mbox{\hyperlink{classdai_1_1FactorGraph}{dai::FactorGraph}}\ fg,\ std::vector<unsigned\ int>\ hypothesis\_vars,\ std::vector<unsigned\ int>\ evidence\_vars,}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ std::vector<unsigned\ int>\ evidence\_values,\ \textcolor{keywordtype}{bool}\ mapList,\ LibLogger\ \&logger);}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \mbox{\hyperlink{classdai_1_1TFactor}{dai::Factor}}\ variableElimination(\mbox{\hyperlink{classdai_1_1FactorGraph}{dai::FactorGraph}}\ fg,\ std::vector<unsigned\ int>\ query\_vars,\ std::vector<unsigned\ int>\ evidence\_vars,}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<unsigned\ int>\ evidence\_values,\ LibLogger\ \&logger);}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ tuple<map<Var,\ unsigned\ long>,\ \textcolor{keywordtype}{double}>\ extractMax(\mbox{\hyperlink{classdai_1_1TFactor}{dai::Factor}}\ factor,\ LibLogger\&\ logger);}
+\DoxyCodeLine{00046\ \}}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

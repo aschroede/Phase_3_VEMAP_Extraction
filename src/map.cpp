@@ -220,6 +220,7 @@ std::pair<size_t, BigInt> getElimOrderTreeWidth(dai::FactorGraph fg, vector<size
     return make_pair(treeWidth, maxStates);
 }
 
+
 dai::Factor elim_vars(dai::FactorGraph fg, LibLogger& logger, vector<size_t> elimOrder)
 {
     std::vector<dai::Factor> factors = fg.factors();
@@ -276,10 +277,8 @@ dai::Factor elim_vars(dai::FactorGraph fg, LibLogger& logger, vector<size_t> eli
     }
     finalFactor.normalize();
 
-    logger.log(LogLevel::DEBUG, "Final Result (normalized): ");
-    logger.log(LogLevel::INFO, "\n" + finalFactor.toStringNice());
-
-    logger.log(LogLevel::DEBUG, "**** Variable Elimination complete ****");
+    // logger.log(LogLevel::INFO, "Final Result (normalized): ");
+    // logger.log(LogLevel::INFO, "**** Variable Elimination complete ****");
     return finalFactor;
 }
 
@@ -336,8 +335,8 @@ dai::Factor variableElimination(dai::FactorGraph fg, std::vector<unsigned int> q
  * @param logger A reference to the `dai::LibLogger` for logging the result.
  * @return A vector of `unsigned long int` representing the values of the variables for the MAP assignment.
  */
-std::vector<unsigned long int> extractMax(dai::Factor factor, LibLogger& logger) {
-    std::vector<unsigned long int> map;
+tuple<map<Var, unsigned long>, double> extractMax(dai::Factor factor, LibLogger& logger) {
+
     auto start = std::chrono::steady_clock::now();
     double max = 0.0;
     int entry = 0;
@@ -351,14 +350,25 @@ std::vector<unsigned long int> extractMax(dai::Factor factor, LibLogger& logger)
     // Transform index to a map of <Var, value> pairs
     std::map<dai::Var, size_t> mapValues = dai::calcState(factor.vars(), entry);
     auto end = std::chrono::steady_clock::now();
-    auto jtMaximiseTime = end - start;
 
-    for (auto const& i : mapValues) {
-        map.push_back(i.second);
+
+
+    // Log result and print to terminal
+    //logger.log(LogLevel::INFO, "MAP Assignment: ");
+
+    std::string result = "Map Assignment: ";
+    for (const auto &entry : mapValues)
+    {
+        //logger.log(LogLevel::INFO, "X" + std::to_string(entry.first.label()) + "=" + std::to_string(entry.second) + ", ");
+        result += "X" + std::to_string(entry.first.label()) + "=" + std::to_string(entry.second) + ", ";
     }
-    logger.log(LogLevel::INFO, "Map instantiation " + vecToString(map) + " has probability " + std::to_string(max));
+    result += " with probability " + std::to_string(max);
+    logger.log(LogLevel::INFO, result);
+    //logger.log(LogLevel::INFO, " with probability " + std::to_string(max));
 
-    return map;
+
+    // Should return the vector of variable assignments and max
+    return tuple(mapValues, max);
 }
 
 /**
@@ -374,32 +384,36 @@ std::vector<unsigned long int> extractMax(dai::Factor factor, LibLogger& logger)
  * @param evidence_values A vector of values for the evidence variables.
  * @param mapList A boolean indicating whether to list all map probabilities during computation (for debugging).
  * @param logger A reference to the `dai::LibLogger` for logging progress and results.
- * @return A `dai::Factor` representing the MAP assignment and its probability.
+ * @return A `dai::Factor` representing the factor of the MAP variables. Call extractMax() on this factor to extract MAP.
  */
 
-dai::Factor get_map_ve(dai::FactorGraph fg, std::vector<unsigned int> map_vars, std::vector<unsigned int> evidence_vars,
-    std::vector<unsigned int> evidence_values, bool mapList, LibLogger& logger) {
+tuple<map<Var, unsigned long>, double> get_map_ve(dai::FactorGraph fg, std::vector<unsigned int> map_vars,
+                                                  std::vector<unsigned int> evidence_vars,
+                                                  std::vector<unsigned int> evidence_values, bool mapList,
+                                                  LibLogger& logger) {
 
     auto start = std::chrono::steady_clock::now();
     for (size_t i = 0; i < evidence_vars.size(); ++i) {
         fg.clampReduce(evidence_vars[i], evidence_values[i], false);
     }
     auto end = std::chrono::steady_clock::now();
-    std::cout << "Clamping evidence " << std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count() << " ns" << std::endl;
 
     // Get constrained elimination order using a heuristic
     greedyVariableElimination::eliminationCostFunction ec = eliminationCost_MinFill;
-    logger.log(LogLevel::INFO, "[MAP] Heuristic Used: " + functionNames.at(ec));
+    logger.log(LogLevel::INFO, "Heuristic Used: " + functionNames.at(ec));
 
     vector<size_t> constrainedElimOrder = getConstrainedElimOrder(fg, greedyVariableElimination(ec), map_vars, evidence_vars);
-    logger.log(LogLevel::INFO, "[MAP] Elimination Order: " + vecToString(constrainedElimOrder));
+    logger.log(LogLevel::INFO, "Elimination Order: " + vecToString(constrainedElimOrder));
 
     // Calculate treewidth for logging purposes
     std::pair<size_t, BigInt> data = getElimOrderTreeWidth(fg, constrainedElimOrder);
     logger.log(LogLevel::INFO, "Treewidth: " + std::to_string(data.first));
     logger.log(LogLevel::INFO, "Maximum States in a single cluster: " + data.second.get_str());
 
-    return elim_vars(fg, logger, constrainedElimOrder);
+    auto map_factor = elim_vars(fg, logger, constrainedElimOrder);
+
+
+    return extractMax(map_factor, logger);
 }
 
 /**

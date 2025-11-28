@@ -1,0 +1,129 @@
+\doxysection{dai\+::Neighbor Struct Reference}
+\hypertarget{structdai_1_1Neighbor}{}\label{structdai_1_1Neighbor}\index{dai::Neighbor@{dai::Neighbor}}
+
+
+Describes the neighbor relationship of two nodes in a graph.  
+
+
+
+
+{\ttfamily \#include $<$dai/graph.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structdai_1_1Neighbor_adc0642fac15ade6ab1451708c8623114}{Neighbor}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structdai_1_1Neighbor_a4b9a406caa565f6b75824db1df18b0ee}{Neighbor}} (size\+\_\+t \mbox{\hyperlink{structdai_1_1Neighbor_ade0af4c962de1250e818badfdfb92ae5}{iter}}, size\+\_\+t \mbox{\hyperlink{structdai_1_1Neighbor_a1b9eb43d9c57bc445b733287fa6abbdf}{node}}, size\+\_\+t \mbox{\hyperlink{structdai_1_1Neighbor_a0e6674603c16566ea6500830c915805e}{dual}})
+\begin{DoxyCompactList}\small\item\em Constructor that allows setting the values of the member variables. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structdai_1_1Neighbor_a52a8e1b68316edf7616d99f6fb4dc553}{operator size\+\_\+t}} () const
+\begin{DoxyCompactList}\small\item\em Cast to {\ttfamily size\+\_\+t} returns {\ttfamily node} member. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+size\+\_\+t \mbox{\hyperlink{structdai_1_1Neighbor_ade0af4c962de1250e818badfdfb92ae5}{iter}}
+\begin{DoxyCompactList}\small\item\em Corresponds to the index of this \doxylink{structdai_1_1Neighbor}{Neighbor} entry in the vector of neighbors. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{structdai_1_1Neighbor_a1b9eb43d9c57bc445b733287fa6abbdf}{node}}
+\begin{DoxyCompactList}\small\item\em Contains the absolute index of the neighboring node. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{structdai_1_1Neighbor_a0e6674603c16566ea6500830c915805e}{dual}}
+\begin{DoxyCompactList}\small\item\em Contains the "{}dual"{} index (i.\+e., the index of this node in the Neighbors vector of the neighboring node) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Describes the neighbor relationship of two nodes in a graph. 
+
+Most graphs that lib\+DAI deals with are sparse. Therefore, a fast and memory-\/efficient way of representing the structure of a sparse graph is needed. A frequently used operation that also needs to be fast is switching between viewing node {\itshape a} as a neighbor of node {\itshape b}, and node {\itshape b} as a neighbor of node {\itshape a}. The \doxylink{structdai_1_1Neighbor}{Neighbor} struct solves both of these problems.
+
+Most sparse graphs in lib\+DAI are represented by storing for each node in the graph the set of its neighbors. In practice, this set of neighbors is stored using the Neighbors type, which is simply a std\+::vector\texorpdfstring{$<$}{<}\doxylink{structdai_1_1Neighbor}{Neighbor}\texorpdfstring{$>$}{>}. The \doxylink{structdai_1_1Neighbor}{Neighbor} struct contains the label of the neighboring node (the {\ttfamily node} member) and additional information which allows to access a node as a neighbor of its neighbor (the {\ttfamily dual} member). For convenience, each \doxylink{structdai_1_1Neighbor}{Neighbor} structure also stores its index in the Neighbors vector that it is part of (the {\ttfamily iter} member).
+
+By convention, variable identifiers naming indices into a vector of neighbors are prefixed with an underscore ("{}\+\_\+"{}). The neighbor list which they point into is then understood from the context.
+
+Let us denote the {\itshape \+\_\+j} \textquotesingle{}th neighbor of node {\itshape i} by {\ttfamily nb(i,\+\_\+j)}, which is of the \doxylink{structdai_1_1Neighbor}{Neighbor} type. Here, {\itshape i} is the "{}absolute"{} index of node {\itshape i}, but {\itshape \+\_\+j} is understood as a "{}relative"{} index, giving node {\itshape j} \textquotesingle{}s entry in the Neighbors {\ttfamily nb(i)} of node {\itshape i}. The absolute index of {\itshape \+\_\+j}, which would be denoted {\itshape j}, can be recovered from the {\ttfamily node} member, {\ttfamily nb(i,\+\_\+j).node}. The {\ttfamily iter} member {\ttfamily nb(i,\+\_\+j).iter} gives the relative index {\itshape \+\_\+j}, and the {\ttfamily dual} member {\ttfamily nb(i,\+\_\+j).dual} gives the "{}dual"{} relative index, i.\+e., the index of {\itshape i} in {\itshape j} \textquotesingle{}s neighbor list.
+
+Iteration over edges can be easily accomplished\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordflow}{for}(\ \textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ nrNodes();\ ++i\ )\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{size\_t}\ \_j\ =\ 0;}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{util_8h_ab712ec4331593f848c40b97a80186850}{bforeach}}(\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structdai_1_1Neighbor_adc0642fac15ade6ab1451708c8623114}{Neighbor}}\ \&j,\ nb(i)\ )\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ assert(\ j\ ==\ nb(i,j.iter)\ );}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ assert(\ nb(j.node,j.dual).node\ ==\ i\ );}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ assert(\ \_j\ =\ j.iter\ );}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \_j++;}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{structdai_1_1Neighbor_adc0642fac15ade6ab1451708c8623114}\label{structdai_1_1Neighbor_adc0642fac15ade6ab1451708c8623114} 
+\index{dai::Neighbor@{dai::Neighbor}!Neighbor@{Neighbor}}
+\index{Neighbor@{Neighbor}!dai::Neighbor@{dai::Neighbor}}
+\doxysubsubsection{\texorpdfstring{Neighbor()}{Neighbor()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily dai\+::\+Neighbor\+::\+Neighbor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Default constructor. 
+
+\Hypertarget{structdai_1_1Neighbor_a4b9a406caa565f6b75824db1df18b0ee}\label{structdai_1_1Neighbor_a4b9a406caa565f6b75824db1df18b0ee} 
+\index{dai::Neighbor@{dai::Neighbor}!Neighbor@{Neighbor}}
+\index{Neighbor@{Neighbor}!dai::Neighbor@{dai::Neighbor}}
+\doxysubsubsection{\texorpdfstring{Neighbor()}{Neighbor()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily dai\+::\+Neighbor\+::\+Neighbor (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{iter,  }\item[{size\+\_\+t}]{node,  }\item[{size\+\_\+t}]{dual }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor that allows setting the values of the member variables. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{structdai_1_1Neighbor_a52a8e1b68316edf7616d99f6fb4dc553}\label{structdai_1_1Neighbor_a52a8e1b68316edf7616d99f6fb4dc553} 
+\index{dai::Neighbor@{dai::Neighbor}!operator size\_t@{operator size\_t}}
+\index{operator size\_t@{operator size\_t}!dai::Neighbor@{dai::Neighbor}}
+\doxysubsubsection{\texorpdfstring{operator size\_t()}{operator size\_t()}}
+{\footnotesize\ttfamily dai\+::\+Neighbor\+::operator size\+\_\+t (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Cast to {\ttfamily size\+\_\+t} returns {\ttfamily node} member. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structdai_1_1Neighbor_ade0af4c962de1250e818badfdfb92ae5}\label{structdai_1_1Neighbor_ade0af4c962de1250e818badfdfb92ae5} 
+\index{dai::Neighbor@{dai::Neighbor}!iter@{iter}}
+\index{iter@{iter}!dai::Neighbor@{dai::Neighbor}}
+\doxysubsubsection{\texorpdfstring{iter}{iter}}
+{\footnotesize\ttfamily size\+\_\+t dai\+::\+Neighbor\+::iter}
+
+
+
+Corresponds to the index of this \doxylink{structdai_1_1Neighbor}{Neighbor} entry in the vector of neighbors. 
+
+\Hypertarget{structdai_1_1Neighbor_a1b9eb43d9c57bc445b733287fa6abbdf}\label{structdai_1_1Neighbor_a1b9eb43d9c57bc445b733287fa6abbdf} 
+\index{dai::Neighbor@{dai::Neighbor}!node@{node}}
+\index{node@{node}!dai::Neighbor@{dai::Neighbor}}
+\doxysubsubsection{\texorpdfstring{node}{node}}
+{\footnotesize\ttfamily size\+\_\+t dai\+::\+Neighbor\+::node}
+
+
+
+Contains the absolute index of the neighboring node. 
+
+\Hypertarget{structdai_1_1Neighbor_a0e6674603c16566ea6500830c915805e}\label{structdai_1_1Neighbor_a0e6674603c16566ea6500830c915805e} 
+\index{dai::Neighbor@{dai::Neighbor}!dual@{dual}}
+\index{dual@{dual}!dai::Neighbor@{dai::Neighbor}}
+\doxysubsubsection{\texorpdfstring{dual}{dual}}
+{\footnotesize\ttfamily size\+\_\+t dai\+::\+Neighbor\+::dual}
+
+
+
+Contains the "{}dual"{} index (i.\+e., the index of this node in the Neighbors vector of the neighboring node) 
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/dai/\mbox{\hyperlink{graph_8h}{graph.\+h}}\end{DoxyCompactItemize}

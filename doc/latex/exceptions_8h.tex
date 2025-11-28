@@ -1,0 +1,130 @@
+\doxysection{include/dai/exceptions.h File Reference}
+\hypertarget{exceptions_8h}{}\label{exceptions_8h}\index{include/dai/exceptions.h@{include/dai/exceptions.h}}
+
+
+Defines the Exception class and macros for throwing exceptions and doing assertions.  
+
+
+{\ttfamily \#include $<$exception$>$}\newline
+{\ttfamily \#include $<$stdexcept$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classdai_1_1Exception}{dai\+::\+Exception}}
+\begin{DoxyCompactList}\small\item\em Error handling in lib\+DAI is done by throwing an instance of the \doxylink{classdai_1_1Exception}{Exception} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{exceptions_8h_af10f03c819f0c08973f3bb7c47b95067}{DAI\+\_\+\+QUOTE}}(x)~\#x
+\begin{DoxyCompactList}\small\item\em Used by DAI\+\_\+\+THROW. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{exceptions_8h_ad7aa0cb04517a5423a6456097c076d08}{DAI\+\_\+\+TOSTRING}}(x)~\mbox{\hyperlink{exceptions_8h_af10f03c819f0c08973f3bb7c47b95067}{DAI\+\_\+\+QUOTE}}(x)
+\begin{DoxyCompactList}\small\item\em Used by DAI\+\_\+\+THROW. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{exceptions_8h_a922d2784284e8f6ee4009c3d92ba48b6}{FUNCTION\+\_\+\+NAME}}~\+\_\+\+\_\+func\+\_\+\+\_\+
+\begin{DoxyCompactList}\small\item\em Macro that simplifies throwing an exception with a useful default error message. \end{DoxyCompactList}\item 
+\Hypertarget{exceptions_8h_ae40c2873869c363218a8945a44e03525}\label{exceptions_8h_ae40c2873869c363218a8945a44e03525} 
+\#define {\bfseries DAI\+\_\+\+THROW}(cod)~throw \mbox{\hyperlink{classdai_1_1Exception}{dai\+::\+Exception}}(dai\+::\+Exception\+::cod, \+\_\+\+\_\+\+FILE\+\_\+\+\_\+, \mbox{\hyperlink{exceptions_8h_a922d2784284e8f6ee4009c3d92ba48b6}{FUNCTION\+\_\+\+NAME}}, \mbox{\hyperlink{exceptions_8h_ad7aa0cb04517a5423a6456097c076d08}{DAI\+\_\+\+TOSTRING}}(\+\_\+\+\_\+\+LINE\+\_\+\+\_\+), "{}"{})
+\item 
+\#define \mbox{\hyperlink{exceptions_8h_a29c0e906e26c7484c268d111c71f79da}{DAI\+\_\+\+THROWE}}(cod,  msg)~throw \mbox{\hyperlink{classdai_1_1Exception}{dai\+::\+Exception}}(dai\+::\+Exception\+::cod, \+\_\+\+\_\+\+FILE\+\_\+\+\_\+, \mbox{\hyperlink{exceptions_8h_a922d2784284e8f6ee4009c3d92ba48b6}{FUNCTION\+\_\+\+NAME}}, \mbox{\hyperlink{exceptions_8h_ad7aa0cb04517a5423a6456097c076d08}{DAI\+\_\+\+TOSTRING}}(\+\_\+\+\_\+\+LINE\+\_\+\+\_\+), msg)
+\begin{DoxyCompactList}\small\item\em Macro that simplifies throwing an exception with a user-\/defined error message. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{exceptions_8h_af50adc4fad1e07093579e746302bc884}{DAI\+\_\+\+ASSERT}}(condition)~((condition) ? ((void)0) \+: \mbox{\hyperlink{exceptions_8h_a29c0e906e26c7484c268d111c71f79da}{DAI\+\_\+\+THROWE}}(ASSERTION\+\_\+\+FAILED, std\+::string("{}Assertion \textbackslash{}"{}"{} \#condition "{}\textbackslash{}"{} failed"{})))
+\begin{DoxyCompactList}\small\item\em Assertion mechanism, similar to the standard assert() macro. It is always active, even if NDEBUG is defined. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{exceptions_8h_ab0d3e811b3335ac42245ec03864ede45}{DAI\+\_\+\+DEBASSERT}}(x)~do \{\mbox{\hyperlink{exceptions_8h_af50adc4fad1e07093579e746302bc884}{DAI\+\_\+\+ASSERT}}(x);\} while(0)
+\begin{DoxyCompactList}\small\item\em Assertion mechanism similar to DAI\+\_\+\+ASSERT which is only active if DAI\+\_\+\+DEBUG is defined. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Defines the Exception class and macros for throwing exceptions and doing assertions. 
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{exceptions_8h_af10f03c819f0c08973f3bb7c47b95067}\label{exceptions_8h_af10f03c819f0c08973f3bb7c47b95067} 
+\index{exceptions.h@{exceptions.h}!DAI\_QUOTE@{DAI\_QUOTE}}
+\index{DAI\_QUOTE@{DAI\_QUOTE}!exceptions.h@{exceptions.h}}
+\doxysubsubsection{\texorpdfstring{DAI\_QUOTE}{DAI\_QUOTE}}
+{\footnotesize\ttfamily \#define DAI\+\_\+\+QUOTE(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~\#x}
+
+
+
+Used by DAI\+\_\+\+THROW. 
+
+\Hypertarget{exceptions_8h_ad7aa0cb04517a5423a6456097c076d08}\label{exceptions_8h_ad7aa0cb04517a5423a6456097c076d08} 
+\index{exceptions.h@{exceptions.h}!DAI\_TOSTRING@{DAI\_TOSTRING}}
+\index{DAI\_TOSTRING@{DAI\_TOSTRING}!exceptions.h@{exceptions.h}}
+\doxysubsubsection{\texorpdfstring{DAI\_TOSTRING}{DAI\_TOSTRING}}
+{\footnotesize\ttfamily \#define DAI\+\_\+\+TOSTRING(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~\mbox{\hyperlink{exceptions_8h_af10f03c819f0c08973f3bb7c47b95067}{DAI\+\_\+\+QUOTE}}(x)}
+
+
+
+Used by DAI\+\_\+\+THROW. 
+
+\Hypertarget{exceptions_8h_a922d2784284e8f6ee4009c3d92ba48b6}\label{exceptions_8h_a922d2784284e8f6ee4009c3d92ba48b6} 
+\index{exceptions.h@{exceptions.h}!FUNCTION\_NAME@{FUNCTION\_NAME}}
+\index{FUNCTION\_NAME@{FUNCTION\_NAME}!exceptions.h@{exceptions.h}}
+\doxysubsubsection{\texorpdfstring{FUNCTION\_NAME}{FUNCTION\_NAME}}
+{\footnotesize\ttfamily \#define FUNCTION\+\_\+\+NAME~\+\_\+\+\_\+func\+\_\+\+\_\+}
+
+
+
+Macro that simplifies throwing an exception with a useful default error message. 
+
+The error message consists of a description of the exception, the source code file and line number where the exception has been thrown. 
+\begin{DoxyParams}{Parameters}
+{\em cod} & Corresponds to one of the enum values of \doxylink{classdai_1_1Exception_a03abb65a270707eca57262d8b569e92b}{dai\+::\+Exception\+::\+Code}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyParagraph}{Example\+:}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{DAI\_THROW(NOT\_IMPLEMENTED);}
+
+\end{DoxyCode}
+ 
+\end{DoxyParagraph}
+\Hypertarget{exceptions_8h_a29c0e906e26c7484c268d111c71f79da}\label{exceptions_8h_a29c0e906e26c7484c268d111c71f79da} 
+\index{exceptions.h@{exceptions.h}!DAI\_THROWE@{DAI\_THROWE}}
+\index{DAI\_THROWE@{DAI\_THROWE}!exceptions.h@{exceptions.h}}
+\doxysubsubsection{\texorpdfstring{DAI\_THROWE}{DAI\_THROWE}}
+{\footnotesize\ttfamily \#define DAI\+\_\+\+THROWE(\begin{DoxyParamCaption}\item[{}]{cod,  }\item[{}]{msg }\end{DoxyParamCaption})~throw \mbox{\hyperlink{classdai_1_1Exception}{dai\+::\+Exception}}(dai\+::\+Exception\+::cod, \+\_\+\+\_\+\+FILE\+\_\+\+\_\+, \mbox{\hyperlink{exceptions_8h_a922d2784284e8f6ee4009c3d92ba48b6}{FUNCTION\+\_\+\+NAME}}, \mbox{\hyperlink{exceptions_8h_ad7aa0cb04517a5423a6456097c076d08}{DAI\+\_\+\+TOSTRING}}(\+\_\+\+\_\+\+LINE\+\_\+\+\_\+), msg)}
+
+
+
+Macro that simplifies throwing an exception with a user-\/defined error message. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cod} & Corresponds to one of the enum values of \doxylink{classdai_1_1Exception_a03abb65a270707eca57262d8b569e92b}{dai\+::\+Exception\+::\+Code} \\
+\hline
+{\em msg} & Detailed error message that will be written to std\+::cerr.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyParagraph}{Example\+:}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{exceptions_8h_a29c0e906e26c7484c268d111c71f79da}{DAI\_THROWE}}(NOT\_IMPLEMENTED,\textcolor{stringliteral}{"{}Detailed\ error\ message"{}});}
+
+\end{DoxyCode}
+ 
+\end{DoxyParagraph}
+\Hypertarget{exceptions_8h_af50adc4fad1e07093579e746302bc884}\label{exceptions_8h_af50adc4fad1e07093579e746302bc884} 
+\index{exceptions.h@{exceptions.h}!DAI\_ASSERT@{DAI\_ASSERT}}
+\index{DAI\_ASSERT@{DAI\_ASSERT}!exceptions.h@{exceptions.h}}
+\doxysubsubsection{\texorpdfstring{DAI\_ASSERT}{DAI\_ASSERT}}
+{\footnotesize\ttfamily \#define DAI\+\_\+\+ASSERT(\begin{DoxyParamCaption}\item[{}]{condition }\end{DoxyParamCaption})~((condition) ? ((void)0) \+: \mbox{\hyperlink{exceptions_8h_a29c0e906e26c7484c268d111c71f79da}{DAI\+\_\+\+THROWE}}(ASSERTION\+\_\+\+FAILED, std\+::string("{}Assertion \textbackslash{}"{}"{} \#condition "{}\textbackslash{}"{} failed"{})))}
+
+
+
+Assertion mechanism, similar to the standard assert() macro. It is always active, even if NDEBUG is defined. 
+
+\Hypertarget{exceptions_8h_ab0d3e811b3335ac42245ec03864ede45}\label{exceptions_8h_ab0d3e811b3335ac42245ec03864ede45} 
+\index{exceptions.h@{exceptions.h}!DAI\_DEBASSERT@{DAI\_DEBASSERT}}
+\index{DAI\_DEBASSERT@{DAI\_DEBASSERT}!exceptions.h@{exceptions.h}}
+\doxysubsubsection{\texorpdfstring{DAI\_DEBASSERT}{DAI\_DEBASSERT}}
+{\footnotesize\ttfamily \#define DAI\+\_\+\+DEBASSERT(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~do \{\mbox{\hyperlink{exceptions_8h_af50adc4fad1e07093579e746302bc884}{DAI\+\_\+\+ASSERT}}(x);\} while(0)}
+
+
+
+Assertion mechanism similar to DAI\+\_\+\+ASSERT which is only active if DAI\+\_\+\+DEBUG is defined. 
+

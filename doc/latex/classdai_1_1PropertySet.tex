@@ -1,0 +1,382 @@
+\doxysection{dai\+::Property\+Set Class Reference}
+\hypertarget{classdai_1_1PropertySet}{}\label{classdai_1_1PropertySet}\index{dai::PropertySet@{dai::PropertySet}}
+
+
+Represents a set of properties, mapping keys (of type Property\+Key) to values (of type Property\+Value)  
+
+
+
+
+{\ttfamily \#include $<$dai/properties.\+h$>$}
+
+Inheritance diagram for dai\+::Property\+Set\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classdai_1_1PropertySet}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{Indent}\textbf{ Constructors and destructors}\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classdai_1_1PropertySet_a2f092c48abde4e6c880a87a3c2d8351c}{Property\+Set}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1PropertySet_ac4924c10d0af2694f2ca6148747b9533}{Property\+Set}} (const std\+::string \&s)
+\begin{DoxyCompactList}\small\item\em Construct from a string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Setting property keys/values}\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classdai_1_1PropertySet}{Property\+Set}} \& \mbox{\hyperlink{classdai_1_1PropertySet_a25c2ae75e46faf88b732b1e484b5663f}{set}} (const \mbox{\hyperlink{properties_8h_acc877a85f4f4dbb6a0d58c434bb2b996}{Property\+Key}} \&key, const \mbox{\hyperlink{properties_8h_aeb056b768d73d02c5796c4012f4170c7}{Property\+Value}} \&val)
+\begin{DoxyCompactList}\small\item\em Sets a property (a key {\itshape key} with a corresponding value {\itshape val}) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1PropertySet}{Property\+Set}} \& \mbox{\hyperlink{classdai_1_1PropertySet_afee2837a90d732dbdab283f439827814}{set}} (const \mbox{\hyperlink{classdai_1_1PropertySet}{Property\+Set}} \&new\+Props)
+\begin{DoxyCompactList}\small\item\em Set properties according to {\itshape new\+Props}, overriding properties that already exist with new values. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1PropertySet}{Property\+Set}} \mbox{\hyperlink{classdai_1_1PropertySet_aac3f3e4e5372d00d543d3ed038f0586a}{operator()}} (const \mbox{\hyperlink{properties_8h_acc877a85f4f4dbb6a0d58c434bb2b996}{Property\+Key}} \&key, const \mbox{\hyperlink{properties_8h_aeb056b768d73d02c5796c4012f4170c7}{Property\+Value}} \&val) const
+\begin{DoxyCompactList}\small\item\em Shorthand for (temporarily) adding properties. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Value\+Type $>$ }\\\mbox{\hyperlink{classdai_1_1PropertySet}{Property\+Set}} \& \mbox{\hyperlink{classdai_1_1PropertySet_af6a1ec5a25e637e4e0793068555ab057}{set\+As\+String}} (const \mbox{\hyperlink{properties_8h_acc877a85f4f4dbb6a0d58c434bb2b996}{Property\+Key}} \&key, const Value\+Type \&val)
+\begin{DoxyCompactList}\small\item\em Sets a property (a key {\itshape key} with a corresponding value {\itshape val}, which is first converted from {\itshape Value\+Type} to string) \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Value\+Type $>$ }\\void \mbox{\hyperlink{classdai_1_1PropertySet_a0ce242f87aa02bac9d603f89b50a2451}{convert\+To}} (const \mbox{\hyperlink{properties_8h_acc877a85f4f4dbb6a0d58c434bb2b996}{Property\+Key}} \&key)
+\begin{DoxyCompactList}\small\item\em Converts the type of the property value corresponding with {\itshape key} from string to {\itshape Value\+Type} (if necessary) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Queries}\par
+\begin{DoxyCompactItemize}
+\item 
+size\+\_\+t \mbox{\hyperlink{classdai_1_1PropertySet_a925795bae7de55ed649b2e2bb64f1a45}{size}} () const
+\begin{DoxyCompactList}\small\item\em Return number of key-\/value pairs. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classdai_1_1PropertySet_a1b1b61af03b3e01e2885996e5cdf6da2}{clear}} ()
+\begin{DoxyCompactList}\small\item\em Removes all key-\/value pairs. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classdai_1_1PropertySet_a5f88f13fab6393e609bdc8a47f538141}{erase}} (const \mbox{\hyperlink{properties_8h_acc877a85f4f4dbb6a0d58c434bb2b996}{Property\+Key}} \&key)
+\begin{DoxyCompactList}\small\item\em Removes key-\/value pair with given {\itshape key}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classdai_1_1PropertySet_a610f3cdadf17b9533c565e3661362cf1}{has\+Key}} (const \mbox{\hyperlink{properties_8h_acc877a85f4f4dbb6a0d58c434bb2b996}{Property\+Key}} \&key) const
+\begin{DoxyCompactList}\small\item\em Check if a property with the given {\itshape key} is defined. \end{DoxyCompactList}\item 
+std\+::set$<$ \mbox{\hyperlink{properties_8h_acc877a85f4f4dbb6a0d58c434bb2b996}{Property\+Key}} $>$ \mbox{\hyperlink{classdai_1_1PropertySet_a26693e0eacd0a5629cb1ec0d212726ff}{keys}} () const
+\begin{DoxyCompactList}\small\item\em Returns a set containing all keys. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{properties_8h_aeb056b768d73d02c5796c4012f4170c7}{Property\+Value}} \& \mbox{\hyperlink{classdai_1_1PropertySet_ae56d830e1b87b9961ffa68f1ba9bd559}{get}} (const \mbox{\hyperlink{properties_8h_acc877a85f4f4dbb6a0d58c434bb2b996}{Property\+Key}} \&key) const
+\begin{DoxyCompactList}\small\item\em Gets the value corresponding to {\itshape key}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Value\+Type $>$ }\\Value\+Type \mbox{\hyperlink{classdai_1_1PropertySet_aeaf5a307bb6ef28629f27bcf5a8c2ab2}{get\+As}} (const \mbox{\hyperlink{properties_8h_acc877a85f4f4dbb6a0d58c434bb2b996}{Property\+Key}} \&key) const
+\begin{DoxyCompactList}\small\item\em Gets the value corresponding to {\itshape key}, cast to {\itshape Value\+Type}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Value\+Type $>$ }\\Value\+Type \mbox{\hyperlink{classdai_1_1PropertySet_a91944b9c32cd82d5770b81fb66b1756f}{get\+String\+As}} (const \mbox{\hyperlink{properties_8h_acc877a85f4f4dbb6a0d58c434bb2b996}{Property\+Key}} \&key) const
+\begin{DoxyCompactList}\small\item\em Gets the value corresponding to {\itshape key}, cast to {\itshape Value\+Type}, converting from a string if necessary. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\doxysubsubsection*{Input/output}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{classdai_1_1PropertySet_aab0b1b3e55fc70d09313618f7456664d}{to\+String}} () const
+\begin{DoxyCompactList}\small\item\em Formats a \doxylink{classdai_1_1PropertySet}{Property\+Set} as a string. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classdai_1_1PropertySet_a8585eb0ad8975884e6c576b2b0c11554}{from\+String}} (const std\+::string \&s)
+\begin{DoxyCompactList}\small\item\em Reads a \doxylink{classdai_1_1PropertySet}{Property\+Set} from a string. \end{DoxyCompactList}\item 
+std\+::ostream \& \mbox{\hyperlink{classdai_1_1PropertySet_ae7d3211d4902bb926110f9b2c8b1d99d}{operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{classdai_1_1PropertySet}{Property\+Set}} \&ps)
+\begin{DoxyCompactList}\small\item\em Writes a \doxylink{classdai_1_1PropertySet}{Property\+Set} object to an output stream. \end{DoxyCompactList}\item 
+std\+::istream \& \mbox{\hyperlink{classdai_1_1PropertySet_a0a3e602628b696ad4b414490b2d952d1}{operator$>$$>$}} (std\+::istream \&is, \mbox{\hyperlink{classdai_1_1PropertySet}{Property\+Set}} \&ps)
+\begin{DoxyCompactList}\small\item\em Reads a \doxylink{classdai_1_1PropertySet}{Property\+Set} object from an input stream. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a set of properties, mapping keys (of type Property\+Key) to values (of type Property\+Value) 
+
+Properties are used for specifying parameters of algorithms in a convenient way, where the values of the parameters can be of different types (e.\+g., strings, doubles, integers, enums). A \doxylink{classdai_1_1PropertySet}{Property\+Set} is an attempt to mimic the functionality of a Python dictionary object in C++, using the boost\+::any class.
+
+A \doxylink{classdai_1_1PropertySet}{Property\+Set} can be converted to and from a string, using the following format\+:
+
+{\ttfamily \mbox{[}key1=val1,key2=val2,...,keyn=valn\mbox{]}}
+
+That is,
+\begin{DoxyItemize}
+\item the whole \doxylink{classdai_1_1PropertySet}{Property\+Set} is wrapped in square brackets ("{}\mbox{[}"{}, "{}\mbox{]}"{})
+\item all properties in the \doxylink{classdai_1_1PropertySet}{Property\+Set} are seperated by a comma ("{},"{})
+\item each Property consists of\+:
+\begin{DoxyItemize}
+\item the name of the key
+\item an equality sign ("{}="{})
+\item its value (represented as a string)
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+Also, a \doxylink{classdai_1_1PropertySet}{Property\+Set} provides functionality for converting the representation of individual values from some arbitrary type to and from std\+::string.
+
+\begin{DoxyNote}{Note}
+Not all types are automatically supported; if a type is unknown, an UNKNOWN\+\_\+\+PROPERTY\+\_\+\+TYPE exception is thrown. Adding support for a new type can be done in the body of the \doxylink{classdai_1_1PropertySet_ae7d3211d4902bb926110f9b2c8b1d99d}{operator$<$$<$(std\+::ostream \&, const Property \&)}. 
+\end{DoxyNote}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classdai_1_1PropertySet_a2f092c48abde4e6c880a87a3c2d8351c}\label{classdai_1_1PropertySet_a2f092c48abde4e6c880a87a3c2d8351c} 
+\index{dai::PropertySet@{dai::PropertySet}!PropertySet@{PropertySet}}
+\index{PropertySet@{PropertySet}!dai::PropertySet@{dai::PropertySet}}
+\doxysubsubsection{\texorpdfstring{PropertySet()}{PropertySet()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily dai\+::\+Property\+Set\+::\+Property\+Set (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Default constructor. 
+
+\Hypertarget{classdai_1_1PropertySet_ac4924c10d0af2694f2ca6148747b9533}\label{classdai_1_1PropertySet_ac4924c10d0af2694f2ca6148747b9533} 
+\index{dai::PropertySet@{dai::PropertySet}!PropertySet@{PropertySet}}
+\index{PropertySet@{PropertySet}!dai::PropertySet@{dai::PropertySet}}
+\doxysubsubsection{\texorpdfstring{PropertySet()}{PropertySet()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily dai\+::\+Property\+Set\+::\+Property\+Set (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct from a string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & string in the format {\ttfamily "{}\mbox{[}key1=val1,key2=val2,...,keyn=valn\mbox{]}"{}} \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classdai_1_1PropertySet_a25c2ae75e46faf88b732b1e484b5663f}\label{classdai_1_1PropertySet_a25c2ae75e46faf88b732b1e484b5663f} 
+\index{dai::PropertySet@{dai::PropertySet}!set@{set}}
+\index{set@{set}!dai::PropertySet@{dai::PropertySet}}
+\doxysubsubsection{\texorpdfstring{set()}{set()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classdai_1_1PropertySet}{Property\+Set}} \& dai\+::\+Property\+Set\+::set (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{properties_8h_acc877a85f4f4dbb6a0d58c434bb2b996}{Property\+Key}} \&}]{key,  }\item[{const \mbox{\hyperlink{properties_8h_aeb056b768d73d02c5796c4012f4170c7}{Property\+Value}} \&}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets a property (a key {\itshape key} with a corresponding value {\itshape val}) 
+
+\Hypertarget{classdai_1_1PropertySet_afee2837a90d732dbdab283f439827814}\label{classdai_1_1PropertySet_afee2837a90d732dbdab283f439827814} 
+\index{dai::PropertySet@{dai::PropertySet}!set@{set}}
+\index{set@{set}!dai::PropertySet@{dai::PropertySet}}
+\doxysubsubsection{\texorpdfstring{set()}{set()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classdai_1_1PropertySet}{Property\+Set}} \& dai\+::\+Property\+Set\+::set (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classdai_1_1PropertySet}{Property\+Set}} \&}]{new\+Props }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Set properties according to {\itshape new\+Props}, overriding properties that already exist with new values. 
+
+\Hypertarget{classdai_1_1PropertySet_aac3f3e4e5372d00d543d3ed038f0586a}\label{classdai_1_1PropertySet_aac3f3e4e5372d00d543d3ed038f0586a} 
+\index{dai::PropertySet@{dai::PropertySet}!operator()@{operator()}}
+\index{operator()@{operator()}!dai::PropertySet@{dai::PropertySet}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classdai_1_1PropertySet}{Property\+Set}} dai\+::\+Property\+Set\+::operator() (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{properties_8h_acc877a85f4f4dbb6a0d58c434bb2b996}{Property\+Key}} \&}]{key,  }\item[{const \mbox{\hyperlink{properties_8h_aeb056b768d73d02c5796c4012f4170c7}{Property\+Value}} \&}]{val }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Shorthand for (temporarily) adding properties. 
+
+\begin{DoxyParagraph}{Example\+:}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{classdai_1_1PropertySet_a2f092c48abde4e6c880a87a3c2d8351c}{PropertySet}}\ p()(\textcolor{stringliteral}{"{}method"{}},\textcolor{stringliteral}{"{}BP"{}})(\textcolor{stringliteral}{"{}verbose"{}},1)(\textcolor{stringliteral}{"{}tol"{}},1e-\/9)}
+
+\end{DoxyCode}
+ 
+\end{DoxyParagraph}
+\Hypertarget{classdai_1_1PropertySet_af6a1ec5a25e637e4e0793068555ab057}\label{classdai_1_1PropertySet_af6a1ec5a25e637e4e0793068555ab057} 
+\index{dai::PropertySet@{dai::PropertySet}!setAsString@{setAsString}}
+\index{setAsString@{setAsString}!dai::PropertySet@{dai::PropertySet}}
+\doxysubsubsection{\texorpdfstring{setAsString()}{setAsString()}}
+{\footnotesize\ttfamily template$<$typename Value\+Type $>$ \\
+\mbox{\hyperlink{classdai_1_1PropertySet}{Property\+Set}} \& dai\+::\+Property\+Set\+::set\+As\+String (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{properties_8h_acc877a85f4f4dbb6a0d58c434bb2b996}{Property\+Key}} \&}]{key,  }\item[{const Value\+Type \&}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets a property (a key {\itshape key} with a corresponding value {\itshape val}, which is first converted from {\itshape Value\+Type} to string) 
+
+The implementation makes use of boost\+::lexical\+\_\+cast. 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Value\+Type} & Type from which the value should be cast \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em IMPOSSIBLE\+\_\+\+TYPECAST} & if the type cast cannot be done \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classdai_1_1PropertySet_a0ce242f87aa02bac9d603f89b50a2451}\label{classdai_1_1PropertySet_a0ce242f87aa02bac9d603f89b50a2451} 
+\index{dai::PropertySet@{dai::PropertySet}!convertTo@{convertTo}}
+\index{convertTo@{convertTo}!dai::PropertySet@{dai::PropertySet}}
+\doxysubsubsection{\texorpdfstring{convertTo()}{convertTo()}}
+{\footnotesize\ttfamily template$<$typename Value\+Type $>$ \\
+void dai\+::\+Property\+Set\+::convert\+To (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{properties_8h_acc877a85f4f4dbb6a0d58c434bb2b996}{Property\+Key}} \&}]{key }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Converts the type of the property value corresponding with {\itshape key} from string to {\itshape Value\+Type} (if necessary) 
+
+The implementation makes use of boost\+::lexical\+\_\+cast 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Value\+Type} & Type to which the value should be cast \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em IMPOSSIBLE\+\_\+\+TYPECAST} & if the type cast cannot be done \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classdai_1_1PropertySet_a925795bae7de55ed649b2e2bb64f1a45}\label{classdai_1_1PropertySet_a925795bae7de55ed649b2e2bb64f1a45} 
+\index{dai::PropertySet@{dai::PropertySet}!size@{size}}
+\index{size@{size}!dai::PropertySet@{dai::PropertySet}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily size\+\_\+t dai\+::\+Property\+Set\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Return number of key-\/value pairs. 
+
+\Hypertarget{classdai_1_1PropertySet_a1b1b61af03b3e01e2885996e5cdf6da2}\label{classdai_1_1PropertySet_a1b1b61af03b3e01e2885996e5cdf6da2} 
+\index{dai::PropertySet@{dai::PropertySet}!clear@{clear}}
+\index{clear@{clear}!dai::PropertySet@{dai::PropertySet}}
+\doxysubsubsection{\texorpdfstring{clear()}{clear()}}
+{\footnotesize\ttfamily void dai\+::\+Property\+Set\+::clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Removes all key-\/value pairs. 
+
+\Hypertarget{classdai_1_1PropertySet_a5f88f13fab6393e609bdc8a47f538141}\label{classdai_1_1PropertySet_a5f88f13fab6393e609bdc8a47f538141} 
+\index{dai::PropertySet@{dai::PropertySet}!erase@{erase}}
+\index{erase@{erase}!dai::PropertySet@{dai::PropertySet}}
+\doxysubsubsection{\texorpdfstring{erase()}{erase()}}
+{\footnotesize\ttfamily size\+\_\+t dai\+::\+Property\+Set\+::erase (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{properties_8h_acc877a85f4f4dbb6a0d58c434bb2b996}{Property\+Key}} \&}]{key }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Removes key-\/value pair with given {\itshape key}. 
+
+\Hypertarget{classdai_1_1PropertySet_a610f3cdadf17b9533c565e3661362cf1}\label{classdai_1_1PropertySet_a610f3cdadf17b9533c565e3661362cf1} 
+\index{dai::PropertySet@{dai::PropertySet}!hasKey@{hasKey}}
+\index{hasKey@{hasKey}!dai::PropertySet@{dai::PropertySet}}
+\doxysubsubsection{\texorpdfstring{hasKey()}{hasKey()}}
+{\footnotesize\ttfamily bool dai\+::\+Property\+Set\+::has\+Key (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{properties_8h_acc877a85f4f4dbb6a0d58c434bb2b996}{Property\+Key}} \&}]{key }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Check if a property with the given {\itshape key} is defined. 
+
+\Hypertarget{classdai_1_1PropertySet_a26693e0eacd0a5629cb1ec0d212726ff}\label{classdai_1_1PropertySet_a26693e0eacd0a5629cb1ec0d212726ff} 
+\index{dai::PropertySet@{dai::PropertySet}!keys@{keys}}
+\index{keys@{keys}!dai::PropertySet@{dai::PropertySet}}
+\doxysubsubsection{\texorpdfstring{keys()}{keys()}}
+{\footnotesize\ttfamily std\+::set$<$ \mbox{\hyperlink{properties_8h_acc877a85f4f4dbb6a0d58c434bb2b996}{Property\+Key}} $>$ dai\+::\+Property\+Set\+::keys (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns a set containing all keys. 
+
+\Hypertarget{classdai_1_1PropertySet_ae56d830e1b87b9961ffa68f1ba9bd559}\label{classdai_1_1PropertySet_ae56d830e1b87b9961ffa68f1ba9bd559} 
+\index{dai::PropertySet@{dai::PropertySet}!get@{get}}
+\index{get@{get}!dai::PropertySet@{dai::PropertySet}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{properties_8h_aeb056b768d73d02c5796c4012f4170c7}{Property\+Value}} \& dai\+::\+Property\+Set\+::get (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{properties_8h_acc877a85f4f4dbb6a0d58c434bb2b996}{Property\+Key}} \&}]{key }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the value corresponding to {\itshape key}. 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em OBJECT\+\_\+\+NOT\+\_\+\+FOUND} & if the key cannot be found in {\ttfamily \texorpdfstring{$\ast$}{*}this} \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classdai_1_1PropertySet_aeaf5a307bb6ef28629f27bcf5a8c2ab2}\label{classdai_1_1PropertySet_aeaf5a307bb6ef28629f27bcf5a8c2ab2} 
+\index{dai::PropertySet@{dai::PropertySet}!getAs@{getAs}}
+\index{getAs@{getAs}!dai::PropertySet@{dai::PropertySet}}
+\doxysubsubsection{\texorpdfstring{getAs()}{getAs()}}
+{\footnotesize\ttfamily template$<$typename Value\+Type $>$ \\
+Value\+Type dai\+::\+Property\+Set\+::get\+As (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{properties_8h_acc877a85f4f4dbb6a0d58c434bb2b996}{Property\+Key}} \&}]{key }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the value corresponding to {\itshape key}, cast to {\itshape Value\+Type}. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Value\+Type} & Type to which the value should be cast \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em OBJECT\+\_\+\+NOT\+\_\+\+FOUND} & if the key cannot be found in {\ttfamily \texorpdfstring{$\ast$}{*}this} \\
+\hline
+{\em IMPOSSIBLE\+\_\+\+TYPECAST} & if the type cast cannot be done \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classdai_1_1PropertySet_a91944b9c32cd82d5770b81fb66b1756f}\label{classdai_1_1PropertySet_a91944b9c32cd82d5770b81fb66b1756f} 
+\index{dai::PropertySet@{dai::PropertySet}!getStringAs@{getStringAs}}
+\index{getStringAs@{getStringAs}!dai::PropertySet@{dai::PropertySet}}
+\doxysubsubsection{\texorpdfstring{getStringAs()}{getStringAs()}}
+{\footnotesize\ttfamily template$<$typename Value\+Type $>$ \\
+Value\+Type dai\+::\+Property\+Set\+::get\+String\+As (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{properties_8h_acc877a85f4f4dbb6a0d58c434bb2b996}{Property\+Key}} \&}]{key }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the value corresponding to {\itshape key}, cast to {\itshape Value\+Type}, converting from a string if necessary. 
+
+If the type of the value is already equal to {\itshape Value\+Type}, no conversion is done. Otherwise, the type of the value should be a std\+::string, in which case boost\+::lexical\+\_\+cast is used to convert this to {\itshape Value\+Type}. 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Value\+Type} & Type to which the value should be cast/converted \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em OBJECT\+\_\+\+NOT\+\_\+\+FOUND} & if the key cannot be found in {\ttfamily \texorpdfstring{$\ast$}{*}this} \\
+\hline
+{\em IMPOSSIBLE\+\_\+\+TYPECAST} & if the type cast cannot be done \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classdai_1_1PropertySet_aab0b1b3e55fc70d09313618f7456664d}\label{classdai_1_1PropertySet_aab0b1b3e55fc70d09313618f7456664d} 
+\index{dai::PropertySet@{dai::PropertySet}!toString@{toString}}
+\index{toString@{toString}!dai::PropertySet@{dai::PropertySet}}
+\doxysubsubsection{\texorpdfstring{toString()}{toString()}}
+{\footnotesize\ttfamily std\+::string dai\+::\+Property\+Set\+::to\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Formats a \doxylink{classdai_1_1PropertySet}{Property\+Set} as a string. 
+
+\Hypertarget{classdai_1_1PropertySet_a8585eb0ad8975884e6c576b2b0c11554}\label{classdai_1_1PropertySet_a8585eb0ad8975884e6c576b2b0c11554} 
+\index{dai::PropertySet@{dai::PropertySet}!fromString@{fromString}}
+\index{fromString@{fromString}!dai::PropertySet@{dai::PropertySet}}
+\doxysubsubsection{\texorpdfstring{fromString()}{fromString()}}
+{\footnotesize\ttfamily void dai\+::\+Property\+Set\+::from\+String (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Reads a \doxylink{classdai_1_1PropertySet}{Property\+Set} from a string. 
+
+
+
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{classdai_1_1PropertySet_ae7d3211d4902bb926110f9b2c8b1d99d}\label{classdai_1_1PropertySet_ae7d3211d4902bb926110f9b2c8b1d99d} 
+\index{dai::PropertySet@{dai::PropertySet}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!dai::PropertySet@{dai::PropertySet}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily std\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{const \mbox{\hyperlink{classdai_1_1PropertySet}{Property\+Set}} \&}]{ps }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Writes a \doxylink{classdai_1_1PropertySet}{Property\+Set} object to an output stream. 
+
+It uses the format {\ttfamily "{}\mbox{[}key1=val1,key2=val2,...,keyn=valn\mbox{]}"{}}. \begin{DoxyNote}{Note}
+Only a subset of all possible types is supported (see the implementation of this function). Adding support for more types has to be done by hand. 
+\end{DoxyNote}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em UNKNOWN\+\_\+\+PROPERTY\+\_\+\+TYPE} & if the type of a property value is not supported. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classdai_1_1PropertySet_a0a3e602628b696ad4b414490b2d952d1}\label{classdai_1_1PropertySet_a0a3e602628b696ad4b414490b2d952d1} 
+\index{dai::PropertySet@{dai::PropertySet}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!dai::PropertySet@{dai::PropertySet}}
+\doxysubsubsection{\texorpdfstring{operator$>$$>$}{operator>>}}
+{\footnotesize\ttfamily std\+::istream \& operator$>$$>$ (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{is,  }\item[{\mbox{\hyperlink{classdai_1_1PropertySet}{Property\+Set}} \&}]{ps }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Reads a \doxylink{classdai_1_1PropertySet}{Property\+Set} object from an input stream. 
+
+It expects a string in the format {\ttfamily "{}\mbox{[}key1=val1,key2=val2,...,keyn=valn\mbox{]}"{}}. Values are stored as strings. 
+\begin{DoxyExceptions}{Exceptions}
+{\em MALFORMED\+\_\+\+PROPERTY} & if the string is not in the expected format \\
+\hline
+\end{DoxyExceptions}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/dai/\mbox{\hyperlink{properties_8h}{properties.\+h}}\end{DoxyCompactItemize}

@@ -1,0 +1,94 @@
+\doxysection{include/dai/varset.h File Reference}
+\hypertarget{varset_8h}{}\label{varset_8h}\index{include/dai/varset.h@{include/dai/varset.h}}
+
+
+Defines the Var\+Set class, which represents a set of random variables.  
+
+
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$map$>$}\newline
+{\ttfamily \#include $<$ostream$>$}\newline
+{\ttfamily \#include $<$dai/var.\+h$>$}\newline
+{\ttfamily \#include $<$dai/util.\+h$>$}\newline
+{\ttfamily \#include $<$dai/smallset.\+h$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classdai_1_1VarSet}{dai\+::\+Var\+Set}}
+\begin{DoxyCompactList}\small\item\em Represents a set of variables. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+size\+\_\+t \mbox{\hyperlink{varset_8cpp_a750c3807e7375265c3fb410a1f1223fe}{dai\+::calc\+Linear\+State}} (const \mbox{\hyperlink{classdai_1_1VarSet}{Var\+Set}} \&vs, const std\+::map$<$ \mbox{\hyperlink{classdai_1_1Var}{Var}}, size\+\_\+t $>$ \&state)
+\begin{DoxyCompactList}\small\item\em Calculates the linear index in the Cartesian product of the variables in {\itshape vs} that corresponds to a particular joint assignment of the variables, specified by {\itshape state}. \end{DoxyCompactList}\item 
+std\+::map$<$ \mbox{\hyperlink{classdai_1_1Var}{Var}}, size\+\_\+t $>$ \mbox{\hyperlink{varset_8cpp_afcfc874f85b4a2944ec128ebd1dd19f1}{dai\+::calc\+State}} (const \mbox{\hyperlink{classdai_1_1VarSet}{Var\+Set}} \&vs, size\+\_\+t linear\+State)
+\begin{DoxyCompactList}\small\item\em Calculates the joint assignment of the variables in {\itshape vs} corresponding to the linear index {\itshape linear\+State}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Defines the Var\+Set class, which represents a set of random variables. 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{varset_8cpp_a750c3807e7375265c3fb410a1f1223fe}\label{varset_8cpp_a750c3807e7375265c3fb410a1f1223fe} 
+\index{varset.h@{varset.h}!calcLinearState@{calcLinearState}}
+\index{calcLinearState@{calcLinearState}!varset.h@{varset.h}}
+\doxysubsubsection{\texorpdfstring{calcLinearState()}{calcLinearState()}}
+{\footnotesize\ttfamily size\+\_\+t dai\+::calc\+Linear\+State (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classdai_1_1VarSet}{Var\+Set}} \&}]{vs,  }\item[{const std\+::map$<$ \mbox{\hyperlink{classdai_1_1Var}{Var}}, size\+\_\+t $>$ \&}]{state }\end{DoxyParamCaption})}
+
+
+
+Calculates the linear index in the Cartesian product of the variables in {\itshape vs} that corresponds to a particular joint assignment of the variables, specified by {\itshape state}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vs} & Set of variables for which the linear state should be calculated; \\
+\hline
+{\em state} & Specifies the states of some variables. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The linear index in the Cartesian product of the variables in {\itshape vs} corresponding with the joint assignment specified by {\itshape state}, where variables for which no state is specified are assumed to be in state 0.
+\end{DoxyReturn}
+The linear index is calculated as follows. The variables in {\itshape vs} are ordered according to their label (in ascending order); say {\itshape vs} corresponds with the set $\{x_{l(0)},x_{l(1)},\dots,x_{l(n-1)}\}$ with $l(0) < l(1) < \dots < l(n-1)$, where variable $x_l$ has label {\itshape l}. Denote by $S_l$ the number of possible values ("{}states"{}) of variable $x_l$. The argument {\itshape state} corresponds with a mapping {\itshape s} that assigns to each variable $x_l$ a state $s(x_l) \in \{0,1,\dots,S_l-1\}$, where $s(x_l)=0$ if $x_l$ is not specified in {\itshape state}. The linear index $S$ corresponding with {\itshape state} is now calculated by\+:  \begin{eqnarray*}
+  S &:=& \sum_{i=0}^{n-1} s(x_{l(i)}) \prod_{j=0}^{i-1} S_{l(j)} \\
+    &= & s(x_{l(0)}) + s(x_{l(1)}) S_{l(0)} + s(x_{l(2)}) S_{l(0)} S_{l(1)} + \dots + s(x_{l(n-1)}) S_{l(0)} \cdots S_{l(n-2)}.
+\end{eqnarray*}
+
+\begin{DoxyNote}{Note}
+If {\itshape vs} corresponds with $\{x_l\}_{l\in L}$, and {\itshape state} specifies a state for each variable $x_l$ for $l\in L$, calc\+Linear\+State() induces a mapping $\sigma : \prod_{l\in L} X_l \to \{0,1,\dots,\prod_{l\in L} S_l-1\}$ that maps a joint state to a linear index; this is the inverse of the mapping $\sigma^{-1}$ induced by calc\+State().
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+calc\+State() 
+\end{DoxySeeAlso}
+\Hypertarget{varset_8cpp_afcfc874f85b4a2944ec128ebd1dd19f1}\label{varset_8cpp_afcfc874f85b4a2944ec128ebd1dd19f1} 
+\index{varset.h@{varset.h}!calcState@{calcState}}
+\index{calcState@{calcState}!varset.h@{varset.h}}
+\doxysubsubsection{\texorpdfstring{calcState()}{calcState()}}
+{\footnotesize\ttfamily std\+::map$<$ Var, size\+\_\+t $>$ dai\+::calc\+State (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classdai_1_1VarSet}{Var\+Set}} \&}]{vs,  }\item[{size\+\_\+t}]{linear\+State }\end{DoxyParamCaption})}
+
+
+
+Calculates the joint assignment of the variables in {\itshape vs} corresponding to the linear index {\itshape linear\+State}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vs} & Set of variables to which {\itshape linear\+State} refers \\
+\hline
+{\em linear\+State} & should be smaller than vs.\+nr\+States(). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A mapping $s$ that maps each Var $x_l$ in {\itshape vs} to its state $s(x_l)$, as specified by {\itshape linear\+State}.
+\end{DoxyReturn}
+The variables in {\itshape vs} are ordered according to their label (in ascending order); say {\itshape vs} corresponds with the set $\{x_{l(0)},x_{l(1)},\dots,x_{l(n-1)}\}$ with $l(0) < l(1) < \dots < l(n-1)$, where variable $x_l$ has label {\itshape l}. Denote by $S_l$ the number of possible values ("{}states"{}) of variable $x_l$ with label {\itshape l}. The mapping $s$ returned by this function is defined as\+:  \begin{eqnarray*}
+  s(x_{l(i)}) = \left\lfloor\frac{S \mbox { mod } \prod_{j=0}^{i} S_{l(j)}}{\prod_{j=0}^{i-1} S_{l(j)}}\right\rfloor \qquad \mbox{for all $i=0,\dots,n-1$}.
+\end{eqnarray*} where $S$ denotes the value of {\itshape linear\+State}.
+
+\begin{DoxyNote}{Note}
+If {\itshape vs} corresponds with $\{x_l\}_{l\in L}$, calc\+State() induces a mapping $\sigma^{-1} : \{0,1,\dots,\prod_{l\in L} S_l-1\} \to \prod_{l\in L} X_l$ that maps a linear index to a joint state; this is the inverse of the mapping $\sigma$ induced by calc\+Linear\+State().
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+calc\+Linear\+State() 
+\end{DoxySeeAlso}

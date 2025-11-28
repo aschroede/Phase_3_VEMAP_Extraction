@@ -1,0 +1,304 @@
+\doxysection{dai\+::DAIAlg\texorpdfstring{$<$}{<} GRM \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{classdai_1_1DAIAlg}{}\label{classdai_1_1DAIAlg}\index{dai::DAIAlg$<$ GRM $>$@{dai::DAIAlg$<$ GRM $>$}}
+
+
+Combines the abstract base class \doxylink{classdai_1_1InfAlg}{Inf\+Alg} with a graphical model (e.\+g., a \doxylink{classdai_1_1FactorGraph}{Factor\+Graph} or \doxylink{classdai_1_1RegionGraph}{Region\+Graph}).  
+
+
+
+
+{\ttfamily \#include $<$dai/daialg.\+h$>$}
+
+Inheritance diagram for dai\+::DAIAlg\texorpdfstring{$<$}{<} GRM \texorpdfstring{$>$}{>}\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classdai_1_1DAIAlg}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{Indent}\textbf{ Constructors/destructors}\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classdai_1_1DAIAlg_a1b66918854e70f19c8b506658c9f50e0}{DAIAlg}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1DAIAlg_a46ac57c2abad7c6870f30edc951aeff3}{DAIAlg}} (const GRM \&grm)
+\begin{DoxyCompactList}\small\item\em Construct from GRM. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Queries}\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classdai_1_1FactorGraph}{Factor\+Graph}} \& \mbox{\hyperlink{classdai_1_1DAIAlg_a056caa8b537fccbd764b1c9f4e1ff615}{fg}} ()
+\begin{DoxyCompactList}\small\item\em Returns reference to underlying \doxylink{classdai_1_1FactorGraph}{Factor\+Graph}. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{classdai_1_1FactorGraph}{Factor\+Graph}} \& \mbox{\hyperlink{classdai_1_1DAIAlg_afdb2f05fe4b4458a9680ddbe21ad58a9}{fg}} () const
+\begin{DoxyCompactList}\small\item\em Returns constant reference to underlying \doxylink{classdai_1_1FactorGraph}{Factor\+Graph}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Changing the factor graph}\par
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classdai_1_1DAIAlg_ac0d7b26c09d9d7db4a7eda5f66181045}{clamp}} (size\+\_\+t i, size\+\_\+t x, bool backup=false)
+\begin{DoxyCompactList}\small\item\em Clamp variable with index {\itshape i} to value {\itshape x} (i.\+e. multiply with a Kronecker delta $\delta_{x_i, x}$) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classdai_1_1DAIAlg_a7f0b8452352080a1e35ab9a68cb589fd}{make\+Cavity}} (size\+\_\+t i, bool backup=false)
+\begin{DoxyCompactList}\small\item\em Sets all factors interacting with variable with index {\itshape i} to one. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classdai_1_1DAIAlg_a195bcd6ad05557374c95db50c674ad7f}{make\+Region\+Cavity}} (std\+::vector$<$ size\+\_\+t $>$ fac\+Inds, bool backup)
+\begin{DoxyCompactList}\small\item\em Sets all factors indicated by {\itshape fac\+Inds} to one. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Backup/restore mechanism for factors}\par
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classdai_1_1DAIAlg_a48ba6a58d10b8802d690e5e92ec5abe9}{backup\+Factor}} (size\+\_\+t I)
+\begin{DoxyCompactList}\small\item\em Make a backup copy of factor {\itshape I}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classdai_1_1DAIAlg_ac74e4ae749a3f706462bb5c0c0f204ca}{backup\+Factors}} (const \mbox{\hyperlink{classdai_1_1VarSet}{Var\+Set}} \&vs)
+\begin{DoxyCompactList}\small\item\em Make backup copies of all factors involving the variables in {\itshape vs}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classdai_1_1DAIAlg_abf8dbd2797ec871e86566a6dfc0864e3}{restore\+Factor}} (size\+\_\+t I)
+\begin{DoxyCompactList}\small\item\em Restore factor {\itshape I} from its backup copy. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classdai_1_1DAIAlg_a333a182249b2abeb93ff21377d0e8ffd}{restore\+Factors}} (const \mbox{\hyperlink{classdai_1_1VarSet}{Var\+Set}} \&vs)
+\begin{DoxyCompactList}\small\item\em Restore the factors involving the variables in {\itshape vs} from their backup copies. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classdai_1_1DAIAlg_aa4f659feb4967ba096400f4904cfe068}{restore\+Factors}} ()
+\begin{DoxyCompactList}\small\item\em Restore all factors from their backup copies. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classdai_1_1InfAlg}{dai\+::\+Inf\+Alg}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classdai_1_1InfAlg_a00c1dba1041af038de0689cceb0a69f0}{\texorpdfstring{$\sim$}{\string~}\+Inf\+Alg}} ()
+\begin{DoxyCompactList}\small\item\em Virtual destructor (needed because this class contains virtual functions) \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classdai_1_1InfAlg}{Inf\+Alg}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classdai_1_1InfAlg_a4e05d62b78fc4f9a93cd417a5c807eab}{clone}} () const =0
+\begin{DoxyCompactList}\small\item\em Returns a pointer to a new, cloned copy of {\ttfamily \texorpdfstring{$\ast$}{*}this} (i.\+e., virtual copy constructor) \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classdai_1_1InfAlg}{Inf\+Alg}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classdai_1_1InfAlg_ac2865bb3577b103a707903010a53b6ce}{construct}} (const \mbox{\hyperlink{classdai_1_1FactorGraph}{Factor\+Graph}} \&\mbox{\hyperlink{classdai_1_1InfAlg_a58888cd453abc0b3dbfe62068c5ccaa9}{fg}}, const \mbox{\hyperlink{classdai_1_1PropertySet}{Property\+Set}} \&opts) const =0
+\begin{DoxyCompactList}\small\item\em Returns a pointer to a newly constructed inference algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+virtual std\+::string \mbox{\hyperlink{classdai_1_1InfAlg_a25108f733ca6bc54f445a4fffdc2a392}{name}} () const =0
+\begin{DoxyCompactList}\small\item\em Returns the name of the algorithm. \end{DoxyCompactList}\item 
+virtual std\+::string \mbox{\hyperlink{classdai_1_1InfAlg_aa4284a406963b4cd55a820af98e9f03d}{identify}} () const
+\begin{DoxyCompactList}\small\item\em Identifies itself for logging purposes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{classdai_1_1InfAlg_a99dd53d1aaccf09a4b977a49a983cc85}{init}} ()=0
+\begin{DoxyCompactList}\small\item\em Initializes all data structures of the approximate inference algorithm. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classdai_1_1InfAlg_a5b1e6d8af207bcc47fd954fdef382a77}{init}} (const \mbox{\hyperlink{classdai_1_1VarSet}{Var\+Set}} \&vs)=0
+\begin{DoxyCompactList}\small\item\em Initializes all data structures corresponding to some set of variables. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} \mbox{\hyperlink{classdai_1_1InfAlg_a4ac173c4d4109fd1e2229dd83532d32f}{run}} ()=0
+\begin{DoxyCompactList}\small\item\em Runs the approximate inference algorithm. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{factor_8h_a7515abf9952cd312e95a34ada0670e85}{Factor}} \mbox{\hyperlink{classdai_1_1InfAlg_ab36227bbc227dfaff65d4a39ff938c34}{belief}} (const \mbox{\hyperlink{classdai_1_1Var}{Var}} \&v) const
+\begin{DoxyCompactList}\small\item\em Returns the (approximate) marginal probability distribution of a variable. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{factor_8h_a7515abf9952cd312e95a34ada0670e85}{Factor}} \mbox{\hyperlink{classdai_1_1InfAlg_a4655db9d766470f1a555cba7d3ec7190}{belief}} (const \mbox{\hyperlink{classdai_1_1VarSet}{Var\+Set}} \&vs) const =0
+\begin{DoxyCompactList}\small\item\em Returns the (approximate) marginal probability distribution of a set of variables. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{factor_8h_a7515abf9952cd312e95a34ada0670e85}{Factor}} \mbox{\hyperlink{classdai_1_1InfAlg_ad89814b146552be0928a772ca110b444}{beliefV}} (size\+\_\+t i) const
+\begin{DoxyCompactList}\small\item\em Returns the (approximate) marginal probability distribution of the variable with index {\itshape i}. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{factor_8h_a7515abf9952cd312e95a34ada0670e85}{Factor}} \mbox{\hyperlink{classdai_1_1InfAlg_a7db625ef414a06961ac0d808b6102546}{beliefF}} (size\+\_\+t I) const
+\begin{DoxyCompactList}\small\item\em Returns the (approximate) marginal probability distribution of the variables on which factor {\itshape I} depends. \end{DoxyCompactList}\item 
+virtual std\+::vector$<$ \mbox{\hyperlink{factor_8h_a7515abf9952cd312e95a34ada0670e85}{Factor}} $>$ \mbox{\hyperlink{classdai_1_1InfAlg_a283601d71d62a6f60183748cbee88006}{beliefs}} () const =0
+\begin{DoxyCompactList}\small\item\em Returns all beliefs (approximate marginal probability distributions) calculated by the algorithm. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} \mbox{\hyperlink{classdai_1_1InfAlg_a40a2353d63c358ebca834d40b0a4fc70}{logZ}} () const =0
+\begin{DoxyCompactList}\small\item\em Returns the logarithm of the (approximated) partition sum (normalizing constant of the factor graph). \end{DoxyCompactList}\item 
+virtual std\+::vector$<$ size\+\_\+t $>$ \mbox{\hyperlink{classdai_1_1InfAlg_a2095732e9defd30c7348703990804763}{find\+Maximum}} () const
+\begin{DoxyCompactList}\small\item\em Calculates the joint state of all variables that has maximum probability. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} \mbox{\hyperlink{classdai_1_1InfAlg_a915a659034eb4c85abde912d684f8dee}{max\+Diff}} () const
+\begin{DoxyCompactList}\small\item\em Returns maximum difference between single variable beliefs in the last iteration. \end{DoxyCompactList}\item 
+virtual size\+\_\+t \mbox{\hyperlink{classdai_1_1InfAlg_a89986bbc1a42554905c6f417f2227ac5}{Iterations}} () const
+\begin{DoxyCompactList}\small\item\em Returns number of iterations done (one iteration passes over the complete factorgraph). \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classdai_1_1InfAlg_ac48656e5d42a7d288e9ca6d70e264858}{set\+Max\+Iter}} (size\+\_\+t)
+\begin{DoxyCompactList}\small\item\em Sets maximum number of iterations (one iteration passes over the complete factorgraph). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{classdai_1_1InfAlg_ac422893fd7b8e37f914860aeba9602dc}{set\+Properties}} (const \mbox{\hyperlink{classdai_1_1PropertySet}{Property\+Set}} \&opts)=0
+\begin{DoxyCompactList}\small\item\em Set parameters of this inference algorithm. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classdai_1_1PropertySet}{Property\+Set}} \mbox{\hyperlink{classdai_1_1InfAlg_aba3b821f6ed47b91ef4080b03c14220e}{get\+Properties}} () const =0
+\begin{DoxyCompactList}\small\item\em Returns parameters of this inference algorithm converted into a \doxylink{classdai_1_1PropertySet}{Property\+Set}. \end{DoxyCompactList}\item 
+virtual std\+::string \mbox{\hyperlink{classdai_1_1InfAlg_a9cc7a50cbbe8825a334b16e41c92f019}{print\+Properties}} () const =0
+\begin{DoxyCompactList}\small\item\em Returns parameters of this inference algorithm formatted as a string in the format "{}\mbox{[}key1=val1,key2=val2,...,keyn=valn\mbox{]}"{}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$class GRM$>$\newline
+class dai\+::\+DAIAlg$<$ GRM $>$}
+Combines the abstract base class \doxylink{classdai_1_1InfAlg}{Inf\+Alg} with a graphical model (e.\+g., a \doxylink{classdai_1_1FactorGraph}{Factor\+Graph} or \doxylink{classdai_1_1RegionGraph}{Region\+Graph}). 
+
+Inference algorithms in lib\+DAI directly inherit from a \doxylink{classdai_1_1DAIAlg}{DAIAlg}, currently either from a DAIAlg$<$\+Factor\+Graph$>$ or from a DAIAlg$<$\+Region\+Graph$>$.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em GRM} & Should be castable to \doxylink{classdai_1_1FactorGraph}{Factor\+Graph} \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyRefDesc}{Idea}
+\item[\mbox{\hyperlink{ideas__ideas000003}{Idea}}]A \doxylink{classdai_1_1DAIAlg}{DAIAlg} should not inherit from a \doxylink{classdai_1_1FactorGraph}{Factor\+Graph} or \doxylink{classdai_1_1RegionGraph}{Region\+Graph}, but should store a reference to the graphical model object. This prevents needless copying of (possibly large) data structures. Disadvantage\+: the caller must not change the graphical model between calls to the inference algorithm (maybe a smart\+\_\+ptr or some locking mechanism would help here?). \end{DoxyRefDesc}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classdai_1_1DAIAlg_a1b66918854e70f19c8b506658c9f50e0}\label{classdai_1_1DAIAlg_a1b66918854e70f19c8b506658c9f50e0} 
+\index{dai::DAIAlg$<$ GRM $>$@{dai::DAIAlg$<$ GRM $>$}!DAIAlg@{DAIAlg}}
+\index{DAIAlg@{DAIAlg}!dai::DAIAlg$<$ GRM $>$@{dai::DAIAlg$<$ GRM $>$}}
+\doxysubsubsection{\texorpdfstring{DAIAlg()}{DAIAlg()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class GRM $>$ \\
+\mbox{\hyperlink{classdai_1_1DAIAlg}{dai\+::\+DAIAlg}}$<$ GRM $>$\+::\+DAIAlg (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Default constructor. 
+
+\Hypertarget{classdai_1_1DAIAlg_a46ac57c2abad7c6870f30edc951aeff3}\label{classdai_1_1DAIAlg_a46ac57c2abad7c6870f30edc951aeff3} 
+\index{dai::DAIAlg$<$ GRM $>$@{dai::DAIAlg$<$ GRM $>$}!DAIAlg@{DAIAlg}}
+\index{DAIAlg@{DAIAlg}!dai::DAIAlg$<$ GRM $>$@{dai::DAIAlg$<$ GRM $>$}}
+\doxysubsubsection{\texorpdfstring{DAIAlg()}{DAIAlg()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class GRM $>$ \\
+\mbox{\hyperlink{classdai_1_1DAIAlg}{dai\+::\+DAIAlg}}$<$ GRM $>$\+::\+DAIAlg (\begin{DoxyParamCaption}\item[{const GRM \&}]{grm }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct from GRM. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classdai_1_1DAIAlg_a056caa8b537fccbd764b1c9f4e1ff615}\label{classdai_1_1DAIAlg_a056caa8b537fccbd764b1c9f4e1ff615} 
+\index{dai::DAIAlg$<$ GRM $>$@{dai::DAIAlg$<$ GRM $>$}!fg@{fg}}
+\index{fg@{fg}!dai::DAIAlg$<$ GRM $>$@{dai::DAIAlg$<$ GRM $>$}}
+\doxysubsubsection{\texorpdfstring{fg()}{fg()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class GRM $>$ \\
+\mbox{\hyperlink{classdai_1_1FactorGraph}{Factor\+Graph}} \& \mbox{\hyperlink{classdai_1_1DAIAlg}{dai\+::\+DAIAlg}}$<$ GRM $>$\+::fg (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Returns reference to underlying \doxylink{classdai_1_1FactorGraph}{Factor\+Graph}. 
+
+
+
+Implements \mbox{\hyperlink{classdai_1_1InfAlg_a58888cd453abc0b3dbfe62068c5ccaa9}{dai\+::\+Inf\+Alg}}.
+
+\Hypertarget{classdai_1_1DAIAlg_afdb2f05fe4b4458a9680ddbe21ad58a9}\label{classdai_1_1DAIAlg_afdb2f05fe4b4458a9680ddbe21ad58a9} 
+\index{dai::DAIAlg$<$ GRM $>$@{dai::DAIAlg$<$ GRM $>$}!fg@{fg}}
+\index{fg@{fg}!dai::DAIAlg$<$ GRM $>$@{dai::DAIAlg$<$ GRM $>$}}
+\doxysubsubsection{\texorpdfstring{fg()}{fg()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class GRM $>$ \\
+const \mbox{\hyperlink{classdai_1_1FactorGraph}{Factor\+Graph}} \& \mbox{\hyperlink{classdai_1_1DAIAlg}{dai\+::\+DAIAlg}}$<$ GRM $>$\+::fg (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Returns constant reference to underlying \doxylink{classdai_1_1FactorGraph}{Factor\+Graph}. 
+
+
+
+Implements \mbox{\hyperlink{classdai_1_1InfAlg_a92031efa1578adb10d9080070b1a1584}{dai\+::\+Inf\+Alg}}.
+
+\Hypertarget{classdai_1_1DAIAlg_ac0d7b26c09d9d7db4a7eda5f66181045}\label{classdai_1_1DAIAlg_ac0d7b26c09d9d7db4a7eda5f66181045} 
+\index{dai::DAIAlg$<$ GRM $>$@{dai::DAIAlg$<$ GRM $>$}!clamp@{clamp}}
+\index{clamp@{clamp}!dai::DAIAlg$<$ GRM $>$@{dai::DAIAlg$<$ GRM $>$}}
+\doxysubsubsection{\texorpdfstring{clamp()}{clamp()}}
+{\footnotesize\ttfamily template$<$class GRM $>$ \\
+void \mbox{\hyperlink{classdai_1_1DAIAlg}{dai\+::\+DAIAlg}}$<$ GRM $>$\+::clamp (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{i,  }\item[{size\+\_\+t}]{x,  }\item[{bool}]{backup = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Clamp variable with index {\itshape i} to value {\itshape x} (i.\+e. multiply with a Kronecker delta $\delta_{x_i, x}$) 
+
+If {\itshape backup} == {\ttfamily true}, make a backup of all factors that are changed. 
+
+Implements \mbox{\hyperlink{classdai_1_1InfAlg_a80214c452995d361e5a6dcad79844306}{dai\+::\+Inf\+Alg}}.
+
+\Hypertarget{classdai_1_1DAIAlg_a7f0b8452352080a1e35ab9a68cb589fd}\label{classdai_1_1DAIAlg_a7f0b8452352080a1e35ab9a68cb589fd} 
+\index{dai::DAIAlg$<$ GRM $>$@{dai::DAIAlg$<$ GRM $>$}!makeCavity@{makeCavity}}
+\index{makeCavity@{makeCavity}!dai::DAIAlg$<$ GRM $>$@{dai::DAIAlg$<$ GRM $>$}}
+\doxysubsubsection{\texorpdfstring{makeCavity()}{makeCavity()}}
+{\footnotesize\ttfamily template$<$class GRM $>$ \\
+void \mbox{\hyperlink{classdai_1_1DAIAlg}{dai\+::\+DAIAlg}}$<$ GRM $>$\+::make\+Cavity (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{i,  }\item[{bool}]{backup = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Sets all factors interacting with variable with index {\itshape i} to one. 
+
+If {\itshape backup} == {\ttfamily true}, make a backup of all factors that are changed. 
+
+Implements \mbox{\hyperlink{classdai_1_1InfAlg_a2e101c9089df2d5c5761083dd5d8380f}{dai\+::\+Inf\+Alg}}.
+
+\Hypertarget{classdai_1_1DAIAlg_a195bcd6ad05557374c95db50c674ad7f}\label{classdai_1_1DAIAlg_a195bcd6ad05557374c95db50c674ad7f} 
+\index{dai::DAIAlg$<$ GRM $>$@{dai::DAIAlg$<$ GRM $>$}!makeRegionCavity@{makeRegionCavity}}
+\index{makeRegionCavity@{makeRegionCavity}!dai::DAIAlg$<$ GRM $>$@{dai::DAIAlg$<$ GRM $>$}}
+\doxysubsubsection{\texorpdfstring{makeRegionCavity()}{makeRegionCavity()}}
+{\footnotesize\ttfamily template$<$class GRM $>$ \\
+void \mbox{\hyperlink{classdai_1_1DAIAlg}{dai\+::\+DAIAlg}}$<$ GRM $>$\+::make\+Region\+Cavity (\begin{DoxyParamCaption}\item[{std\+::vector$<$ size\+\_\+t $>$}]{fac\+Inds,  }\item[{bool}]{backup }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Sets all factors indicated by {\itshape fac\+Inds} to one. 
+
+If {\itshape backup} == {\ttfamily true}, make a backup of all factors that are changed. 
+
+Implements \mbox{\hyperlink{classdai_1_1InfAlg_ac63b5bbff09cc6c1409d6f40a31a32c1}{dai\+::\+Inf\+Alg}}.
+
+\Hypertarget{classdai_1_1DAIAlg_a48ba6a58d10b8802d690e5e92ec5abe9}\label{classdai_1_1DAIAlg_a48ba6a58d10b8802d690e5e92ec5abe9} 
+\index{dai::DAIAlg$<$ GRM $>$@{dai::DAIAlg$<$ GRM $>$}!backupFactor@{backupFactor}}
+\index{backupFactor@{backupFactor}!dai::DAIAlg$<$ GRM $>$@{dai::DAIAlg$<$ GRM $>$}}
+\doxysubsubsection{\texorpdfstring{backupFactor()}{backupFactor()}}
+{\footnotesize\ttfamily template$<$class GRM $>$ \\
+void \mbox{\hyperlink{classdai_1_1DAIAlg}{dai\+::\+DAIAlg}}$<$ GRM $>$\+::backup\+Factor (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{I }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Make a backup copy of factor {\itshape I}. 
+
+
+
+Implements \mbox{\hyperlink{classdai_1_1InfAlg_a2cbc785afe9df0c6ee744d1a286b5cff}{dai\+::\+Inf\+Alg}}.
+
+\Hypertarget{classdai_1_1DAIAlg_ac74e4ae749a3f706462bb5c0c0f204ca}\label{classdai_1_1DAIAlg_ac74e4ae749a3f706462bb5c0c0f204ca} 
+\index{dai::DAIAlg$<$ GRM $>$@{dai::DAIAlg$<$ GRM $>$}!backupFactors@{backupFactors}}
+\index{backupFactors@{backupFactors}!dai::DAIAlg$<$ GRM $>$@{dai::DAIAlg$<$ GRM $>$}}
+\doxysubsubsection{\texorpdfstring{backupFactors()}{backupFactors()}}
+{\footnotesize\ttfamily template$<$class GRM $>$ \\
+void \mbox{\hyperlink{classdai_1_1DAIAlg}{dai\+::\+DAIAlg}}$<$ GRM $>$\+::backup\+Factors (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classdai_1_1VarSet}{Var\+Set}} \&}]{vs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Make backup copies of all factors involving the variables in {\itshape vs}. 
+
+
+
+Implements \mbox{\hyperlink{classdai_1_1InfAlg_a4c572b1ce73ce427af3ffdb6f6a73a45}{dai\+::\+Inf\+Alg}}.
+
+\Hypertarget{classdai_1_1DAIAlg_abf8dbd2797ec871e86566a6dfc0864e3}\label{classdai_1_1DAIAlg_abf8dbd2797ec871e86566a6dfc0864e3} 
+\index{dai::DAIAlg$<$ GRM $>$@{dai::DAIAlg$<$ GRM $>$}!restoreFactor@{restoreFactor}}
+\index{restoreFactor@{restoreFactor}!dai::DAIAlg$<$ GRM $>$@{dai::DAIAlg$<$ GRM $>$}}
+\doxysubsubsection{\texorpdfstring{restoreFactor()}{restoreFactor()}}
+{\footnotesize\ttfamily template$<$class GRM $>$ \\
+void \mbox{\hyperlink{classdai_1_1DAIAlg}{dai\+::\+DAIAlg}}$<$ GRM $>$\+::restore\+Factor (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{I }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Restore factor {\itshape I} from its backup copy. 
+
+
+
+Implements \mbox{\hyperlink{classdai_1_1InfAlg_ae8224cce01e7974b87c8b88b1aa13b59}{dai\+::\+Inf\+Alg}}.
+
+\Hypertarget{classdai_1_1DAIAlg_a333a182249b2abeb93ff21377d0e8ffd}\label{classdai_1_1DAIAlg_a333a182249b2abeb93ff21377d0e8ffd} 
+\index{dai::DAIAlg$<$ GRM $>$@{dai::DAIAlg$<$ GRM $>$}!restoreFactors@{restoreFactors}}
+\index{restoreFactors@{restoreFactors}!dai::DAIAlg$<$ GRM $>$@{dai::DAIAlg$<$ GRM $>$}}
+\doxysubsubsection{\texorpdfstring{restoreFactors()}{restoreFactors()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class GRM $>$ \\
+void \mbox{\hyperlink{classdai_1_1DAIAlg}{dai\+::\+DAIAlg}}$<$ GRM $>$\+::restore\+Factors (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classdai_1_1VarSet}{Var\+Set}} \&}]{vs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Restore the factors involving the variables in {\itshape vs} from their backup copies. 
+
+
+
+Implements \mbox{\hyperlink{classdai_1_1InfAlg_a2a57b201409b36909b8c336a2748ac81}{dai\+::\+Inf\+Alg}}.
+
+\Hypertarget{classdai_1_1DAIAlg_aa4f659feb4967ba096400f4904cfe068}\label{classdai_1_1DAIAlg_aa4f659feb4967ba096400f4904cfe068} 
+\index{dai::DAIAlg$<$ GRM $>$@{dai::DAIAlg$<$ GRM $>$}!restoreFactors@{restoreFactors}}
+\index{restoreFactors@{restoreFactors}!dai::DAIAlg$<$ GRM $>$@{dai::DAIAlg$<$ GRM $>$}}
+\doxysubsubsection{\texorpdfstring{restoreFactors()}{restoreFactors()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class GRM $>$ \\
+void \mbox{\hyperlink{classdai_1_1DAIAlg}{dai\+::\+DAIAlg}}$<$ GRM $>$\+::restore\+Factors (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Restore all factors from their backup copies. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/dai/\mbox{\hyperlink{daialg_8h}{daialg.\+h}}\end{DoxyCompactItemize}

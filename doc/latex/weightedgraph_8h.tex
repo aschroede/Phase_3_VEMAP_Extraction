@@ -1,0 +1,95 @@
+\doxysection{include/dai/weightedgraph.h File Reference}
+\hypertarget{weightedgraph_8h}{}\label{weightedgraph_8h}\index{include/dai/weightedgraph.h@{include/dai/weightedgraph.h}}
+
+
+Defines some utility functions for (weighted) undirected graphs, trees and rooted trees.  
+
+
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$map$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$set$>$}\newline
+{\ttfamily \#include $<$limits$>$}\newline
+{\ttfamily \#include $<$climits$>$}\newline
+{\ttfamily \#include $<$boost/graph/adjacency\+\_\+list.\+hpp$>$}\newline
+{\ttfamily \#include $<$boost/graph/prim\+\_\+minimum\+\_\+spanning\+\_\+tree.\+hpp$>$}\newline
+{\ttfamily \#include $<$boost/graph/kruskal\+\_\+min\+\_\+spanning\+\_\+tree.\+hpp$>$}\newline
+{\ttfamily \#include $<$dai/util.\+h$>$}\newline
+{\ttfamily \#include $<$dai/exceptions.\+h$>$}\newline
+{\ttfamily \#include $<$dai/graph.\+h$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classdai_1_1DEdge}{dai\+::\+DEdge}}
+\begin{DoxyCompactList}\small\item\em Represents a directed edge. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classdai_1_1UEdge}{dai\+::\+UEdge}}
+\begin{DoxyCompactList}\small\item\em Represents an undirected edge. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classdai_1_1GraphEL}{dai\+::\+Graph\+EL}}
+\begin{DoxyCompactList}\small\item\em Represents an undirected graph, implemented as a std\+::set of undirected edges. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classdai_1_1WeightedGraph}{dai\+::\+Weighted\+Graph$<$ T $>$}}
+\begin{DoxyCompactList}\small\item\em Represents an undirected weighted graph, with weights of type {\itshape T}, implemented as a std\+::map mapping undirected edges to weights. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classdai_1_1RootedTree}{dai\+::\+Rooted\+Tree}}
+\begin{DoxyCompactList}\small\item\em Represents a rooted tree, implemented as a vector of directed edges. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{classdai_1_1RootedTree}{Rooted\+Tree}} \mbox{\hyperlink{weightedgraph_8h_af37305c285dbe556f8a40cbf3ccf4be3}{dai\+::\+Min\+Spanning\+Tree}} (const \mbox{\hyperlink{classdai_1_1WeightedGraph}{Weighted\+Graph}}$<$ T $>$ \&G, bool use\+Prim)
+\begin{DoxyCompactList}\small\item\em Constructs a minimum spanning tree from the (non-\/negatively) weighted graph {\itshape G}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{classdai_1_1RootedTree}{Rooted\+Tree}} \mbox{\hyperlink{weightedgraph_8h_a394197d7c57ab6f1dd5bad99df18d51c}{dai\+::\+Max\+Spanning\+Tree}} (const \mbox{\hyperlink{classdai_1_1WeightedGraph}{Weighted\+Graph}}$<$ T $>$ \&G, bool use\+Prim)
+\begin{DoxyCompactList}\small\item\em Constructs a minimum spanning tree from the (non-\/negatively) weighted graph {\itshape G}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Defines some utility functions for (weighted) undirected graphs, trees and rooted trees. 
+
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000007}{Todo}}]Improve general support for graphs and trees (in particular, a good tree implementation is needed). \end{DoxyRefDesc}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{weightedgraph_8h_af37305c285dbe556f8a40cbf3ccf4be3}\label{weightedgraph_8h_af37305c285dbe556f8a40cbf3ccf4be3} 
+\index{weightedgraph.h@{weightedgraph.h}!MinSpanningTree@{MinSpanningTree}}
+\index{MinSpanningTree@{MinSpanningTree}!weightedgraph.h@{weightedgraph.h}}
+\doxysubsubsection{\texorpdfstring{MinSpanningTree()}{MinSpanningTree()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+Rooted\+Tree dai\+::\+Min\+Spanning\+Tree (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classdai_1_1WeightedGraph}{Weighted\+Graph}}$<$ T $>$ \&}]{G,  }\item[{bool}]{use\+Prim }\end{DoxyParamCaption})}
+
+
+
+Constructs a minimum spanning tree from the (non-\/negatively) weighted graph {\itshape G}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em G} & Weighted graph that should have non-\/negative weights. \\
+\hline
+{\em use\+Prim} & If true, use Prim\textquotesingle{}s algorithm (complexity O(\+E log(\+V))), otherwise, use Kruskal\textquotesingle{}s algorithm (complexity O(\+E log(\+E))). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Uses implementation from Boost Graph Library. 
+
+The vertices of {\itshape G} must be in the range \mbox{[}0,N) where N is the number of vertices of {\itshape G}. 
+\end{DoxyNote}
+\Hypertarget{weightedgraph_8h_a394197d7c57ab6f1dd5bad99df18d51c}\label{weightedgraph_8h_a394197d7c57ab6f1dd5bad99df18d51c} 
+\index{weightedgraph.h@{weightedgraph.h}!MaxSpanningTree@{MaxSpanningTree}}
+\index{MaxSpanningTree@{MaxSpanningTree}!weightedgraph.h@{weightedgraph.h}}
+\doxysubsubsection{\texorpdfstring{MaxSpanningTree()}{MaxSpanningTree()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+Rooted\+Tree dai\+::\+Max\+Spanning\+Tree (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classdai_1_1WeightedGraph}{Weighted\+Graph}}$<$ T $>$ \&}]{G,  }\item[{bool}]{use\+Prim }\end{DoxyParamCaption})}
+
+
+
+Constructs a minimum spanning tree from the (non-\/negatively) weighted graph {\itshape G}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em G} & Weighted graph that should have non-\/negative weights. \\
+\hline
+{\em use\+Prim} & If true, use Prim\textquotesingle{}s algorithm (complexity O(\+E log(\+V))), otherwise, use Kruskal\textquotesingle{}s algorithm (complexity O(\+E log(\+E))). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Uses implementation from Boost Graph Library. 
+
+The vertices of {\itshape G} must be in the range \mbox{[}0,N) where N is the number of vertices of {\itshape G}. 
+\end{DoxyNote}

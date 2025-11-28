@@ -1,0 +1,599 @@
+\doxysection{dai\+::Inf\+Alg Class Reference}
+\hypertarget{classdai_1_1InfAlg}{}\label{classdai_1_1InfAlg}\index{dai::InfAlg@{dai::InfAlg}}
+
+
+\doxylink{classdai_1_1InfAlg}{Inf\+Alg} is an abstract base class, defining the common interface of all inference algorithms in lib\+DAI.  
+
+
+
+
+{\ttfamily \#include $<$dai/daialg.\+h$>$}
+
+Inheritance diagram for dai\+::Inf\+Alg\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classdai_1_1InfAlg}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{Indent}\textbf{ Constructors/destructors}\par
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classdai_1_1InfAlg_a00c1dba1041af038de0689cceb0a69f0}{\texorpdfstring{$\sim$}{\string~}\+Inf\+Alg}} ()
+\begin{DoxyCompactList}\small\item\em Virtual destructor (needed because this class contains virtual functions) \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classdai_1_1InfAlg}{Inf\+Alg}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classdai_1_1InfAlg_a4e05d62b78fc4f9a93cd417a5c807eab}{clone}} () const =0
+\begin{DoxyCompactList}\small\item\em Returns a pointer to a new, cloned copy of {\ttfamily \texorpdfstring{$\ast$}{*}this} (i.\+e., virtual copy constructor) \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classdai_1_1InfAlg}{Inf\+Alg}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classdai_1_1InfAlg_ac2865bb3577b103a707903010a53b6ce}{construct}} (const \mbox{\hyperlink{classdai_1_1FactorGraph}{Factor\+Graph}} \&\mbox{\hyperlink{classdai_1_1InfAlg_a58888cd453abc0b3dbfe62068c5ccaa9}{fg}}, const \mbox{\hyperlink{classdai_1_1PropertySet}{Property\+Set}} \&opts) const =0
+\begin{DoxyCompactList}\small\item\em Returns a pointer to a newly constructed inference algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Queries}\par
+\begin{DoxyCompactItemize}
+\item 
+virtual std\+::string \mbox{\hyperlink{classdai_1_1InfAlg_a25108f733ca6bc54f445a4fffdc2a392}{name}} () const =0
+\begin{DoxyCompactList}\small\item\em Returns the name of the algorithm. \end{DoxyCompactList}\item 
+virtual std\+::string \mbox{\hyperlink{classdai_1_1InfAlg_aa4284a406963b4cd55a820af98e9f03d}{identify}} () const
+\begin{DoxyCompactList}\small\item\em Identifies itself for logging purposes. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classdai_1_1FactorGraph}{Factor\+Graph}} \& \mbox{\hyperlink{classdai_1_1InfAlg_a58888cd453abc0b3dbfe62068c5ccaa9}{fg}} ()=0
+\begin{DoxyCompactList}\small\item\em Returns reference to underlying \doxylink{classdai_1_1FactorGraph}{Factor\+Graph}. \end{DoxyCompactList}\item 
+virtual const \mbox{\hyperlink{classdai_1_1FactorGraph}{Factor\+Graph}} \& \mbox{\hyperlink{classdai_1_1InfAlg_a92031efa1578adb10d9080070b1a1584}{fg}} () const =0
+\begin{DoxyCompactList}\small\item\em Returns constant reference to underlying \doxylink{classdai_1_1FactorGraph}{Factor\+Graph}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Inference interface}\par
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{classdai_1_1InfAlg_a99dd53d1aaccf09a4b977a49a983cc85}{init}} ()=0
+\begin{DoxyCompactList}\small\item\em Initializes all data structures of the approximate inference algorithm. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classdai_1_1InfAlg_a5b1e6d8af207bcc47fd954fdef382a77}{init}} (const \mbox{\hyperlink{classdai_1_1VarSet}{Var\+Set}} \&vs)=0
+\begin{DoxyCompactList}\small\item\em Initializes all data structures corresponding to some set of variables. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} \mbox{\hyperlink{classdai_1_1InfAlg_a4ac173c4d4109fd1e2229dd83532d32f}{run}} ()=0
+\begin{DoxyCompactList}\small\item\em Runs the approximate inference algorithm. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{factor_8h_a7515abf9952cd312e95a34ada0670e85}{Factor}} \mbox{\hyperlink{classdai_1_1InfAlg_ab36227bbc227dfaff65d4a39ff938c34}{belief}} (const \mbox{\hyperlink{classdai_1_1Var}{Var}} \&v) const
+\begin{DoxyCompactList}\small\item\em Returns the (approximate) marginal probability distribution of a variable. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{factor_8h_a7515abf9952cd312e95a34ada0670e85}{Factor}} \mbox{\hyperlink{classdai_1_1InfAlg_a4655db9d766470f1a555cba7d3ec7190}{belief}} (const \mbox{\hyperlink{classdai_1_1VarSet}{Var\+Set}} \&vs) const =0
+\begin{DoxyCompactList}\small\item\em Returns the (approximate) marginal probability distribution of a set of variables. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{factor_8h_a7515abf9952cd312e95a34ada0670e85}{Factor}} \mbox{\hyperlink{classdai_1_1InfAlg_ad89814b146552be0928a772ca110b444}{beliefV}} (size\+\_\+t i) const
+\begin{DoxyCompactList}\small\item\em Returns the (approximate) marginal probability distribution of the variable with index {\itshape i}. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{factor_8h_a7515abf9952cd312e95a34ada0670e85}{Factor}} \mbox{\hyperlink{classdai_1_1InfAlg_a7db625ef414a06961ac0d808b6102546}{beliefF}} (size\+\_\+t I) const
+\begin{DoxyCompactList}\small\item\em Returns the (approximate) marginal probability distribution of the variables on which factor {\itshape I} depends. \end{DoxyCompactList}\item 
+virtual std\+::vector$<$ \mbox{\hyperlink{factor_8h_a7515abf9952cd312e95a34ada0670e85}{Factor}} $>$ \mbox{\hyperlink{classdai_1_1InfAlg_a283601d71d62a6f60183748cbee88006}{beliefs}} () const =0
+\begin{DoxyCompactList}\small\item\em Returns all beliefs (approximate marginal probability distributions) calculated by the algorithm. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} \mbox{\hyperlink{classdai_1_1InfAlg_a40a2353d63c358ebca834d40b0a4fc70}{logZ}} () const =0
+\begin{DoxyCompactList}\small\item\em Returns the logarithm of the (approximated) partition sum (normalizing constant of the factor graph). \end{DoxyCompactList}\item 
+virtual std\+::vector$<$ size\+\_\+t $>$ \mbox{\hyperlink{classdai_1_1InfAlg_a2095732e9defd30c7348703990804763}{find\+Maximum}} () const
+\begin{DoxyCompactList}\small\item\em Calculates the joint state of all variables that has maximum probability. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} \mbox{\hyperlink{classdai_1_1InfAlg_a915a659034eb4c85abde912d684f8dee}{max\+Diff}} () const
+\begin{DoxyCompactList}\small\item\em Returns maximum difference between single variable beliefs in the last iteration. \end{DoxyCompactList}\item 
+virtual size\+\_\+t \mbox{\hyperlink{classdai_1_1InfAlg_a89986bbc1a42554905c6f417f2227ac5}{Iterations}} () const
+\begin{DoxyCompactList}\small\item\em Returns number of iterations done (one iteration passes over the complete factorgraph). \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classdai_1_1InfAlg_ac48656e5d42a7d288e9ca6d70e264858}{set\+Max\+Iter}} (size\+\_\+t)
+\begin{DoxyCompactList}\small\item\em Sets maximum number of iterations (one iteration passes over the complete factorgraph). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Changing the factor graph}\par
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{classdai_1_1InfAlg_a80214c452995d361e5a6dcad79844306}{clamp}} (size\+\_\+t i, size\+\_\+t x, bool backup=false)=0
+\begin{DoxyCompactList}\small\item\em Clamp variable with index {\itshape i} to value {\itshape x} (i.\+e. multiply with a Kronecker delta $\delta_{x_i, x}$) \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classdai_1_1InfAlg_a2e101c9089df2d5c5761083dd5d8380f}{make\+Cavity}} (size\+\_\+t i, bool backup=false)=0
+\begin{DoxyCompactList}\small\item\em Sets all factors interacting with variable with index {\itshape i} to one. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classdai_1_1InfAlg_ac63b5bbff09cc6c1409d6f40a31a32c1}{make\+Region\+Cavity}} (std\+::vector$<$ size\+\_\+t $>$ fac\+Inds, bool backup=false)=0
+\begin{DoxyCompactList}\small\item\em Sets all factors indicated by {\itshape fac\+Inds} to one. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Backup/restore mechanism for factors}\par
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{classdai_1_1InfAlg_a2cbc785afe9df0c6ee744d1a286b5cff}{backup\+Factor}} (size\+\_\+t I)=0
+\begin{DoxyCompactList}\small\item\em Make a backup copy of factor {\itshape I}. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classdai_1_1InfAlg_a4c572b1ce73ce427af3ffdb6f6a73a45}{backup\+Factors}} (const \mbox{\hyperlink{classdai_1_1VarSet}{Var\+Set}} \&vs)=0
+\begin{DoxyCompactList}\small\item\em Make backup copies of all factors involving the variables in {\itshape vs}. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classdai_1_1InfAlg_ae8224cce01e7974b87c8b88b1aa13b59}{restore\+Factor}} (size\+\_\+t I)=0
+\begin{DoxyCompactList}\small\item\em Restore factor {\itshape I} from its backup copy. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classdai_1_1InfAlg_a2a57b201409b36909b8c336a2748ac81}{restore\+Factors}} (const \mbox{\hyperlink{classdai_1_1VarSet}{Var\+Set}} \&vs)=0
+\begin{DoxyCompactList}\small\item\em Restore the factors involving the variables in {\itshape vs} from their backup copies. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Managing parameters}\par
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{classdai_1_1InfAlg_ac422893fd7b8e37f914860aeba9602dc}{set\+Properties}} (const \mbox{\hyperlink{classdai_1_1PropertySet}{Property\+Set}} \&opts)=0
+\begin{DoxyCompactList}\small\item\em Set parameters of this inference algorithm. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classdai_1_1PropertySet}{Property\+Set}} \mbox{\hyperlink{classdai_1_1InfAlg_aba3b821f6ed47b91ef4080b03c14220e}{get\+Properties}} () const =0
+\begin{DoxyCompactList}\small\item\em Returns parameters of this inference algorithm converted into a \doxylink{classdai_1_1PropertySet}{Property\+Set}. \end{DoxyCompactList}\item 
+virtual std\+::string \mbox{\hyperlink{classdai_1_1InfAlg_a9cc7a50cbbe8825a334b16e41c92f019}{print\+Properties}} () const =0
+\begin{DoxyCompactList}\small\item\em Returns parameters of this inference algorithm formatted as a string in the format "{}\mbox{[}key1=val1,key2=val2,...,keyn=valn\mbox{]}"{}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{classdai_1_1InfAlg}{Inf\+Alg} is an abstract base class, defining the common interface of all inference algorithms in lib\+DAI. 
+
+\begin{DoxyRefDesc}{Idea}
+\item[\mbox{\hyperlink{ideas__ideas000002}{Idea}}]General marginalization functions like calc\+Marginal() now copy a complete \doxylink{classdai_1_1InfAlg}{Inf\+Alg} object. Instead, it would make more sense that they construct a new object without copying the \doxylink{classdai_1_1FactorGraph}{Factor\+Graph} or \doxylink{classdai_1_1RegionGraph}{Region\+Graph}. Or they can simply be made methods of the general \doxylink{classdai_1_1InfAlg}{Inf\+Alg} class. 
+
+Use a \doxylink{classdai_1_1PropertySet}{Property\+Set} as output of an \doxylink{classdai_1_1InfAlg}{Inf\+Alg}, instead of functions like \doxylink{classdai_1_1InfAlg_a915a659034eb4c85abde912d684f8dee}{max\+Diff()} and \doxylink{classdai_1_1InfAlg_a89986bbc1a42554905c6f417f2227ac5}{Iterations()}. \end{DoxyRefDesc}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classdai_1_1InfAlg_a00c1dba1041af038de0689cceb0a69f0}\label{classdai_1_1InfAlg_a00c1dba1041af038de0689cceb0a69f0} 
+\index{dai::InfAlg@{dai::InfAlg}!````~InfAlg@{\texorpdfstring{$\sim$}{\string~}InfAlg}}
+\index{````~InfAlg@{\texorpdfstring{$\sim$}{\string~}InfAlg}!dai::InfAlg@{dai::InfAlg}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}InfAlg()}{\string~InfAlg()}}
+{\footnotesize\ttfamily virtual dai\+::\+Inf\+Alg\+::\texorpdfstring{$\sim$}{\string~}\+Inf\+Alg (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Virtual destructor (needed because this class contains virtual functions) 
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classdai_1_1InfAlg_a4e05d62b78fc4f9a93cd417a5c807eab}\label{classdai_1_1InfAlg_a4e05d62b78fc4f9a93cd417a5c807eab} 
+\index{dai::InfAlg@{dai::InfAlg}!clone@{clone}}
+\index{clone@{clone}!dai::InfAlg@{dai::InfAlg}}
+\doxysubsubsection{\texorpdfstring{clone()}{clone()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{classdai_1_1InfAlg}{Inf\+Alg}} \texorpdfstring{$\ast$}{*} dai\+::\+Inf\+Alg\+::clone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Returns a pointer to a new, cloned copy of {\ttfamily \texorpdfstring{$\ast$}{*}this} (i.\+e., virtual copy constructor) 
+
+
+
+Implemented in \mbox{\hyperlink{classdai_1_1JTree_ad226b1bfd9be00063d627bf49e140916}{dai\+::\+JTree}}.
+
+\Hypertarget{classdai_1_1InfAlg_ac2865bb3577b103a707903010a53b6ce}\label{classdai_1_1InfAlg_ac2865bb3577b103a707903010a53b6ce} 
+\index{dai::InfAlg@{dai::InfAlg}!construct@{construct}}
+\index{construct@{construct}!dai::InfAlg@{dai::InfAlg}}
+\doxysubsubsection{\texorpdfstring{construct()}{construct()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{classdai_1_1InfAlg}{Inf\+Alg}} \texorpdfstring{$\ast$}{*} dai\+::\+Inf\+Alg\+::construct (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classdai_1_1FactorGraph}{Factor\+Graph}} \&}]{fg,  }\item[{const \mbox{\hyperlink{classdai_1_1PropertySet}{Property\+Set}} \&}]{opts }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Returns a pointer to a newly constructed inference algorithm. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fg} & Factor graph on which to perform the inference algorithm; \\
+\hline
+{\em opts} & Parameters passed to constructor of inference algorithm; \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classdai_1_1JTree_a5cb199f56af4e50851f34cc1c0257017}{dai\+::\+JTree}}.
+
+\Hypertarget{classdai_1_1InfAlg_a25108f733ca6bc54f445a4fffdc2a392}\label{classdai_1_1InfAlg_a25108f733ca6bc54f445a4fffdc2a392} 
+\index{dai::InfAlg@{dai::InfAlg}!name@{name}}
+\index{name@{name}!dai::InfAlg@{dai::InfAlg}}
+\doxysubsubsection{\texorpdfstring{name()}{name()}}
+{\footnotesize\ttfamily virtual std\+::string dai\+::\+Inf\+Alg\+::name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Returns the name of the algorithm. 
+
+
+
+Implemented in \mbox{\hyperlink{classdai_1_1JTree_a600c55608c6f9caabee950e8a719cd9a}{dai\+::\+JTree}}.
+
+\Hypertarget{classdai_1_1InfAlg_aa4284a406963b4cd55a820af98e9f03d}\label{classdai_1_1InfAlg_aa4284a406963b4cd55a820af98e9f03d} 
+\index{dai::InfAlg@{dai::InfAlg}!identify@{identify}}
+\index{identify@{identify}!dai::InfAlg@{dai::InfAlg}}
+\doxysubsubsection{\texorpdfstring{identify()}{identify()}}
+{\footnotesize\ttfamily virtual std\+::string dai\+::\+Inf\+Alg\+::identify (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Identifies itself for logging purposes. 
+
+\Hypertarget{classdai_1_1InfAlg_a58888cd453abc0b3dbfe62068c5ccaa9}\label{classdai_1_1InfAlg_a58888cd453abc0b3dbfe62068c5ccaa9} 
+\index{dai::InfAlg@{dai::InfAlg}!fg@{fg}}
+\index{fg@{fg}!dai::InfAlg@{dai::InfAlg}}
+\doxysubsubsection{\texorpdfstring{fg()}{fg()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{classdai_1_1FactorGraph}{Factor\+Graph}} \& dai\+::\+Inf\+Alg\+::fg (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Returns reference to underlying \doxylink{classdai_1_1FactorGraph}{Factor\+Graph}. 
+
+
+
+Implemented in \mbox{\hyperlink{classdai_1_1DAIAlg_a056caa8b537fccbd764b1c9f4e1ff615}{dai\+::\+DAIAlg$<$ GRM $>$}}.
+
+\Hypertarget{classdai_1_1InfAlg_a92031efa1578adb10d9080070b1a1584}\label{classdai_1_1InfAlg_a92031efa1578adb10d9080070b1a1584} 
+\index{dai::InfAlg@{dai::InfAlg}!fg@{fg}}
+\index{fg@{fg}!dai::InfAlg@{dai::InfAlg}}
+\doxysubsubsection{\texorpdfstring{fg()}{fg()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual const \mbox{\hyperlink{classdai_1_1FactorGraph}{Factor\+Graph}} \& dai\+::\+Inf\+Alg\+::fg (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Returns constant reference to underlying \doxylink{classdai_1_1FactorGraph}{Factor\+Graph}. 
+
+
+
+Implemented in \mbox{\hyperlink{classdai_1_1DAIAlg_afdb2f05fe4b4458a9680ddbe21ad58a9}{dai\+::\+DAIAlg$<$ GRM $>$}}.
+
+\Hypertarget{classdai_1_1InfAlg_a99dd53d1aaccf09a4b977a49a983cc85}\label{classdai_1_1InfAlg_a99dd53d1aaccf09a4b977a49a983cc85} 
+\index{dai::InfAlg@{dai::InfAlg}!init@{init}}
+\index{init@{init}!dai::InfAlg@{dai::InfAlg}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual void dai\+::\+Inf\+Alg\+::init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Initializes all data structures of the approximate inference algorithm. 
+
+\begin{DoxyNote}{Note}
+This method should be called at least once before \doxylink{classdai_1_1InfAlg_a4ac173c4d4109fd1e2229dd83532d32f}{run()} is called. 
+\end{DoxyNote}
+
+
+Implemented in \mbox{\hyperlink{classdai_1_1JTree_acbb2df1dc4e64097a46fc4cb1394e76f}{dai\+::\+JTree}}.
+
+\Hypertarget{classdai_1_1InfAlg_a5b1e6d8af207bcc47fd954fdef382a77}\label{classdai_1_1InfAlg_a5b1e6d8af207bcc47fd954fdef382a77} 
+\index{dai::InfAlg@{dai::InfAlg}!init@{init}}
+\index{init@{init}!dai::InfAlg@{dai::InfAlg}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual void dai\+::\+Inf\+Alg\+::init (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classdai_1_1VarSet}{Var\+Set}} \&}]{vs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Initializes all data structures corresponding to some set of variables. 
+
+This method can be used to do a partial initialization after a part of the factor graph has changed. Instead of initializing all data structures, it only initializes those involving the variables in {\itshape vs}. 
+\begin{DoxyExceptions}{Exceptions}
+{\em NOT\+\_\+\+IMPLEMENTED} & if not implemented/supported \\
+\hline
+\end{DoxyExceptions}
+
+
+Implemented in \mbox{\hyperlink{classdai_1_1JTree_a365c52b5f264c844ac5c010026719350}{dai\+::\+JTree}}.
+
+\Hypertarget{classdai_1_1InfAlg_a4ac173c4d4109fd1e2229dd83532d32f}\label{classdai_1_1InfAlg_a4ac173c4d4109fd1e2229dd83532d32f} 
+\index{dai::InfAlg@{dai::InfAlg}!run@{run}}
+\index{run@{run}!dai::InfAlg@{dai::InfAlg}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} dai\+::\+Inf\+Alg\+::run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Runs the approximate inference algorithm. 
+
+\begin{DoxyNote}{Note}
+Before \doxylink{classdai_1_1InfAlg_a4ac173c4d4109fd1e2229dd83532d32f}{run()} is called the first time, \doxylink{classdai_1_1InfAlg_a99dd53d1aaccf09a4b977a49a983cc85}{init()} should have been called. 
+\end{DoxyNote}
+
+
+Implemented in \mbox{\hyperlink{classdai_1_1JTree_a5596a82ebb58954804deb710892182fd}{dai\+::\+JTree}}.
+
+\Hypertarget{classdai_1_1InfAlg_ab36227bbc227dfaff65d4a39ff938c34}\label{classdai_1_1InfAlg_ab36227bbc227dfaff65d4a39ff938c34} 
+\index{dai::InfAlg@{dai::InfAlg}!belief@{belief}}
+\index{belief@{belief}!dai::InfAlg@{dai::InfAlg}}
+\doxysubsubsection{\texorpdfstring{belief()}{belief()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{factor_8h_a7515abf9952cd312e95a34ada0670e85}{Factor}} dai\+::\+Inf\+Alg\+::belief (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classdai_1_1Var}{Var}} \&}]{v }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Returns the (approximate) marginal probability distribution of a variable. 
+
+\begin{DoxyNote}{Note}
+Before this method is called, \doxylink{classdai_1_1InfAlg_a4ac173c4d4109fd1e2229dd83532d32f}{run()} should have been called. 
+\end{DoxyNote}
+\Hypertarget{classdai_1_1InfAlg_a4655db9d766470f1a555cba7d3ec7190}\label{classdai_1_1InfAlg_a4655db9d766470f1a555cba7d3ec7190} 
+\index{dai::InfAlg@{dai::InfAlg}!belief@{belief}}
+\index{belief@{belief}!dai::InfAlg@{dai::InfAlg}}
+\doxysubsubsection{\texorpdfstring{belief()}{belief()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{factor_8h_a7515abf9952cd312e95a34ada0670e85}{Factor}} dai\+::\+Inf\+Alg\+::belief (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classdai_1_1VarSet}{Var\+Set}} \&}]{vs }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Returns the (approximate) marginal probability distribution of a set of variables. 
+
+\begin{DoxyNote}{Note}
+Before this method is called, \doxylink{classdai_1_1InfAlg_a4ac173c4d4109fd1e2229dd83532d32f}{run()} should have been called. 
+\end{DoxyNote}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em NOT\+\_\+\+IMPLEMENTED} & if not implemented/supported. \\
+\hline
+{\em BELIEF\+\_\+\+NOT\+\_\+\+AVAILABLE} & if the requested belief cannot be calculated with this algorithm. \\
+\hline
+\end{DoxyExceptions}
+
+
+Implemented in \mbox{\hyperlink{classdai_1_1JTree_a90e9372a870813e6b7cb2f265ad0c857}{dai\+::\+JTree}}.
+
+\Hypertarget{classdai_1_1InfAlg_ad89814b146552be0928a772ca110b444}\label{classdai_1_1InfAlg_ad89814b146552be0928a772ca110b444} 
+\index{dai::InfAlg@{dai::InfAlg}!beliefV@{beliefV}}
+\index{beliefV@{beliefV}!dai::InfAlg@{dai::InfAlg}}
+\doxysubsubsection{\texorpdfstring{beliefV()}{beliefV()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{factor_8h_a7515abf9952cd312e95a34ada0670e85}{Factor}} dai\+::\+Inf\+Alg\+::beliefV (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{i }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Returns the (approximate) marginal probability distribution of the variable with index {\itshape i}. 
+
+For some approximate inference algorithms, using \doxylink{classdai_1_1InfAlg_ad89814b146552be0928a772ca110b444}{belief\+V()} is preferred to \doxylink{classdai_1_1InfAlg_ab36227bbc227dfaff65d4a39ff938c34}{belief()} for performance reasons. \begin{DoxyNote}{Note}
+Before this method is called, \doxylink{classdai_1_1InfAlg_a4ac173c4d4109fd1e2229dd83532d32f}{run()} should have been called. 
+\end{DoxyNote}
+\Hypertarget{classdai_1_1InfAlg_a7db625ef414a06961ac0d808b6102546}\label{classdai_1_1InfAlg_a7db625ef414a06961ac0d808b6102546} 
+\index{dai::InfAlg@{dai::InfAlg}!beliefF@{beliefF}}
+\index{beliefF@{beliefF}!dai::InfAlg@{dai::InfAlg}}
+\doxysubsubsection{\texorpdfstring{beliefF()}{beliefF()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{factor_8h_a7515abf9952cd312e95a34ada0670e85}{Factor}} dai\+::\+Inf\+Alg\+::beliefF (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{I }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Returns the (approximate) marginal probability distribution of the variables on which factor {\itshape I} depends. 
+
+For some approximate inference algorithms, using \doxylink{classdai_1_1InfAlg_a7db625ef414a06961ac0d808b6102546}{belief\+F()} is preferred to \doxylink{classdai_1_1InfAlg_ab36227bbc227dfaff65d4a39ff938c34}{belief()} for performance reasons. \begin{DoxyNote}{Note}
+Before this method is called, \doxylink{classdai_1_1InfAlg_a4ac173c4d4109fd1e2229dd83532d32f}{run()} should have been called. 
+\end{DoxyNote}
+\Hypertarget{classdai_1_1InfAlg_a283601d71d62a6f60183748cbee88006}\label{classdai_1_1InfAlg_a283601d71d62a6f60183748cbee88006} 
+\index{dai::InfAlg@{dai::InfAlg}!beliefs@{beliefs}}
+\index{beliefs@{beliefs}!dai::InfAlg@{dai::InfAlg}}
+\doxysubsubsection{\texorpdfstring{beliefs()}{beliefs()}}
+{\footnotesize\ttfamily virtual std\+::vector$<$ \mbox{\hyperlink{factor_8h_a7515abf9952cd312e95a34ada0670e85}{Factor}} $>$ dai\+::\+Inf\+Alg\+::beliefs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Returns all beliefs (approximate marginal probability distributions) calculated by the algorithm. 
+
+\begin{DoxyNote}{Note}
+Before this method is called, \doxylink{classdai_1_1InfAlg_a4ac173c4d4109fd1e2229dd83532d32f}{run()} should have been called. 
+\end{DoxyNote}
+
+
+Implemented in \mbox{\hyperlink{classdai_1_1JTree_a8be8c94856dd3313d4aa74808cd8eab6}{dai\+::\+JTree}}.
+
+\Hypertarget{classdai_1_1InfAlg_a40a2353d63c358ebca834d40b0a4fc70}\label{classdai_1_1InfAlg_a40a2353d63c358ebca834d40b0a4fc70} 
+\index{dai::InfAlg@{dai::InfAlg}!logZ@{logZ}}
+\index{logZ@{logZ}!dai::InfAlg@{dai::InfAlg}}
+\doxysubsubsection{\texorpdfstring{logZ()}{logZ()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} dai\+::\+Inf\+Alg\+::logZ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Returns the logarithm of the (approximated) partition sum (normalizing constant of the factor graph). 
+
+\begin{DoxyNote}{Note}
+Before this method is called, \doxylink{classdai_1_1InfAlg_a4ac173c4d4109fd1e2229dd83532d32f}{run()} should have been called. 
+\end{DoxyNote}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em NOT\+\_\+\+IMPLEMENTED} & if not implemented/supported \\
+\hline
+\end{DoxyExceptions}
+
+
+Implemented in \mbox{\hyperlink{classdai_1_1JTree_a1433cfb5d0205944e82a2cfb7e02220f}{dai\+::\+JTree}}.
+
+\Hypertarget{classdai_1_1InfAlg_a2095732e9defd30c7348703990804763}\label{classdai_1_1InfAlg_a2095732e9defd30c7348703990804763} 
+\index{dai::InfAlg@{dai::InfAlg}!findMaximum@{findMaximum}}
+\index{findMaximum@{findMaximum}!dai::InfAlg@{dai::InfAlg}}
+\doxysubsubsection{\texorpdfstring{findMaximum()}{findMaximum()}}
+{\footnotesize\ttfamily virtual std\+::vector$<$ size\+\_\+t $>$ dai\+::\+Inf\+Alg\+::find\+Maximum (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Calculates the joint state of all variables that has maximum probability. 
+
+\begin{DoxyNote}{Note}
+Before this method is called, \doxylink{classdai_1_1InfAlg_a4ac173c4d4109fd1e2229dd83532d32f}{run()} should have been called. 
+\end{DoxyNote}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em NOT\+\_\+\+IMPLEMENTED} & if not implemented/supported \\
+\hline
+\end{DoxyExceptions}
+
+
+Reimplemented in \mbox{\hyperlink{classdai_1_1JTree_ae8918f23d3cd889705605f37987feabc}{dai\+::\+JTree}}.
+
+\Hypertarget{classdai_1_1InfAlg_a915a659034eb4c85abde912d684f8dee}\label{classdai_1_1InfAlg_a915a659034eb4c85abde912d684f8dee} 
+\index{dai::InfAlg@{dai::InfAlg}!maxDiff@{maxDiff}}
+\index{maxDiff@{maxDiff}!dai::InfAlg@{dai::InfAlg}}
+\doxysubsubsection{\texorpdfstring{maxDiff()}{maxDiff()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} dai\+::\+Inf\+Alg\+::max\+Diff (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Returns maximum difference between single variable beliefs in the last iteration. 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em NOT\+\_\+\+IMPLEMENTED} & if not implemented/supported \\
+\hline
+\end{DoxyExceptions}
+
+
+Reimplemented in \mbox{\hyperlink{classdai_1_1JTree_a409e0f6f6fded07c335233cb1291977d}{dai\+::\+JTree}}.
+
+\Hypertarget{classdai_1_1InfAlg_a89986bbc1a42554905c6f417f2227ac5}\label{classdai_1_1InfAlg_a89986bbc1a42554905c6f417f2227ac5} 
+\index{dai::InfAlg@{dai::InfAlg}!Iterations@{Iterations}}
+\index{Iterations@{Iterations}!dai::InfAlg@{dai::InfAlg}}
+\doxysubsubsection{\texorpdfstring{Iterations()}{Iterations()}}
+{\footnotesize\ttfamily virtual size\+\_\+t dai\+::\+Inf\+Alg\+::\+Iterations (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Returns number of iterations done (one iteration passes over the complete factorgraph). 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em NOT\+\_\+\+IMPLEMENTED} & if not implemented/supported \\
+\hline
+\end{DoxyExceptions}
+
+
+Reimplemented in \mbox{\hyperlink{classdai_1_1JTree_acf07e89cd6e8d090dbf52fd8b664c0f4}{dai\+::\+JTree}}.
+
+\Hypertarget{classdai_1_1InfAlg_ac48656e5d42a7d288e9ca6d70e264858}\label{classdai_1_1InfAlg_ac48656e5d42a7d288e9ca6d70e264858} 
+\index{dai::InfAlg@{dai::InfAlg}!setMaxIter@{setMaxIter}}
+\index{setMaxIter@{setMaxIter}!dai::InfAlg@{dai::InfAlg}}
+\doxysubsubsection{\texorpdfstring{setMaxIter()}{setMaxIter()}}
+{\footnotesize\ttfamily virtual void dai\+::\+Inf\+Alg\+::set\+Max\+Iter (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Sets maximum number of iterations (one iteration passes over the complete factorgraph). 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em NOT\+\_\+\+IMPLEMENTED} & if not implemented/supported \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classdai_1_1InfAlg_a80214c452995d361e5a6dcad79844306}\label{classdai_1_1InfAlg_a80214c452995d361e5a6dcad79844306} 
+\index{dai::InfAlg@{dai::InfAlg}!clamp@{clamp}}
+\index{clamp@{clamp}!dai::InfAlg@{dai::InfAlg}}
+\doxysubsubsection{\texorpdfstring{clamp()}{clamp()}}
+{\footnotesize\ttfamily virtual void dai\+::\+Inf\+Alg\+::clamp (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{i,  }\item[{size\+\_\+t}]{x,  }\item[{bool}]{backup = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Clamp variable with index {\itshape i} to value {\itshape x} (i.\+e. multiply with a Kronecker delta $\delta_{x_i, x}$) 
+
+If {\itshape backup} == {\ttfamily true}, make a backup of all factors that are changed. 
+
+Implemented in \mbox{\hyperlink{classdai_1_1DAIAlg_ac0d7b26c09d9d7db4a7eda5f66181045}{dai\+::\+DAIAlg$<$ GRM $>$}}.
+
+\Hypertarget{classdai_1_1InfAlg_a2e101c9089df2d5c5761083dd5d8380f}\label{classdai_1_1InfAlg_a2e101c9089df2d5c5761083dd5d8380f} 
+\index{dai::InfAlg@{dai::InfAlg}!makeCavity@{makeCavity}}
+\index{makeCavity@{makeCavity}!dai::InfAlg@{dai::InfAlg}}
+\doxysubsubsection{\texorpdfstring{makeCavity()}{makeCavity()}}
+{\footnotesize\ttfamily virtual void dai\+::\+Inf\+Alg\+::make\+Cavity (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{i,  }\item[{bool}]{backup = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Sets all factors interacting with variable with index {\itshape i} to one. 
+
+If {\itshape backup} == {\ttfamily true}, make a backup of all factors that are changed. 
+
+Implemented in \mbox{\hyperlink{classdai_1_1DAIAlg_a7f0b8452352080a1e35ab9a68cb589fd}{dai\+::\+DAIAlg$<$ GRM $>$}}.
+
+\Hypertarget{classdai_1_1InfAlg_ac63b5bbff09cc6c1409d6f40a31a32c1}\label{classdai_1_1InfAlg_ac63b5bbff09cc6c1409d6f40a31a32c1} 
+\index{dai::InfAlg@{dai::InfAlg}!makeRegionCavity@{makeRegionCavity}}
+\index{makeRegionCavity@{makeRegionCavity}!dai::InfAlg@{dai::InfAlg}}
+\doxysubsubsection{\texorpdfstring{makeRegionCavity()}{makeRegionCavity()}}
+{\footnotesize\ttfamily virtual void dai\+::\+Inf\+Alg\+::make\+Region\+Cavity (\begin{DoxyParamCaption}\item[{std\+::vector$<$ size\+\_\+t $>$}]{fac\+Inds,  }\item[{bool}]{backup = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Sets all factors indicated by {\itshape fac\+Inds} to one. 
+
+If {\itshape backup} == {\ttfamily true}, make a backup of all factors that are changed. 
+
+Implemented in \mbox{\hyperlink{classdai_1_1DAIAlg_a195bcd6ad05557374c95db50c674ad7f}{dai\+::\+DAIAlg$<$ GRM $>$}}.
+
+\Hypertarget{classdai_1_1InfAlg_a2cbc785afe9df0c6ee744d1a286b5cff}\label{classdai_1_1InfAlg_a2cbc785afe9df0c6ee744d1a286b5cff} 
+\index{dai::InfAlg@{dai::InfAlg}!backupFactor@{backupFactor}}
+\index{backupFactor@{backupFactor}!dai::InfAlg@{dai::InfAlg}}
+\doxysubsubsection{\texorpdfstring{backupFactor()}{backupFactor()}}
+{\footnotesize\ttfamily virtual void dai\+::\+Inf\+Alg\+::backup\+Factor (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{I }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Make a backup copy of factor {\itshape I}. 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em MULTIPLE\+\_\+\+UNDO} & if a backup already exists \\
+\hline
+\end{DoxyExceptions}
+
+
+Implemented in \mbox{\hyperlink{classdai_1_1DAIAlg_a48ba6a58d10b8802d690e5e92ec5abe9}{dai\+::\+DAIAlg$<$ GRM $>$}}.
+
+\Hypertarget{classdai_1_1InfAlg_a4c572b1ce73ce427af3ffdb6f6a73a45}\label{classdai_1_1InfAlg_a4c572b1ce73ce427af3ffdb6f6a73a45} 
+\index{dai::InfAlg@{dai::InfAlg}!backupFactors@{backupFactors}}
+\index{backupFactors@{backupFactors}!dai::InfAlg@{dai::InfAlg}}
+\doxysubsubsection{\texorpdfstring{backupFactors()}{backupFactors()}}
+{\footnotesize\ttfamily virtual void dai\+::\+Inf\+Alg\+::backup\+Factors (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classdai_1_1VarSet}{Var\+Set}} \&}]{vs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Make backup copies of all factors involving the variables in {\itshape vs}. 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em MULTIPLE\+\_\+\+UNDO} & if a backup already exists \\
+\hline
+\end{DoxyExceptions}
+
+
+Implemented in \mbox{\hyperlink{classdai_1_1DAIAlg_ac74e4ae749a3f706462bb5c0c0f204ca}{dai\+::\+DAIAlg$<$ GRM $>$}}.
+
+\Hypertarget{classdai_1_1InfAlg_ae8224cce01e7974b87c8b88b1aa13b59}\label{classdai_1_1InfAlg_ae8224cce01e7974b87c8b88b1aa13b59} 
+\index{dai::InfAlg@{dai::InfAlg}!restoreFactor@{restoreFactor}}
+\index{restoreFactor@{restoreFactor}!dai::InfAlg@{dai::InfAlg}}
+\doxysubsubsection{\texorpdfstring{restoreFactor()}{restoreFactor()}}
+{\footnotesize\ttfamily virtual void dai\+::\+Inf\+Alg\+::restore\+Factor (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{I }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Restore factor {\itshape I} from its backup copy. 
+
+
+
+Implemented in \mbox{\hyperlink{classdai_1_1DAIAlg_abf8dbd2797ec871e86566a6dfc0864e3}{dai\+::\+DAIAlg$<$ GRM $>$}}.
+
+\Hypertarget{classdai_1_1InfAlg_a2a57b201409b36909b8c336a2748ac81}\label{classdai_1_1InfAlg_a2a57b201409b36909b8c336a2748ac81} 
+\index{dai::InfAlg@{dai::InfAlg}!restoreFactors@{restoreFactors}}
+\index{restoreFactors@{restoreFactors}!dai::InfAlg@{dai::InfAlg}}
+\doxysubsubsection{\texorpdfstring{restoreFactors()}{restoreFactors()}}
+{\footnotesize\ttfamily virtual void dai\+::\+Inf\+Alg\+::restore\+Factors (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classdai_1_1VarSet}{Var\+Set}} \&}]{vs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Restore the factors involving the variables in {\itshape vs} from their backup copies. 
+
+
+
+Implemented in \mbox{\hyperlink{classdai_1_1DAIAlg_a333a182249b2abeb93ff21377d0e8ffd}{dai\+::\+DAIAlg$<$ GRM $>$}}.
+
+\Hypertarget{classdai_1_1InfAlg_ac422893fd7b8e37f914860aeba9602dc}\label{classdai_1_1InfAlg_ac422893fd7b8e37f914860aeba9602dc} 
+\index{dai::InfAlg@{dai::InfAlg}!setProperties@{setProperties}}
+\index{setProperties@{setProperties}!dai::InfAlg@{dai::InfAlg}}
+\doxysubsubsection{\texorpdfstring{setProperties()}{setProperties()}}
+{\footnotesize\ttfamily virtual void dai\+::\+Inf\+Alg\+::set\+Properties (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classdai_1_1PropertySet}{Property\+Set}} \&}]{opts }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Set parameters of this inference algorithm. 
+
+The parameters are set according to the \doxylink{classdai_1_1PropertySet}{Property\+Set} {\itshape opts}. The values can be stored either as std\+::string or as the type of the corresponding MF\+::props member. 
+
+Implemented in \mbox{\hyperlink{classdai_1_1JTree_ac87e0972ae1b74bce8f5d75d2e230c52}{dai\+::\+JTree}}.
+
+\Hypertarget{classdai_1_1InfAlg_aba3b821f6ed47b91ef4080b03c14220e}\label{classdai_1_1InfAlg_aba3b821f6ed47b91ef4080b03c14220e} 
+\index{dai::InfAlg@{dai::InfAlg}!getProperties@{getProperties}}
+\index{getProperties@{getProperties}!dai::InfAlg@{dai::InfAlg}}
+\doxysubsubsection{\texorpdfstring{getProperties()}{getProperties()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{classdai_1_1PropertySet}{Property\+Set}} dai\+::\+Inf\+Alg\+::get\+Properties (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Returns parameters of this inference algorithm converted into a \doxylink{classdai_1_1PropertySet}{Property\+Set}. 
+
+
+
+Implemented in \mbox{\hyperlink{classdai_1_1JTree_a1c97d8b3556bfab8c2572ab740770086}{dai\+::\+JTree}}.
+
+\Hypertarget{classdai_1_1InfAlg_a9cc7a50cbbe8825a334b16e41c92f019}\label{classdai_1_1InfAlg_a9cc7a50cbbe8825a334b16e41c92f019} 
+\index{dai::InfAlg@{dai::InfAlg}!printProperties@{printProperties}}
+\index{printProperties@{printProperties}!dai::InfAlg@{dai::InfAlg}}
+\doxysubsubsection{\texorpdfstring{printProperties()}{printProperties()}}
+{\footnotesize\ttfamily virtual std\+::string dai\+::\+Inf\+Alg\+::print\+Properties (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Returns parameters of this inference algorithm formatted as a string in the format "{}\mbox{[}key1=val1,key2=val2,...,keyn=valn\mbox{]}"{}. 
+
+
+
+Implemented in \mbox{\hyperlink{classdai_1_1JTree_a05ca49f1eda60540091e1bc52e0bdbe0}{dai\+::\+JTree}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/dai/\mbox{\hyperlink{daialg_8h}{daialg.\+h}}\end{DoxyCompactItemize}

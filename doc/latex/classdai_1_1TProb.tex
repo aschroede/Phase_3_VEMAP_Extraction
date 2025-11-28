@@ -1,0 +1,1357 @@
+\doxysection{dai\+::TProb\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{classdai_1_1TProb}{}\label{classdai_1_1TProb}\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+
+
+Represents a vector with entries of type {\itshape T}.  
+
+
+
+
+{\ttfamily \#include $<$dai/prob.\+h$>$}
+
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef std\+::vector$<$ T $>$ \mbox{\hyperlink{classdai_1_1TProb_ada85efb9bd3e5624cc559e74c9c20de9}{container\+\_\+type}}
+\begin{DoxyCompactList}\small\item\em Type of data structure used for storing the values. \end{DoxyCompactList}\item 
+typedef \mbox{\hyperlink{classdai_1_1TProb}{TProb}}$<$ T $>$ \mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}}
+\begin{DoxyCompactList}\small\item\em Shorthand. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{Indent}\textbf{ Iterator interface}\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classdai_1_1TProb_ac3ae154b6e88196962c65bb725361052}{iterator}} \mbox{\hyperlink{classdai_1_1TProb_a416477b179ecfc91299d07ecd66a473e}{begin}} ()
+\begin{DoxyCompactList}\small\item\em Returns iterator that points to the first element. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1TProb_a576e88e240684174a6fd2804271bfbaa}{const\+\_\+iterator}} \mbox{\hyperlink{classdai_1_1TProb_a4ee617457845acf83a671daf2f9c2505}{begin}} () const
+\begin{DoxyCompactList}\small\item\em Returns constant iterator that points to the first element. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1TProb_ac3ae154b6e88196962c65bb725361052}{iterator}} \mbox{\hyperlink{classdai_1_1TProb_af61408263bab9270d81f3f791a406e1f}{end}} ()
+\begin{DoxyCompactList}\small\item\em Returns iterator that points beyond the last element. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1TProb_a576e88e240684174a6fd2804271bfbaa}{const\+\_\+iterator}} \mbox{\hyperlink{classdai_1_1TProb_af4e63bf4a4fc994b94fd637a72910f88}{end}} () const
+\begin{DoxyCompactList}\small\item\em Returns constant iterator that points beyond the last element. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1TProb_a7b755e30b8bfaccacbde4e71952753ac}{reverse\+\_\+iterator}} \mbox{\hyperlink{classdai_1_1TProb_afc07e604de573d743427d2b92fcd710a}{rbegin}} ()
+\begin{DoxyCompactList}\small\item\em Returns reverse iterator that points to the last element. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1TProb_a37fb7b49feae193b466d370b501385a5}{const\+\_\+reverse\+\_\+iterator}} \mbox{\hyperlink{classdai_1_1TProb_aa41373d4df83aba4e52eab5d29aba1c0}{rbegin}} () const
+\begin{DoxyCompactList}\small\item\em Returns constant reverse iterator that points to the last element. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1TProb_a7b755e30b8bfaccacbde4e71952753ac}{reverse\+\_\+iterator}} \mbox{\hyperlink{classdai_1_1TProb_a05318f090b80662cb13ccca1baa88f94}{rend}} ()
+\begin{DoxyCompactList}\small\item\em Returns reverse iterator that points beyond the first element. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1TProb_a37fb7b49feae193b466d370b501385a5}{const\+\_\+reverse\+\_\+iterator}} \mbox{\hyperlink{classdai_1_1TProb_a61e56874350e7769231ddb6f8d26aa50}{rend}} () const
+\begin{DoxyCompactList}\small\item\em Returns constant reverse iterator that points beyond the first element. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Miscellaneous operations}\par
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classdai_1_1TProb_a142164d549c8a8e14e55f9cf74127e3d}\label{classdai_1_1TProb_a142164d549c8a8e14e55f9cf74127e3d} 
+void {\bfseries resize} (size\+\_\+t sz)
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Get/set individual entries}\par
+\begin{DoxyCompactItemize}
+\item 
+T \mbox{\hyperlink{classdai_1_1TProb_aeee0739fd1fb50d154371f79596e2015}{get}} (size\+\_\+t i) const
+\begin{DoxyCompactList}\small\item\em Gets {\itshape i} \textquotesingle{}th entry. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classdai_1_1TProb_a3e2be310024be448dacd132e04c0ab01}{set}} (size\+\_\+t i, T val)
+\begin{DoxyCompactList}\small\item\em Sets {\itshape i} \textquotesingle{}th entry to {\itshape val}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Queries}\par
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{classdai_1_1TProb_ada85efb9bd3e5624cc559e74c9c20de9}{container\+\_\+type}} \& \mbox{\hyperlink{classdai_1_1TProb_ad9b7999809d0e5228e327ed354025987}{p}} () const
+\begin{DoxyCompactList}\small\item\em Returns a const reference to the wrapped container. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1TProb_ada85efb9bd3e5624cc559e74c9c20de9}{container\+\_\+type}} \& \mbox{\hyperlink{classdai_1_1TProb_ade34f1aed573f4207d1dd02c039d5676}{p}} ()
+\begin{DoxyCompactList}\small\item\em Returns a reference to the wrapped container. \end{DoxyCompactList}\item 
+T \mbox{\hyperlink{classdai_1_1TProb_a29a1640177108963072766c69b4d236b}{operator\mbox{[}$\,$\mbox{]}}} (size\+\_\+t i) const
+\begin{DoxyCompactList}\small\item\em Returns a copy of the {\itshape i} \textquotesingle{}th entry. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classdai_1_1TProb_ac3d47a2180fbef11ee4e91c9c6348d72}{size}} () const
+\begin{DoxyCompactList}\small\item\em Returns length of the vector (i.\+e., the number of entries) \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename un\+Op $>$ }\\T \mbox{\hyperlink{classdai_1_1TProb_a6fc8f5934930717cee5f732f8392be6c}{accumulate\+Sum}} (T init, un\+Op op) const
+\begin{DoxyCompactList}\small\item\em Accumulate all values (similar to std\+::accumulate) by summing. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename un\+Op $>$ }\\T \mbox{\hyperlink{classdai_1_1TProb_a94c3a95156ff4e4747626b6ccbcc4a79}{accumulate\+Max}} (T init, un\+Op op, bool minimize) const
+\begin{DoxyCompactList}\small\item\em Accumulate all values (similar to std\+::accumulate) by maximization/minimization. \end{DoxyCompactList}\item 
+T \mbox{\hyperlink{classdai_1_1TProb_a20b2f87ceb9746a6164508a76eebcd63}{entropy}} () const
+\begin{DoxyCompactList}\small\item\em Returns the Shannon entropy of {\ttfamily \texorpdfstring{$\ast$}{*}this}, $-\sum_i p_i \log p_i$. \end{DoxyCompactList}\item 
+T \mbox{\hyperlink{classdai_1_1TProb_ada730516fd1fd73dede447a710676c9a}{max}} () const
+\begin{DoxyCompactList}\small\item\em Returns maximum value of all entries. \end{DoxyCompactList}\item 
+T \mbox{\hyperlink{classdai_1_1TProb_a375854499fd2f4ae42ef552533656fc0}{min}} () const
+\begin{DoxyCompactList}\small\item\em Returns minimum value of all entries. \end{DoxyCompactList}\item 
+T \mbox{\hyperlink{classdai_1_1TProb_abd2682fd21ae93af24d66de12647531b}{sum}} () const
+\begin{DoxyCompactList}\small\item\em Returns sum of all entries. \end{DoxyCompactList}\item 
+T \mbox{\hyperlink{classdai_1_1TProb_a54d213bd346f39792831d81310f469e3}{sum\+Abs}} () const
+\begin{DoxyCompactList}\small\item\em Return sum of absolute value of all entries. \end{DoxyCompactList}\item 
+T \mbox{\hyperlink{classdai_1_1TProb_adde9c7a29bcdaedaae50465f8e297a76}{max\+Abs}} () const
+\begin{DoxyCompactList}\small\item\em Returns maximum absolute value of all entries. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classdai_1_1TProb_a70c1d6cde9d23c9be050ddeeec8a4445}{has\+Na\+Ns}} () const
+\begin{DoxyCompactList}\small\item\em Returns {\ttfamily true} if one or more entries are NaN. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classdai_1_1TProb_a4a6282efb2de2974787777934fc5161e}{has\+Negatives}} () const
+\begin{DoxyCompactList}\small\item\em Returns {\ttfamily true} if one or more entries are negative. \end{DoxyCompactList}\item 
+std\+::pair$<$ size\+\_\+t, T $>$ \mbox{\hyperlink{classdai_1_1TProb_ae9fcf9eb4bbc8fc7445c0d68f08c148a}{argmax}} () const
+\begin{DoxyCompactList}\small\item\em Returns a pair consisting of the index of the maximum value and the maximum value itself. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classdai_1_1TProb_a450a77f9a7c4a8a49702cc2afbf2e40a}{draw}} ()
+\begin{DoxyCompactList}\small\item\em Returns a random index, according to the (normalized) distribution described by \texorpdfstring{$\ast$}{*}this. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classdai_1_1TProb_a062acee402025cab1d45c0952d1952ae}{operator$<$}} (const \mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \&q) const
+\begin{DoxyCompactList}\small\item\em Lexicographical comparison. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classdai_1_1TProb_a5cb89123920bc1d0254adc53fd97d97a}{operator==}} (const \mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \&q) const
+\begin{DoxyCompactList}\small\item\em Comparison. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classdai_1_1TProb_a465cbe2a237795aa4b564dfa238f8402}{to\+String}} () const
+\begin{DoxyCompactList}\small\item\em Formats a \doxylink{classdai_1_1TProb}{TProb} as a string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Unary transformations}\par
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename unary\+Op $>$ }\\\mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \mbox{\hyperlink{classdai_1_1TProb_a8f22eaf00f867641ec29eed3bb7da91f}{pw\+Unary\+Tr}} (unary\+Op op) const
+\begin{DoxyCompactList}\small\item\em Returns the result of applying operation {\itshape op} pointwise on {\ttfamily \texorpdfstring{$\ast$}{*}this}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \mbox{\hyperlink{classdai_1_1TProb_ac808ad5a1e0a581fca1dd8f3e4bb975f}{operator-\/}} () const
+\begin{DoxyCompactList}\small\item\em Returns negative of {\ttfamily \texorpdfstring{$\ast$}{*}this}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \mbox{\hyperlink{classdai_1_1TProb_a2cfd2e5e77d2c9a8744075c2138c6bc5}{abs}} () const
+\begin{DoxyCompactList}\small\item\em Returns pointwise absolute value. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \mbox{\hyperlink{classdai_1_1TProb_af5333c69042ad9e5acdda65bc4db7b2c}{exp}} () const
+\begin{DoxyCompactList}\small\item\em Returns pointwise exponent. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \mbox{\hyperlink{classdai_1_1TProb_acb42ca168cf1d5fc8587616810680d8b}{log}} (bool zero=false) const
+\begin{DoxyCompactList}\small\item\em Returns pointwise logarithm. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \mbox{\hyperlink{classdai_1_1TProb_ac8cff19a0cc2bf6c8961cd5b0450e97c}{inverse}} (bool zero=true) const
+\begin{DoxyCompactList}\small\item\em Returns pointwise inverse. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \mbox{\hyperlink{classdai_1_1TProb_a0dccf4820c38f544b956ac3e3a223884}{normalized}} (\mbox{\hyperlink{util_8h_ae0d0ef753bd0ba57586e556ab6312677}{Prob\+Norm\+Type}} norm=dai\+::\+NORMPROB) const
+\begin{DoxyCompactList}\small\item\em Returns normalized copy of {\ttfamily \texorpdfstring{$\ast$}{*}this}, using the specified norm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Unary operations}\par
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename unary\+Op $>$ }\\\mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \& \mbox{\hyperlink{classdai_1_1TProb_ab53475555b9777d122046e0c288983b1}{pw\+Unary\+Op}} (unary\+Op op)
+\begin{DoxyCompactList}\small\item\em Applies unary operation {\itshape op} pointwise. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \& \mbox{\hyperlink{classdai_1_1TProb_abd1c820ef242d85f9e4202e728771797}{randomize}} ()
+\begin{DoxyCompactList}\small\item\em Draws all entries i.\+i.\+d. from a uniform distribution on \mbox{[}0,1) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \& \mbox{\hyperlink{classdai_1_1TProb_a3b16790a767b60939cfe9269c2911d8a}{set\+Uniform}} ()
+\begin{DoxyCompactList}\small\item\em Sets all entries to $1/n$ where {\itshape n} is the length of the vector. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \& \mbox{\hyperlink{classdai_1_1TProb_a3361d17f8a1029ebca300c6642d94235}{take\+Abs}} ()
+\begin{DoxyCompactList}\small\item\em Applies absolute value pointwise. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \& \mbox{\hyperlink{classdai_1_1TProb_a019787d4fdbdb06ccb951bbae847e418}{take\+Exp}} ()
+\begin{DoxyCompactList}\small\item\em Applies exponent pointwise. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \& \mbox{\hyperlink{classdai_1_1TProb_af792eee1a50d950950ff2841cba2ea07}{take\+Log}} (bool zero=false)
+\begin{DoxyCompactList}\small\item\em Applies logarithm pointwise. \end{DoxyCompactList}\item 
+T \mbox{\hyperlink{classdai_1_1TProb_ab2414cf14329da58b0519adf8d783cb5}{normalize}} (\mbox{\hyperlink{util_8h_ae0d0ef753bd0ba57586e556ab6312677}{Prob\+Norm\+Type}} norm=dai\+::\+NORMPROB)
+\begin{DoxyCompactList}\small\item\em Normalizes vector using the specified norm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Operations with scalars}\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \& \mbox{\hyperlink{classdai_1_1TProb_a1e9a86aad4c654e1371ae403cbf58571}{fill}} (T x)
+\begin{DoxyCompactList}\small\item\em Sets all entries to {\itshape x}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \& \mbox{\hyperlink{classdai_1_1TProb_a7bb7b7b46a793fdbf4bdc2a861cb39b6}{operator+=}} (T x)
+\begin{DoxyCompactList}\small\item\em Adds scalar {\itshape x} to each entry. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \& \mbox{\hyperlink{classdai_1_1TProb_a9c5f8a6223ca6092330043bba117f189}{operator-\/=}} (T x)
+\begin{DoxyCompactList}\small\item\em Subtracts scalar {\itshape x} from each entry. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \& \mbox{\hyperlink{classdai_1_1TProb_a7ae985e35b8853a3e7c266281597bb0f}{operator\texorpdfstring{$\ast$}{*}=}} (T x)
+\begin{DoxyCompactList}\small\item\em Multiplies each entry with scalar {\itshape x}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \& \mbox{\hyperlink{classdai_1_1TProb_a7386907a81560d4e8746e8459a762462}{operator/=}} (T x)
+\begin{DoxyCompactList}\small\item\em Divides each entry by scalar {\itshape x}, where division by 0 yields 0. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \& \mbox{\hyperlink{classdai_1_1TProb_abed267e0bbd23c1dece47cef3fe5dacb}{operator\texorpdfstring{$^\wedge$}{\string^}=}} (T x)
+\begin{DoxyCompactList}\small\item\em Raises entries to the power {\itshape x}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Transformations with scalars}\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \mbox{\hyperlink{classdai_1_1TProb_a12825f675f72fd4dd1ced6959228454d}{operator+}} (T x) const
+\begin{DoxyCompactList}\small\item\em Returns sum of {\ttfamily \texorpdfstring{$\ast$}{*}this} and scalar {\itshape x}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \mbox{\hyperlink{classdai_1_1TProb_a3a5c179e2ae5b8187891aded92d45752}{operator-\/}} (T x) const
+\begin{DoxyCompactList}\small\item\em Returns difference of {\ttfamily \texorpdfstring{$\ast$}{*}this} and scalar {\itshape x}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \mbox{\hyperlink{classdai_1_1TProb_ad44ef9fc40adeaa7a804637bd48d38e4}{operator\texorpdfstring{$\ast$}{*}}} (T x) const
+\begin{DoxyCompactList}\small\item\em Returns product of {\ttfamily \texorpdfstring{$\ast$}{*}this} with scalar {\itshape x}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \mbox{\hyperlink{classdai_1_1TProb_a74dafe2069aad1b69ab2bd6462ad1a83}{operator/}} (T x) const
+\begin{DoxyCompactList}\small\item\em Returns quotient of {\ttfamily \texorpdfstring{$\ast$}{*}this} and scalar {\itshape x}, where division by 0 yields 0. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \mbox{\hyperlink{classdai_1_1TProb_a08476c60371b0c5f13a73f29bc5ceada}{operator\texorpdfstring{$^\wedge$}{\string^}}} (T x) const
+\begin{DoxyCompactList}\small\item\em Returns {\ttfamily \texorpdfstring{$\ast$}{*}this} raised to the power {\itshape x}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Operations with other equally-\/sized vectors}\par
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename binary\+Op $>$ }\\\mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \& \mbox{\hyperlink{classdai_1_1TProb_a5b00bd476394290248d042171496a5a4}{pw\+Binary\+Op}} (const \mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \&q, binary\+Op op)
+\begin{DoxyCompactList}\small\item\em Applies binary operation pointwise on two vectors. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \& \mbox{\hyperlink{classdai_1_1TProb_ae8286176ac28ffaae9954d259ef0ceda}{operator+=}} (const \mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \&q)
+\begin{DoxyCompactList}\small\item\em Pointwise addition with {\itshape q}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \& \mbox{\hyperlink{classdai_1_1TProb_ae6d02996b7a81f5640241f2f3ec9f7c8}{operator-\/=}} (const \mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \&q)
+\begin{DoxyCompactList}\small\item\em Pointwise subtraction of {\itshape q}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \& \mbox{\hyperlink{classdai_1_1TProb_ad3b4b997161213aa75b2887587aedfe8}{operator\texorpdfstring{$\ast$}{*}=}} (const \mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \&q)
+\begin{DoxyCompactList}\small\item\em Pointwise multiplication with {\itshape q}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \& \mbox{\hyperlink{classdai_1_1TProb_a50df140cd0ecb600bdb702fa660b6d40}{operator/=}} (const \mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \&q)
+\begin{DoxyCompactList}\small\item\em Pointwise division by {\itshape q}, where division by 0 yields 0. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \& \mbox{\hyperlink{classdai_1_1TProb_ae41d2ec0791401ac7c2b7506c070f5b6}{divide}} (const \mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \&q)
+\begin{DoxyCompactList}\small\item\em Pointwise division by {\itshape q}, where division by 0 yields +Inf. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \& \mbox{\hyperlink{classdai_1_1TProb_a38ec23f6c9391f34db6241036dbbffd6}{operator\texorpdfstring{$^\wedge$}{\string^}=}} (const \mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \&q)
+\begin{DoxyCompactList}\small\item\em Pointwise power. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Transformations with other equally-\/sized vectors}\par
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename binary\+Op $>$ }\\\mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \mbox{\hyperlink{classdai_1_1TProb_a052f06b10d2636776d6d267db3d6c8e9}{pw\+Binary\+Tr}} (const \mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \&q, binary\+Op op) const
+\begin{DoxyCompactList}\small\item\em Returns the result of applying binary operation {\itshape op} pointwise on {\ttfamily \texorpdfstring{$\ast$}{*}this} and {\itshape q}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \mbox{\hyperlink{classdai_1_1TProb_ad77e0912afb19c1899c3719f69dc3ad3}{operator+}} (const \mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \&q) const
+\begin{DoxyCompactList}\small\item\em Returns sum of {\ttfamily \texorpdfstring{$\ast$}{*}this} and {\itshape q}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \mbox{\hyperlink{classdai_1_1TProb_a3a3e7df0c4764c6fea9990a483b72800}{operator-\/}} (const \mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \&q) const
+\begin{DoxyCompactList}\small\item\em Return {\ttfamily \texorpdfstring{$\ast$}{*}this} minus {\itshape q}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \mbox{\hyperlink{classdai_1_1TProb_afec9645e857d1500a4e106725a7815ee}{operator\texorpdfstring{$\ast$}{*}}} (const \mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \&q) const
+\begin{DoxyCompactList}\small\item\em Return product of {\ttfamily \texorpdfstring{$\ast$}{*}this} with {\itshape q}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \mbox{\hyperlink{classdai_1_1TProb_a5c879e18c5509a19a3be872f1780d782}{operator/}} (const \mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \&q) const
+\begin{DoxyCompactList}\small\item\em Returns quotient of {\ttfamily \texorpdfstring{$\ast$}{*}this} with {\itshape q}, where division by 0 yields 0. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \mbox{\hyperlink{classdai_1_1TProb_ac219980edfa6508acab81a6041dd091e}{divided\+\_\+by}} (const \mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \&q) const
+\begin{DoxyCompactList}\small\item\em Pointwise division by {\itshape q}, where division by 0 yields +Inf. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \mbox{\hyperlink{classdai_1_1TProb_ad6193c8bec442f8bd16fedb14017fe9a}{operator\texorpdfstring{$^\wedge$}{\string^}}} (const \mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \&q) const
+\begin{DoxyCompactList}\small\item\em Returns {\ttfamily \texorpdfstring{$\ast$}{*}this} to the power {\itshape q}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename bin\+Op1 , typename bin\+Op2 $>$ }\\T \mbox{\hyperlink{classdai_1_1TProb_abc2786d1bf7a91f0e39172aad6e35340}{inner\+Product}} (const \mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \&q, T init, bin\+Op1 binary\+Op1, bin\+Op2 binary\+Op2) const
+\begin{DoxyCompactList}\small\item\em Performs a generalized inner product, similar to std\+::inner\+\_\+product. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classdai_1_1TProb_ada85efb9bd3e5624cc559e74c9c20de9}{container\+\_\+type}} \mbox{\hyperlink{classdai_1_1TProb_a2affaa300fa1ebd563723d112bc6ee6d}{\+\_\+p}}
+\begin{DoxyCompactList}\small\item\em The data structure that stores the values. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Related Symbols}
+(Note that these are not member symbols.) \begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\T \mbox{\hyperlink{classdai_1_1TProb_abd07922b69c64c0f873cbb0c6723a908}{dist}} (const \mbox{\hyperlink{classdai_1_1TProb}{TProb}}$<$ T $>$ \&\mbox{\hyperlink{classdai_1_1TProb_ad9b7999809d0e5228e327ed354025987}{p}}, const \mbox{\hyperlink{classdai_1_1TProb}{TProb}}$<$ T $>$ \&q, \mbox{\hyperlink{util_8h_aa2735a823696443089d2de23e8ee6ecb}{Prob\+Dist\+Type}} dt)
+\begin{DoxyCompactList}\small\item\em Returns distance between {\itshape p} and {\itshape q}, measured using distance measure {\itshape dt}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::ostream \& \mbox{\hyperlink{classdai_1_1TProb_a90d9a0813d92ef6e15e0fb9a73ec8c55}{operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{classdai_1_1TProb}{TProb}}$<$ T $>$ \&\mbox{\hyperlink{classdai_1_1TProb_ad9b7999809d0e5228e327ed354025987}{p}})
+\begin{DoxyCompactList}\small\item\em Writes a TProb$<$\+T$>$ to an output stream. \end{DoxyCompactList}\item 
+\Hypertarget{classdai_1_1TProb_aa0467af294d88e842aaa05ac7c37b7df}\label{classdai_1_1TProb_aa0467af294d88e842aaa05ac7c37b7df} 
+{\footnotesize template$<$typename T $>$ }\\std\+::string {\bfseries prob\+To\+String} (const \mbox{\hyperlink{classdai_1_1TProb}{TProb}}$<$ T $>$ \&\mbox{\hyperlink{classdai_1_1TProb_ad9b7999809d0e5228e327ed354025987}{p}})
+\item 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{classdai_1_1TProb}{TProb}}$<$ T $>$ \mbox{\hyperlink{classdai_1_1TProb_ab48f95b7d1bdfe60ef2f25cd78dec376}{min}} (const \mbox{\hyperlink{classdai_1_1TProb}{TProb}}$<$ T $>$ \&a, const \mbox{\hyperlink{classdai_1_1TProb}{TProb}}$<$ T $>$ \&b)
+\begin{DoxyCompactList}\small\item\em Returns the pointwise minimum of {\itshape a} and {\itshape b}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{classdai_1_1TProb}{TProb}}$<$ T $>$ \mbox{\hyperlink{classdai_1_1TProb_a143a4623be8c9356e3cdb2f75f64f0d8}{max}} (const \mbox{\hyperlink{classdai_1_1TProb}{TProb}}$<$ T $>$ \&a, const \mbox{\hyperlink{classdai_1_1TProb}{TProb}}$<$ T $>$ \&b)
+\begin{DoxyCompactList}\small\item\em Returns the pointwise maximum of {\itshape a} and {\itshape b}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Constructors and destructors}
+\begin{DoxyCompactItemize}
+\item 
+typedef container\+\_\+type\+::const\+\_\+iterator \mbox{\hyperlink{classdai_1_1TProb_a576e88e240684174a6fd2804271bfbaa}{const\+\_\+iterator}}
+\begin{DoxyCompactList}\small\item\em Constant iterator over the elements. \end{DoxyCompactList}\item 
+typedef container\+\_\+type\+::iterator \mbox{\hyperlink{classdai_1_1TProb_ac3ae154b6e88196962c65bb725361052}{iterator}}
+\begin{DoxyCompactList}\small\item\em Iterator over the elements. \end{DoxyCompactList}\item 
+typedef container\+\_\+type\+::const\+\_\+reverse\+\_\+iterator \mbox{\hyperlink{classdai_1_1TProb_a37fb7b49feae193b466d370b501385a5}{const\+\_\+reverse\+\_\+iterator}}
+\begin{DoxyCompactList}\small\item\em Constant reverse iterator over the elements. \end{DoxyCompactList}\item 
+typedef container\+\_\+type\+::reverse\+\_\+iterator \mbox{\hyperlink{classdai_1_1TProb_a7b755e30b8bfaccacbde4e71952753ac}{reverse\+\_\+iterator}}
+\begin{DoxyCompactList}\small\item\em Reverse iterator over the elements. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1TProb_a81f9393fa860a6bb005c8286bf9aceab}{TProb}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor (constructs empty vector) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1TProb_a851cd9b5be495df487fb177b0e06a1dd}{TProb}} (size\+\_\+t n)
+\begin{DoxyCompactList}\small\item\em Construct uniform probability distribution over {\itshape n} outcomes (i.\+e., a vector of length {\itshape n} with each entry set to $1/n$) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1TProb_acf3b7ed6e5a0c276b1bcced58c3437dc}{TProb}} (size\+\_\+t n, T \mbox{\hyperlink{classdai_1_1TProb_ad9b7999809d0e5228e327ed354025987}{p}})
+\begin{DoxyCompactList}\small\item\em Construct vector of length {\itshape n} with each entry set to {\itshape p}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename TIterator $>$ }\\\mbox{\hyperlink{classdai_1_1TProb_adf9ba9a5796f40b95790219386733e84}{TProb}} (TIterator \mbox{\hyperlink{classdai_1_1TProb_a416477b179ecfc91299d07ecd66a473e}{begin}}, TIterator \mbox{\hyperlink{classdai_1_1TProb_af61408263bab9270d81f3f791a406e1f}{end}}, size\+\_\+t size\+Hint)
+\begin{DoxyCompactList}\small\item\em Construct vector from a range. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename S $>$ }\\\mbox{\hyperlink{classdai_1_1TProb_a49aa488531682edc7e65d80d6dd19fb5}{TProb}} (const std\+::vector$<$ S $>$ \&v)
+\begin{DoxyCompactList}\small\item\em Construct vector from another vector. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+class dai\+::\+TProb$<$ T $>$}
+Represents a vector with entries of type {\itshape T}. 
+
+It is simply a {\ttfamily std\+::vector}\texorpdfstring{$<$}{<}{\itshape T}\texorpdfstring{$>$}{>} with an interface designed for dealing with probability mass functions.
+
+It is mainly used for representing measures on a finite outcome space, for example, the probability distribution of a discrete random variable. However, entries are not necessarily non-\/negative; it is also used to represent logarithms of probability mass functions.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Should be a scalar that is castable from and to \doxylink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{dai\+::\+Real} and should support elementary arithmetic operations. \\
+\hline
+\end{DoxyTemplParams}
+
+
+\doxysubsection{Member Typedef Documentation}
+\Hypertarget{classdai_1_1TProb_ada85efb9bd3e5624cc559e74c9c20de9}\label{classdai_1_1TProb_ada85efb9bd3e5624cc559e74c9c20de9} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!container\_type@{container\_type}}
+\index{container\_type@{container\_type}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{container\_type}{container\_type}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+typedef std\+::vector$<$T$>$ \mbox{\hyperlink{classdai_1_1TProb}{dai\+::\+TProb}}$<$ T $>$\+::container\+\_\+type}
+
+
+
+Type of data structure used for storing the values. 
+
+\Hypertarget{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}\label{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!this\_type@{this\_type}}
+\index{this\_type@{this\_type}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{this\_type}{this\_type}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+typedef \mbox{\hyperlink{classdai_1_1TProb}{TProb}}$<$T$>$ \mbox{\hyperlink{classdai_1_1TProb}{dai\+::\+TProb}}$<$ T $>$\+::this\+\_\+type}
+
+
+
+Shorthand. 
+
+\Hypertarget{classdai_1_1TProb_a576e88e240684174a6fd2804271bfbaa}\label{classdai_1_1TProb_a576e88e240684174a6fd2804271bfbaa} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!const\_iterator@{const\_iterator}}
+\index{const\_iterator@{const\_iterator}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{const\_iterator}{const\_iterator}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+typedef container\+\_\+type\+::const\+\_\+iterator \mbox{\hyperlink{classdai_1_1TProb}{dai\+::\+TProb}}$<$ T $>$\+::const\+\_\+iterator}
+
+
+
+Constant iterator over the elements. 
+
+\Hypertarget{classdai_1_1TProb_ac3ae154b6e88196962c65bb725361052}\label{classdai_1_1TProb_ac3ae154b6e88196962c65bb725361052} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!iterator@{iterator}}
+\index{iterator@{iterator}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{iterator}{iterator}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+typedef container\+\_\+type\+::iterator \mbox{\hyperlink{classdai_1_1TProb}{dai\+::\+TProb}}$<$ T $>$\+::iterator}
+
+
+
+Iterator over the elements. 
+
+\Hypertarget{classdai_1_1TProb_a37fb7b49feae193b466d370b501385a5}\label{classdai_1_1TProb_a37fb7b49feae193b466d370b501385a5} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!const\_reverse\_iterator@{const\_reverse\_iterator}}
+\index{const\_reverse\_iterator@{const\_reverse\_iterator}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{const\_reverse\_iterator}{const\_reverse\_iterator}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+typedef container\+\_\+type\+::const\+\_\+reverse\+\_\+iterator \mbox{\hyperlink{classdai_1_1TProb}{dai\+::\+TProb}}$<$ T $>$\+::const\+\_\+reverse\+\_\+iterator}
+
+
+
+Constant reverse iterator over the elements. 
+
+\Hypertarget{classdai_1_1TProb_a7b755e30b8bfaccacbde4e71952753ac}\label{classdai_1_1TProb_a7b755e30b8bfaccacbde4e71952753ac} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!reverse\_iterator@{reverse\_iterator}}
+\index{reverse\_iterator@{reverse\_iterator}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{reverse\_iterator}{reverse\_iterator}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+typedef container\+\_\+type\+::reverse\+\_\+iterator \mbox{\hyperlink{classdai_1_1TProb}{dai\+::\+TProb}}$<$ T $>$\+::reverse\+\_\+iterator}
+
+
+
+Reverse iterator over the elements. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classdai_1_1TProb_a81f9393fa860a6bb005c8286bf9aceab}\label{classdai_1_1TProb_a81f9393fa860a6bb005c8286bf9aceab} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!TProb@{TProb}}
+\index{TProb@{TProb}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{TProb()}{TProb()}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classdai_1_1TProb}{dai\+::\+TProb}}$<$ T $>$\+::\+TProb (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Default constructor (constructs empty vector) 
+
+\Hypertarget{classdai_1_1TProb_a851cd9b5be495df487fb177b0e06a1dd}\label{classdai_1_1TProb_a851cd9b5be495df487fb177b0e06a1dd} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!TProb@{TProb}}
+\index{TProb@{TProb}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{TProb()}{TProb()}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classdai_1_1TProb}{dai\+::\+TProb}}$<$ T $>$\+::\+TProb (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Construct uniform probability distribution over {\itshape n} outcomes (i.\+e., a vector of length {\itshape n} with each entry set to $1/n$) 
+
+\Hypertarget{classdai_1_1TProb_acf3b7ed6e5a0c276b1bcced58c3437dc}\label{classdai_1_1TProb_acf3b7ed6e5a0c276b1bcced58c3437dc} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!TProb@{TProb}}
+\index{TProb@{TProb}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{TProb()}{TProb()}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classdai_1_1TProb}{dai\+::\+TProb}}$<$ T $>$\+::\+TProb (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{n,  }\item[{T}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Construct vector of length {\itshape n} with each entry set to {\itshape p}. 
+
+\Hypertarget{classdai_1_1TProb_adf9ba9a5796f40b95790219386733e84}\label{classdai_1_1TProb_adf9ba9a5796f40b95790219386733e84} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!TProb@{TProb}}
+\index{TProb@{TProb}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{TProb()}{TProb()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+template$<$typename TIterator $>$ \\
+\mbox{\hyperlink{classdai_1_1TProb}{dai\+::\+TProb}}$<$ T $>$\+::\+TProb (\begin{DoxyParamCaption}\item[{TIterator}]{begin,  }\item[{TIterator}]{end,  }\item[{size\+\_\+t}]{size\+Hint }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct vector from a range. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em TIterator} & Iterates over instances that can be cast to {\itshape T} \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em begin} & Points to first instance to be added. \\
+\hline
+{\em end} & Points just beyond last instance to be added. \\
+\hline
+{\em size\+Hint} & For efficiency, the number of entries can be speficied by {\itshape size\+Hint}; the value 0 can be given if the size is unknown, but this will result in a performance penalty. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classdai_1_1TProb_a49aa488531682edc7e65d80d6dd19fb5}\label{classdai_1_1TProb_a49aa488531682edc7e65d80d6dd19fb5} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!TProb@{TProb}}
+\index{TProb@{TProb}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{TProb()}{TProb()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+template$<$typename S $>$ \\
+\mbox{\hyperlink{classdai_1_1TProb}{dai\+::\+TProb}}$<$ T $>$\+::\+TProb (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ S $>$ \&}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct vector from another vector. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em S} & type of elements in {\itshape v} (should be castable to type {\itshape T}) \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em v} & vector used for initialization. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classdai_1_1TProb_a416477b179ecfc91299d07ecd66a473e}\label{classdai_1_1TProb_a416477b179ecfc91299d07ecd66a473e} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!begin@{begin}}
+\index{begin@{begin}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classdai_1_1TProb_ac3ae154b6e88196962c65bb725361052}{iterator}} \mbox{\hyperlink{classdai_1_1TProb}{dai\+::\+TProb}}$<$ T $>$\+::begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns iterator that points to the first element. 
+
+\Hypertarget{classdai_1_1TProb_a4ee617457845acf83a671daf2f9c2505}\label{classdai_1_1TProb_a4ee617457845acf83a671daf2f9c2505} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!begin@{begin}}
+\index{begin@{begin}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classdai_1_1TProb_a576e88e240684174a6fd2804271bfbaa}{const\+\_\+iterator}} \mbox{\hyperlink{classdai_1_1TProb}{dai\+::\+TProb}}$<$ T $>$\+::begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns constant iterator that points to the first element. 
+
+\Hypertarget{classdai_1_1TProb_af61408263bab9270d81f3f791a406e1f}\label{classdai_1_1TProb_af61408263bab9270d81f3f791a406e1f} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!end@{end}}
+\index{end@{end}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classdai_1_1TProb_ac3ae154b6e88196962c65bb725361052}{iterator}} \mbox{\hyperlink{classdai_1_1TProb}{dai\+::\+TProb}}$<$ T $>$\+::end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns iterator that points beyond the last element. 
+
+\Hypertarget{classdai_1_1TProb_af4e63bf4a4fc994b94fd637a72910f88}\label{classdai_1_1TProb_af4e63bf4a4fc994b94fd637a72910f88} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!end@{end}}
+\index{end@{end}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classdai_1_1TProb_a576e88e240684174a6fd2804271bfbaa}{const\+\_\+iterator}} \mbox{\hyperlink{classdai_1_1TProb}{dai\+::\+TProb}}$<$ T $>$\+::end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns constant iterator that points beyond the last element. 
+
+\Hypertarget{classdai_1_1TProb_afc07e604de573d743427d2b92fcd710a}\label{classdai_1_1TProb_afc07e604de573d743427d2b92fcd710a} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!rbegin@{rbegin}}
+\index{rbegin@{rbegin}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{rbegin()}{rbegin()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classdai_1_1TProb_a7b755e30b8bfaccacbde4e71952753ac}{reverse\+\_\+iterator}} \mbox{\hyperlink{classdai_1_1TProb}{dai\+::\+TProb}}$<$ T $>$\+::rbegin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns reverse iterator that points to the last element. 
+
+\Hypertarget{classdai_1_1TProb_aa41373d4df83aba4e52eab5d29aba1c0}\label{classdai_1_1TProb_aa41373d4df83aba4e52eab5d29aba1c0} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!rbegin@{rbegin}}
+\index{rbegin@{rbegin}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{rbegin()}{rbegin()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classdai_1_1TProb_a37fb7b49feae193b466d370b501385a5}{const\+\_\+reverse\+\_\+iterator}} \mbox{\hyperlink{classdai_1_1TProb}{dai\+::\+TProb}}$<$ T $>$\+::rbegin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns constant reverse iterator that points to the last element. 
+
+\Hypertarget{classdai_1_1TProb_a05318f090b80662cb13ccca1baa88f94}\label{classdai_1_1TProb_a05318f090b80662cb13ccca1baa88f94} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!rend@{rend}}
+\index{rend@{rend}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{rend()}{rend()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classdai_1_1TProb_a7b755e30b8bfaccacbde4e71952753ac}{reverse\+\_\+iterator}} \mbox{\hyperlink{classdai_1_1TProb}{dai\+::\+TProb}}$<$ T $>$\+::rend (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns reverse iterator that points beyond the first element. 
+
+\Hypertarget{classdai_1_1TProb_a61e56874350e7769231ddb6f8d26aa50}\label{classdai_1_1TProb_a61e56874350e7769231ddb6f8d26aa50} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!rend@{rend}}
+\index{rend@{rend}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{rend()}{rend()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classdai_1_1TProb_a37fb7b49feae193b466d370b501385a5}{const\+\_\+reverse\+\_\+iterator}} \mbox{\hyperlink{classdai_1_1TProb}{dai\+::\+TProb}}$<$ T $>$\+::rend (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns constant reverse iterator that points beyond the first element. 
+
+\Hypertarget{classdai_1_1TProb_aeee0739fd1fb50d154371f79596e2015}\label{classdai_1_1TProb_aeee0739fd1fb50d154371f79596e2015} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!get@{get}}
+\index{get@{get}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T \mbox{\hyperlink{classdai_1_1TProb}{dai\+::\+TProb}}$<$ T $>$\+::get (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{i }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets {\itshape i} \textquotesingle{}th entry. 
+
+\Hypertarget{classdai_1_1TProb_a3e2be310024be448dacd132e04c0ab01}\label{classdai_1_1TProb_a3e2be310024be448dacd132e04c0ab01} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!set@{set}}
+\index{set@{set}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{set()}{set()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classdai_1_1TProb}{dai\+::\+TProb}}$<$ T $>$\+::set (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{i,  }\item[{T}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets {\itshape i} \textquotesingle{}th entry to {\itshape val}. 
+
+\Hypertarget{classdai_1_1TProb_ad9b7999809d0e5228e327ed354025987}\label{classdai_1_1TProb_ad9b7999809d0e5228e327ed354025987} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!p@{p}}
+\index{p@{p}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{p()}{p()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+const \mbox{\hyperlink{classdai_1_1TProb_ada85efb9bd3e5624cc559e74c9c20de9}{container\+\_\+type}} \& \mbox{\hyperlink{classdai_1_1TProb}{dai\+::\+TProb}}$<$ T $>$\+::p (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns a const reference to the wrapped container. 
+
+\Hypertarget{classdai_1_1TProb_ade34f1aed573f4207d1dd02c039d5676}\label{classdai_1_1TProb_ade34f1aed573f4207d1dd02c039d5676} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!p@{p}}
+\index{p@{p}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{p()}{p()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classdai_1_1TProb_ada85efb9bd3e5624cc559e74c9c20de9}{container\+\_\+type}} \& \mbox{\hyperlink{classdai_1_1TProb}{dai\+::\+TProb}}$<$ T $>$\+::p (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns a reference to the wrapped container. 
+
+\Hypertarget{classdai_1_1TProb_a29a1640177108963072766c69b4d236b}\label{classdai_1_1TProb_a29a1640177108963072766c69b4d236b} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T \mbox{\hyperlink{classdai_1_1TProb}{dai\+::\+TProb}}$<$ T $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{i }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns a copy of the {\itshape i} \textquotesingle{}th entry. 
+
+\Hypertarget{classdai_1_1TProb_ac3d47a2180fbef11ee4e91c9c6348d72}\label{classdai_1_1TProb_ac3d47a2180fbef11ee4e91c9c6348d72} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!size@{size}}
+\index{size@{size}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+size\+\_\+t \mbox{\hyperlink{classdai_1_1TProb}{dai\+::\+TProb}}$<$ T $>$\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns length of the vector (i.\+e., the number of entries) 
+
+\Hypertarget{classdai_1_1TProb_a6fc8f5934930717cee5f732f8392be6c}\label{classdai_1_1TProb_a6fc8f5934930717cee5f732f8392be6c} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!accumulateSum@{accumulateSum}}
+\index{accumulateSum@{accumulateSum}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{accumulateSum()}{accumulateSum()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+template$<$typename un\+Op $>$ \\
+T \mbox{\hyperlink{classdai_1_1TProb}{dai\+::\+TProb}}$<$ T $>$\+::accumulate\+Sum (\begin{DoxyParamCaption}\item[{T}]{init,  }\item[{un\+Op}]{op }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Accumulate all values (similar to std\+::accumulate) by summing. 
+
+The following calculation is done\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{T\ t\ =\ op(init);}
+\DoxyCodeLine{\textcolor{keywordflow}{for}(\ \mbox{\hyperlink{classdai_1_1TProb_a576e88e240684174a6fd2804271bfbaa}{const\_iterator}}\ it\ =\ \mbox{\hyperlink{classdai_1_1TProb_a416477b179ecfc91299d07ecd66a473e}{begin}}();\ it\ !=\ \mbox{\hyperlink{classdai_1_1TProb_af61408263bab9270d81f3f791a406e1f}{end}}();\ it++\ )}
+\DoxyCodeLine{\ \ \ \ t\ +=\ op(*it);}
+\DoxyCodeLine{\textcolor{keywordflow}{return}\ t;}
+
+\end{DoxyCode}
+ \Hypertarget{classdai_1_1TProb_a94c3a95156ff4e4747626b6ccbcc4a79}\label{classdai_1_1TProb_a94c3a95156ff4e4747626b6ccbcc4a79} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!accumulateMax@{accumulateMax}}
+\index{accumulateMax@{accumulateMax}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{accumulateMax()}{accumulateMax()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+template$<$typename un\+Op $>$ \\
+T \mbox{\hyperlink{classdai_1_1TProb}{dai\+::\+TProb}}$<$ T $>$\+::accumulate\+Max (\begin{DoxyParamCaption}\item[{T}]{init,  }\item[{un\+Op}]{op,  }\item[{bool}]{minimize }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Accumulate all values (similar to std\+::accumulate) by maximization/minimization. 
+
+The following calculation is done (with "{}max"{} replaced by "{}min"{} if {\itshape minimize} == {\ttfamily true})\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{T\ t\ =\ op(init);}
+\DoxyCodeLine{\textcolor{keywordflow}{for}(\ \mbox{\hyperlink{classdai_1_1TProb_a576e88e240684174a6fd2804271bfbaa}{const\_iterator}}\ it\ =\ \mbox{\hyperlink{classdai_1_1TProb_a416477b179ecfc91299d07ecd66a473e}{begin}}();\ it\ !=\ \mbox{\hyperlink{classdai_1_1TProb_af61408263bab9270d81f3f791a406e1f}{end}}();\ it++\ )}
+\DoxyCodeLine{\ \ \ \ t\ =\ std::max(\ t,\ op(*it)\ );}
+\DoxyCodeLine{\textcolor{keywordflow}{return}\ t;}
+
+\end{DoxyCode}
+ \Hypertarget{classdai_1_1TProb_a20b2f87ceb9746a6164508a76eebcd63}\label{classdai_1_1TProb_a20b2f87ceb9746a6164508a76eebcd63} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!entropy@{entropy}}
+\index{entropy@{entropy}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{entropy()}{entropy()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T \mbox{\hyperlink{classdai_1_1TProb}{dai\+::\+TProb}}$<$ T $>$\+::entropy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the Shannon entropy of {\ttfamily \texorpdfstring{$\ast$}{*}this}, $-\sum_i p_i \log p_i$. 
+
+\Hypertarget{classdai_1_1TProb_ada730516fd1fd73dede447a710676c9a}\label{classdai_1_1TProb_ada730516fd1fd73dede447a710676c9a} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!max@{max}}
+\index{max@{max}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{max()}{max()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T \mbox{\hyperlink{classdai_1_1TProb}{dai\+::\+TProb}}$<$ T $>$\+::max (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns maximum value of all entries. 
+
+\Hypertarget{classdai_1_1TProb_a375854499fd2f4ae42ef552533656fc0}\label{classdai_1_1TProb_a375854499fd2f4ae42ef552533656fc0} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!min@{min}}
+\index{min@{min}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{min()}{min()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T \mbox{\hyperlink{classdai_1_1TProb}{dai\+::\+TProb}}$<$ T $>$\+::min (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns minimum value of all entries. 
+
+\Hypertarget{classdai_1_1TProb_abd2682fd21ae93af24d66de12647531b}\label{classdai_1_1TProb_abd2682fd21ae93af24d66de12647531b} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!sum@{sum}}
+\index{sum@{sum}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{sum()}{sum()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T \mbox{\hyperlink{classdai_1_1TProb}{dai\+::\+TProb}}$<$ T $>$\+::sum (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns sum of all entries. 
+
+\Hypertarget{classdai_1_1TProb_a54d213bd346f39792831d81310f469e3}\label{classdai_1_1TProb_a54d213bd346f39792831d81310f469e3} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!sumAbs@{sumAbs}}
+\index{sumAbs@{sumAbs}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{sumAbs()}{sumAbs()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T \mbox{\hyperlink{classdai_1_1TProb}{dai\+::\+TProb}}$<$ T $>$\+::sum\+Abs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Return sum of absolute value of all entries. 
+
+\Hypertarget{classdai_1_1TProb_adde9c7a29bcdaedaae50465f8e297a76}\label{classdai_1_1TProb_adde9c7a29bcdaedaae50465f8e297a76} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!maxAbs@{maxAbs}}
+\index{maxAbs@{maxAbs}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{maxAbs()}{maxAbs()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T \mbox{\hyperlink{classdai_1_1TProb}{dai\+::\+TProb}}$<$ T $>$\+::max\+Abs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns maximum absolute value of all entries. 
+
+\Hypertarget{classdai_1_1TProb_a70c1d6cde9d23c9be050ddeeec8a4445}\label{classdai_1_1TProb_a70c1d6cde9d23c9be050ddeeec8a4445} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!hasNaNs@{hasNaNs}}
+\index{hasNaNs@{hasNaNs}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{hasNaNs()}{hasNaNs()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \mbox{\hyperlink{classdai_1_1TProb}{dai\+::\+TProb}}$<$ T $>$\+::has\+Na\+Ns (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns {\ttfamily true} if one or more entries are NaN. 
+
+\Hypertarget{classdai_1_1TProb_a4a6282efb2de2974787777934fc5161e}\label{classdai_1_1TProb_a4a6282efb2de2974787777934fc5161e} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!hasNegatives@{hasNegatives}}
+\index{hasNegatives@{hasNegatives}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{hasNegatives()}{hasNegatives()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \mbox{\hyperlink{classdai_1_1TProb}{dai\+::\+TProb}}$<$ T $>$\+::has\+Negatives (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns {\ttfamily true} if one or more entries are negative. 
+
+\Hypertarget{classdai_1_1TProb_ae9fcf9eb4bbc8fc7445c0d68f08c148a}\label{classdai_1_1TProb_ae9fcf9eb4bbc8fc7445c0d68f08c148a} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!argmax@{argmax}}
+\index{argmax@{argmax}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{argmax()}{argmax()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::pair$<$ size\+\_\+t, T $>$ \mbox{\hyperlink{classdai_1_1TProb}{dai\+::\+TProb}}$<$ T $>$\+::argmax (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns a pair consisting of the index of the maximum value and the maximum value itself. 
+
+\Hypertarget{classdai_1_1TProb_a450a77f9a7c4a8a49702cc2afbf2e40a}\label{classdai_1_1TProb_a450a77f9a7c4a8a49702cc2afbf2e40a} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!draw@{draw}}
+\index{draw@{draw}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+size\+\_\+t \mbox{\hyperlink{classdai_1_1TProb}{dai\+::\+TProb}}$<$ T $>$\+::draw (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns a random index, according to the (normalized) distribution described by \texorpdfstring{$\ast$}{*}this. 
+
+\Hypertarget{classdai_1_1TProb_a062acee402025cab1d45c0952d1952ae}\label{classdai_1_1TProb_a062acee402025cab1d45c0952d1952ae} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator$<$()}{operator<()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \mbox{\hyperlink{classdai_1_1TProb}{dai\+::\+TProb}}$<$ T $>$\+::operator$<$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \&}]{q }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Lexicographical comparison. 
+
+\begin{DoxyPrecond}{Precondition}
+{\ttfamily this-\/\texorpdfstring{$>$}{>}\doxylink{classdai_1_1TProb_ac3d47a2180fbef11ee4e91c9c6348d72}{size()} == q.\+size()} 
+\end{DoxyPrecond}
+\Hypertarget{classdai_1_1TProb_a5cb89123920bc1d0254adc53fd97d97a}\label{classdai_1_1TProb_a5cb89123920bc1d0254adc53fd97d97a} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!operator==@{operator==}}
+\index{operator==@{operator==}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \mbox{\hyperlink{classdai_1_1TProb}{dai\+::\+TProb}}$<$ T $>$\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \&}]{q }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Comparison. 
+
+\Hypertarget{classdai_1_1TProb_a465cbe2a237795aa4b564dfa238f8402}\label{classdai_1_1TProb_a465cbe2a237795aa4b564dfa238f8402} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!toString@{toString}}
+\index{toString@{toString}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{toString()}{toString()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::string \mbox{\hyperlink{classdai_1_1TProb}{dai\+::\+TProb}}$<$ T $>$\+::to\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Formats a \doxylink{classdai_1_1TProb}{TProb} as a string. 
+
+\Hypertarget{classdai_1_1TProb_a8f22eaf00f867641ec29eed3bb7da91f}\label{classdai_1_1TProb_a8f22eaf00f867641ec29eed3bb7da91f} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!pwUnaryTr@{pwUnaryTr}}
+\index{pwUnaryTr@{pwUnaryTr}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{pwUnaryTr()}{pwUnaryTr()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+template$<$typename unary\+Op $>$ \\
+\mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \mbox{\hyperlink{classdai_1_1TProb}{dai\+::\+TProb}}$<$ T $>$\+::pw\+Unary\+Tr (\begin{DoxyParamCaption}\item[{unary\+Op}]{op }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the result of applying operation {\itshape op} pointwise on {\ttfamily \texorpdfstring{$\ast$}{*}this}. 
+
+\Hypertarget{classdai_1_1TProb_ac808ad5a1e0a581fca1dd8f3e4bb975f}\label{classdai_1_1TProb_ac808ad5a1e0a581fca1dd8f3e4bb975f} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \mbox{\hyperlink{classdai_1_1TProb}{dai\+::\+TProb}}$<$ T $>$\+::operator-\/ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns negative of {\ttfamily \texorpdfstring{$\ast$}{*}this}. 
+
+\Hypertarget{classdai_1_1TProb_a2cfd2e5e77d2c9a8744075c2138c6bc5}\label{classdai_1_1TProb_a2cfd2e5e77d2c9a8744075c2138c6bc5} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!abs@{abs}}
+\index{abs@{abs}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{abs()}{abs()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \mbox{\hyperlink{classdai_1_1TProb}{dai\+::\+TProb}}$<$ T $>$\+::abs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns pointwise absolute value. 
+
+\Hypertarget{classdai_1_1TProb_af5333c69042ad9e5acdda65bc4db7b2c}\label{classdai_1_1TProb_af5333c69042ad9e5acdda65bc4db7b2c} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!exp@{exp}}
+\index{exp@{exp}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{exp()}{exp()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \mbox{\hyperlink{classdai_1_1TProb}{dai\+::\+TProb}}$<$ T $>$\+::exp (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns pointwise exponent. 
+
+\Hypertarget{classdai_1_1TProb_acb42ca168cf1d5fc8587616810680d8b}\label{classdai_1_1TProb_acb42ca168cf1d5fc8587616810680d8b} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!log@{log}}
+\index{log@{log}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{log()}{log()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \mbox{\hyperlink{classdai_1_1TProb}{dai\+::\+TProb}}$<$ T $>$\+::log (\begin{DoxyParamCaption}\item[{bool}]{zero = {\ttfamily false} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns pointwise logarithm. 
+
+If {\itshape zero} == {\ttfamily true}, uses {\ttfamily log(0)==0}; otherwise, {\ttfamily log(0)==-\/Inf}. \Hypertarget{classdai_1_1TProb_ac8cff19a0cc2bf6c8961cd5b0450e97c}\label{classdai_1_1TProb_ac8cff19a0cc2bf6c8961cd5b0450e97c} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!inverse@{inverse}}
+\index{inverse@{inverse}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{inverse()}{inverse()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \mbox{\hyperlink{classdai_1_1TProb}{dai\+::\+TProb}}$<$ T $>$\+::inverse (\begin{DoxyParamCaption}\item[{bool}]{zero = {\ttfamily true} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns pointwise inverse. 
+
+If {\itshape zero} == {\ttfamily true}, uses {\ttfamily 1/0==0}; otherwise, {\ttfamily 1/0==Inf}. \Hypertarget{classdai_1_1TProb_a0dccf4820c38f544b956ac3e3a223884}\label{classdai_1_1TProb_a0dccf4820c38f544b956ac3e3a223884} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!normalized@{normalized}}
+\index{normalized@{normalized}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{normalized()}{normalized()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \mbox{\hyperlink{classdai_1_1TProb}{dai\+::\+TProb}}$<$ T $>$\+::normalized (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{util_8h_ae0d0ef753bd0ba57586e556ab6312677}{Prob\+Norm\+Type}}}]{norm = {\ttfamily dai\+:\+:NORMPROB} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns normalized copy of {\ttfamily \texorpdfstring{$\ast$}{*}this}, using the specified norm. 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em NOT\+\_\+\+NORMALIZABLE} & if the norm is zero \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classdai_1_1TProb_ab53475555b9777d122046e0c288983b1}\label{classdai_1_1TProb_ab53475555b9777d122046e0c288983b1} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!pwUnaryOp@{pwUnaryOp}}
+\index{pwUnaryOp@{pwUnaryOp}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{pwUnaryOp()}{pwUnaryOp()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+template$<$typename unary\+Op $>$ \\
+\mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \& \mbox{\hyperlink{classdai_1_1TProb}{dai\+::\+TProb}}$<$ T $>$\+::pw\+Unary\+Op (\begin{DoxyParamCaption}\item[{unary\+Op}]{op }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Applies unary operation {\itshape op} pointwise. 
+
+\Hypertarget{classdai_1_1TProb_abd1c820ef242d85f9e4202e728771797}\label{classdai_1_1TProb_abd1c820ef242d85f9e4202e728771797} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!randomize@{randomize}}
+\index{randomize@{randomize}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{randomize()}{randomize()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \& \mbox{\hyperlink{classdai_1_1TProb}{dai\+::\+TProb}}$<$ T $>$\+::randomize (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Draws all entries i.\+i.\+d. from a uniform distribution on \mbox{[}0,1) 
+
+\Hypertarget{classdai_1_1TProb_a3b16790a767b60939cfe9269c2911d8a}\label{classdai_1_1TProb_a3b16790a767b60939cfe9269c2911d8a} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!setUniform@{setUniform}}
+\index{setUniform@{setUniform}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{setUniform()}{setUniform()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \& \mbox{\hyperlink{classdai_1_1TProb}{dai\+::\+TProb}}$<$ T $>$\+::set\+Uniform (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets all entries to $1/n$ where {\itshape n} is the length of the vector. 
+
+\Hypertarget{classdai_1_1TProb_a3361d17f8a1029ebca300c6642d94235}\label{classdai_1_1TProb_a3361d17f8a1029ebca300c6642d94235} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!takeAbs@{takeAbs}}
+\index{takeAbs@{takeAbs}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{takeAbs()}{takeAbs()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \& \mbox{\hyperlink{classdai_1_1TProb}{dai\+::\+TProb}}$<$ T $>$\+::take\+Abs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Applies absolute value pointwise. 
+
+\Hypertarget{classdai_1_1TProb_a019787d4fdbdb06ccb951bbae847e418}\label{classdai_1_1TProb_a019787d4fdbdb06ccb951bbae847e418} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!takeExp@{takeExp}}
+\index{takeExp@{takeExp}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{takeExp()}{takeExp()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \& \mbox{\hyperlink{classdai_1_1TProb}{dai\+::\+TProb}}$<$ T $>$\+::take\+Exp (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Applies exponent pointwise. 
+
+\Hypertarget{classdai_1_1TProb_af792eee1a50d950950ff2841cba2ea07}\label{classdai_1_1TProb_af792eee1a50d950950ff2841cba2ea07} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!takeLog@{takeLog}}
+\index{takeLog@{takeLog}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{takeLog()}{takeLog()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \& \mbox{\hyperlink{classdai_1_1TProb}{dai\+::\+TProb}}$<$ T $>$\+::take\+Log (\begin{DoxyParamCaption}\item[{bool}]{zero = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Applies logarithm pointwise. 
+
+If {\itshape zero} == {\ttfamily true}, uses {\ttfamily log(0)==0}; otherwise, {\ttfamily log(0)==-\/Inf}. \Hypertarget{classdai_1_1TProb_ab2414cf14329da58b0519adf8d783cb5}\label{classdai_1_1TProb_ab2414cf14329da58b0519adf8d783cb5} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!normalize@{normalize}}
+\index{normalize@{normalize}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{normalize()}{normalize()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T \mbox{\hyperlink{classdai_1_1TProb}{dai\+::\+TProb}}$<$ T $>$\+::normalize (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{util_8h_ae0d0ef753bd0ba57586e556ab6312677}{Prob\+Norm\+Type}}}]{norm = {\ttfamily dai\+:\+:NORMPROB} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Normalizes vector using the specified norm. 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em NOT\+\_\+\+NORMALIZABLE} & if the norm is zero \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classdai_1_1TProb_a1e9a86aad4c654e1371ae403cbf58571}\label{classdai_1_1TProb_a1e9a86aad4c654e1371ae403cbf58571} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!fill@{fill}}
+\index{fill@{fill}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{fill()}{fill()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \& \mbox{\hyperlink{classdai_1_1TProb}{dai\+::\+TProb}}$<$ T $>$\+::fill (\begin{DoxyParamCaption}\item[{T}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets all entries to {\itshape x}. 
+
+\Hypertarget{classdai_1_1TProb_a7bb7b7b46a793fdbf4bdc2a861cb39b6}\label{classdai_1_1TProb_a7bb7b7b46a793fdbf4bdc2a861cb39b6} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator+=()}{operator+=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \& \mbox{\hyperlink{classdai_1_1TProb}{dai\+::\+TProb}}$<$ T $>$\+::operator+= (\begin{DoxyParamCaption}\item[{T}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Adds scalar {\itshape x} to each entry. 
+
+\Hypertarget{classdai_1_1TProb_a9c5f8a6223ca6092330043bba117f189}\label{classdai_1_1TProb_a9c5f8a6223ca6092330043bba117f189} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!operator-\/=@{operator-\/=}}
+\index{operator-\/=@{operator-\/=}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator-\/=()}{operator-=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \& \mbox{\hyperlink{classdai_1_1TProb}{dai\+::\+TProb}}$<$ T $>$\+::operator-\/= (\begin{DoxyParamCaption}\item[{T}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Subtracts scalar {\itshape x} from each entry. 
+
+\Hypertarget{classdai_1_1TProb_a7ae985e35b8853a3e7c266281597bb0f}\label{classdai_1_1TProb_a7ae985e35b8853a3e7c266281597bb0f} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!operator\texorpdfstring{$\ast$}{*}=@{operator\texorpdfstring{$\ast$}{*}=}}
+\index{operator\texorpdfstring{$\ast$}{*}=@{operator\texorpdfstring{$\ast$}{*}=}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}=()}{operator*=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \& \mbox{\hyperlink{classdai_1_1TProb}{dai\+::\+TProb}}$<$ T $>$\+::operator\texorpdfstring{$\ast$}{*}= (\begin{DoxyParamCaption}\item[{T}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Multiplies each entry with scalar {\itshape x}. 
+
+\Hypertarget{classdai_1_1TProb_a7386907a81560d4e8746e8459a762462}\label{classdai_1_1TProb_a7386907a81560d4e8746e8459a762462} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!operator/=@{operator/=}}
+\index{operator/=@{operator/=}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator/=()}{operator/=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \& \mbox{\hyperlink{classdai_1_1TProb}{dai\+::\+TProb}}$<$ T $>$\+::operator/= (\begin{DoxyParamCaption}\item[{T}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Divides each entry by scalar {\itshape x}, where division by 0 yields 0. 
+
+\Hypertarget{classdai_1_1TProb_abed267e0bbd23c1dece47cef3fe5dacb}\label{classdai_1_1TProb_abed267e0bbd23c1dece47cef3fe5dacb} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!operator\texorpdfstring{$^\wedge$}{\string^}=@{operator\texorpdfstring{$^\wedge$}{\string^}=}}
+\index{operator\texorpdfstring{$^\wedge$}{\string^}=@{operator\texorpdfstring{$^\wedge$}{\string^}=}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$^\wedge$}{\string^}=()}{operator\string^=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \& \mbox{\hyperlink{classdai_1_1TProb}{dai\+::\+TProb}}$<$ T $>$\+::operator\texorpdfstring{$^\wedge$}{\string^}= (\begin{DoxyParamCaption}\item[{T}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Raises entries to the power {\itshape x}. 
+
+\Hypertarget{classdai_1_1TProb_a12825f675f72fd4dd1ced6959228454d}\label{classdai_1_1TProb_a12825f675f72fd4dd1ced6959228454d} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!operator+@{operator+}}
+\index{operator+@{operator+}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator+()}{operator+()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \mbox{\hyperlink{classdai_1_1TProb}{dai\+::\+TProb}}$<$ T $>$\+::operator+ (\begin{DoxyParamCaption}\item[{T}]{x }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns sum of {\ttfamily \texorpdfstring{$\ast$}{*}this} and scalar {\itshape x}. 
+
+\Hypertarget{classdai_1_1TProb_a3a5c179e2ae5b8187891aded92d45752}\label{classdai_1_1TProb_a3a5c179e2ae5b8187891aded92d45752} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \mbox{\hyperlink{classdai_1_1TProb}{dai\+::\+TProb}}$<$ T $>$\+::operator-\/ (\begin{DoxyParamCaption}\item[{T}]{x }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns difference of {\ttfamily \texorpdfstring{$\ast$}{*}this} and scalar {\itshape x}. 
+
+\Hypertarget{classdai_1_1TProb_ad44ef9fc40adeaa7a804637bd48d38e4}\label{classdai_1_1TProb_ad44ef9fc40adeaa7a804637bd48d38e4} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}}
+\index{operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \mbox{\hyperlink{classdai_1_1TProb}{dai\+::\+TProb}}$<$ T $>$\+::operator\texorpdfstring{$\ast$}{*} (\begin{DoxyParamCaption}\item[{T}]{x }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns product of {\ttfamily \texorpdfstring{$\ast$}{*}this} with scalar {\itshape x}. 
+
+\Hypertarget{classdai_1_1TProb_a74dafe2069aad1b69ab2bd6462ad1a83}\label{classdai_1_1TProb_a74dafe2069aad1b69ab2bd6462ad1a83} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!operator/@{operator/}}
+\index{operator/@{operator/}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator/()}{operator/()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \mbox{\hyperlink{classdai_1_1TProb}{dai\+::\+TProb}}$<$ T $>$\+::operator/ (\begin{DoxyParamCaption}\item[{T}]{x }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns quotient of {\ttfamily \texorpdfstring{$\ast$}{*}this} and scalar {\itshape x}, where division by 0 yields 0. 
+
+\Hypertarget{classdai_1_1TProb_a08476c60371b0c5f13a73f29bc5ceada}\label{classdai_1_1TProb_a08476c60371b0c5f13a73f29bc5ceada} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!operator\texorpdfstring{$^\wedge$}{\string^}@{operator\texorpdfstring{$^\wedge$}{\string^}}}
+\index{operator\texorpdfstring{$^\wedge$}{\string^}@{operator\texorpdfstring{$^\wedge$}{\string^}}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$^\wedge$}{\string^}()}{operator\string^()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \mbox{\hyperlink{classdai_1_1TProb}{dai\+::\+TProb}}$<$ T $>$\+::operator\texorpdfstring{$^\wedge$}{\string^} (\begin{DoxyParamCaption}\item[{T}]{x }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns {\ttfamily \texorpdfstring{$\ast$}{*}this} raised to the power {\itshape x}. 
+
+\Hypertarget{classdai_1_1TProb_a5b00bd476394290248d042171496a5a4}\label{classdai_1_1TProb_a5b00bd476394290248d042171496a5a4} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!pwBinaryOp@{pwBinaryOp}}
+\index{pwBinaryOp@{pwBinaryOp}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{pwBinaryOp()}{pwBinaryOp()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+template$<$typename binary\+Op $>$ \\
+\mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \& \mbox{\hyperlink{classdai_1_1TProb}{dai\+::\+TProb}}$<$ T $>$\+::pw\+Binary\+Op (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \&}]{q,  }\item[{binary\+Op}]{op }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Applies binary operation pointwise on two vectors. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em binary\+Op} & Type of function object that accepts two arguments of type {\itshape T} and outputs a type {\itshape T} \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em q} & Right operand \\
+\hline
+{\em op} & Operation of type {\itshape binary\+Op} \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classdai_1_1TProb_ae8286176ac28ffaae9954d259ef0ceda}\label{classdai_1_1TProb_ae8286176ac28ffaae9954d259ef0ceda} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator+=()}{operator+=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \& \mbox{\hyperlink{classdai_1_1TProb}{dai\+::\+TProb}}$<$ T $>$\+::operator+= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \&}]{q }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Pointwise addition with {\itshape q}. 
+
+\begin{DoxyPrecond}{Precondition}
+{\ttfamily this-\/\texorpdfstring{$>$}{>}\doxylink{classdai_1_1TProb_ac3d47a2180fbef11ee4e91c9c6348d72}{size()} == q.\+size()} 
+\end{DoxyPrecond}
+\Hypertarget{classdai_1_1TProb_ae6d02996b7a81f5640241f2f3ec9f7c8}\label{classdai_1_1TProb_ae6d02996b7a81f5640241f2f3ec9f7c8} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!operator-\/=@{operator-\/=}}
+\index{operator-\/=@{operator-\/=}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator-\/=()}{operator-=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \& \mbox{\hyperlink{classdai_1_1TProb}{dai\+::\+TProb}}$<$ T $>$\+::operator-\/= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \&}]{q }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Pointwise subtraction of {\itshape q}. 
+
+\begin{DoxyPrecond}{Precondition}
+{\ttfamily this-\/\texorpdfstring{$>$}{>}\doxylink{classdai_1_1TProb_ac3d47a2180fbef11ee4e91c9c6348d72}{size()} == q.\+size()} 
+\end{DoxyPrecond}
+\Hypertarget{classdai_1_1TProb_ad3b4b997161213aa75b2887587aedfe8}\label{classdai_1_1TProb_ad3b4b997161213aa75b2887587aedfe8} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!operator\texorpdfstring{$\ast$}{*}=@{operator\texorpdfstring{$\ast$}{*}=}}
+\index{operator\texorpdfstring{$\ast$}{*}=@{operator\texorpdfstring{$\ast$}{*}=}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}=()}{operator*=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \& \mbox{\hyperlink{classdai_1_1TProb}{dai\+::\+TProb}}$<$ T $>$\+::operator\texorpdfstring{$\ast$}{*}= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \&}]{q }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Pointwise multiplication with {\itshape q}. 
+
+\begin{DoxyPrecond}{Precondition}
+{\ttfamily this-\/\texorpdfstring{$>$}{>}\doxylink{classdai_1_1TProb_ac3d47a2180fbef11ee4e91c9c6348d72}{size()} == q.\+size()} 
+\end{DoxyPrecond}
+\Hypertarget{classdai_1_1TProb_a50df140cd0ecb600bdb702fa660b6d40}\label{classdai_1_1TProb_a50df140cd0ecb600bdb702fa660b6d40} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!operator/=@{operator/=}}
+\index{operator/=@{operator/=}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator/=()}{operator/=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \& \mbox{\hyperlink{classdai_1_1TProb}{dai\+::\+TProb}}$<$ T $>$\+::operator/= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \&}]{q }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Pointwise division by {\itshape q}, where division by 0 yields 0. 
+
+\begin{DoxyPrecond}{Precondition}
+{\ttfamily this-\/\texorpdfstring{$>$}{>}\doxylink{classdai_1_1TProb_ac3d47a2180fbef11ee4e91c9c6348d72}{size()} == q.\+size()} 
+\end{DoxyPrecond}
+\begin{DoxySeeAlso}{See also}
+divide(const TProb$<$\+T$>$ \&) 
+\end{DoxySeeAlso}
+\Hypertarget{classdai_1_1TProb_ae41d2ec0791401ac7c2b7506c070f5b6}\label{classdai_1_1TProb_ae41d2ec0791401ac7c2b7506c070f5b6} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!divide@{divide}}
+\index{divide@{divide}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{divide()}{divide()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \& \mbox{\hyperlink{classdai_1_1TProb}{dai\+::\+TProb}}$<$ T $>$\+::divide (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \&}]{q }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Pointwise division by {\itshape q}, where division by 0 yields +Inf. 
+
+\begin{DoxyPrecond}{Precondition}
+{\ttfamily this-\/\texorpdfstring{$>$}{>}\doxylink{classdai_1_1TProb_ac3d47a2180fbef11ee4e91c9c6348d72}{size()} == q.\+size()} 
+\end{DoxyPrecond}
+\begin{DoxySeeAlso}{See also}
+operator/=(const TProb$<$\+T$>$ \&) 
+\end{DoxySeeAlso}
+\Hypertarget{classdai_1_1TProb_a38ec23f6c9391f34db6241036dbbffd6}\label{classdai_1_1TProb_a38ec23f6c9391f34db6241036dbbffd6} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!operator\texorpdfstring{$^\wedge$}{\string^}=@{operator\texorpdfstring{$^\wedge$}{\string^}=}}
+\index{operator\texorpdfstring{$^\wedge$}{\string^}=@{operator\texorpdfstring{$^\wedge$}{\string^}=}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$^\wedge$}{\string^}=()}{operator\string^=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \& \mbox{\hyperlink{classdai_1_1TProb}{dai\+::\+TProb}}$<$ T $>$\+::operator\texorpdfstring{$^\wedge$}{\string^}= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \&}]{q }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Pointwise power. 
+
+\begin{DoxyPrecond}{Precondition}
+{\ttfamily this-\/\texorpdfstring{$>$}{>}\doxylink{classdai_1_1TProb_ac3d47a2180fbef11ee4e91c9c6348d72}{size()} == q.\+size()} 
+\end{DoxyPrecond}
+\Hypertarget{classdai_1_1TProb_a052f06b10d2636776d6d267db3d6c8e9}\label{classdai_1_1TProb_a052f06b10d2636776d6d267db3d6c8e9} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!pwBinaryTr@{pwBinaryTr}}
+\index{pwBinaryTr@{pwBinaryTr}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{pwBinaryTr()}{pwBinaryTr()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+template$<$typename binary\+Op $>$ \\
+\mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \mbox{\hyperlink{classdai_1_1TProb}{dai\+::\+TProb}}$<$ T $>$\+::pw\+Binary\+Tr (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \&}]{q,  }\item[{binary\+Op}]{op }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the result of applying binary operation {\itshape op} pointwise on {\ttfamily \texorpdfstring{$\ast$}{*}this} and {\itshape q}. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em binary\+Op} & Type of function object that accepts two arguments of type {\itshape T} and outputs a type {\itshape T} \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em q} & Right operand \\
+\hline
+{\em op} & Operation of type {\itshape binary\+Op} \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classdai_1_1TProb_ad77e0912afb19c1899c3719f69dc3ad3}\label{classdai_1_1TProb_ad77e0912afb19c1899c3719f69dc3ad3} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!operator+@{operator+}}
+\index{operator+@{operator+}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator+()}{operator+()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \mbox{\hyperlink{classdai_1_1TProb}{dai\+::\+TProb}}$<$ T $>$\+::operator+ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \&}]{q }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns sum of {\ttfamily \texorpdfstring{$\ast$}{*}this} and {\itshape q}. 
+
+\begin{DoxyPrecond}{Precondition}
+{\ttfamily this-\/\texorpdfstring{$>$}{>}\doxylink{classdai_1_1TProb_ac3d47a2180fbef11ee4e91c9c6348d72}{size()} == q.\+size()} 
+\end{DoxyPrecond}
+\Hypertarget{classdai_1_1TProb_a3a3e7df0c4764c6fea9990a483b72800}\label{classdai_1_1TProb_a3a3e7df0c4764c6fea9990a483b72800} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \mbox{\hyperlink{classdai_1_1TProb}{dai\+::\+TProb}}$<$ T $>$\+::operator-\/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \&}]{q }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Return {\ttfamily \texorpdfstring{$\ast$}{*}this} minus {\itshape q}. 
+
+\begin{DoxyPrecond}{Precondition}
+{\ttfamily this-\/\texorpdfstring{$>$}{>}\doxylink{classdai_1_1TProb_ac3d47a2180fbef11ee4e91c9c6348d72}{size()} == q.\+size()} 
+\end{DoxyPrecond}
+\Hypertarget{classdai_1_1TProb_afec9645e857d1500a4e106725a7815ee}\label{classdai_1_1TProb_afec9645e857d1500a4e106725a7815ee} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}}
+\index{operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \mbox{\hyperlink{classdai_1_1TProb}{dai\+::\+TProb}}$<$ T $>$\+::operator\texorpdfstring{$\ast$}{*} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \&}]{q }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Return product of {\ttfamily \texorpdfstring{$\ast$}{*}this} with {\itshape q}. 
+
+\begin{DoxyPrecond}{Precondition}
+{\ttfamily this-\/\texorpdfstring{$>$}{>}\doxylink{classdai_1_1TProb_ac3d47a2180fbef11ee4e91c9c6348d72}{size()} == q.\+size()} 
+\end{DoxyPrecond}
+\Hypertarget{classdai_1_1TProb_a5c879e18c5509a19a3be872f1780d782}\label{classdai_1_1TProb_a5c879e18c5509a19a3be872f1780d782} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!operator/@{operator/}}
+\index{operator/@{operator/}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator/()}{operator/()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \mbox{\hyperlink{classdai_1_1TProb}{dai\+::\+TProb}}$<$ T $>$\+::operator/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \&}]{q }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns quotient of {\ttfamily \texorpdfstring{$\ast$}{*}this} with {\itshape q}, where division by 0 yields 0. 
+
+\begin{DoxyPrecond}{Precondition}
+{\ttfamily this-\/\texorpdfstring{$>$}{>}\doxylink{classdai_1_1TProb_ac3d47a2180fbef11ee4e91c9c6348d72}{size()} == q.\+size()} 
+\end{DoxyPrecond}
+\begin{DoxySeeAlso}{See also}
+divided\+\_\+by(const TProb$<$\+T$>$ \&) 
+\end{DoxySeeAlso}
+\Hypertarget{classdai_1_1TProb_ac219980edfa6508acab81a6041dd091e}\label{classdai_1_1TProb_ac219980edfa6508acab81a6041dd091e} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!divided\_by@{divided\_by}}
+\index{divided\_by@{divided\_by}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{divided\_by()}{divided\_by()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \mbox{\hyperlink{classdai_1_1TProb}{dai\+::\+TProb}}$<$ T $>$\+::divided\+\_\+by (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \&}]{q }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Pointwise division by {\itshape q}, where division by 0 yields +Inf. 
+
+\begin{DoxyPrecond}{Precondition}
+{\ttfamily this-\/\texorpdfstring{$>$}{>}\doxylink{classdai_1_1TProb_ac3d47a2180fbef11ee4e91c9c6348d72}{size()} == q.\+size()} 
+\end{DoxyPrecond}
+\begin{DoxySeeAlso}{See also}
+operator/(const TProb$<$\+T$>$ \&) 
+\end{DoxySeeAlso}
+\Hypertarget{classdai_1_1TProb_ad6193c8bec442f8bd16fedb14017fe9a}\label{classdai_1_1TProb_ad6193c8bec442f8bd16fedb14017fe9a} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!operator\texorpdfstring{$^\wedge$}{\string^}@{operator\texorpdfstring{$^\wedge$}{\string^}}}
+\index{operator\texorpdfstring{$^\wedge$}{\string^}@{operator\texorpdfstring{$^\wedge$}{\string^}}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$^\wedge$}{\string^}()}{operator\string^()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \mbox{\hyperlink{classdai_1_1TProb}{dai\+::\+TProb}}$<$ T $>$\+::operator\texorpdfstring{$^\wedge$}{\string^} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \&}]{q }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns {\ttfamily \texorpdfstring{$\ast$}{*}this} to the power {\itshape q}. 
+
+\begin{DoxyPrecond}{Precondition}
+{\ttfamily this-\/\texorpdfstring{$>$}{>}\doxylink{classdai_1_1TProb_ac3d47a2180fbef11ee4e91c9c6348d72}{size()} == q.\+size()} 
+\end{DoxyPrecond}
+\Hypertarget{classdai_1_1TProb_abc2786d1bf7a91f0e39172aad6e35340}\label{classdai_1_1TProb_abc2786d1bf7a91f0e39172aad6e35340} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!innerProduct@{innerProduct}}
+\index{innerProduct@{innerProduct}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{innerProduct()}{innerProduct()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+template$<$typename bin\+Op1 , typename bin\+Op2 $>$ \\
+T \mbox{\hyperlink{classdai_1_1TProb}{dai\+::\+TProb}}$<$ T $>$\+::inner\+Product (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classdai_1_1TProb_a3fd857f47bad7e3917df607cb38aa2ae}{this\+\_\+type}} \&}]{q,  }\item[{T}]{init,  }\item[{bin\+Op1}]{binary\+Op1,  }\item[{bin\+Op2}]{binary\+Op2 }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Performs a generalized inner product, similar to std\+::inner\+\_\+product. 
+
+\begin{DoxyPrecond}{Precondition}
+{\ttfamily this-\/\texorpdfstring{$>$}{>}\doxylink{classdai_1_1TProb_ac3d47a2180fbef11ee4e91c9c6348d72}{size()} == q.\+size()} 
+\end{DoxyPrecond}
+
+
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{classdai_1_1TProb_abd07922b69c64c0f873cbb0c6723a908}\label{classdai_1_1TProb_abd07922b69c64c0f873cbb0c6723a908} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!dist@{dist}}
+\index{dist@{dist}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{dist()}{dist()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T dist (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classdai_1_1TProb}{TProb}}$<$ T $>$ \&}]{p,  }\item[{const \mbox{\hyperlink{classdai_1_1TProb}{TProb}}$<$ T $>$ \&}]{q,  }\item[{\mbox{\hyperlink{util_8h_aa2735a823696443089d2de23e8ee6ecb}{Prob\+Dist\+Type}}}]{dt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [related]}}
+
+
+
+Returns distance between {\itshape p} and {\itshape q}, measured using distance measure {\itshape dt}. 
+
+\begin{DoxyPrecond}{Precondition}
+{\ttfamily this-\/\texorpdfstring{$>$}{>}\doxylink{classdai_1_1TProb_ac3d47a2180fbef11ee4e91c9c6348d72}{size()} == q.\+size()} 
+\end{DoxyPrecond}
+\Hypertarget{classdai_1_1TProb_a90d9a0813d92ef6e15e0fb9a73ec8c55}\label{classdai_1_1TProb_a90d9a0813d92ef6e15e0fb9a73ec8c55} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{const \mbox{\hyperlink{classdai_1_1TProb}{TProb}}$<$ T $>$ \&}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [related]}}
+
+
+
+Writes a TProb$<$\+T$>$ to an output stream. 
+
+\Hypertarget{classdai_1_1TProb_ab48f95b7d1bdfe60ef2f25cd78dec376}\label{classdai_1_1TProb_ab48f95b7d1bdfe60ef2f25cd78dec376} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!min@{min}}
+\index{min@{min}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{min()}{min()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classdai_1_1TProb}{TProb}}$<$ T $>$ min (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classdai_1_1TProb}{TProb}}$<$ T $>$ \&}]{a,  }\item[{const \mbox{\hyperlink{classdai_1_1TProb}{TProb}}$<$ T $>$ \&}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [related]}}
+
+
+
+Returns the pointwise minimum of {\itshape a} and {\itshape b}. 
+
+\begin{DoxyPrecond}{Precondition}
+{\ttfamily this-\/\texorpdfstring{$>$}{>}\doxylink{classdai_1_1TProb_ac3d47a2180fbef11ee4e91c9c6348d72}{size()} == q.\+size()} 
+\end{DoxyPrecond}
+\Hypertarget{classdai_1_1TProb_a143a4623be8c9356e3cdb2f75f64f0d8}\label{classdai_1_1TProb_a143a4623be8c9356e3cdb2f75f64f0d8} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!max@{max}}
+\index{max@{max}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{max()}{max()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classdai_1_1TProb}{TProb}}$<$ T $>$ max (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classdai_1_1TProb}{TProb}}$<$ T $>$ \&}]{a,  }\item[{const \mbox{\hyperlink{classdai_1_1TProb}{TProb}}$<$ T $>$ \&}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [related]}}
+
+
+
+Returns the pointwise maximum of {\itshape a} and {\itshape b}. 
+
+\begin{DoxyPrecond}{Precondition}
+{\ttfamily this-\/\texorpdfstring{$>$}{>}\doxylink{classdai_1_1TProb_ac3d47a2180fbef11ee4e91c9c6348d72}{size()} == q.\+size()} 
+\end{DoxyPrecond}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classdai_1_1TProb_a2affaa300fa1ebd563723d112bc6ee6d}\label{classdai_1_1TProb_a2affaa300fa1ebd563723d112bc6ee6d} 
+\index{dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}!\_p@{\_p}}
+\index{\_p@{\_p}!dai::TProb$<$ T $>$@{dai::TProb$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{\_p}{\_p}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classdai_1_1TProb_ada85efb9bd3e5624cc559e74c9c20de9}{container\+\_\+type}} \mbox{\hyperlink{classdai_1_1TProb}{dai\+::\+TProb}}$<$ T $>$\+::\+\_\+p\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The data structure that stores the values. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/dai/\mbox{\hyperlink{prob_8h}{prob.\+h}}\end{DoxyCompactItemize}

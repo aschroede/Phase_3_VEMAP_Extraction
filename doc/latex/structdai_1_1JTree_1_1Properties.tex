@@ -1,0 +1,144 @@
+\doxysection{dai\+::JTree\+::Properties Struct Reference}
+\hypertarget{structdai_1_1JTree_1_1Properties}{}\label{structdai_1_1JTree_1_1Properties}\index{dai::JTree::Properties@{dai::JTree::Properties}}
+
+
+Parameters for \doxylink{classdai_1_1JTree}{JTree}.  
+
+
+
+
+{\ttfamily \#include $<$dai/jtree.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structdai_1_1JTree_1_1Properties_adc464467d9de16ff9790cf59e193dedf}{DAI\+\_\+\+ENUM}} (Update\+Type, HUGIN, SHSH)
+\begin{DoxyCompactList}\small\item\em Enumeration of possible \doxylink{classdai_1_1JTree}{JTree} updates. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structdai_1_1JTree_1_1Properties_a40c374efdfbbd2dfa627884c18d32665}{DAI\+\_\+\+ENUM}} (Inf\+Type, SUMPROD, MAXPROD)
+\begin{DoxyCompactList}\small\item\em Enumeration of inference variants. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structdai_1_1JTree_1_1Properties_a37bd345e1ccdf16899d1c2f7932bafc1}{DAI\+\_\+\+ENUM}} (Heuristic\+Type, MINNEIGHBORS, MINWEIGHT, MINFILL, WEIGHTEDMINFILL)
+\begin{DoxyCompactList}\small\item\em Enumeration of elimination cost functions used for constructing the junction tree. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+size\+\_\+t \mbox{\hyperlink{structdai_1_1JTree_1_1Properties_af1115a3a2efbb2047f4305f3e88e364d}{verbose}}
+\begin{DoxyCompactList}\small\item\em Verbosity (amount of output sent to stderr) \end{DoxyCompactList}\item 
+Update\+Type \mbox{\hyperlink{structdai_1_1JTree_1_1Properties_a9120abdd0ab3d1456cc25526013df494}{updates}}
+\begin{DoxyCompactList}\small\item\em Type of updates. \end{DoxyCompactList}\item 
+Inf\+Type \mbox{\hyperlink{structdai_1_1JTree_1_1Properties_a8666a5aa60911a777da6ce744d6a2f3d}{inference}}
+\begin{DoxyCompactList}\small\item\em Type of inference. \end{DoxyCompactList}\item 
+Heuristic\+Type \mbox{\hyperlink{structdai_1_1JTree_1_1Properties_a8aa057c347363ed73185283e2f31e308}{heuristic}}
+\begin{DoxyCompactList}\small\item\em Heuristic to use for constructing the junction tree. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{structdai_1_1JTree_1_1Properties_a120b398b52f63cffd83639c7260e18b0}{maxmem}}
+\begin{DoxyCompactList}\small\item\em Maximum memory to use in bytes (0 means unlimited) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Parameters for \doxylink{classdai_1_1JTree}{JTree}. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{structdai_1_1JTree_1_1Properties_adc464467d9de16ff9790cf59e193dedf}\label{structdai_1_1JTree_1_1Properties_adc464467d9de16ff9790cf59e193dedf} 
+\index{dai::JTree::Properties@{dai::JTree::Properties}!DAI\_ENUM@{DAI\_ENUM}}
+\index{DAI\_ENUM@{DAI\_ENUM}!dai::JTree::Properties@{dai::JTree::Properties}}
+\doxysubsubsection{\texorpdfstring{DAI\_ENUM()}{DAI\_ENUM()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily dai\+::\+JTree\+::\+Properties\+::\+DAI\+\_\+\+ENUM (\begin{DoxyParamCaption}\item[{Update\+Type}]{,  }\item[{HUGIN}]{,  }\item[{SHSH}]{ }\end{DoxyParamCaption})}
+
+
+
+Enumeration of possible \doxylink{classdai_1_1JTree}{JTree} updates. 
+
+There are two types of updates\+:
+\begin{DoxyItemize}
+\item HUGIN similar to those in HUGIN
+\item SHSH Shafer-\/\+Shenoy type 
+\end{DoxyItemize}\Hypertarget{structdai_1_1JTree_1_1Properties_a40c374efdfbbd2dfa627884c18d32665}\label{structdai_1_1JTree_1_1Properties_a40c374efdfbbd2dfa627884c18d32665} 
+\index{dai::JTree::Properties@{dai::JTree::Properties}!DAI\_ENUM@{DAI\_ENUM}}
+\index{DAI\_ENUM@{DAI\_ENUM}!dai::JTree::Properties@{dai::JTree::Properties}}
+\doxysubsubsection{\texorpdfstring{DAI\_ENUM()}{DAI\_ENUM()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily dai\+::\+JTree\+::\+Properties\+::\+DAI\+\_\+\+ENUM (\begin{DoxyParamCaption}\item[{Inf\+Type}]{,  }\item[{SUMPROD}]{,  }\item[{MAXPROD}]{ }\end{DoxyParamCaption})}
+
+
+
+Enumeration of inference variants. 
+
+There are two inference variants\+:
+\begin{DoxyItemize}
+\item SUMPROD Sum-\/\+Product
+\item MAXPROD Max-\/\+Product (equivalent to Min-\/\+Sum) 
+\end{DoxyItemize}\Hypertarget{structdai_1_1JTree_1_1Properties_a37bd345e1ccdf16899d1c2f7932bafc1}\label{structdai_1_1JTree_1_1Properties_a37bd345e1ccdf16899d1c2f7932bafc1} 
+\index{dai::JTree::Properties@{dai::JTree::Properties}!DAI\_ENUM@{DAI\_ENUM}}
+\index{DAI\_ENUM@{DAI\_ENUM}!dai::JTree::Properties@{dai::JTree::Properties}}
+\doxysubsubsection{\texorpdfstring{DAI\_ENUM()}{DAI\_ENUM()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily dai\+::\+JTree\+::\+Properties\+::\+DAI\+\_\+\+ENUM (\begin{DoxyParamCaption}\item[{Heuristic\+Type}]{,  }\item[{MINNEIGHBORS}]{,  }\item[{MINWEIGHT}]{,  }\item[{MINFILL}]{,  }\item[{WEIGHTEDMINFILL}]{ }\end{DoxyParamCaption})}
+
+
+
+Enumeration of elimination cost functions used for constructing the junction tree. 
+
+The cost of eliminating a variable can be (\begin{DoxySeeAlso}{See also}
+\mbox{[}Ko\+F09\mbox{]}, page 314))\+:
+\begin{DoxyItemize}
+\item MINNEIGHBORS the number of neighbors it has in the current adjacency graph;
+\item MINWEIGHT the product of the number of states of all neighbors in the current adjacency graph;
+\item MINFILL the number of edges that need to be added to the adjacency graph due to the elimination;
+\item WEIGHTEDMINFILL the sum of weights of the edges that need to be added to the adjacency graph due to the elimination, where a weight of an edge is the produt of weights of its constituent vertices. The elimination sequence is chosen greedily in order to minimize the cost. 
+\end{DoxyItemize}
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structdai_1_1JTree_1_1Properties_af1115a3a2efbb2047f4305f3e88e364d}\label{structdai_1_1JTree_1_1Properties_af1115a3a2efbb2047f4305f3e88e364d} 
+\index{dai::JTree::Properties@{dai::JTree::Properties}!verbose@{verbose}}
+\index{verbose@{verbose}!dai::JTree::Properties@{dai::JTree::Properties}}
+\doxysubsubsection{\texorpdfstring{verbose}{verbose}}
+{\footnotesize\ttfamily size\+\_\+t dai\+::\+JTree\+::\+Properties\+::verbose}
+
+
+
+Verbosity (amount of output sent to stderr) 
+
+\Hypertarget{structdai_1_1JTree_1_1Properties_a9120abdd0ab3d1456cc25526013df494}\label{structdai_1_1JTree_1_1Properties_a9120abdd0ab3d1456cc25526013df494} 
+\index{dai::JTree::Properties@{dai::JTree::Properties}!updates@{updates}}
+\index{updates@{updates}!dai::JTree::Properties@{dai::JTree::Properties}}
+\doxysubsubsection{\texorpdfstring{updates}{updates}}
+{\footnotesize\ttfamily Update\+Type dai\+::\+JTree\+::\+Properties\+::updates}
+
+
+
+Type of updates. 
+
+\Hypertarget{structdai_1_1JTree_1_1Properties_a8666a5aa60911a777da6ce744d6a2f3d}\label{structdai_1_1JTree_1_1Properties_a8666a5aa60911a777da6ce744d6a2f3d} 
+\index{dai::JTree::Properties@{dai::JTree::Properties}!inference@{inference}}
+\index{inference@{inference}!dai::JTree::Properties@{dai::JTree::Properties}}
+\doxysubsubsection{\texorpdfstring{inference}{inference}}
+{\footnotesize\ttfamily Inf\+Type dai\+::\+JTree\+::\+Properties\+::inference}
+
+
+
+Type of inference. 
+
+\Hypertarget{structdai_1_1JTree_1_1Properties_a8aa057c347363ed73185283e2f31e308}\label{structdai_1_1JTree_1_1Properties_a8aa057c347363ed73185283e2f31e308} 
+\index{dai::JTree::Properties@{dai::JTree::Properties}!heuristic@{heuristic}}
+\index{heuristic@{heuristic}!dai::JTree::Properties@{dai::JTree::Properties}}
+\doxysubsubsection{\texorpdfstring{heuristic}{heuristic}}
+{\footnotesize\ttfamily Heuristic\+Type dai\+::\+JTree\+::\+Properties\+::heuristic}
+
+
+
+Heuristic to use for constructing the junction tree. 
+
+\Hypertarget{structdai_1_1JTree_1_1Properties_a120b398b52f63cffd83639c7260e18b0}\label{structdai_1_1JTree_1_1Properties_a120b398b52f63cffd83639c7260e18b0} 
+\index{dai::JTree::Properties@{dai::JTree::Properties}!maxmem@{maxmem}}
+\index{maxmem@{maxmem}!dai::JTree::Properties@{dai::JTree::Properties}}
+\doxysubsubsection{\texorpdfstring{maxmem}{maxmem}}
+{\footnotesize\ttfamily size\+\_\+t dai\+::\+JTree\+::\+Properties\+::maxmem}
+
+
+
+Maximum memory to use in bytes (0 means unlimited) 
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/dai/\mbox{\hyperlink{jtree_8h}{jtree.\+h}}\end{DoxyCompactItemize}

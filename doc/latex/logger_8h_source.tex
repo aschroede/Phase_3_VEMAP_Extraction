@@ -1,0 +1,48 @@
+\doxysection{logger.\+h}
+\hypertarget{logger_8h_source}{}\label{logger_8h_source}\index{include/dai/logger.h@{include/dai/logger.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ \_\_defined\_libdai\_logger\_h}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ \_\_defined\_libdai\_logger\_h}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#\ include\ <iostream>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#\ include\ <fstream>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{namespace\ }dai\ \{}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{constexpr}\ std::string\_view\ LOG\_LEVEL\_STRINGS[]\ =\ \{}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}DEBUG"{}},}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}INFO"{}},}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}WARNING"{}},}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}ERROR"{}},}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}CRITICAL"{}}}
+\DoxyCodeLine{00015\ \ \ \ \ \};}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{enum\ class}\ LogLevel\ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ DEBUG,}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ INFO,}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ WARNING,}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ ERROR,}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ CRITICAL}
+\DoxyCodeLine{00023\ \ \ \ \ \};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{class\ }LibLogger\ \{}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ std::ofstream\ logFile;}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ LogLevel\ minLogLevel;}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ LibLogger();}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ LibLogger(\textcolor{keyword}{const}\ std::string\&\ filepath,\ LogLevel\ minLevel);}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \string~LibLogger();}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{util_8h_a934491ad55f57c9072271b4a32ea4919}{log}}(LogLevel\ level,\ \textcolor{keyword}{const}\ std::string\&\ message);}
+\DoxyCodeLine{00040\ \ \ \ \ \};}
+\DoxyCodeLine{00041\ \}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

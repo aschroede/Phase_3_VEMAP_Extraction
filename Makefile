@@ -14,7 +14,7 @@ include MakefileConfigs/Makefile.conf
 
 # Set version and date
 DAI_VERSION="git HEAD"
-DAI_DATE="July 17, 2015 - or later"
+DAI_DATE="Nov 15, 2025"
 
 # Directories of libDAI sources
 # Location of libDAI headers
@@ -35,6 +35,10 @@ endif
 
 # Define build targets
 TARGETS:=lib examples unittests
+
+ifdef WITH_DOC
+	TARGETS:=$(TARGETS) doc
+endif
 
 # Define conditional build targets
 NAMES:=varset factor exceptions bipgraph regiongraph util weightedgraph factorgraph clustergraph graph
@@ -59,14 +63,6 @@ else
   LIBS:=$(LIBS) $(CCLIB)
 endif
 
-# Setup final command for MEX
-ifdef NEW_MATLAB
-  MEXFLAGS:=$(MEXFLAGS) -largeArrayDims
-else
-  MEXFLAGS:=$(MEXFLAGS) -DSMALLMEM
-endif
-MEX:=$(MEX) $(MEXINC) $(MEXFLAGS) $(WITHFLAGS) $(MEXLIBS) $(MEXLIB)
-
 
 # META TARGETS
 ###############
@@ -75,13 +71,8 @@ all : $(TARGETS)
 	@echo
 	@echo VEMAP built successfully!
 
-# Only one example that we need... maybe this is overkill?
-EXAMPLES=$(foreach name,example_map,examples/$(name)$(EE))
-
-# Rule to build the examples
+EXAMPLES=examples/example_map$(EE)
 examples : $(EXAMPLES)
-
-# utils : utils/createfg$(EE) utils/fg2dot$(EE) utils/fginfo$(EE) utils/uai2fg$(EE)
 
 lib: $(LIB)/libdai$(LE)
 
@@ -106,29 +97,7 @@ $(OBJ_DIR):
 $(OBJ_DIR)/%$(OE) : $(SRC)/%.cpp $(INC)/%.h $(HEADERS) | $(OBJ_DIR)
 	$(CC) -c $< -o $@
 
-# bbp.o is explicitly handled by this rule and overrules the first implicit rule
-$(OBJ_DIR)/bbp$(OE) : $(SRC)/bbp.cpp $(INC)/bbp.h $(INC)/bp_dual.h $(HEADERS) | $(OBJ_DIR)
-	$(CC) -c $< -o $@
-
-$(OBJ_DIR)/cbp$(OE) : $(SRC)/cbp.cpp $(INC)/cbp.h $(INC)/bbp.h $(INC)/bp_dual.h $(HEADERS) | $(OBJ_DIR)
-	$(CC) -c $< -o $@
-
-$(OBJ_DIR)/hak$(OE) : $(SRC)/hak.cpp $(INC)/hak.h $(HEADERS) $(INC)/regiongraph.h | $(OBJ_DIR)
-	$(CC) -c $< -o $@
-
 $(OBJ_DIR)/jtree$(OE) : $(SRC)/jtree.cpp $(INC)/jtree.h $(HEADERS) $(INC)/weightedgraph.h $(INC)/clustergraph.h $(INC)/regiongraph.h | $(OBJ_DIR)
-	$(CC) -c $< -o $@
-
-$(OBJ_DIR)/treeep$(OE) : $(SRC)/treeep.cpp $(INC)/treeep.h $(HEADERS) $(INC)/weightedgraph.h $(INC)/clustergraph.h $(INC)/regiongraph.h $(INC)/jtree.h | $(OBJ_DIR)
-	$(CC) -c $< -o $@
-
-$(OBJ_DIR)/emalg$(OE) : $(SRC)/emalg.cpp $(INC)/emalg.h $(INC)/evidence.h $(HEADERS) | $(OBJ_DIR)
-	$(CC) -c $< -o $@
-
-$(OBJ_DIR)/decmap$(OE) : $(SRC)/decmap.cpp $(INC)/decmap.h $(HEADERS) | $(OBJ_DIR)
-	$(CC) -c $< -o $@
-
-$(OBJ_DIR)/glc$(OE) : $(SRC)/glc.cpp $(INC)/glc.h $(HEADERS) $(INC)/cobwebgraph.h | $(OBJ_DIR)
 	$(CC) -c $< -o $@
 
 # EXAMPLES
@@ -137,28 +106,10 @@ $(OBJ_DIR)/glc$(OE) : $(SRC)/glc.cpp $(INC)/glc.h $(HEADERS) $(INC)/cobwebgraph.
 examples/example_map$(EE) : examples/example_map.cpp $(HEADERS) $(LIB)/libdai$(LE)
 	$(CC) $(CCO)$@ $< $(LIBS)
 
-
 # UNIT TESTS
 #############
 unitTests/%$(EE) : unitTests/%.cpp $(HEADERS) $(LIB)/libdai$(LE)
 	$(CC) -DBOOST_TEST_DYN_LINK $(CCO)$@ $< $(LIBS) $(BOOSTLIBS_UTF)
-
-# UTILS
-########
-# TODO: Not sure if we need these utils tbh.
-
-utils/createfg$(EE) : utils/createfg.cpp $(HEADERS) $(LIB)/libdai$(LE)
-	$(CC) $(CCO)$@ $< $(LIBS) $(BOOSTLIBS_PO)
-
-utils/fg2dot$(EE) : utils/fg2dot.cpp $(HEADERS) $(LIB)/libdai$(LE)
-	$(CC) $(CCO)$@ $< $(LIBS)
-
-utils/fginfo$(EE) : utils/fginfo.cpp $(HEADERS) $(LIB)/libdai$(LE)
-	$(CC) $(CCO)$@ $< $(LIBS)
-
-utils/uai2fg$(EE) : utils/uai2fg.cpp $(HEADERS) $(LIB)/libdai$(LE)
-	$(CC) $(CCO)$@ $< $(LIBS)
-
 
 # LIBRARY
 ##########
@@ -173,20 +124,18 @@ $(LIB)/libdai$(LE) : $(OBJECTS)
 	lib /out:$(LIB)/libdai$(LE) $(OBJECTS)
 endif
 
-
-
 # DOCUMENTATION
 ################
 
-#doc : $(INC)/*.h $(SRC)/*.cpp examples/*.cpp doxygen.conf
-#	doxygen doxygen.conf
-#
-#README : doc scripts/makeREADME Makefile
-#	DAI_VERSION=$(DAI_VERSION) DAI_DATE=$(DAI_DATE) scripts/makeREADME
-#
-#TAGS :
-#	etags src/*.cpp include/dai/*.h tests/*.cpp utils/*.cpp
-#	ctags src/*.cpp include/dai/*.h tests/*.cpp utils/*.cpp
+doc : $(INC)/*.h $(SRC)/*.cpp examples/*.cpp doxygen.conf
+	doxygen doxygen.conf
+
+README : doc scripts/makeREADME Makefile
+	DAI_VERSION=$(DAI_VERSION) DAI_DATE=$(DAI_DATE) scripts/makeREADME
+
+TAGS :
+	etags src/*.cpp include/dai/*.h tests/*.cpp utils/*.cpp
+	ctags src/*.cpp include/dai/*.h tests/*.cpp utils/*.cpp
 
 
 # CLEAN
@@ -198,3 +147,4 @@ clean :
 	-rm examples/example_map$(EE)
 	-rm unitTests/map_test$(EE)
 	-rm lib/libdai$(LE)
+	-rm -R doc

@@ -1,0 +1,701 @@
+\doxysection{dai\+::JTree Class Reference}
+\hypertarget{classdai_1_1JTree}{}\label{classdai_1_1JTree}\index{dai::JTree@{dai::JTree}}
+
+
+Exact inference algorithm using junction tree.  
+
+
+
+
+{\ttfamily \#include $<$dai/jtree.\+h$>$}
+
+Inheritance diagram for dai\+::JTree\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classdai_1_1JTree}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structdai_1_1JTree_1_1Properties}{Properties}}
+\begin{DoxyCompactList}\small\item\em Parameters for \doxylink{classdai_1_1JTree}{JTree}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{Indent}\textbf{ Constructors/destructors}\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classdai_1_1JTree_a7e4dd4e6f6eaded0600b6759ceccae87}{JTree}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1JTree_a5c81f2500cc196eb50921d7db7794216}{JTree}} (const \mbox{\hyperlink{classdai_1_1FactorGraph}{Factor\+Graph}} \&\mbox{\hyperlink{classdai_1_1DAIAlg_a056caa8b537fccbd764b1c9f4e1ff615}{fg}}, const \mbox{\hyperlink{classdai_1_1PropertySet}{Property\+Set}} \&opts, bool automatic=true)
+\begin{DoxyCompactList}\small\item\em Construct from \doxylink{classdai_1_1FactorGraph}{Factor\+Graph} {\itshape fg} and \doxylink{classdai_1_1PropertySet}{Property\+Set} {\itshape opts}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ General Inf\+Alg interface}\par
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classdai_1_1JTree}{JTree}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classdai_1_1JTree_ad226b1bfd9be00063d627bf49e140916}{clone}} () const
+\begin{DoxyCompactList}\small\item\em Returns a pointer to a new, cloned copy of {\ttfamily \texorpdfstring{$\ast$}{*}this} (i.\+e., virtual copy constructor) \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classdai_1_1JTree}{JTree}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classdai_1_1JTree_a5cb199f56af4e50851f34cc1c0257017}{construct}} (const \mbox{\hyperlink{classdai_1_1FactorGraph}{Factor\+Graph}} \&\mbox{\hyperlink{classdai_1_1DAIAlg_a056caa8b537fccbd764b1c9f4e1ff615}{fg}}, const \mbox{\hyperlink{classdai_1_1PropertySet}{Property\+Set}} \&opts) const
+\begin{DoxyCompactList}\small\item\em Returns a pointer to a newly constructed inference algorithm. \end{DoxyCompactList}\item 
+virtual std\+::string \mbox{\hyperlink{classdai_1_1JTree_a600c55608c6f9caabee950e8a719cd9a}{name}} () const
+\begin{DoxyCompactList}\small\item\em Returns the name of the algorithm. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{factor_8h_a7515abf9952cd312e95a34ada0670e85}{Factor}} \mbox{\hyperlink{classdai_1_1JTree_a90e9372a870813e6b7cb2f265ad0c857}{belief}} (const \mbox{\hyperlink{classdai_1_1VarSet}{Var\+Set}} \&vs) const
+\begin{DoxyCompactList}\small\item\em Returns the (approximate) marginal probability distribution of a set of variables. \end{DoxyCompactList}\item 
+virtual std\+::vector$<$ \mbox{\hyperlink{factor_8h_a7515abf9952cd312e95a34ada0670e85}{Factor}} $>$ \mbox{\hyperlink{classdai_1_1JTree_a8be8c94856dd3313d4aa74808cd8eab6}{beliefs}} () const
+\begin{DoxyCompactList}\small\item\em Returns all beliefs (approximate marginal probability distributions) calculated by the algorithm. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} \mbox{\hyperlink{classdai_1_1JTree_a1433cfb5d0205944e82a2cfb7e02220f}{logZ}} () const
+\begin{DoxyCompactList}\small\item\em Returns the logarithm of the (approximated) partition sum (normalizing constant of the factor graph). \end{DoxyCompactList}\item 
+std\+::vector$<$ size\+\_\+t $>$ \mbox{\hyperlink{classdai_1_1JTree_ae8918f23d3cd889705605f37987feabc}{find\+Maximum}} () const
+\item 
+virtual void \mbox{\hyperlink{classdai_1_1JTree_acbb2df1dc4e64097a46fc4cb1394e76f}{init}} ()
+\begin{DoxyCompactList}\small\item\em Initializes all data structures of the approximate inference algorithm. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classdai_1_1JTree_a365c52b5f264c844ac5c010026719350}{init}} (const \mbox{\hyperlink{classdai_1_1VarSet}{Var\+Set}} \&)
+\begin{DoxyCompactList}\small\item\em Initializes all data structures corresponding to some set of variables. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} \mbox{\hyperlink{classdai_1_1JTree_a5596a82ebb58954804deb710892182fd}{run}} ()
+\begin{DoxyCompactList}\small\item\em Runs the approximate inference algorithm. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} \mbox{\hyperlink{classdai_1_1JTree_a409e0f6f6fded07c335233cb1291977d}{max\+Diff}} () const
+\begin{DoxyCompactList}\small\item\em Returns maximum difference between single variable beliefs in the last iteration. \end{DoxyCompactList}\item 
+virtual size\+\_\+t \mbox{\hyperlink{classdai_1_1JTree_acf07e89cd6e8d090dbf52fd8b664c0f4}{Iterations}} () const
+\begin{DoxyCompactList}\small\item\em Returns number of iterations done (one iteration passes over the complete factorgraph). \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classdai_1_1JTree_ac87e0972ae1b74bce8f5d75d2e230c52}{set\+Properties}} (const \mbox{\hyperlink{classdai_1_1PropertySet}{Property\+Set}} \&opts)
+\begin{DoxyCompactList}\small\item\em Set parameters of this inference algorithm. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classdai_1_1PropertySet}{Property\+Set}} \mbox{\hyperlink{classdai_1_1JTree_a1c97d8b3556bfab8c2572ab740770086}{get\+Properties}} () const
+\begin{DoxyCompactList}\small\item\em Returns parameters of this inference algorithm converted into a \doxylink{classdai_1_1PropertySet}{Property\+Set}. \end{DoxyCompactList}\item 
+virtual std\+::string \mbox{\hyperlink{classdai_1_1JTree_a05ca49f1eda60540091e1bc52e0bdbe0}{print\+Properties}} () const
+\begin{DoxyCompactList}\small\item\em Returns parameters of this inference algorithm formatted as a string in the format "{}\mbox{[}key1=val1,key2=val2,...,keyn=valn\mbox{]}"{}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Additional interface specific for JTree}\par
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classdai_1_1JTree_ac960b7288a1230e23800dd97e399da7a}{construct}} (const \mbox{\hyperlink{classdai_1_1FactorGraph}{Factor\+Graph}} \&\mbox{\hyperlink{classdai_1_1DAIAlg_a056caa8b537fccbd764b1c9f4e1ff615}{fg}}, const std\+::vector$<$ \mbox{\hyperlink{classdai_1_1VarSet}{Var\+Set}} $>$ \&cl, bool verify=false)
+\begin{DoxyCompactList}\small\item\em Constructs a junction tree based on the cliques {\itshape cl} (corresponding to some elimination sequence). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classdai_1_1JTree_addebd3eea8092f2e9bc545d3040467fb}{Generate\+JT}} (const \mbox{\hyperlink{classdai_1_1FactorGraph}{Factor\+Graph}} \&\mbox{\hyperlink{classdai_1_1DAIAlg_a056caa8b537fccbd764b1c9f4e1ff615}{fg}}, const std\+::vector$<$ \mbox{\hyperlink{classdai_1_1VarSet}{Var\+Set}} $>$ \&cl)
+\begin{DoxyCompactList}\small\item\em Constructs a junction tree based on the cliques {\itshape cl} (corresponding to some elimination sequence). \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{factor_8h_a7515abf9952cd312e95a34ada0670e85}{Factor}} \& \mbox{\hyperlink{classdai_1_1JTree_a272f2f23ec97f6885f45c2c8b30fcd91}{message}} (size\+\_\+t alpha, size\+\_\+t \+\_\+beta) const
+\begin{DoxyCompactList}\small\item\em Returns constant reference to the message from outer region {\itshape alpha} to its {\itshape \+\_\+beta} \textquotesingle{}th neighboring inner region. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{factor_8h_a7515abf9952cd312e95a34ada0670e85}{Factor}} \& \mbox{\hyperlink{classdai_1_1JTree_abbb3ee1a96ef1cdb63bf231ee2d0b50a}{message}} (size\+\_\+t alpha, size\+\_\+t \+\_\+beta)
+\begin{DoxyCompactList}\small\item\em Returns reference to the message from outer region {\itshape alpha} to its {\itshape \+\_\+beta} \textquotesingle{}th neighboring inner region. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classdai_1_1JTree_a4569d21624cb49d9a79c3c8332e0d4b3}{run\+HUGIN}} ()
+\begin{DoxyCompactList}\small\item\em Runs junction tree algorithm using HUGIN (message-\/free) updates. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classdai_1_1JTree_a6d8ee4f30498985d0d434988dba8c258}{run\+Shafer\+Shenoy}} ()
+\begin{DoxyCompactList}\small\item\em Runs junction tree algorithm using Shafer-\/\+Shenoy updates. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classdai_1_1JTree_ab4c6d9f0f3cd0f18b5d0d641ee20d78c}{find\+Efficient\+Tree}} (const \mbox{\hyperlink{classdai_1_1VarSet}{Var\+Set}} \&vs, \mbox{\hyperlink{classdai_1_1RootedTree}{Rooted\+Tree}} \&Tree, size\+\_\+t Previous\+Root=(size\+\_\+t) -\/1) const
+\begin{DoxyCompactList}\small\item\em Finds an efficient subtree for calculating the marginal of the variables in {\itshape vs}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{factor_8h_a7515abf9952cd312e95a34ada0670e85}{Factor}} \mbox{\hyperlink{classdai_1_1JTree_a1248e3988e6b78b275ee68287a613ac2}{calc\+Marginal}} (const \mbox{\hyperlink{classdai_1_1VarSet}{Var\+Set}} \&vs)
+\begin{DoxyCompactList}\small\item\em Calculates the marginal of a set of variables (using cutset conditioning, if necessary) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classdai_1_1DAIAlg}{dai\+::\+DAIAlg$<$ GRM $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classdai_1_1DAIAlg_a1b66918854e70f19c8b506658c9f50e0}{DAIAlg}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1DAIAlg_a46ac57c2abad7c6870f30edc951aeff3}{DAIAlg}} (const GRM \&grm)
+\begin{DoxyCompactList}\small\item\em Construct from GRM. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classdai_1_1FactorGraph}{Factor\+Graph}} \& \mbox{\hyperlink{classdai_1_1DAIAlg_a056caa8b537fccbd764b1c9f4e1ff615}{fg}} ()
+\begin{DoxyCompactList}\small\item\em Returns reference to underlying \doxylink{classdai_1_1FactorGraph}{Factor\+Graph}. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{classdai_1_1FactorGraph}{Factor\+Graph}} \& \mbox{\hyperlink{classdai_1_1DAIAlg_afdb2f05fe4b4458a9680ddbe21ad58a9}{fg}} () const
+\begin{DoxyCompactList}\small\item\em Returns constant reference to underlying \doxylink{classdai_1_1FactorGraph}{Factor\+Graph}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classdai_1_1DAIAlg_ac0d7b26c09d9d7db4a7eda5f66181045}{clamp}} (size\+\_\+t i, size\+\_\+t x, bool backup=false)
+\begin{DoxyCompactList}\small\item\em Clamp variable with index {\itshape i} to value {\itshape x} (i.\+e. multiply with a Kronecker delta $\delta_{x_i, x}$) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classdai_1_1DAIAlg_a7f0b8452352080a1e35ab9a68cb589fd}{make\+Cavity}} (size\+\_\+t i, bool backup=false)
+\begin{DoxyCompactList}\small\item\em Sets all factors interacting with variable with index {\itshape i} to one. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classdai_1_1DAIAlg_a195bcd6ad05557374c95db50c674ad7f}{make\+Region\+Cavity}} (std\+::vector$<$ size\+\_\+t $>$ fac\+Inds, bool backup)
+\begin{DoxyCompactList}\small\item\em Sets all factors indicated by {\itshape fac\+Inds} to one. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classdai_1_1DAIAlg_a48ba6a58d10b8802d690e5e92ec5abe9}{backup\+Factor}} (size\+\_\+t I)
+\begin{DoxyCompactList}\small\item\em Make a backup copy of factor {\itshape I}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classdai_1_1DAIAlg_ac74e4ae749a3f706462bb5c0c0f204ca}{backup\+Factors}} (const \mbox{\hyperlink{classdai_1_1VarSet}{Var\+Set}} \&vs)
+\begin{DoxyCompactList}\small\item\em Make backup copies of all factors involving the variables in {\itshape vs}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classdai_1_1DAIAlg_abf8dbd2797ec871e86566a6dfc0864e3}{restore\+Factor}} (size\+\_\+t I)
+\begin{DoxyCompactList}\small\item\em Restore factor {\itshape I} from its backup copy. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classdai_1_1DAIAlg_a333a182249b2abeb93ff21377d0e8ffd}{restore\+Factors}} (const \mbox{\hyperlink{classdai_1_1VarSet}{Var\+Set}} \&vs)
+\begin{DoxyCompactList}\small\item\em Restore the factors involving the variables in {\itshape vs} from their backup copies. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classdai_1_1DAIAlg_aa4f659feb4967ba096400f4904cfe068}{restore\+Factors}} ()
+\begin{DoxyCompactList}\small\item\em Restore all factors from their backup copies. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classdai_1_1InfAlg}{dai\+::\+Inf\+Alg}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classdai_1_1InfAlg_a00c1dba1041af038de0689cceb0a69f0}{\texorpdfstring{$\sim$}{\string~}\+Inf\+Alg}} ()
+\begin{DoxyCompactList}\small\item\em Virtual destructor (needed because this class contains virtual functions) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+virtual std\+::string \mbox{\hyperlink{classdai_1_1InfAlg_aa4284a406963b4cd55a820af98e9f03d}{identify}} () const
+\begin{DoxyCompactList}\small\item\em Identifies itself for logging purposes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{factor_8h_a7515abf9952cd312e95a34ada0670e85}{Factor}} \mbox{\hyperlink{classdai_1_1InfAlg_ab36227bbc227dfaff65d4a39ff938c34}{belief}} (const \mbox{\hyperlink{classdai_1_1Var}{Var}} \&v) const
+\begin{DoxyCompactList}\small\item\em Returns the (approximate) marginal probability distribution of a variable. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{factor_8h_a7515abf9952cd312e95a34ada0670e85}{Factor}} \mbox{\hyperlink{classdai_1_1InfAlg_ad89814b146552be0928a772ca110b444}{beliefV}} (size\+\_\+t i) const
+\begin{DoxyCompactList}\small\item\em Returns the (approximate) marginal probability distribution of the variable with index {\itshape i}. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{factor_8h_a7515abf9952cd312e95a34ada0670e85}{Factor}} \mbox{\hyperlink{classdai_1_1InfAlg_a7db625ef414a06961ac0d808b6102546}{beliefF}} (size\+\_\+t I) const
+\begin{DoxyCompactList}\small\item\em Returns the (approximate) marginal probability distribution of the variables on which factor {\itshape I} depends. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classdai_1_1InfAlg_ac48656e5d42a7d288e9ca6d70e264858}{set\+Max\+Iter}} (size\+\_\+t)
+\begin{DoxyCompactList}\small\item\em Sets maximum number of iterations (one iteration passes over the complete factorgraph). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classdai_1_1RootedTree}{Rooted\+Tree}} \mbox{\hyperlink{classdai_1_1JTree_a2aecb579eaa9b2af2576aaef17d16c66}{RTree}}
+\begin{DoxyCompactList}\small\item\em The junction tree (stored as a rooted tree) \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{factor_8h_a7515abf9952cd312e95a34ada0670e85}{Factor}} $>$ \mbox{\hyperlink{classdai_1_1JTree_a66cdd4d8258582aaf794466f3786dbfb}{Qa}}
+\begin{DoxyCompactList}\small\item\em Outer region beliefs. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{factor_8h_a7515abf9952cd312e95a34ada0670e85}{Factor}} $>$ \mbox{\hyperlink{classdai_1_1JTree_a9d93e9f387d9772be5bc2b5372f7d20d}{Qb}}
+\begin{DoxyCompactList}\small\item\em Inner region beliefs. \end{DoxyCompactList}\item 
+\Hypertarget{classdai_1_1JTree_a7df5e3d9c80b3e3559724ecf3d61514a}\label{classdai_1_1JTree_a7df5e3d9c80b3e3559724ecf3d61514a} 
+struct \mbox{\hyperlink{structdai_1_1JTree_1_1Properties}{dai\+::\+JTree\+::\+Properties}} {\bfseries props}
+\item 
+std\+::vector$<$ size\+\_\+t $>$ \mbox{\hyperlink{classdai_1_1JTree_a524652cab95c6772ae8dc7c630ff5c18}{Elim\+Order}}
+\begin{DoxyCompactList}\small\item\em Elimination order generated using heuristics. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classdai_1_1JTree_ae31c5440575bdd4f521d7921ab6357f8}{Heuristic}}
+\begin{DoxyCompactList}\small\item\em Heuristic used for generating the elimination order. \end{DoxyCompactList}\item 
+std\+::size\+\_\+t \mbox{\hyperlink{classdai_1_1JTree_a4a2192c23d1da2dfa257698ddb4e9b6b}{Max\+Cluster}}
+\begin{DoxyCompactList}\small\item\em Maximum cluster size. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{util_8h_acc277bd4f0edae875fca22f063a37220}{Big\+Int}} \mbox{\hyperlink{classdai_1_1JTree_a1fff85011091d63701714ec00661fcca}{Max\+States}}
+\begin{DoxyCompactList}\small\item\em Maximum number of States in Max\+Cluster. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{factor_8h_a7515abf9952cd312e95a34ada0670e85}{Factor}} $>$ $>$ \mbox{\hyperlink{classdai_1_1JTree_a7e5ac41e26a7e5bba05bb947a5fbd19b}{\+\_\+mes}}
+\begin{DoxyCompactList}\small\item\em Stores the messages. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} \mbox{\hyperlink{classdai_1_1JTree_aefdc4fe2306ed8a2f8e62b1a1a6ec23c}{\+\_\+logZ}}
+\begin{DoxyCompactList}\small\item\em Stores the logarithm of the partition sum. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Related Symbols}
+(Note that these are not member symbols.) \begin{DoxyCompactItemize}
+\item 
+std\+::pair$<$ size\+\_\+t, \mbox{\hyperlink{util_8h_acc277bd4f0edae875fca22f063a37220}{Big\+Int}} $>$ \mbox{\hyperlink{classdai_1_1JTree_a9046531a81e82734a866f99d1473dcaf}{bound\+Treewidth}} (const \mbox{\hyperlink{classdai_1_1FactorGraph}{Factor\+Graph}} \&\mbox{\hyperlink{classdai_1_1DAIAlg_a056caa8b537fccbd764b1c9f4e1ff615}{fg}}, \mbox{\hyperlink{classdai_1_1greedyVariableElimination_a4df26af88ad423ec9489da4cf418a4be}{greedy\+Variable\+Elimination\+::elimination\+Cost\+Function}} fn, size\+\_\+t max\+States=0)
+\begin{DoxyCompactList}\small\item\em Calculates upper bound to the treewidth of a \doxylink{classdai_1_1FactorGraph}{Factor\+Graph}, using the specified heuristic. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Exact inference algorithm using junction tree. 
+
+The junction tree algorithm uses message passing on a junction tree to calculate exact marginal probability distributions ("{}beliefs"{}) for specified cliques (outer regions) and separators (intersections of pairs of cliques).
+
+There are two variants, the sum-\/product algorithm (corresponding to finite temperature) and the max-\/product algorithm (corresponding to zero temperature). 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classdai_1_1JTree_a7e4dd4e6f6eaded0600b6759ceccae87}\label{classdai_1_1JTree_a7e4dd4e6f6eaded0600b6759ceccae87} 
+\index{dai::JTree@{dai::JTree}!JTree@{JTree}}
+\index{JTree@{JTree}!dai::JTree@{dai::JTree}}
+\doxysubsubsection{\texorpdfstring{JTree()}{JTree()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily dai\+::\+JTree\+::\+JTree (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Default constructor. 
+
+\Hypertarget{classdai_1_1JTree_a5c81f2500cc196eb50921d7db7794216}\label{classdai_1_1JTree_a5c81f2500cc196eb50921d7db7794216} 
+\index{dai::JTree@{dai::JTree}!JTree@{JTree}}
+\index{JTree@{JTree}!dai::JTree@{dai::JTree}}
+\doxysubsubsection{\texorpdfstring{JTree()}{JTree()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily dai\+::\+JTree\+::\+JTree (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classdai_1_1FactorGraph}{Factor\+Graph}} \&}]{fg,  }\item[{const \mbox{\hyperlink{classdai_1_1PropertySet}{Property\+Set}} \&}]{opts,  }\item[{bool}]{automatic = {\ttfamily true} }\end{DoxyParamCaption})}
+
+
+
+Construct from \doxylink{classdai_1_1FactorGraph}{Factor\+Graph} {\itshape fg} and \doxylink{classdai_1_1PropertySet}{Property\+Set} {\itshape opts}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fg} & factor graph \\
+\hline
+{\em opts} & Parameters \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\doxylink{structdai_1_1JTree_1_1Properties}{Properties} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em automatic} & if {\ttfamily true}, construct the junction tree automatically, using the heuristic in opts\mbox{[}\textquotesingle{}heuristic\textquotesingle{}\mbox{]}. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classdai_1_1JTree_ad226b1bfd9be00063d627bf49e140916}\label{classdai_1_1JTree_ad226b1bfd9be00063d627bf49e140916} 
+\index{dai::JTree@{dai::JTree}!clone@{clone}}
+\index{clone@{clone}!dai::JTree@{dai::JTree}}
+\doxysubsubsection{\texorpdfstring{clone()}{clone()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{classdai_1_1JTree}{JTree}} \texorpdfstring{$\ast$}{*} dai\+::\+JTree\+::clone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Returns a pointer to a new, cloned copy of {\ttfamily \texorpdfstring{$\ast$}{*}this} (i.\+e., virtual copy constructor) 
+
+
+
+Implements \mbox{\hyperlink{classdai_1_1InfAlg_a4e05d62b78fc4f9a93cd417a5c807eab}{dai\+::\+Inf\+Alg}}.
+
+\Hypertarget{classdai_1_1JTree_a5cb199f56af4e50851f34cc1c0257017}\label{classdai_1_1JTree_a5cb199f56af4e50851f34cc1c0257017} 
+\index{dai::JTree@{dai::JTree}!construct@{construct}}
+\index{construct@{construct}!dai::JTree@{dai::JTree}}
+\doxysubsubsection{\texorpdfstring{construct()}{construct()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{classdai_1_1JTree}{JTree}} \texorpdfstring{$\ast$}{*} dai\+::\+JTree\+::construct (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classdai_1_1FactorGraph}{Factor\+Graph}} \&}]{fg,  }\item[{const \mbox{\hyperlink{classdai_1_1PropertySet}{Property\+Set}} \&}]{opts }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Returns a pointer to a newly constructed inference algorithm. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fg} & Factor graph on which to perform the inference algorithm; \\
+\hline
+{\em opts} & Parameters passed to constructor of inference algorithm; \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classdai_1_1InfAlg_ac2865bb3577b103a707903010a53b6ce}{dai\+::\+Inf\+Alg}}.
+
+\Hypertarget{classdai_1_1JTree_a600c55608c6f9caabee950e8a719cd9a}\label{classdai_1_1JTree_a600c55608c6f9caabee950e8a719cd9a} 
+\index{dai::JTree@{dai::JTree}!name@{name}}
+\index{name@{name}!dai::JTree@{dai::JTree}}
+\doxysubsubsection{\texorpdfstring{name()}{name()}}
+{\footnotesize\ttfamily virtual std\+::string dai\+::\+JTree\+::name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Returns the name of the algorithm. 
+
+
+
+Implements \mbox{\hyperlink{classdai_1_1InfAlg_a25108f733ca6bc54f445a4fffdc2a392}{dai\+::\+Inf\+Alg}}.
+
+\Hypertarget{classdai_1_1JTree_a90e9372a870813e6b7cb2f265ad0c857}\label{classdai_1_1JTree_a90e9372a870813e6b7cb2f265ad0c857} 
+\index{dai::JTree@{dai::JTree}!belief@{belief}}
+\index{belief@{belief}!dai::JTree@{dai::JTree}}
+\doxysubsubsection{\texorpdfstring{belief()}{belief()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{factor_8h_a7515abf9952cd312e95a34ada0670e85}{Factor}} dai\+::\+JTree\+::belief (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classdai_1_1VarSet}{Var\+Set}} \&}]{vs }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Returns the (approximate) marginal probability distribution of a set of variables. 
+
+\begin{DoxyNote}{Note}
+Before this method is called, \doxylink{classdai_1_1JTree_a5596a82ebb58954804deb710892182fd}{run()} should have been called. 
+\end{DoxyNote}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em NOT\+\_\+\+IMPLEMENTED} & if not implemented/supported. \\
+\hline
+{\em BELIEF\+\_\+\+NOT\+\_\+\+AVAILABLE} & if the requested belief cannot be calculated with this algorithm. \\
+\hline
+\end{DoxyExceptions}
+
+
+Implements \mbox{\hyperlink{classdai_1_1InfAlg_a4655db9d766470f1a555cba7d3ec7190}{dai\+::\+Inf\+Alg}}.
+
+\Hypertarget{classdai_1_1JTree_a8be8c94856dd3313d4aa74808cd8eab6}\label{classdai_1_1JTree_a8be8c94856dd3313d4aa74808cd8eab6} 
+\index{dai::JTree@{dai::JTree}!beliefs@{beliefs}}
+\index{beliefs@{beliefs}!dai::JTree@{dai::JTree}}
+\doxysubsubsection{\texorpdfstring{beliefs()}{beliefs()}}
+{\footnotesize\ttfamily vector$<$ \mbox{\hyperlink{factor_8h_a7515abf9952cd312e95a34ada0670e85}{Factor}} $>$ dai\+::\+JTree\+::beliefs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Returns all beliefs (approximate marginal probability distributions) calculated by the algorithm. 
+
+\begin{DoxyNote}{Note}
+Before this method is called, \doxylink{classdai_1_1JTree_a5596a82ebb58954804deb710892182fd}{run()} should have been called. 
+\end{DoxyNote}
+
+
+Implements \mbox{\hyperlink{classdai_1_1InfAlg_a283601d71d62a6f60183748cbee88006}{dai\+::\+Inf\+Alg}}.
+
+\Hypertarget{classdai_1_1JTree_a1433cfb5d0205944e82a2cfb7e02220f}\label{classdai_1_1JTree_a1433cfb5d0205944e82a2cfb7e02220f} 
+\index{dai::JTree@{dai::JTree}!logZ@{logZ}}
+\index{logZ@{logZ}!dai::JTree@{dai::JTree}}
+\doxysubsubsection{\texorpdfstring{logZ()}{logZ()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} dai\+::\+JTree\+::logZ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Returns the logarithm of the (approximated) partition sum (normalizing constant of the factor graph). 
+
+\begin{DoxyNote}{Note}
+Before this method is called, \doxylink{classdai_1_1JTree_a5596a82ebb58954804deb710892182fd}{run()} should have been called. 
+\end{DoxyNote}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em NOT\+\_\+\+IMPLEMENTED} & if not implemented/supported \\
+\hline
+\end{DoxyExceptions}
+
+
+Implements \mbox{\hyperlink{classdai_1_1InfAlg_a40a2353d63c358ebca834d40b0a4fc70}{dai\+::\+Inf\+Alg}}.
+
+\Hypertarget{classdai_1_1JTree_ae8918f23d3cd889705605f37987feabc}\label{classdai_1_1JTree_ae8918f23d3cd889705605f37987feabc} 
+\index{dai::JTree@{dai::JTree}!findMaximum@{findMaximum}}
+\index{findMaximum@{findMaximum}!dai::JTree@{dai::JTree}}
+\doxysubsubsection{\texorpdfstring{findMaximum()}{findMaximum()}}
+{\footnotesize\ttfamily std\+::vector$<$ size\+\_\+t $>$ dai\+::\+JTree\+::find\+Maximum (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\begin{DoxyPrecond}{Precondition}
+Assumes that \doxylink{classdai_1_1JTree_a5596a82ebb58954804deb710892182fd}{run()} has been called and that {\itshape props.\+inference} == {\ttfamily MAXPROD} 
+\end{DoxyPrecond}
+
+
+Reimplemented from \mbox{\hyperlink{classdai_1_1InfAlg_a2095732e9defd30c7348703990804763}{dai\+::\+Inf\+Alg}}.
+
+\Hypertarget{classdai_1_1JTree_acbb2df1dc4e64097a46fc4cb1394e76f}\label{classdai_1_1JTree_acbb2df1dc4e64097a46fc4cb1394e76f} 
+\index{dai::JTree@{dai::JTree}!init@{init}}
+\index{init@{init}!dai::JTree@{dai::JTree}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual void dai\+::\+JTree\+::init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Initializes all data structures of the approximate inference algorithm. 
+
+\begin{DoxyNote}{Note}
+This method should be called at least once before \doxylink{classdai_1_1JTree_a5596a82ebb58954804deb710892182fd}{run()} is called. 
+\end{DoxyNote}
+
+
+Implements \mbox{\hyperlink{classdai_1_1InfAlg_a99dd53d1aaccf09a4b977a49a983cc85}{dai\+::\+Inf\+Alg}}.
+
+\Hypertarget{classdai_1_1JTree_a365c52b5f264c844ac5c010026719350}\label{classdai_1_1JTree_a365c52b5f264c844ac5c010026719350} 
+\index{dai::JTree@{dai::JTree}!init@{init}}
+\index{init@{init}!dai::JTree@{dai::JTree}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual void dai\+::\+JTree\+::init (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classdai_1_1VarSet}{Var\+Set}} \&}]{vs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Initializes all data structures corresponding to some set of variables. 
+
+This method can be used to do a partial initialization after a part of the factor graph has changed. Instead of initializing all data structures, it only initializes those involving the variables in {\itshape vs}. 
+\begin{DoxyExceptions}{Exceptions}
+{\em NOT\+\_\+\+IMPLEMENTED} & if not implemented/supported \\
+\hline
+\end{DoxyExceptions}
+
+
+Implements \mbox{\hyperlink{classdai_1_1InfAlg_a5b1e6d8af207bcc47fd954fdef382a77}{dai\+::\+Inf\+Alg}}.
+
+\Hypertarget{classdai_1_1JTree_a5596a82ebb58954804deb710892182fd}\label{classdai_1_1JTree_a5596a82ebb58954804deb710892182fd} 
+\index{dai::JTree@{dai::JTree}!run@{run}}
+\index{run@{run}!dai::JTree@{dai::JTree}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} dai\+::\+JTree\+::run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Runs the approximate inference algorithm. 
+
+\begin{DoxyNote}{Note}
+Before \doxylink{classdai_1_1JTree_a5596a82ebb58954804deb710892182fd}{run()} is called the first time, \doxylink{classdai_1_1JTree_acbb2df1dc4e64097a46fc4cb1394e76f}{init()} should have been called. 
+\end{DoxyNote}
+
+
+Implements \mbox{\hyperlink{classdai_1_1InfAlg_a4ac173c4d4109fd1e2229dd83532d32f}{dai\+::\+Inf\+Alg}}.
+
+\Hypertarget{classdai_1_1JTree_a409e0f6f6fded07c335233cb1291977d}\label{classdai_1_1JTree_a409e0f6f6fded07c335233cb1291977d} 
+\index{dai::JTree@{dai::JTree}!maxDiff@{maxDiff}}
+\index{maxDiff@{maxDiff}!dai::JTree@{dai::JTree}}
+\doxysubsubsection{\texorpdfstring{maxDiff()}{maxDiff()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} dai\+::\+JTree\+::max\+Diff (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Returns maximum difference between single variable beliefs in the last iteration. 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em NOT\+\_\+\+IMPLEMENTED} & if not implemented/supported \\
+\hline
+\end{DoxyExceptions}
+
+
+Reimplemented from \mbox{\hyperlink{classdai_1_1InfAlg_a915a659034eb4c85abde912d684f8dee}{dai\+::\+Inf\+Alg}}.
+
+\Hypertarget{classdai_1_1JTree_acf07e89cd6e8d090dbf52fd8b664c0f4}\label{classdai_1_1JTree_acf07e89cd6e8d090dbf52fd8b664c0f4} 
+\index{dai::JTree@{dai::JTree}!Iterations@{Iterations}}
+\index{Iterations@{Iterations}!dai::JTree@{dai::JTree}}
+\doxysubsubsection{\texorpdfstring{Iterations()}{Iterations()}}
+{\footnotesize\ttfamily virtual size\+\_\+t dai\+::\+JTree\+::\+Iterations (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Returns number of iterations done (one iteration passes over the complete factorgraph). 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em NOT\+\_\+\+IMPLEMENTED} & if not implemented/supported \\
+\hline
+\end{DoxyExceptions}
+
+
+Reimplemented from \mbox{\hyperlink{classdai_1_1InfAlg_a89986bbc1a42554905c6f417f2227ac5}{dai\+::\+Inf\+Alg}}.
+
+\Hypertarget{classdai_1_1JTree_ac87e0972ae1b74bce8f5d75d2e230c52}\label{classdai_1_1JTree_ac87e0972ae1b74bce8f5d75d2e230c52} 
+\index{dai::JTree@{dai::JTree}!setProperties@{setProperties}}
+\index{setProperties@{setProperties}!dai::JTree@{dai::JTree}}
+\doxysubsubsection{\texorpdfstring{setProperties()}{setProperties()}}
+{\footnotesize\ttfamily void dai\+::\+JTree\+::set\+Properties (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classdai_1_1PropertySet}{Property\+Set}} \&}]{opts }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Set parameters of this inference algorithm. 
+
+The parameters are set according to the \doxylink{classdai_1_1PropertySet}{Property\+Set} {\itshape opts}. The values can be stored either as std\+::string or as the type of the corresponding MF\+::props member. 
+
+Implements \mbox{\hyperlink{classdai_1_1InfAlg_ac422893fd7b8e37f914860aeba9602dc}{dai\+::\+Inf\+Alg}}.
+
+\Hypertarget{classdai_1_1JTree_a1c97d8b3556bfab8c2572ab740770086}\label{classdai_1_1JTree_a1c97d8b3556bfab8c2572ab740770086} 
+\index{dai::JTree@{dai::JTree}!getProperties@{getProperties}}
+\index{getProperties@{getProperties}!dai::JTree@{dai::JTree}}
+\doxysubsubsection{\texorpdfstring{getProperties()}{getProperties()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classdai_1_1PropertySet}{Property\+Set}} dai\+::\+JTree\+::get\+Properties (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Returns parameters of this inference algorithm converted into a \doxylink{classdai_1_1PropertySet}{Property\+Set}. 
+
+
+
+Implements \mbox{\hyperlink{classdai_1_1InfAlg_aba3b821f6ed47b91ef4080b03c14220e}{dai\+::\+Inf\+Alg}}.
+
+\Hypertarget{classdai_1_1JTree_a05ca49f1eda60540091e1bc52e0bdbe0}\label{classdai_1_1JTree_a05ca49f1eda60540091e1bc52e0bdbe0} 
+\index{dai::JTree@{dai::JTree}!printProperties@{printProperties}}
+\index{printProperties@{printProperties}!dai::JTree@{dai::JTree}}
+\doxysubsubsection{\texorpdfstring{printProperties()}{printProperties()}}
+{\footnotesize\ttfamily string dai\+::\+JTree\+::print\+Properties (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Returns parameters of this inference algorithm formatted as a string in the format "{}\mbox{[}key1=val1,key2=val2,...,keyn=valn\mbox{]}"{}. 
+
+
+
+Implements \mbox{\hyperlink{classdai_1_1InfAlg_a9cc7a50cbbe8825a334b16e41c92f019}{dai\+::\+Inf\+Alg}}.
+
+\Hypertarget{classdai_1_1JTree_ac960b7288a1230e23800dd97e399da7a}\label{classdai_1_1JTree_ac960b7288a1230e23800dd97e399da7a} 
+\index{dai::JTree@{dai::JTree}!construct@{construct}}
+\index{construct@{construct}!dai::JTree@{dai::JTree}}
+\doxysubsubsection{\texorpdfstring{construct()}{construct()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void dai\+::\+JTree\+::construct (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classdai_1_1FactorGraph}{Factor\+Graph}} \&}]{fg,  }\item[{const std\+::vector$<$ \mbox{\hyperlink{classdai_1_1VarSet}{Var\+Set}} $>$ \&}]{cl,  }\item[{bool}]{verify = {\ttfamily false} }\end{DoxyParamCaption})}
+
+
+
+Constructs a junction tree based on the cliques {\itshape cl} (corresponding to some elimination sequence). 
+
+First, constructs a weighted graph, where the nodes are the elements of {\itshape cl}, and each edge is weighted with the cardinality of the intersection of the state spaces of the nodes. Then, a maximal spanning tree for this weighted graph is calculated. Subsequently, a corresponding region graph is built\+:
+\begin{DoxyItemize}
+\item the outer regions correspond with the cliques and have counting number 1;
+\item the inner regions correspond with the seperators, i.\+e., the intersections of two cliques that are neighbors in the spanning tree, and have counting number -\/1 (except empty ones, which have counting number 0);
+\item inner and outer regions are connected by an edge if the inner region is a seperator for the outer region. Finally, Beliefs are constructed. If {\itshape verify} == {\ttfamily true}, checks whether each factor is subsumed by a clique. 
+\end{DoxyItemize}\Hypertarget{classdai_1_1JTree_addebd3eea8092f2e9bc545d3040467fb}\label{classdai_1_1JTree_addebd3eea8092f2e9bc545d3040467fb} 
+\index{dai::JTree@{dai::JTree}!GenerateJT@{GenerateJT}}
+\index{GenerateJT@{GenerateJT}!dai::JTree@{dai::JTree}}
+\doxysubsubsection{\texorpdfstring{GenerateJT()}{GenerateJT()}}
+{\footnotesize\ttfamily void dai\+::\+JTree\+::\+Generate\+JT (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classdai_1_1FactorGraph}{Factor\+Graph}} \&}]{fg,  }\item[{const std\+::vector$<$ \mbox{\hyperlink{classdai_1_1VarSet}{Var\+Set}} $>$ \&}]{cl }\end{DoxyParamCaption})}
+
+
+
+Constructs a junction tree based on the cliques {\itshape cl} (corresponding to some elimination sequence). 
+
+Invokes \doxylink{classdai_1_1JTree_a5cb199f56af4e50851f34cc1c0257017}{construct()} and then constructs messages. \begin{DoxySeeAlso}{See also}
+\doxylink{classdai_1_1JTree_a5cb199f56af4e50851f34cc1c0257017}{construct()} 
+\end{DoxySeeAlso}
+\Hypertarget{classdai_1_1JTree_a272f2f23ec97f6885f45c2c8b30fcd91}\label{classdai_1_1JTree_a272f2f23ec97f6885f45c2c8b30fcd91} 
+\index{dai::JTree@{dai::JTree}!message@{message}}
+\index{message@{message}!dai::JTree@{dai::JTree}}
+\doxysubsubsection{\texorpdfstring{message()}{message()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{factor_8h_a7515abf9952cd312e95a34ada0670e85}{Factor}} \& dai\+::\+JTree\+::message (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{alpha,  }\item[{size\+\_\+t}]{\+\_\+beta }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns constant reference to the message from outer region {\itshape alpha} to its {\itshape \+\_\+beta} \textquotesingle{}th neighboring inner region. 
+
+\Hypertarget{classdai_1_1JTree_abbb3ee1a96ef1cdb63bf231ee2d0b50a}\label{classdai_1_1JTree_abbb3ee1a96ef1cdb63bf231ee2d0b50a} 
+\index{dai::JTree@{dai::JTree}!message@{message}}
+\index{message@{message}!dai::JTree@{dai::JTree}}
+\doxysubsubsection{\texorpdfstring{message()}{message()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{factor_8h_a7515abf9952cd312e95a34ada0670e85}{Factor}} \& dai\+::\+JTree\+::message (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{alpha,  }\item[{size\+\_\+t}]{\+\_\+beta }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns reference to the message from outer region {\itshape alpha} to its {\itshape \+\_\+beta} \textquotesingle{}th neighboring inner region. 
+
+\Hypertarget{classdai_1_1JTree_a4569d21624cb49d9a79c3c8332e0d4b3}\label{classdai_1_1JTree_a4569d21624cb49d9a79c3c8332e0d4b3} 
+\index{dai::JTree@{dai::JTree}!runHUGIN@{runHUGIN}}
+\index{runHUGIN@{runHUGIN}!dai::JTree@{dai::JTree}}
+\doxysubsubsection{\texorpdfstring{runHUGIN()}{runHUGIN()}}
+{\footnotesize\ttfamily void dai\+::\+JTree\+::run\+HUGIN (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Runs junction tree algorithm using HUGIN (message-\/free) updates. 
+
+\begin{DoxyNote}{Note}
+The initial messages may be arbitrary; actually they are not used at all. 
+\end{DoxyNote}
+\Hypertarget{classdai_1_1JTree_a6d8ee4f30498985d0d434988dba8c258}\label{classdai_1_1JTree_a6d8ee4f30498985d0d434988dba8c258} 
+\index{dai::JTree@{dai::JTree}!runShaferShenoy@{runShaferShenoy}}
+\index{runShaferShenoy@{runShaferShenoy}!dai::JTree@{dai::JTree}}
+\doxysubsubsection{\texorpdfstring{runShaferShenoy()}{runShaferShenoy()}}
+{\footnotesize\ttfamily void dai\+::\+JTree\+::run\+Shafer\+Shenoy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Runs junction tree algorithm using Shafer-\/\+Shenoy updates. 
+
+\begin{DoxyNote}{Note}
+The initial messages may be arbitrary. 
+\end{DoxyNote}
+\Hypertarget{classdai_1_1JTree_ab4c6d9f0f3cd0f18b5d0d641ee20d78c}\label{classdai_1_1JTree_ab4c6d9f0f3cd0f18b5d0d641ee20d78c} 
+\index{dai::JTree@{dai::JTree}!findEfficientTree@{findEfficientTree}}
+\index{findEfficientTree@{findEfficientTree}!dai::JTree@{dai::JTree}}
+\doxysubsubsection{\texorpdfstring{findEfficientTree()}{findEfficientTree()}}
+{\footnotesize\ttfamily size\+\_\+t dai\+::\+JTree\+::find\+Efficient\+Tree (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classdai_1_1VarSet}{Var\+Set}} \&}]{vs,  }\item[{\mbox{\hyperlink{classdai_1_1RootedTree}{Rooted\+Tree}} \&}]{Tree,  }\item[{size\+\_\+t}]{Previous\+Root = {\ttfamily (size\+\_\+t)-\/1} }\end{DoxyParamCaption}) const}
+
+
+
+Finds an efficient subtree for calculating the marginal of the variables in {\itshape vs}. 
+
+First, the current junction tree is reordered such that it gets as root the clique that has maximal state space overlap with {\itshape vs}. Then, the minimal subtree (starting from the root) is identified that contains all the variables in {\itshape vs} and also the outer region with index {\itshape Previous\+Root} (if specified). Finally, the current junction tree is reordered such that this minimal subtree comes before the other edges, and the size of the minimal subtree is returned. \Hypertarget{classdai_1_1JTree_a1248e3988e6b78b275ee68287a613ac2}\label{classdai_1_1JTree_a1248e3988e6b78b275ee68287a613ac2} 
+\index{dai::JTree@{dai::JTree}!calcMarginal@{calcMarginal}}
+\index{calcMarginal@{calcMarginal}!dai::JTree@{dai::JTree}}
+\doxysubsubsection{\texorpdfstring{calcMarginal()}{calcMarginal()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{factor_8h_a7515abf9952cd312e95a34ada0670e85}{Factor}} dai\+::\+JTree\+::calc\+Marginal (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classdai_1_1VarSet}{Var\+Set}} \&}]{vs }\end{DoxyParamCaption})}
+
+
+
+Calculates the marginal of a set of variables (using cutset conditioning, if necessary) 
+
+\begin{DoxyPrecond}{Precondition}
+assumes that \doxylink{classdai_1_1JTree_a5596a82ebb58954804deb710892182fd}{run()} has been called already 
+\end{DoxyPrecond}
+
+
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{classdai_1_1JTree_a9046531a81e82734a866f99d1473dcaf}\label{classdai_1_1JTree_a9046531a81e82734a866f99d1473dcaf} 
+\index{dai::JTree@{dai::JTree}!boundTreewidth@{boundTreewidth}}
+\index{boundTreewidth@{boundTreewidth}!dai::JTree@{dai::JTree}}
+\doxysubsubsection{\texorpdfstring{boundTreewidth()}{boundTreewidth()}}
+{\footnotesize\ttfamily std\+::pair$<$ size\+\_\+t, \mbox{\hyperlink{util_8h_acc277bd4f0edae875fca22f063a37220}{Big\+Int}} $>$ bound\+Treewidth (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classdai_1_1FactorGraph}{Factor\+Graph}} \&}]{fg,  }\item[{\mbox{\hyperlink{classdai_1_1greedyVariableElimination_a4df26af88ad423ec9489da4cf418a4be}{greedy\+Variable\+Elimination\+::elimination\+Cost\+Function}}}]{fn,  }\item[{size\+\_\+t}]{max\+States = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [related]}}
+
+
+
+Calculates upper bound to the treewidth of a \doxylink{classdai_1_1FactorGraph}{Factor\+Graph}, using the specified heuristic. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fg} & the factor graph for which the treewidth should be bounded \\
+\hline
+{\em fn} & the heuristic cost function used for greedy variable elimination \\
+\hline
+{\em max\+States} & maximum total number of states in outer regions of junction tree (0 means no limit) \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em OUT\+\_\+\+OF\+\_\+\+MEMORY} & if the total number of states becomes larger than max\+States \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{Returns}
+a pair (number of variables in largest clique, number of states in largest clique) 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classdai_1_1JTree_a7e5ac41e26a7e5bba05bb947a5fbd19b}\label{classdai_1_1JTree_a7e5ac41e26a7e5bba05bb947a5fbd19b} 
+\index{dai::JTree@{dai::JTree}!\_mes@{\_mes}}
+\index{\_mes@{\_mes}!dai::JTree@{dai::JTree}}
+\doxysubsubsection{\texorpdfstring{\_mes}{\_mes}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::vector$<$\mbox{\hyperlink{factor_8h_a7515abf9952cd312e95a34ada0670e85}{Factor}}$>$ $>$ dai\+::\+JTree\+::\+\_\+mes\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Stores the messages. 
+
+\Hypertarget{classdai_1_1JTree_aefdc4fe2306ed8a2f8e62b1a1a6ec23c}\label{classdai_1_1JTree_aefdc4fe2306ed8a2f8e62b1a1a6ec23c} 
+\index{dai::JTree@{dai::JTree}!\_logZ@{\_logZ}}
+\index{\_logZ@{\_logZ}!dai::JTree@{dai::JTree}}
+\doxysubsubsection{\texorpdfstring{\_logZ}{\_logZ}}
+{\footnotesize\ttfamily \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} dai\+::\+JTree\+::\+\_\+logZ\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Stores the logarithm of the partition sum. 
+
+\Hypertarget{classdai_1_1JTree_a2aecb579eaa9b2af2576aaef17d16c66}\label{classdai_1_1JTree_a2aecb579eaa9b2af2576aaef17d16c66} 
+\index{dai::JTree@{dai::JTree}!RTree@{RTree}}
+\index{RTree@{RTree}!dai::JTree@{dai::JTree}}
+\doxysubsubsection{\texorpdfstring{RTree}{RTree}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classdai_1_1RootedTree}{Rooted\+Tree}} dai\+::\+JTree\+::\+RTree}
+
+
+
+The junction tree (stored as a rooted tree) 
+
+\Hypertarget{classdai_1_1JTree_a66cdd4d8258582aaf794466f3786dbfb}\label{classdai_1_1JTree_a66cdd4d8258582aaf794466f3786dbfb} 
+\index{dai::JTree@{dai::JTree}!Qa@{Qa}}
+\index{Qa@{Qa}!dai::JTree@{dai::JTree}}
+\doxysubsubsection{\texorpdfstring{Qa}{Qa}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{factor_8h_a7515abf9952cd312e95a34ada0670e85}{Factor}}$>$ dai\+::\+JTree\+::\+Qa}
+
+
+
+Outer region beliefs. 
+
+\Hypertarget{classdai_1_1JTree_a9d93e9f387d9772be5bc2b5372f7d20d}\label{classdai_1_1JTree_a9d93e9f387d9772be5bc2b5372f7d20d} 
+\index{dai::JTree@{dai::JTree}!Qb@{Qb}}
+\index{Qb@{Qb}!dai::JTree@{dai::JTree}}
+\doxysubsubsection{\texorpdfstring{Qb}{Qb}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{factor_8h_a7515abf9952cd312e95a34ada0670e85}{Factor}}$>$ dai\+::\+JTree\+::\+Qb}
+
+
+
+Inner region beliefs. 
+
+\Hypertarget{classdai_1_1JTree_a524652cab95c6772ae8dc7c630ff5c18}\label{classdai_1_1JTree_a524652cab95c6772ae8dc7c630ff5c18} 
+\index{dai::JTree@{dai::JTree}!ElimOrder@{ElimOrder}}
+\index{ElimOrder@{ElimOrder}!dai::JTree@{dai::JTree}}
+\doxysubsubsection{\texorpdfstring{ElimOrder}{ElimOrder}}
+{\footnotesize\ttfamily std\+::vector$<$size\+\_\+t$>$ dai\+::\+JTree\+::\+Elim\+Order}
+
+
+
+Elimination order generated using heuristics. 
+
+\Hypertarget{classdai_1_1JTree_ae31c5440575bdd4f521d7921ab6357f8}\label{classdai_1_1JTree_ae31c5440575bdd4f521d7921ab6357f8} 
+\index{dai::JTree@{dai::JTree}!Heuristic@{Heuristic}}
+\index{Heuristic@{Heuristic}!dai::JTree@{dai::JTree}}
+\doxysubsubsection{\texorpdfstring{Heuristic}{Heuristic}}
+{\footnotesize\ttfamily std\+::string dai\+::\+JTree\+::\+Heuristic}
+
+
+
+Heuristic used for generating the elimination order. 
+
+\Hypertarget{classdai_1_1JTree_a4a2192c23d1da2dfa257698ddb4e9b6b}\label{classdai_1_1JTree_a4a2192c23d1da2dfa257698ddb4e9b6b} 
+\index{dai::JTree@{dai::JTree}!MaxCluster@{MaxCluster}}
+\index{MaxCluster@{MaxCluster}!dai::JTree@{dai::JTree}}
+\doxysubsubsection{\texorpdfstring{MaxCluster}{MaxCluster}}
+{\footnotesize\ttfamily std\+::size\+\_\+t dai\+::\+JTree\+::\+Max\+Cluster}
+
+
+
+Maximum cluster size. 
+
+\Hypertarget{classdai_1_1JTree_a1fff85011091d63701714ec00661fcca}\label{classdai_1_1JTree_a1fff85011091d63701714ec00661fcca} 
+\index{dai::JTree@{dai::JTree}!MaxStates@{MaxStates}}
+\index{MaxStates@{MaxStates}!dai::JTree@{dai::JTree}}
+\doxysubsubsection{\texorpdfstring{MaxStates}{MaxStates}}
+{\footnotesize\ttfamily \mbox{\hyperlink{util_8h_acc277bd4f0edae875fca22f063a37220}{Big\+Int}} dai\+::\+JTree\+::\+Max\+States}
+
+
+
+Maximum number of States in Max\+Cluster. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/dai/\mbox{\hyperlink{jtree_8h}{jtree.\+h}}\item 
+src/jtree.\+cpp\end{DoxyCompactItemize}

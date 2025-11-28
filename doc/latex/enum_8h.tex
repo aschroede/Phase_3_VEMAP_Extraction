@@ -1,0 +1,48 @@
+\doxysection{include/dai/enum.h File Reference}
+\hypertarget{enum_8h}{}\label{enum_8h}\index{include/dai/enum.h@{include/dai/enum.h}}
+
+
+Defines the DAI\+\_\+\+ENUM macro, which can be used to define an {\ttfamily enum} with additional functionality.  
+
+
+{\ttfamily \#include $<$cstring$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$dai/exceptions.\+h$>$}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{enum_8h_a9961c92e7b9e3b0ccba5fe62731178c3}{DAI\+\_\+\+ENUM}}(x,  val0, ...)
+\begin{DoxyCompactList}\small\item\em Extends the C++ {\ttfamily enum} type by supporting input/output streaming and conversion to and from {\ttfamily const char\texorpdfstring{$\ast$}{*}} and {\ttfamily size\+\_\+t}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Defines the DAI\+\_\+\+ENUM macro, which can be used to define an {\ttfamily enum} with additional functionality. 
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{enum_8h_a9961c92e7b9e3b0ccba5fe62731178c3}\label{enum_8h_a9961c92e7b9e3b0ccba5fe62731178c3} 
+\index{enum.h@{enum.h}!DAI\_ENUM@{DAI\_ENUM}}
+\index{DAI\_ENUM@{DAI\_ENUM}!enum.h@{enum.h}}
+\doxysubsubsection{\texorpdfstring{DAI\_ENUM}{DAI\_ENUM}}
+{\footnotesize\ttfamily \#define DAI\+\_\+\+ENUM(\begin{DoxyParamCaption}\item[{}]{x,  }\item[{}]{val0,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+
+
+Extends the C++ {\ttfamily enum} type by supporting input/output streaming and conversion to and from {\ttfamily const char\texorpdfstring{$\ast$}{*}} and {\ttfamily size\+\_\+t}. 
+
+For more details see the source code.
+
+\begin{DoxyParagraph}{Example\+:}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{enum_8h_a9961c92e7b9e3b0ccba5fe62731178c3}{DAI\_ENUM}}(colors,RED,GREEN,BLUE)}
+
+\end{DoxyCode}
+ defines a class {\itshape colors} encapsulating an 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{enum}\ \{RED,\ GREEN,\ BLUE\};}
+
+\end{DoxyCode}
+ which offers additional functionality over the plain {\ttfamily enum} keyword. 
+\end{DoxyParagraph}

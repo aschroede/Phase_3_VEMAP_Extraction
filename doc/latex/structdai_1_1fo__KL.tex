@@ -1,0 +1,44 @@
+\doxysection{dai\+::fo\+\_\+\+KL\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>} Struct Template Reference}
+\hypertarget{structdai_1_1fo__KL}{}\label{structdai_1_1fo__KL}\index{dai::fo\_KL$<$ T $>$@{dai::fo\_KL$<$ T $>$}}
+
+
+Function object useful for calculating the KL distance.  
+
+
+
+
+{\ttfamily \#include $<$dai/prob.\+h$>$}
+
+
+
+Inherits std\+::binary\+\_\+function$<$ T, T, T $>$.
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+T \mbox{\hyperlink{structdai_1_1fo__KL_aac6aae67c26c70fef08a2183afc26949}{operator()}} (const T \&p, const T \&q) const
+\begin{DoxyCompactList}\small\item\em Returns ({\itshape p} == 0 ? 0 \+: ({\itshape p} \texorpdfstring{$\ast$}{*} (log({\itshape p}) -\/ log({\itshape q})))) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+struct dai\+::fo\+\_\+\+KL$<$ T $>$}
+Function object useful for calculating the KL distance. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{structdai_1_1fo__KL_aac6aae67c26c70fef08a2183afc26949}\label{structdai_1_1fo__KL_aac6aae67c26c70fef08a2183afc26949} 
+\index{dai::fo\_KL$<$ T $>$@{dai::fo\_KL$<$ T $>$}!operator()@{operator()}}
+\index{operator()@{operator()}!dai::fo\_KL$<$ T $>$@{dai::fo\_KL$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T \mbox{\hyperlink{structdai_1_1fo__KL}{dai\+::fo\+\_\+\+KL}}$<$ T $>$\+::operator() (\begin{DoxyParamCaption}\item[{const T \&}]{p,  }\item[{const T \&}]{q }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns ({\itshape p} == 0 ? 0 \+: ({\itshape p} \texorpdfstring{$\ast$}{*} (log({\itshape p}) -\/ log({\itshape q})))) 
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/dai/\mbox{\hyperlink{prob_8h}{prob.\+h}}\end{DoxyCompactItemize}

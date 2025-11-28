@@ -1,0 +1,85 @@
+\doxysection{dai\+::sequential\+Variable\+Elimination Class Reference}
+\hypertarget{classdai_1_1sequentialVariableElimination}{}\label{classdai_1_1sequentialVariableElimination}\index{dai::sequentialVariableElimination@{dai::sequentialVariableElimination}}
+
+
+Helper object for \doxylink{classdai_1_1ClusterGraph_a2298aa1f67002915ddc6b778980ac61e}{dai\+::\+Cluster\+Graph\+::\+Var\+Elim()}  
+
+
+
+
+{\ttfamily \#include $<$dai/clustergraph.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classdai_1_1sequentialVariableElimination_a824c1f237a11e5a35addd01295f8ea2b}{sequential\+Variable\+Elimination}} (const std\+::vector$<$ \mbox{\hyperlink{classdai_1_1Var}{Var}} $>$ s)
+\begin{DoxyCompactList}\small\item\em Construct from vector of variables. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classdai_1_1sequentialVariableElimination_a8a5471649c2517951a1fc9d48d54f2f7}{operator()}} (const \mbox{\hyperlink{classdai_1_1ClusterGraph}{Cluster\+Graph}} \&cl, const std\+::set$<$ size\+\_\+t $>$ \&)
+\begin{DoxyCompactList}\small\item\em Returns next variable in sequence. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{classdai_1_1Var}{Var}} $>$ \mbox{\hyperlink{classdai_1_1sequentialVariableElimination_a2eda7386922ce8a84cd483396139925b}{seq}}
+\begin{DoxyCompactList}\small\item\em The variable elimination sequence. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classdai_1_1sequentialVariableElimination_a62b78ee68c739216473279b56d097ff2}{i}}
+\begin{DoxyCompactList}\small\item\em Counter. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Helper object for \doxylink{classdai_1_1ClusterGraph_a2298aa1f67002915ddc6b778980ac61e}{dai\+::\+Cluster\+Graph\+::\+Var\+Elim()} 
+
+Chooses the next variable to eliminate by picking them sequentially from a given vector of variables. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classdai_1_1sequentialVariableElimination_a824c1f237a11e5a35addd01295f8ea2b}\label{classdai_1_1sequentialVariableElimination_a824c1f237a11e5a35addd01295f8ea2b} 
+\index{dai::sequentialVariableElimination@{dai::sequentialVariableElimination}!sequentialVariableElimination@{sequentialVariableElimination}}
+\index{sequentialVariableElimination@{sequentialVariableElimination}!dai::sequentialVariableElimination@{dai::sequentialVariableElimination}}
+\doxysubsubsection{\texorpdfstring{sequentialVariableElimination()}{sequentialVariableElimination()}}
+{\footnotesize\ttfamily dai\+::sequential\+Variable\+Elimination\+::sequential\+Variable\+Elimination (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{classdai_1_1Var}{Var}} $>$}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct from vector of variables. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classdai_1_1sequentialVariableElimination_a8a5471649c2517951a1fc9d48d54f2f7}\label{classdai_1_1sequentialVariableElimination_a8a5471649c2517951a1fc9d48d54f2f7} 
+\index{dai::sequentialVariableElimination@{dai::sequentialVariableElimination}!operator()@{operator()}}
+\index{operator()@{operator()}!dai::sequentialVariableElimination@{dai::sequentialVariableElimination}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}}
+{\footnotesize\ttfamily size\+\_\+t dai\+::sequential\+Variable\+Elimination\+::operator() (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classdai_1_1ClusterGraph}{Cluster\+Graph}} \&}]{cl,  }\item[{const std\+::set$<$ size\+\_\+t $>$ \&}]{ }\end{DoxyParamCaption})}
+
+
+
+Returns next variable in sequence. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classdai_1_1sequentialVariableElimination_a2eda7386922ce8a84cd483396139925b}\label{classdai_1_1sequentialVariableElimination_a2eda7386922ce8a84cd483396139925b} 
+\index{dai::sequentialVariableElimination@{dai::sequentialVariableElimination}!seq@{seq}}
+\index{seq@{seq}!dai::sequentialVariableElimination@{dai::sequentialVariableElimination}}
+\doxysubsubsection{\texorpdfstring{seq}{seq}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{classdai_1_1Var}{Var}}$>$ dai\+::sequential\+Variable\+Elimination\+::seq\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The variable elimination sequence. 
+
+\Hypertarget{classdai_1_1sequentialVariableElimination_a62b78ee68c739216473279b56d097ff2}\label{classdai_1_1sequentialVariableElimination_a62b78ee68c739216473279b56d097ff2} 
+\index{dai::sequentialVariableElimination@{dai::sequentialVariableElimination}!i@{i}}
+\index{i@{i}!dai::sequentialVariableElimination@{dai::sequentialVariableElimination}}
+\doxysubsubsection{\texorpdfstring{i}{i}}
+{\footnotesize\ttfamily size\+\_\+t dai\+::sequential\+Variable\+Elimination\+::i\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Counter. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/dai/\mbox{\hyperlink{clustergraph_8h}{clustergraph.\+h}}\item 
+src/clustergraph.\+cpp\end{DoxyCompactItemize}

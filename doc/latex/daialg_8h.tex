@@ -1,0 +1,139 @@
+\doxysection{include/dai/daialg.h File Reference}
+\hypertarget{daialg_8h}{}\label{daialg_8h}\index{include/dai/daialg.h@{include/dai/daialg.h}}
+
+
+Defines the general interface for inference methods in lib\+DAI (classes Inf\+Alg, Dai\+Alg$<$$>$, Dai\+Alg\+FG and Dai\+Alg\+RG).  
+
+
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$dai/factorgraph.\+h$>$}\newline
+{\ttfamily \#include $<$dai/regiongraph.\+h$>$}\newline
+{\ttfamily \#include $<$dai/cobwebgraph.\+h$>$}\newline
+{\ttfamily \#include $<$dai/properties.\+h$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classdai_1_1InfAlg}{dai\+::\+Inf\+Alg}}
+\begin{DoxyCompactList}\small\item\em \doxylink{classdai_1_1InfAlg}{Inf\+Alg} is an abstract base class, defining the common interface of all inference algorithms in lib\+DAI. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classdai_1_1DAIAlg}{dai\+::\+DAIAlg$<$ GRM $>$}}
+\begin{DoxyCompactList}\small\item\em Combines the abstract base class \doxylink{classdai_1_1InfAlg}{Inf\+Alg} with a graphical model (e.\+g., a \doxylink{classdai_1_1FactorGraph}{Factor\+Graph} or \doxylink{classdai_1_1RegionGraph}{Region\+Graph}). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef \mbox{\hyperlink{classdai_1_1DAIAlg}{DAIAlg}}$<$ \mbox{\hyperlink{classdai_1_1FactorGraph}{Factor\+Graph}} $>$ \mbox{\hyperlink{daialg_8h_a4d66d71f2b2c7ac4845bba057eb7cee5}{dai\+::\+DAIAlg\+FG}}
+\begin{DoxyCompactList}\small\item\em Base class for inference algorithms that operate on a \doxylink{classdai_1_1FactorGraph}{Factor\+Graph}. \end{DoxyCompactList}\item 
+typedef \mbox{\hyperlink{classdai_1_1DAIAlg}{DAIAlg}}$<$ \mbox{\hyperlink{classdai_1_1RegionGraph}{Region\+Graph}} $>$ \mbox{\hyperlink{daialg_8h_a6b5cb6d79a324915d2c88ad368437e21}{dai\+::\+DAIAlg\+RG}}
+\begin{DoxyCompactList}\small\item\em Base class for inference algorithms that operate on a \doxylink{classdai_1_1RegionGraph}{Region\+Graph}. \end{DoxyCompactList}\item 
+typedef \mbox{\hyperlink{classdai_1_1DAIAlg}{DAIAlg}}$<$ \mbox{\hyperlink{classdai_1_1CobwebGraph}{Cobweb\+Graph}} $>$ \mbox{\hyperlink{daialg_8h_ac85291d919d850266e4f36c7b57d0773}{dai\+::\+DAIAlg\+CG}}
+\begin{DoxyCompactList}\small\item\em Base class for GLC that operates on \doxylink{classdai_1_1CobwebGraph}{Cobweb\+Graph}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{factor_8h_a7515abf9952cd312e95a34ada0670e85}{Factor}} \mbox{\hyperlink{daialg_8cpp_aab8aabfe0fcfd4b4bd24757c101449d5}{dai\+::calc\+Marginal}} (const \mbox{\hyperlink{classdai_1_1InfAlg}{Inf\+Alg}} \&obj, const \mbox{\hyperlink{classdai_1_1VarSet}{Var\+Set}} \&vs, bool re\+Init)
+\begin{DoxyCompactList}\small\item\em Calculates the marginal probability distribution for {\itshape vs} using inference algorithm {\itshape obj}. \end{DoxyCompactList}\item 
+vector$<$ \mbox{\hyperlink{factor_8h_a7515abf9952cd312e95a34ada0670e85}{Factor}} $>$ \mbox{\hyperlink{daialg_8cpp_a82e775a1e2908856f13fa1aa7c081d4c}{dai\+::calc\+Pair\+Beliefs}} (const \mbox{\hyperlink{classdai_1_1InfAlg}{Inf\+Alg}} \&obj, const \mbox{\hyperlink{classdai_1_1VarSet}{Var\+Set}} \&vs, bool re\+Init, bool accurate=false)
+\begin{DoxyCompactList}\small\item\em Calculates beliefs for all pairs of variables in {\itshape vs} using inference algorithm {\itshape obj}. \end{DoxyCompactList}\item 
+std\+::vector$<$ size\+\_\+t $>$ \mbox{\hyperlink{daialg_8cpp_ae686384295f9909532d78328f87ae260}{dai\+::find\+Maximum}} (const \mbox{\hyperlink{classdai_1_1InfAlg}{Inf\+Alg}} \&obj)
+\begin{DoxyCompactList}\small\item\em Calculates the joint state of all variables that has maximum probability, according to the inference algorithm {\itshape obj}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Defines the general interface for inference methods in lib\+DAI (classes Inf\+Alg, Dai\+Alg$<$$>$, Dai\+Alg\+FG and Dai\+Alg\+RG). 
+
+
+
+\doxysubsection{Typedef Documentation}
+\Hypertarget{daialg_8h_a4d66d71f2b2c7ac4845bba057eb7cee5}\label{daialg_8h_a4d66d71f2b2c7ac4845bba057eb7cee5} 
+\index{daialg.h@{daialg.h}!DAIAlgFG@{DAIAlgFG}}
+\index{DAIAlgFG@{DAIAlgFG}!daialg.h@{daialg.h}}
+\doxysubsubsection{\texorpdfstring{DAIAlgFG}{DAIAlgFG}}
+{\footnotesize\ttfamily typedef DAIAlg$<$Factor\+Graph$>$ \mbox{\hyperlink{daialg_8h_a4d66d71f2b2c7ac4845bba057eb7cee5}{dai\+::\+DAIAlg\+FG}}}
+
+
+
+Base class for inference algorithms that operate on a Factor\+Graph. 
+
+\Hypertarget{daialg_8h_a6b5cb6d79a324915d2c88ad368437e21}\label{daialg_8h_a6b5cb6d79a324915d2c88ad368437e21} 
+\index{daialg.h@{daialg.h}!DAIAlgRG@{DAIAlgRG}}
+\index{DAIAlgRG@{DAIAlgRG}!daialg.h@{daialg.h}}
+\doxysubsubsection{\texorpdfstring{DAIAlgRG}{DAIAlgRG}}
+{\footnotesize\ttfamily typedef DAIAlg$<$Region\+Graph$>$ \mbox{\hyperlink{daialg_8h_a6b5cb6d79a324915d2c88ad368437e21}{dai\+::\+DAIAlg\+RG}}}
+
+
+
+Base class for inference algorithms that operate on a Region\+Graph. 
+
+\Hypertarget{daialg_8h_ac85291d919d850266e4f36c7b57d0773}\label{daialg_8h_ac85291d919d850266e4f36c7b57d0773} 
+\index{daialg.h@{daialg.h}!DAIAlgCG@{DAIAlgCG}}
+\index{DAIAlgCG@{DAIAlgCG}!daialg.h@{daialg.h}}
+\doxysubsubsection{\texorpdfstring{DAIAlgCG}{DAIAlgCG}}
+{\footnotesize\ttfamily typedef DAIAlg$<$Cobweb\+Graph$>$ \mbox{\hyperlink{daialg_8h_ac85291d919d850266e4f36c7b57d0773}{dai\+::\+DAIAlg\+CG}}}
+
+
+
+Base class for GLC that operates on Cobweb\+Graph. 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{daialg_8cpp_aab8aabfe0fcfd4b4bd24757c101449d5}\label{daialg_8cpp_aab8aabfe0fcfd4b4bd24757c101449d5} 
+\index{daialg.h@{daialg.h}!calcMarginal@{calcMarginal}}
+\index{calcMarginal@{calcMarginal}!daialg.h@{daialg.h}}
+\doxysubsubsection{\texorpdfstring{calcMarginal()}{calcMarginal()}}
+{\footnotesize\ttfamily Factor dai\+::calc\+Marginal (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classdai_1_1InfAlg}{Inf\+Alg}} \&}]{obj,  }\item[{const \mbox{\hyperlink{classdai_1_1VarSet}{Var\+Set}} \&}]{vs,  }\item[{bool}]{re\+Init }\end{DoxyParamCaption})}
+
+
+
+Calculates the marginal probability distribution for {\itshape vs} using inference algorithm {\itshape obj}. 
+
+calc\+Marginal() works by clamping all variables in {\itshape vs} and calculating the partition sum for each clamped state. Therefore, it can be used in combination with any inference algorithm that can calculate/approximate partition sums. 
+\begin{DoxyParams}{Parameters}
+{\em obj} & instance of inference algorithm to be used \\
+\hline
+{\em vs} & variables for which the marginal should be calculated \\
+\hline
+{\em re\+Init} & should be set to {\ttfamily true} if at least one of the possible clamped states would be invalid (leading to a factor graph with zero partition sum). \\
+\hline
+\end{DoxyParams}
+\Hypertarget{daialg_8cpp_a82e775a1e2908856f13fa1aa7c081d4c}\label{daialg_8cpp_a82e775a1e2908856f13fa1aa7c081d4c} 
+\index{daialg.h@{daialg.h}!calcPairBeliefs@{calcPairBeliefs}}
+\index{calcPairBeliefs@{calcPairBeliefs}!daialg.h@{daialg.h}}
+\doxysubsubsection{\texorpdfstring{calcPairBeliefs()}{calcPairBeliefs()}}
+{\footnotesize\ttfamily std\+::vector$<$ Factor $>$ dai\+::calc\+Pair\+Beliefs (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classdai_1_1InfAlg}{Inf\+Alg}} \&}]{obj,  }\item[{const \mbox{\hyperlink{classdai_1_1VarSet}{Var\+Set}} \&}]{vs,  }\item[{bool}]{re\+Init,  }\item[{bool}]{accurate = {\ttfamily false} }\end{DoxyParamCaption})}
+
+
+
+Calculates beliefs for all pairs of variables in {\itshape vs} using inference algorithm {\itshape obj}. 
+
+calc\+Pair\+Beliefs() works by
+\begin{DoxyItemize}
+\item clamping single variables in {\itshape vs} and calculating the partition sum and the single variable beliefs for each clamped state, if {\itshape accurate} == {\ttfamily false};
+\item clamping pairs of variables in {\itshape vs} and calculating the partition sum for each clamped state, if {\itshape accurate} == {\ttfamily true}.
+\end{DoxyItemize}
+
+Therefore, it can be used in combination with any inference algorithm that can calculate/approximate partition sums (and single variable beliefs, if {\itshape accurate} == {\ttfamily true}). 
+\begin{DoxyParams}{Parameters}
+{\em obj} & instance of inference algorithm to be used \\
+\hline
+{\em vs} & variables for which the pair beliefs should be calculated \\
+\hline
+{\em re\+Init} & should be set to {\ttfamily true} if at least one of the possible clamped states would be invalid (leading to a factor graph with zero partition sum). \\
+\hline
+{\em accurate} & if {\ttfamily true}, uses a slower but more accurate approximation algorithm \\
+\hline
+\end{DoxyParams}
+\Hypertarget{daialg_8cpp_ae686384295f9909532d78328f87ae260}\label{daialg_8cpp_ae686384295f9909532d78328f87ae260} 
+\index{daialg.h@{daialg.h}!findMaximum@{findMaximum}}
+\index{findMaximum@{findMaximum}!daialg.h@{daialg.h}}
+\doxysubsubsection{\texorpdfstring{findMaximum()}{findMaximum()}}
+{\footnotesize\ttfamily std\+::vector$<$ size\+\_\+t $>$ dai\+::find\+Maximum (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classdai_1_1InfAlg}{Inf\+Alg}} \&}]{obj }\end{DoxyParamCaption})}
+
+
+
+Calculates the joint state of all variables that has maximum probability, according to the inference algorithm {\itshape obj}. 
+
+\begin{DoxyNote}{Note}
+Before this method is called, obj.\+run() should have been called. 
+\end{DoxyNote}

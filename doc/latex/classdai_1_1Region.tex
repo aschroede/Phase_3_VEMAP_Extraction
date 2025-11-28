@@ -1,0 +1,230 @@
+\doxysection{dai\+::Region Class Reference}
+\hypertarget{classdai_1_1Region}{}\label{classdai_1_1Region}\index{dai::Region@{dai::Region}}
+
+
+A \doxylink{classdai_1_1Region}{Region} is a set of variables with a counting number.  
+
+
+
+
+{\ttfamily \#include $<$dai/regiongraph.\+h$>$}
+
+Inheritance diagram for dai\+::Region\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classdai_1_1Region}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classdai_1_1Region_aa27111b83697a921dea2e6bb3ecb0222}{Region}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1Region_a8f59139807c33a041c6af432cd3ea010}{Region}} (const \mbox{\hyperlink{classdai_1_1VarSet}{Var\+Set}} \&x, \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} \mbox{\hyperlink{classdai_1_1Region_a444b9b5bdab2fd365d0d23d3a51bcce1}{c}})
+\begin{DoxyCompactList}\small\item\em Construct from a set of variables and a counting number. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} \& \mbox{\hyperlink{classdai_1_1Region_a444b9b5bdab2fd365d0d23d3a51bcce1}{c}} () const
+\begin{DoxyCompactList}\small\item\em Returns constant reference to counting number. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} \& \mbox{\hyperlink{classdai_1_1Region_a529ac355d30aa4630fb13df929f2c82d}{c}} ()
+\begin{DoxyCompactList}\small\item\em Returns reference to counting number. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classdai_1_1VarSet}{dai\+::\+Var\+Set}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classdai_1_1VarSet_a933a982d2d7f8c2f796610ab351d728b}{Var\+Set}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor (constructs an empty set) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1VarSet_a38c683ce0ce0532625780e76f5eb5b9b}{Var\+Set}} (const \mbox{\hyperlink{classdai_1_1SmallSet}{Small\+Set}}$<$ \mbox{\hyperlink{classdai_1_1Var}{Var}} $>$ \&x)
+\begin{DoxyCompactList}\small\item\em Construct from \doxylink{classdai_1_1SmallSet}{Small\+Set}\texorpdfstring{$<$}{<}\doxylink{classdai_1_1Var}{Var}\texorpdfstring{$>$}{>} {\itshape x}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1VarSet_ac9e2eee9017df71e91f5ef4f01956de7}{Var\+Set}} (const \mbox{\hyperlink{classdai_1_1Var}{Var}} \&v)
+\begin{DoxyCompactList}\small\item\em Construct a \doxylink{classdai_1_1VarSet}{Var\+Set} with one element, {\itshape v}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1VarSet_ae45f3b824a354219f7ee3ab8ee432fb2}{Var\+Set}} (const \mbox{\hyperlink{classdai_1_1Var}{Var}} \&v1, const \mbox{\hyperlink{classdai_1_1Var}{Var}} \&v2)
+\begin{DoxyCompactList}\small\item\em Construct a \doxylink{classdai_1_1VarSet}{Var\+Set} with two elements, {\itshape v1} and {\itshape v2}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Var\+Iterator $>$ }\\\mbox{\hyperlink{classdai_1_1VarSet_a63eeef9921a86d79984e47850e2c2d09}{Var\+Set}} (Var\+Iterator \mbox{\hyperlink{classdai_1_1SmallSet_a3edafa1c2258b97745ba6e7662a529e8}{begin}}, Var\+Iterator \mbox{\hyperlink{classdai_1_1SmallSet_addbe167f8e2bfee5bba7ad1ccf014e7a}{end}}, size\+\_\+t size\+Hint=0)
+\begin{DoxyCompactList}\small\item\em Construct a \doxylink{classdai_1_1VarSet}{Var\+Set} from the range between {\itshape begin} and {\itshape end}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{util_8h_acc277bd4f0edae875fca22f063a37220}{Big\+Int}} \mbox{\hyperlink{classdai_1_1VarSet_a0e247794f03ee52544e10a8b9f280c41}{nr\+States}} () const
+\begin{DoxyCompactList}\small\item\em Calculates the number of states of this \doxylink{classdai_1_1VarSet}{Var\+Set}, which is simply the number of possible joint states of the variables in {\ttfamily \texorpdfstring{$\ast$}{*}this}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{classdai_1_1VarSet_a0eda7931fb0fd6bac8f0124c6ab6f583}{to\+String}} () const
+\begin{DoxyCompactList}\small\item\em Formats a \doxylink{classdai_1_1VarSet}{Var\+Set} as a string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classdai_1_1SmallSet}{dai\+::\+Small\+Set$<$ Var $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classdai_1_1SmallSet_a59ddde5d58b4114781df3d14b29c5c54}{Small\+Set}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor (constructs an empty set) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1SmallSet_a1535ac0c4309799e8bf4f0995b7056dc}{Small\+Set}} (const \mbox{\hyperlink{classdai_1_1Var}{Var}} \&t)
+\begin{DoxyCompactList}\small\item\em Construct a set consisting of one element. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1SmallSet_a374c087e80aecbfe8a8ce7689fb3154a}{Small\+Set}} (const \mbox{\hyperlink{classdai_1_1Var}{Var}} \&t1, const \mbox{\hyperlink{classdai_1_1Var}{Var}} \&t2)
+\begin{DoxyCompactList}\small\item\em Construct a set consisting of two elements. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1SmallSet_a97710d68e1d74d03ba274e87cafb88f2}{Small\+Set}} (TIterator begin, TIterator end, size\+\_\+t size\+Hint)
+\begin{DoxyCompactList}\small\item\em Construct a \doxylink{classdai_1_1SmallSet}{Small\+Set} from a range of elements. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classdai_1_1SmallSet}{Small\+Set}} \& \mbox{\hyperlink{classdai_1_1SmallSet_ae0449f5dbf9392808390e27952ecfc10}{insert}} (const \mbox{\hyperlink{classdai_1_1Var}{Var}} \&t)
+\begin{DoxyCompactList}\small\item\em Inserts {\itshape t} into {\ttfamily \texorpdfstring{$\ast$}{*}this}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1SmallSet}{Small\+Set}} \& \mbox{\hyperlink{classdai_1_1SmallSet_acdb2dbb8a54cee73d80aa86e2b8f3103}{erase}} (const \mbox{\hyperlink{classdai_1_1Var}{Var}} \&t)
+\begin{DoxyCompactList}\small\item\em Erases {\itshape t} from {\ttfamily \texorpdfstring{$\ast$}{*}this}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1SmallSet}{Small\+Set}} \mbox{\hyperlink{classdai_1_1SmallSet_a481c293827f186d6d67c982eeba5a57b}{operator/}} (const \mbox{\hyperlink{classdai_1_1SmallSet}{Small\+Set}} \&x) const
+\begin{DoxyCompactList}\small\item\em Set-\/minus operator\+: returns all elements in {\ttfamily \texorpdfstring{$\ast$}{*}this}, except those in {\itshape x}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1SmallSet}{Small\+Set}} \mbox{\hyperlink{classdai_1_1SmallSet_a66f5002c3d87e063c6ad43d02ef35878}{operator\texorpdfstring{$\vert$}{|}}} (const \mbox{\hyperlink{classdai_1_1SmallSet}{Small\+Set}} \&x) const
+\begin{DoxyCompactList}\small\item\em Set-\/union operator\+: returns all elements in {\ttfamily \texorpdfstring{$\ast$}{*}this}, plus those in {\itshape x}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1SmallSet}{Small\+Set}} \mbox{\hyperlink{classdai_1_1SmallSet_ae24307bd3811eb2535958e7436ff8435}{operator\&}} (const \mbox{\hyperlink{classdai_1_1SmallSet}{Small\+Set}} \&x) const
+\begin{DoxyCompactList}\small\item\em Set-\/intersection operator\+: returns all elements in {\ttfamily \texorpdfstring{$\ast$}{*}this} that are also contained in {\itshape x}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1SmallSet}{Small\+Set}} \& \mbox{\hyperlink{classdai_1_1SmallSet_a7d4bfd495c6629f32bfd817138ec3999}{operator/=}} (const \mbox{\hyperlink{classdai_1_1SmallSet}{Small\+Set}} \&x)
+\begin{DoxyCompactList}\small\item\em Erases from {\ttfamily \texorpdfstring{$\ast$}{*}this} all elements in {\itshape x}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1SmallSet}{Small\+Set}} \& \mbox{\hyperlink{classdai_1_1SmallSet_a2198fa6b95648905d11956ffd1c68df3}{operator/=}} (const \mbox{\hyperlink{classdai_1_1Var}{Var}} \&t)
+\begin{DoxyCompactList}\small\item\em Erases one element. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1SmallSet}{Small\+Set}} \& \mbox{\hyperlink{classdai_1_1SmallSet_a0d8e3f80c15647cd3c0e8abe77a1fae8}{operator\texorpdfstring{$\vert$}{|}=}} (const \mbox{\hyperlink{classdai_1_1SmallSet}{Small\+Set}} \&x)
+\begin{DoxyCompactList}\small\item\em Adds to {\ttfamily \texorpdfstring{$\ast$}{*}this} all elements in {\itshape x}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1SmallSet}{Small\+Set}} \& \mbox{\hyperlink{classdai_1_1SmallSet_a5b16d0fed918b354ee81a461880fbed9}{operator\texorpdfstring{$\vert$}{|}=}} (const \mbox{\hyperlink{classdai_1_1Var}{Var}} \&t)
+\begin{DoxyCompactList}\small\item\em Adds one element. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1SmallSet}{Small\+Set}} \& \mbox{\hyperlink{classdai_1_1SmallSet_a3e7ab92915785320dfa323d3e31e6825}{operator\&=}} (const \mbox{\hyperlink{classdai_1_1SmallSet}{Small\+Set}} \&x)
+\begin{DoxyCompactList}\small\item\em Erases from {\ttfamily \texorpdfstring{$\ast$}{*}this} all elements not in {\itshape x}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classdai_1_1SmallSet_a3fc5c1d91b57b41ce1cd18f905b2b08f}{operator$<$$<$}} (const \mbox{\hyperlink{classdai_1_1SmallSet}{Small\+Set}} \&x) const
+\begin{DoxyCompactList}\small\item\em Returns {\ttfamily true} if {\ttfamily \texorpdfstring{$\ast$}{*}this} is a subset of {\itshape x}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classdai_1_1SmallSet_aff958087b76c5f5532f29c141826bcc3}{operator$>$$>$}} (const \mbox{\hyperlink{classdai_1_1SmallSet}{Small\+Set}} \&x) const
+\begin{DoxyCompactList}\small\item\em Returns {\ttfamily true} if {\itshape x} is a subset of {\ttfamily \texorpdfstring{$\ast$}{*}this}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classdai_1_1SmallSet_a92704b8b9f91ed847bf87a6ec21ce1e1}{iterator}} \mbox{\hyperlink{classdai_1_1SmallSet_a3edafa1c2258b97745ba6e7662a529e8}{begin}} ()
+\begin{DoxyCompactList}\small\item\em Returns iterator that points to the first element. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1SmallSet_aa922e181341753250416ea1649de390a}{const\+\_\+iterator}} \mbox{\hyperlink{classdai_1_1SmallSet_a3a3092746634d7eca1024df55d721f62}{begin}} () const
+\begin{DoxyCompactList}\small\item\em Returns constant iterator that points to the first element. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1SmallSet_a92704b8b9f91ed847bf87a6ec21ce1e1}{iterator}} \mbox{\hyperlink{classdai_1_1SmallSet_addbe167f8e2bfee5bba7ad1ccf014e7a}{end}} ()
+\begin{DoxyCompactList}\small\item\em Returns iterator that points beyond the last element. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1SmallSet_aa922e181341753250416ea1649de390a}{const\+\_\+iterator}} \mbox{\hyperlink{classdai_1_1SmallSet_a2a4c85474b8341d063db5a2bffc2bc5a}{end}} () const
+\begin{DoxyCompactList}\small\item\em Returns constant iterator that points beyond the last element. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1SmallSet_a0e45909634d55b9a74b6e3702bb217b4}{reverse\+\_\+iterator}} \mbox{\hyperlink{classdai_1_1SmallSet_a72b813ab716fbb70f9a0cbcc1a906482}{rbegin}} ()
+\begin{DoxyCompactList}\small\item\em Returns reverse iterator that points to the last element. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1SmallSet_a4f7fd1e1d79a3aed8cc3aa8981cdadd8}{const\+\_\+reverse\+\_\+iterator}} \mbox{\hyperlink{classdai_1_1SmallSet_aef6df0b1bcc96511cbf84fdfb2a581bb}{rbegin}} () const
+\begin{DoxyCompactList}\small\item\em Returns constant reverse iterator that points to the last element. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1SmallSet_a0e45909634d55b9a74b6e3702bb217b4}{reverse\+\_\+iterator}} \mbox{\hyperlink{classdai_1_1SmallSet_a3c886514563d4275e2bfe64fbc680e26}{rend}} ()
+\begin{DoxyCompactList}\small\item\em Returns reverse iterator that points beyond the first element. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1SmallSet_a4f7fd1e1d79a3aed8cc3aa8981cdadd8}{const\+\_\+reverse\+\_\+iterator}} \mbox{\hyperlink{classdai_1_1SmallSet_a6e5f3b2d65a85835a1f94c710bb25b64}{rend}} () const
+\begin{DoxyCompactList}\small\item\em Returns constant reverse iterator that points beyond the first element. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1Var}{Var}} \& \mbox{\hyperlink{classdai_1_1SmallSet_a0e63e454535f5253b4c53f9523908ef2}{front}} ()
+\begin{DoxyCompactList}\small\item\em Returns reference to first element. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{classdai_1_1Var}{Var}} \& \mbox{\hyperlink{classdai_1_1SmallSet_a102951a2a59035800e7c3437fb7105d0}{front}} () const
+\begin{DoxyCompactList}\small\item\em Returns constant reference to first element. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1Var}{Var}} \& \mbox{\hyperlink{classdai_1_1SmallSet_a2858d82e222031c16638f02b2d5687e3}{back}} ()
+\begin{DoxyCompactList}\small\item\em Returns reference to last element. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{classdai_1_1Var}{Var}} \& \mbox{\hyperlink{classdai_1_1SmallSet_a33d5b4bc89b58f335ea8dd44232f52a7}{back}} () const
+\begin{DoxyCompactList}\small\item\em Returns constant reference to last element. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classdai_1_1SmallSet_ae28690d51813e9718823a8f2c46eaec5}{intersects}} (const \mbox{\hyperlink{classdai_1_1SmallSet}{Small\+Set}} \&x) const
+\begin{DoxyCompactList}\small\item\em Returns {\ttfamily true} if {\ttfamily \texorpdfstring{$\ast$}{*}this} and {\itshape x} have elements in common. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classdai_1_1SmallSet_aec45ea33ada3de79d7c901284b1a790f}{contains}} (const \mbox{\hyperlink{classdai_1_1Var}{Var}} \&t) const
+\begin{DoxyCompactList}\small\item\em Returns {\ttfamily true} if {\ttfamily \texorpdfstring{$\ast$}{*}this} contains the element {\itshape t}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{classdai_1_1Var}{Var}} $>$\+::size\+\_\+type \mbox{\hyperlink{classdai_1_1SmallSet_a898d22e10b6870ddc4be574cd583ce26}{size}} () const
+\begin{DoxyCompactList}\small\item\em Returns number of elements. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classdai_1_1SmallSet_a5f25e571a0b5eab6b257c7892dc76564}{empty}} () const
+\begin{DoxyCompactList}\small\item\em Returns whether {\ttfamily \texorpdfstring{$\ast$}{*}this} is empty. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{classdai_1_1Var}{Var}} $>$ \& \mbox{\hyperlink{classdai_1_1SmallSet_a28dbcbc05e75f3cdfe971dd6297af027}{elements}} ()
+\begin{DoxyCompactList}\small\item\em Returns reference to the elements. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+const std\+::vector$<$ \mbox{\hyperlink{classdai_1_1Var}{Var}} $>$ \& \mbox{\hyperlink{classdai_1_1SmallSet_ac3cdaa1112934dcc8f7a97c6e4569c75}{elements}} () const
+\begin{DoxyCompactList}\small\item\em Returns constant reference to the elements. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{classdai_1_1SmallSet_a4de0b3e75db9f95c8105e20f99db6e1f}{to\+String}} () const
+\begin{DoxyCompactList}\small\item\em Formats a \doxylink{classdai_1_1SmallSet}{Small\+Set} as a string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} \mbox{\hyperlink{classdai_1_1Region_aef3c752647a658b9feb50cca46b86509}{\+\_\+c}}
+\begin{DoxyCompactList}\small\item\em Counting number. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Types inherited from \mbox{\hyperlink{classdai_1_1SmallSet}{dai\+::\+Small\+Set$<$ Var $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+typedef std\+::vector$<$ \mbox{\hyperlink{classdai_1_1Var}{Var}} $>$\+::const\+\_\+iterator \mbox{\hyperlink{classdai_1_1SmallSet_aa922e181341753250416ea1649de390a}{const\+\_\+iterator}}
+\begin{DoxyCompactList}\small\item\em Constant iterator over the elements. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+typedef std\+::vector$<$ \mbox{\hyperlink{classdai_1_1Var}{Var}} $>$\+::iterator \mbox{\hyperlink{classdai_1_1SmallSet_a92704b8b9f91ed847bf87a6ec21ce1e1}{iterator}}
+\begin{DoxyCompactList}\small\item\em Iterator over the elements. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+typedef std\+::vector$<$ \mbox{\hyperlink{classdai_1_1Var}{Var}} $>$\+::const\+\_\+reverse\+\_\+iterator \mbox{\hyperlink{classdai_1_1SmallSet_a4f7fd1e1d79a3aed8cc3aa8981cdadd8}{const\+\_\+reverse\+\_\+iterator}}
+\begin{DoxyCompactList}\small\item\em Constant reverse iterator over the elements. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+typedef std\+::vector$<$ \mbox{\hyperlink{classdai_1_1Var}{Var}} $>$\+::reverse\+\_\+iterator \mbox{\hyperlink{classdai_1_1SmallSet_a0e45909634d55b9a74b6e3702bb217b4}{reverse\+\_\+iterator}}
+\begin{DoxyCompactList}\small\item\em Reverse iterator over the elements. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A \doxylink{classdai_1_1Region}{Region} is a set of variables with a counting number. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classdai_1_1Region_aa27111b83697a921dea2e6bb3ecb0222}\label{classdai_1_1Region_aa27111b83697a921dea2e6bb3ecb0222} 
+\index{dai::Region@{dai::Region}!Region@{Region}}
+\index{Region@{Region}!dai::Region@{dai::Region}}
+\doxysubsubsection{\texorpdfstring{Region()}{Region()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily dai\+::\+Region\+::\+Region (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Default constructor. 
+
+\Hypertarget{classdai_1_1Region_a8f59139807c33a041c6af432cd3ea010}\label{classdai_1_1Region_a8f59139807c33a041c6af432cd3ea010} 
+\index{dai::Region@{dai::Region}!Region@{Region}}
+\index{Region@{Region}!dai::Region@{dai::Region}}
+\doxysubsubsection{\texorpdfstring{Region()}{Region()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily dai\+::\+Region\+::\+Region (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classdai_1_1VarSet}{Var\+Set}} \&}]{x,  }\item[{\mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}}}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct from a set of variables and a counting number. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classdai_1_1Region_a444b9b5bdab2fd365d0d23d3a51bcce1}\label{classdai_1_1Region_a444b9b5bdab2fd365d0d23d3a51bcce1} 
+\index{dai::Region@{dai::Region}!c@{c}}
+\index{c@{c}!dai::Region@{dai::Region}}
+\doxysubsubsection{\texorpdfstring{c()}{c()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} \& dai\+::\+Region\+::c (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns constant reference to counting number. 
+
+\Hypertarget{classdai_1_1Region_a529ac355d30aa4630fb13df929f2c82d}\label{classdai_1_1Region_a529ac355d30aa4630fb13df929f2c82d} 
+\index{dai::Region@{dai::Region}!c@{c}}
+\index{c@{c}!dai::Region@{dai::Region}}
+\doxysubsubsection{\texorpdfstring{c()}{c()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} \& dai\+::\+Region\+::c (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns reference to counting number. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classdai_1_1Region_aef3c752647a658b9feb50cca46b86509}\label{classdai_1_1Region_aef3c752647a658b9feb50cca46b86509} 
+\index{dai::Region@{dai::Region}!\_c@{\_c}}
+\index{\_c@{\_c}!dai::Region@{dai::Region}}
+\doxysubsubsection{\texorpdfstring{\_c}{\_c}}
+{\footnotesize\ttfamily \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} dai\+::\+Region\+::\+\_\+c\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Counting number. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/dai/\mbox{\hyperlink{regiongraph_8h}{regiongraph.\+h}}\end{DoxyCompactItemize}

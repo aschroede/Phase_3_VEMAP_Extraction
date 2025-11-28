@@ -1,0 +1,275 @@
+\doxysection{dai\+::FRegion Class Reference}
+\hypertarget{classdai_1_1FRegion}{}\label{classdai_1_1FRegion}\index{dai::FRegion@{dai::FRegion}}
+
+
+An \doxylink{classdai_1_1FRegion}{FRegion} is a factor with a counting number.  
+
+
+
+
+{\ttfamily \#include $<$dai/regiongraph.\+h$>$}
+
+Inheritance diagram for dai\+::FRegion\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classdai_1_1FRegion}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classdai_1_1FRegion_ab81b699de467dab74cd11d315497c636}{FRegion}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1FRegion_af476d8a940e49dbc7997c4c9b3f5e752}{FRegion}} (const \mbox{\hyperlink{factor_8h_a7515abf9952cd312e95a34ada0670e85}{Factor}} \&x, \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} \mbox{\hyperlink{classdai_1_1FRegion_a7b936105ebe220d95c7010494e940f10}{c}})
+\begin{DoxyCompactList}\small\item\em Constructs from a factor and a counting number. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} \& \mbox{\hyperlink{classdai_1_1FRegion_a7b936105ebe220d95c7010494e940f10}{c}} () const
+\begin{DoxyCompactList}\small\item\em Returns constant reference to counting number. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} \& \mbox{\hyperlink{classdai_1_1FRegion_afdccc0b9b9e92439481ec13e367c34da}{c}} ()
+\begin{DoxyCompactList}\small\item\em Returns reference to counting number. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classdai_1_1TFactor}{dai\+::\+TFactor$<$ Real $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classdai_1_1TFactor_a413930641f731e37b043cfed9c85e0ce}{TFactor}} (\mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} p=1)
+\begin{DoxyCompactList}\small\item\em Constructs factor depending on no variables with value {\itshape p}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1TFactor_a8da41eabb003895e074d2c98a2e976a6}{TFactor}} (const \mbox{\hyperlink{classdai_1_1Var}{Var}} \&v)
+\begin{DoxyCompactList}\small\item\em Constructs factor depending on the variable {\itshape v} with uniform distribution. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1TFactor_aa1528118bca7246714984dfe88d569d8}{TFactor}} (const \mbox{\hyperlink{classdai_1_1VarSet}{Var\+Set}} \&vars)
+\begin{DoxyCompactList}\small\item\em Constructs factor depending on variables in {\itshape vars} with uniform distribution. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1TFactor_affa1342a2ff6444cda2661c2e9829acf}{TFactor}} (const \mbox{\hyperlink{classdai_1_1VarSet}{Var\+Set}} \&vars, \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} p)
+\begin{DoxyCompactList}\small\item\em Constructs factor depending on variables in {\itshape vars} with all values set to {\itshape p}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1TFactor_ab43e580b79ff06a7bf35b7b9faa92af6}{TFactor}} (const \mbox{\hyperlink{classdai_1_1VarSet}{Var\+Set}} \&vars, const std\+::vector$<$ S $>$ \&x)
+\begin{DoxyCompactList}\small\item\em Constructs factor depending on variables in {\itshape vars}, copying the values from a std\+::vector$<$$>$ \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1TFactor_a66bba72aedd5bd53390424d68bdd3b4c}{TFactor}} (const \mbox{\hyperlink{classdai_1_1VarSet}{Var\+Set}} \&vars, const \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} \texorpdfstring{$\ast$}{*}p)
+\begin{DoxyCompactList}\small\item\em Constructs factor depending on variables in {\itshape vars}, copying the values from an array. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1TFactor_ac789826f975318da74da79eede4b2584}{TFactor}} (const \mbox{\hyperlink{classdai_1_1VarSet}{Var\+Set}} \&vars, const \mbox{\hyperlink{classdai_1_1TProb}{TProb}}$<$ \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} $>$ \&p)
+\begin{DoxyCompactList}\small\item\em Constructs factor depending on variables in {\itshape vars}, copying the values from {\itshape p}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1TFactor_a55d8a523959045be1a040f2d33436c8d}{TFactor}} (const std\+::vector$<$ \mbox{\hyperlink{classdai_1_1Var}{Var}} $>$ \&vars, const std\+::vector$<$ \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} $>$ \&p)
+\begin{DoxyCompactList}\small\item\em Constructs factor depending on variables in {\itshape vars}, permuting the values given in {\itshape p} accordingly. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classdai_1_1TFactor_a52963ca6221af355da0eb0c742d6a113}{set}} (size\+\_\+t i, \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} val)
+\begin{DoxyCompactList}\small\item\em Sets {\itshape i} \textquotesingle{}th entry to {\itshape val}. \end{DoxyCompactList}\item 
+void {\bfseries set\+Instantiation} (size\+\_\+t i, std\+::map$<$ \mbox{\hyperlink{classdai_1_1Var}{Var}}, size\+\_\+t $>$ val)
+\item 
+\mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} \mbox{\hyperlink{classdai_1_1TFactor_a71bb1a09500d51ad217a7aceb32bdfc5}{get}} (size\+\_\+t i) const
+\begin{DoxyCompactList}\small\item\em Gets {\itshape i} \textquotesingle{}th entry. \end{DoxyCompactList}\item 
+std\+::map$<$ \mbox{\hyperlink{classdai_1_1Var}{Var}}, size\+\_\+t $>$ {\bfseries get\+Instantiation} (size\+\_\+t i) const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{classdai_1_1TProb}{TProb}}$<$ \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} $>$ \& \mbox{\hyperlink{classdai_1_1TFactor_a0c074822a4ef63214ce01ed1fd7ba720}{p}} () const
+\begin{DoxyCompactList}\small\item\em Returns constant reference to value vector. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1TProb}{TProb}}$<$ \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} $>$ \& \mbox{\hyperlink{classdai_1_1TFactor_a265bd98cbf0a564f330a166c9d6d9af7}{p}} ()
+\begin{DoxyCompactList}\small\item\em Returns reference to value vector. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{classdai_1_1Instantiation}{Instantiation}} \& \mbox{\hyperlink{classdai_1_1TFactor_a7eef0159b8bfa8a0e73c1562b2c1d062}{i}} () const
+\begin{DoxyCompactList}\small\item\em Returns constant reference to instantiation vector. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1Instantiation}{Instantiation}} \& \mbox{\hyperlink{classdai_1_1TFactor_a1c25edcfdbddc486e04c69aeba09e159}{i}} ()
+\begin{DoxyCompactList}\small\item\em Returns reference to the instantiation vector. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} \mbox{\hyperlink{classdai_1_1TFactor_a7f0cff4729027a0f56a7d6b653fa5798}{operator\mbox{[}$\,$\mbox{]}}} (size\+\_\+t i) const
+\begin{DoxyCompactList}\small\item\em Returns a copy of the {\itshape i} \textquotesingle{}th entry of the value vector. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{classdai_1_1VarSet}{Var\+Set}} \& \mbox{\hyperlink{classdai_1_1TFactor_a52c048326197e4d8512479b71a0c1e8f}{vars}} () const
+\begin{DoxyCompactList}\small\item\em Returns constant reference to variable set (i.\+e., the variables on which the factor depends) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1VarSet}{Var\+Set}} \& \mbox{\hyperlink{classdai_1_1TFactor_aa291d6ff450b10496fff5448066e4263}{vars}} ()
+\begin{DoxyCompactList}\small\item\em Returns reference to variable set (i.\+e., the variables on which the factor depends) \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classdai_1_1TFactor_a9358f7015c13296208f7a883adc7892d}{nr\+States}} () const
+\begin{DoxyCompactList}\small\item\em Returns the number of possible joint states of the variables on which the factor depends, $\prod_{l\in L} S_l$. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} \mbox{\hyperlink{classdai_1_1TFactor_ad0fc0175f7d0e20138f5a4cc8f204c70}{entropy}} () const
+\begin{DoxyCompactList}\small\item\em Returns the Shannon entropy of {\ttfamily \texorpdfstring{$\ast$}{*}this}, $-\sum_i p_i \log p_i$. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} \mbox{\hyperlink{classdai_1_1TFactor_a78985a1f176725b797f48902f159d3b2}{max}} () const
+\begin{DoxyCompactList}\small\item\em Returns maximum of all values. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} \mbox{\hyperlink{classdai_1_1TFactor_a9b24c32c1f43a236cbe5eb0cbfa38478}{min}} () const
+\begin{DoxyCompactList}\small\item\em Returns minimum of all values. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} \mbox{\hyperlink{classdai_1_1TFactor_a10793dce8ae57ac2dfc181c8bebf1b58}{sum}} () const
+\begin{DoxyCompactList}\small\item\em Returns sum of all values. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} \mbox{\hyperlink{classdai_1_1TFactor_aa42f6ff31b67d6b1713af806a8ce5996}{sum\+Abs}} () const
+\begin{DoxyCompactList}\small\item\em Returns sum of absolute values. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} \mbox{\hyperlink{classdai_1_1TFactor_aca4d4113fcf1fac1a1e13ad15d9fe1c6}{max\+Abs}} () const
+\begin{DoxyCompactList}\small\item\em Returns maximum absolute value of all values. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classdai_1_1TFactor_a0da53d477738c80bc917d9a2f2e7c0b0}{has\+Na\+Ns}} () const
+\begin{DoxyCompactList}\small\item\em Returns {\ttfamily true} if one or more values are NaN. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classdai_1_1TFactor_a5c373c81a3bb7f9c788ac940469f439d}{has\+Negatives}} () const
+\begin{DoxyCompactList}\small\item\em Returns {\ttfamily true} if one or more values are negative. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} \mbox{\hyperlink{classdai_1_1TFactor_a79c10008a081bf56e79fab4fb9d564f7}{strength}} (const \mbox{\hyperlink{classdai_1_1Var}{Var}} \&i, const \mbox{\hyperlink{classdai_1_1Var}{Var}} \&j) const
+\begin{DoxyCompactList}\small\item\em Returns strength of this factor (between variables {\itshape i} and {\itshape j}), as defined in eq. (52) of \mbox{[}Mo\+K07b\mbox{]}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classdai_1_1TFactor_a5f754f064a9b943768f7c8ed53149653}{operator==}} (const \mbox{\hyperlink{classdai_1_1TFactor}{TFactor}}$<$ \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} $>$ \&y) const
+\begin{DoxyCompactList}\small\item\em Comparison. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classdai_1_1TFactor_a9c3a68a0123fd90886b6cb9c85adc8c6}{to\+String}} () const
+\begin{DoxyCompactList}\small\item\em Formats a factor as a string. \end{DoxyCompactList}\item 
+std\+::string {\bfseries to\+String\+Nice} () const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classdai_1_1TFactor}{TFactor}}$<$ \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} $>$ \mbox{\hyperlink{classdai_1_1TFactor_a6b4720129a8e9a762b1fa34e5e863b46}{operator-\/}} () const
+\begin{DoxyCompactList}\small\item\em Returns negative of {\ttfamily \texorpdfstring{$\ast$}{*}this}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1TFactor}{TFactor}}$<$ \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} $>$ \mbox{\hyperlink{classdai_1_1TFactor_a47363c4f80a69794940089fa0d4b9000}{abs}} () const
+\begin{DoxyCompactList}\small\item\em Returns pointwise absolute value. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1TFactor}{TFactor}}$<$ \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} $>$ \mbox{\hyperlink{classdai_1_1TFactor_a0a7856a82580aaf64c1e4a873b9a2299}{exp}} () const
+\begin{DoxyCompactList}\small\item\em Returns pointwise exponent. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1TFactor}{TFactor}}$<$ \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} $>$ \mbox{\hyperlink{classdai_1_1TFactor_aa9316aae8c2244a58257f682193fcec2}{log}} (bool zero=false) const
+\begin{DoxyCompactList}\small\item\em Returns pointwise logarithm. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1TFactor}{TFactor}}$<$ \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} $>$ \mbox{\hyperlink{classdai_1_1TFactor_a191fc92b91b5001c93604d4863dcd5c0}{inverse}} (bool zero=true) const
+\begin{DoxyCompactList}\small\item\em Returns pointwise inverse. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1TFactor}{TFactor}}$<$ \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} $>$ \mbox{\hyperlink{classdai_1_1TFactor_a69c79a8ead315cac1010276fc6b6cb5d}{normalized}} (\mbox{\hyperlink{util_8h_ae0d0ef753bd0ba57586e556ab6312677}{Prob\+Norm\+Type}} norm=NORMPROB) const
+\begin{DoxyCompactList}\small\item\em Returns normalized copy of {\ttfamily \texorpdfstring{$\ast$}{*}this}, using the specified norm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classdai_1_1TFactor}{TFactor}}$<$ \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} $>$ \mbox{\hyperlink{classdai_1_1TFactor_a96986c69df098a30325000f3bf725ed2}{operator-\/}} (\mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} x) const
+\begin{DoxyCompactList}\small\item\em Returns difference of {\ttfamily \texorpdfstring{$\ast$}{*}this} and scalar {\itshape x}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1TFactor}{TFactor}}$<$ \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} $>$ \mbox{\hyperlink{classdai_1_1TFactor_ae6c4b5f251d7e966f3a4d46ec665a0fd}{operator+}} (\mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} x) const
+\begin{DoxyCompactList}\small\item\em Returns sum of {\ttfamily \texorpdfstring{$\ast$}{*}this} and scalar {\itshape x}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1TFactor}{TFactor}}$<$ \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} $>$ \mbox{\hyperlink{classdai_1_1TFactor_afa9e4dd05b4f94531fbbf3719c97f848}{operator\texorpdfstring{$\ast$}{*}}} (\mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} x) const
+\begin{DoxyCompactList}\small\item\em Returns product of {\ttfamily \texorpdfstring{$\ast$}{*}this} with scalar {\itshape x}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1TFactor}{TFactor}}$<$ \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} $>$ \mbox{\hyperlink{classdai_1_1TFactor_ad49392c3b36d00b55cf6ffb143bb4f71}{operator/}} (\mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} x) const
+\begin{DoxyCompactList}\small\item\em Returns quotient of {\ttfamily \texorpdfstring{$\ast$}{*}this} with scalar {\itshape x}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1TFactor}{TFactor}}$<$ \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} $>$ \mbox{\hyperlink{classdai_1_1TFactor_a1e062980919c16267a872ccaac60c3ed}{operator\texorpdfstring{$^\wedge$}{\string^}}} (\mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} x) const
+\begin{DoxyCompactList}\small\item\em Returns {\ttfamily \texorpdfstring{$\ast$}{*}this} raised to the power {\itshape x}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classdai_1_1TFactor}{TFactor}}$<$ \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} $>$ \mbox{\hyperlink{classdai_1_1TFactor_ab4100a17f9dc8174274e17dae33859d9}{operator-\/}} (const \mbox{\hyperlink{classdai_1_1TFactor}{TFactor}}$<$ \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} $>$ \&g) const
+\begin{DoxyCompactList}\small\item\em Returns {\ttfamily \texorpdfstring{$\ast$}{*}this} minus {\itshape g}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1TFactor}{TFactor}}$<$ \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} $>$ \mbox{\hyperlink{classdai_1_1TFactor_aa32ccc393b36f0a0ec8375192789b16e}{operator+}} (const \mbox{\hyperlink{classdai_1_1TFactor}{TFactor}}$<$ \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} $>$ \&g) const
+\begin{DoxyCompactList}\small\item\em Returns sum of {\ttfamily \texorpdfstring{$\ast$}{*}this} and {\itshape g}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1TFactor}{TFactor}}$<$ \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} $>$ \mbox{\hyperlink{classdai_1_1TFactor_a1af0a7f6ad6af2c0a4e4e3e8f87a7d25}{operator\texorpdfstring{$\ast$}{*}}} (const \mbox{\hyperlink{classdai_1_1TFactor}{TFactor}}$<$ \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} $>$ \&g) const
+\begin{DoxyCompactList}\small\item\em Returns product of {\ttfamily \texorpdfstring{$\ast$}{*}this} with {\itshape g}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1TFactor}{TFactor}}$<$ \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} $>$ \mbox{\hyperlink{classdai_1_1TFactor_af820fb1677ce4603f84dd3b7f872d2f1}{operator/}} (const \mbox{\hyperlink{classdai_1_1TFactor}{TFactor}}$<$ \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} $>$ \&g) const
+\begin{DoxyCompactList}\small\item\em Returns quotient of {\ttfamily \texorpdfstring{$\ast$}{*}this} by {\itshape f} (where division by zero yields zero) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1TFactor}{TFactor}}$<$ \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} $>$ \mbox{\hyperlink{classdai_1_1TFactor_a40421e4ca261192d8f71c2db6e9da6c1}{binary\+Tr}} (const \mbox{\hyperlink{classdai_1_1TFactor}{TFactor}}$<$ \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} $>$ \&g, bin\+Op op) const
+\begin{DoxyCompactList}\small\item\em Returns result of applying binary operation {\itshape op} on two factors, {\ttfamily \texorpdfstring{$\ast$}{*}this} and {\itshape g}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classdai_1_1TFactor}{TFactor}}$<$ \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} $>$ \& \mbox{\hyperlink{classdai_1_1TFactor_a2b5a63dce4d8fc20086c229088e2de52}{randomize}} ()
+\begin{DoxyCompactList}\small\item\em Draws all values i.\+i.\+d. from a uniform distribution on \mbox{[}0,1) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1TFactor}{TFactor}}$<$ \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} $>$ \& \mbox{\hyperlink{classdai_1_1TFactor_ab4541c02c0e22d0dab12d29aa165b256}{set\+Uniform}} ()
+\begin{DoxyCompactList}\small\item\em Sets all values to $1/n$ where {\itshape n} is the number of states. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1TFactor}{TFactor}}$<$ \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} $>$ \& \mbox{\hyperlink{classdai_1_1TFactor_ac64cb602bb444e7eb4b1e0173e3019cb}{take\+Abs}} ()
+\begin{DoxyCompactList}\small\item\em Applies absolute value pointwise. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1TFactor}{TFactor}}$<$ \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} $>$ \& \mbox{\hyperlink{classdai_1_1TFactor_aca0a3f622efa8714d443dcfac00675e9}{take\+Exp}} ()
+\begin{DoxyCompactList}\small\item\em Applies exponent pointwise. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1TFactor}{TFactor}}$<$ \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} $>$ \& \mbox{\hyperlink{classdai_1_1TFactor_a4e6dce445d9021938d1ce65c1472baaf}{take\+Log}} (bool zero=false)
+\begin{DoxyCompactList}\small\item\em Applies logarithm pointwise. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} \mbox{\hyperlink{classdai_1_1TFactor_a2395b393cfa1b05ed5eb8984bb06de0f}{normalize}} (\mbox{\hyperlink{util_8h_ae0d0ef753bd0ba57586e556ab6312677}{Prob\+Norm\+Type}} norm=NORMPROB)
+\begin{DoxyCompactList}\small\item\em Normalizes factor using the specified norm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classdai_1_1TFactor}{TFactor}}$<$ \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} $>$ \& \mbox{\hyperlink{classdai_1_1TFactor_a27fde4dee0eaf7759251c6a1bda55ad0}{fill}} (\mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} x)
+\begin{DoxyCompactList}\small\item\em Sets all values to {\itshape x}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1TFactor}{TFactor}}$<$ \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} $>$ \& \mbox{\hyperlink{classdai_1_1TFactor_aaa04d4b26d17d6733ff5353b818e6274}{operator+=}} (\mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} x)
+\begin{DoxyCompactList}\small\item\em Adds scalar {\itshape x} to each value. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1TFactor}{TFactor}}$<$ \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} $>$ \& \mbox{\hyperlink{classdai_1_1TFactor_a7527edbb4055ade137cac93bf4bd8186}{operator-\/=}} (\mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} x)
+\begin{DoxyCompactList}\small\item\em Subtracts scalar {\itshape x} from each value. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1TFactor}{TFactor}}$<$ \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} $>$ \& \mbox{\hyperlink{classdai_1_1TFactor_a5d15b44aeba7dc76ce4b5eb3188d98b0}{operator\texorpdfstring{$\ast$}{*}=}} (\mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} x)
+\begin{DoxyCompactList}\small\item\em Multiplies each value with scalar {\itshape x}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1TFactor}{TFactor}}$<$ \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} $>$ \& \mbox{\hyperlink{classdai_1_1TFactor_afc16192cc27715116b5f91ffc803db0f}{operator/=}} (\mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} x)
+\begin{DoxyCompactList}\small\item\em Divides each entry by scalar {\itshape x}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1TFactor}{TFactor}}$<$ \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} $>$ \& \mbox{\hyperlink{classdai_1_1TFactor_ab74d5199dada7821520f4b3c1330ddc5}{operator\texorpdfstring{$^\wedge$}{\string^}=}} (\mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} x)
+\begin{DoxyCompactList}\small\item\em Raises values to the power {\itshape x}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classdai_1_1TFactor}{TFactor}}$<$ \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} $>$ \& \mbox{\hyperlink{classdai_1_1TFactor_a5c6938a5911ab084bf376910dacba0fa}{operator+=}} (const \mbox{\hyperlink{classdai_1_1TFactor}{TFactor}}$<$ \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} $>$ \&g)
+\begin{DoxyCompactList}\small\item\em Adds {\itshape g} to {\ttfamily \texorpdfstring{$\ast$}{*}this}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1TFactor}{TFactor}}$<$ \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} $>$ \& \mbox{\hyperlink{classdai_1_1TFactor_aa854458ae69484a5973129cefd49ebde}{operator-\/=}} (const \mbox{\hyperlink{classdai_1_1TFactor}{TFactor}}$<$ \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} $>$ \&g)
+\begin{DoxyCompactList}\small\item\em Subtracts {\itshape g} from {\ttfamily \texorpdfstring{$\ast$}{*}this}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1TFactor}{TFactor}}$<$ \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} $>$ \& \mbox{\hyperlink{classdai_1_1TFactor_a12504427877e0a8dd5772f0b3346f302}{operator\texorpdfstring{$\ast$}{*}=}} (const \mbox{\hyperlink{classdai_1_1TFactor}{TFactor}}$<$ \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} $>$ \&g)
+\begin{DoxyCompactList}\small\item\em Multiplies {\ttfamily \texorpdfstring{$\ast$}{*}this} with {\itshape g}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1TFactor}{TFactor}}$<$ \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} $>$ \& \mbox{\hyperlink{classdai_1_1TFactor_abc2d85222fbd132ef810574744c23228}{operator/=}} (const \mbox{\hyperlink{classdai_1_1TFactor}{TFactor}}$<$ \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} $>$ \&g)
+\begin{DoxyCompactList}\small\item\em Divides {\ttfamily \texorpdfstring{$\ast$}{*}this} by {\itshape g} (where division by zero yields zero) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1TFactor}{TFactor}}$<$ \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} $>$ \& \mbox{\hyperlink{classdai_1_1TFactor_abd8b834e32345eb550a07d0608214fad}{binary\+Op}} (const \mbox{\hyperlink{classdai_1_1TFactor}{TFactor}}$<$ \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} $>$ \&g, bin\+Op op)
+\begin{DoxyCompactList}\small\item\em Applies binary operation {\itshape op} on two factors, {\ttfamily \texorpdfstring{$\ast$}{*}this} and {\itshape g}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classdai_1_1TFactor}{TFactor}}$<$ \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} $>$ \mbox{\hyperlink{classdai_1_1TFactor_ae9a1373a51646795b1b6b39fd6746e79}{slice}} (const \mbox{\hyperlink{classdai_1_1VarSet}{Var\+Set}} \&vars, size\+\_\+t vars\+State) const
+\begin{DoxyCompactList}\small\item\em Returns a slice of {\ttfamily \texorpdfstring{$\ast$}{*}this}, where the subset {\itshape vars} is in state {\itshape vars\+State}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1TFactor}{TFactor}}$<$ \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} $>$ \mbox{\hyperlink{classdai_1_1TFactor_a1675f9f07d0fbcf26e81059e3f739e97}{embed}} (const \mbox{\hyperlink{classdai_1_1VarSet}{Var\+Set}} \&vars) const
+\begin{DoxyCompactList}\small\item\em Embeds this factor in a larger \doxylink{classdai_1_1VarSet}{Var\+Set}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1TFactor}{TFactor}}$<$ \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} $>$ \mbox{\hyperlink{classdai_1_1TFactor_ab18d34852ba2136a6329dccbb1a5815b}{marginal}} (const \mbox{\hyperlink{classdai_1_1VarSet}{Var\+Set}} \&vars, bool normed=true) const
+\begin{DoxyCompactList}\small\item\em Returns marginal on {\itshape vars}, obtained by summing out all variables except those in {\itshape vars}, and normalizing the result if {\itshape normed} == {\ttfamily true}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1TFactor}{TFactor}}$<$ \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} $>$ \mbox{\hyperlink{classdai_1_1TFactor_af0abd6272501181930cde97570808be7}{max\+Marginal}} (const \mbox{\hyperlink{classdai_1_1VarSet}{Var\+Set}} \&vars, bool normed=true) const
+\begin{DoxyCompactList}\small\item\em Returns max-\/marginal on {\itshape vars}, obtained by maximizing all variables except those in {\itshape vars}, and normalizing the result if {\itshape normed} == {\ttfamily true}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1TFactor}{TFactor}}$<$ \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} $>$ {\bfseries max\+Marginal\+Transparent} (const \mbox{\hyperlink{classdai_1_1VarSet}{Var\+Set}} \&vars, bool normed=true) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} \mbox{\hyperlink{classdai_1_1FRegion_a81411eb4dcad6c12514a3cd424a4214a}{\+\_\+c}}
+\begin{DoxyCompactList}\small\item\em Counting number. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Related Symbols inherited from \mbox{\hyperlink{classdai_1_1TFactor}{dai\+::\+TFactor$<$ Real $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classdai_1_1TFactor}{TFactor}}$<$ \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} $>$ \mbox{\hyperlink{classdai_1_1TFactor_a2cccf0cd38b68a3b22b167b2af90e518}{max}} (const \mbox{\hyperlink{classdai_1_1TFactor}{TFactor}}$<$ \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} $>$ \&f, const \mbox{\hyperlink{classdai_1_1TFactor}{TFactor}}$<$ \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} $>$ \&g)
+\begin{DoxyCompactList}\small\item\em Returns the pointwise maximum of two factors. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1TFactor}{TFactor}}$<$ \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} $>$ \mbox{\hyperlink{classdai_1_1TFactor_a30ea8a783f28550835226f139fa87e97}{min}} (const \mbox{\hyperlink{classdai_1_1TFactor}{TFactor}}$<$ \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} $>$ \&f, const \mbox{\hyperlink{classdai_1_1TFactor}{TFactor}}$<$ \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} $>$ \&g)
+\begin{DoxyCompactList}\small\item\em Returns the pointwise minimum of two factors. \end{DoxyCompactList}\item 
+std\+::ostream \& \mbox{\hyperlink{classdai_1_1TFactor_ab4cfb99bfafa3e661caa11171c8918be}{operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{classdai_1_1TFactor}{TFactor}}$<$ \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} $>$ \&f)
+\begin{DoxyCompactList}\small\item\em Writes a factor to an output stream. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} \mbox{\hyperlink{classdai_1_1TFactor_aefdaa35a881dd00aff2894986f5967c2}{dist}} (const \mbox{\hyperlink{classdai_1_1TFactor}{TFactor}}$<$ \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} $>$ \&f, const \mbox{\hyperlink{classdai_1_1TFactor}{TFactor}}$<$ \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} $>$ \&g, \mbox{\hyperlink{util_8h_aa2735a823696443089d2de23e8ee6ecb}{Prob\+Dist\+Type}} dt)
+\begin{DoxyCompactList}\small\item\em Returns distance between two factors {\itshape f} and {\itshape g}, according to the distance measure {\itshape dt}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} \mbox{\hyperlink{classdai_1_1TFactor_a2f0ced4bc2927eea87bf14438aa63f8e}{Mutual\+Info}} (const \mbox{\hyperlink{classdai_1_1TFactor}{TFactor}}$<$ \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} $>$ \&f)
+\begin{DoxyCompactList}\small\item\em Calculates the mutual information between the two variables that {\itshape f} depends on, under the distribution given by {\itshape f}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+An \doxylink{classdai_1_1FRegion}{FRegion} is a factor with a counting number. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classdai_1_1FRegion_ab81b699de467dab74cd11d315497c636}\label{classdai_1_1FRegion_ab81b699de467dab74cd11d315497c636} 
+\index{dai::FRegion@{dai::FRegion}!FRegion@{FRegion}}
+\index{FRegion@{FRegion}!dai::FRegion@{dai::FRegion}}
+\doxysubsubsection{\texorpdfstring{FRegion()}{FRegion()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily dai\+::\+FRegion\+::\+FRegion (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Default constructor. 
+
+\Hypertarget{classdai_1_1FRegion_af476d8a940e49dbc7997c4c9b3f5e752}\label{classdai_1_1FRegion_af476d8a940e49dbc7997c4c9b3f5e752} 
+\index{dai::FRegion@{dai::FRegion}!FRegion@{FRegion}}
+\index{FRegion@{FRegion}!dai::FRegion@{dai::FRegion}}
+\doxysubsubsection{\texorpdfstring{FRegion()}{FRegion()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily dai\+::\+FRegion\+::\+FRegion (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{factor_8h_a7515abf9952cd312e95a34ada0670e85}{Factor}} \&}]{x,  }\item[{\mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}}}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructs from a factor and a counting number. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classdai_1_1FRegion_a7b936105ebe220d95c7010494e940f10}\label{classdai_1_1FRegion_a7b936105ebe220d95c7010494e940f10} 
+\index{dai::FRegion@{dai::FRegion}!c@{c}}
+\index{c@{c}!dai::FRegion@{dai::FRegion}}
+\doxysubsubsection{\texorpdfstring{c()}{c()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} \& dai\+::\+FRegion\+::c (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns constant reference to counting number. 
+
+\Hypertarget{classdai_1_1FRegion_afdccc0b9b9e92439481ec13e367c34da}\label{classdai_1_1FRegion_afdccc0b9b9e92439481ec13e367c34da} 
+\index{dai::FRegion@{dai::FRegion}!c@{c}}
+\index{c@{c}!dai::FRegion@{dai::FRegion}}
+\doxysubsubsection{\texorpdfstring{c()}{c()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} \& dai\+::\+FRegion\+::c (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns reference to counting number. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classdai_1_1FRegion_a81411eb4dcad6c12514a3cd424a4214a}\label{classdai_1_1FRegion_a81411eb4dcad6c12514a3cd424a4214a} 
+\index{dai::FRegion@{dai::FRegion}!\_c@{\_c}}
+\index{\_c@{\_c}!dai::FRegion@{dai::FRegion}}
+\doxysubsubsection{\texorpdfstring{\_c}{\_c}}
+{\footnotesize\ttfamily \mbox{\hyperlink{util_8h_ae7d0472fdc89a8635825d01940e91cbf}{Real}} dai\+::\+FRegion\+::\+\_\+c\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Counting number. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/dai/\mbox{\hyperlink{regiongraph_8h}{regiongraph.\+h}}\end{DoxyCompactItemize}

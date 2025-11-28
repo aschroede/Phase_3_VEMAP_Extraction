@@ -6,6 +6,14 @@
 
 namespace dai {
 
+    constexpr std::string_view LOG_LEVEL_STRINGS[] = {
+        "DEBUG",
+        "INFO",
+        "WARNING",
+        "ERROR",
+        "CRITICAL"
+    };
+
     enum class LogLevel {
         DEBUG,
         INFO,

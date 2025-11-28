@@ -1,0 +1,431 @@
+\doxysection{dai\+::Cluster\+Graph Class Reference}
+\hypertarget{classdai_1_1ClusterGraph}{}\label{classdai_1_1ClusterGraph}\index{dai::ClusterGraph@{dai::ClusterGraph}}
+
+
+A \doxylink{classdai_1_1ClusterGraph}{Cluster\+Graph} is a hypergraph with variables as nodes, and "{}clusters"{} (sets of variables) as hyperedges.  
+
+
+
+
+{\ttfamily \#include $<$dai/clustergraph.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{Indent}\textbf{ Constructors and destructors}\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classdai_1_1ClusterGraph_ad2e6d97e39753c1524026e8dbe52387a}{Cluster\+Graph}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1ClusterGraph_a5509e79c9c41d7219104eaf07fce6a36}{Cluster\+Graph}} (const std\+::vector$<$ \mbox{\hyperlink{classdai_1_1VarSet}{Var\+Set}} $>$ \&cls)
+\begin{DoxyCompactList}\small\item\em Construct from vector of \doxylink{classdai_1_1VarSet}{Var\+Set} \textquotesingle{}s. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1ClusterGraph_a6a80d5a63b0e2c3e9cf81f92fd0456a5}{Cluster\+Graph}} (const \mbox{\hyperlink{classdai_1_1FactorGraph}{Factor\+Graph}} \&fg, bool only\+Maximal)
+\begin{DoxyCompactList}\small\item\em Construct from a factor graph. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Queries}\par
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{classdai_1_1BipartiteGraph}{Bipartite\+Graph}} \& \mbox{\hyperlink{classdai_1_1ClusterGraph_af08b1d198039fcf500c81bc5d082c9ad}{bip\+Graph}} () const
+\begin{DoxyCompactList}\small\item\em Returns a constant reference to the graph structure. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classdai_1_1ClusterGraph_aec5d17c114659908489ccd4542a1455d}{nr\+Vars}} () const
+\begin{DoxyCompactList}\small\item\em Returns number of variables. \end{DoxyCompactList}\item 
+const std\+::vector$<$ \mbox{\hyperlink{classdai_1_1Var}{Var}} $>$ \& \mbox{\hyperlink{classdai_1_1ClusterGraph_a625cdf7946acf79e6c0347329cad5018}{vars}} () const
+\begin{DoxyCompactList}\small\item\em Returns a constant reference to the variables. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{classdai_1_1Var}{Var}} \& \mbox{\hyperlink{classdai_1_1ClusterGraph_a6afc12e69b6e3684c5ac149598831738}{var}} (size\+\_\+t i) const
+\begin{DoxyCompactList}\small\item\em Returns a constant reference to the {\itshape i\textquotesingle{}th} variable. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classdai_1_1ClusterGraph_a2a9a2127ac26b650f3d8d20e743d0315}{nr\+Clusters}} () const
+\begin{DoxyCompactList}\small\item\em Returns number of clusters. \end{DoxyCompactList}\item 
+const std\+::vector$<$ \mbox{\hyperlink{classdai_1_1VarSet}{Var\+Set}} $>$ \& \mbox{\hyperlink{classdai_1_1ClusterGraph_a6516b7329af27069ba6100cfe60f3663}{clusters}} () const
+\begin{DoxyCompactList}\small\item\em Returns a constant reference to the clusters. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{classdai_1_1VarSet}{Var\+Set}} \& \mbox{\hyperlink{classdai_1_1ClusterGraph_a4c26b7bed7f9d3a3b8dedb48118101c0}{cluster}} (size\+\_\+t I) const
+\begin{DoxyCompactList}\small\item\em Returns a constant reference to the {\itshape I\textquotesingle{}th} cluster. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classdai_1_1ClusterGraph_ac32cf90540f55418bff967f50ac4db38}{find\+Var}} (const \mbox{\hyperlink{classdai_1_1Var}{Var}} \&n) const
+\begin{DoxyCompactList}\small\item\em Returns the index of variable {\itshape n}. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classdai_1_1ClusterGraph_a26b75bd22667557f7c680b75b9613771}{find\+Cluster}} (const \mbox{\hyperlink{classdai_1_1VarSet}{Var\+Set}} \&cl) const
+\begin{DoxyCompactList}\small\item\em Returns the index of a cluster {\itshape cl}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1VarSet}{Var\+Set}} \mbox{\hyperlink{classdai_1_1ClusterGraph_a3584e61b27ead2e0daa5893c1d651b23}{Delta}} (size\+\_\+t i) const
+\begin{DoxyCompactList}\small\item\em Returns union of clusters that contain the {\itshape i} \textquotesingle{}th variable. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1VarSet}{Var\+Set}} \mbox{\hyperlink{classdai_1_1ClusterGraph_a1961599a1b019231a0a096afc5010e73}{delta}} (size\+\_\+t i) const
+\begin{DoxyCompactList}\small\item\em Returns union of clusters that contain the {\itshape i} \textquotesingle{}th (except this variable itself) \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classdai_1_1ClusterGraph_a95b379fb6f23a5d70590be73fdf91160}{adj}} (size\+\_\+t i1, size\+\_\+t i2) const
+\begin{DoxyCompactList}\small\item\em Returns {\ttfamily true} if variables with indices {\itshape i1} and {\itshape i2} are adjacent, i.\+e., both contained in the same cluster. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classdai_1_1ClusterGraph_acefd5b7ece4ac4512ec2c561f780267a}{is\+Maximal}} (size\+\_\+t I) const
+\begin{DoxyCompactList}\small\item\em Returns {\ttfamily true} if cluster {\itshape I} is not contained in a larger cluster. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Operations}\par
+\begin{DoxyCompactItemize}
+\item 
+size\+\_\+t \mbox{\hyperlink{classdai_1_1ClusterGraph_a0174fd852e724bd48e040ed9c5a0ca44}{insert}} (const \mbox{\hyperlink{classdai_1_1VarSet}{Var\+Set}} \&cl)
+\begin{DoxyCompactList}\small\item\em Inserts a cluster (if it does not already exist) and creates new variables, if necessary. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1ClusterGraph}{Cluster\+Graph}} \& \mbox{\hyperlink{classdai_1_1ClusterGraph_a4a86427479d030d6e7c743dd4ab9aa47}{erase\+Non\+Maximal}} ()
+\begin{DoxyCompactList}\small\item\em Erases all clusters that are not maximal. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1ClusterGraph}{Cluster\+Graph}} \& \mbox{\hyperlink{classdai_1_1ClusterGraph_aebe3d830d62e542f6636152051f51ab7}{erase\+Subsuming}} (size\+\_\+t i)
+\begin{DoxyCompactList}\small\item\em Erases all clusters that contain the {\itshape i} \textquotesingle{}th variable. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1VarSet}{Var\+Set}} \mbox{\hyperlink{classdai_1_1ClusterGraph_ae2de799b98881bd0c9c2481e23939099}{elim\+Var}} (size\+\_\+t i)
+\begin{DoxyCompactList}\small\item\em Eliminates variable with index {\itshape i}, without deleting the variable itself. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Variable elimination}\par
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class Elimination\+Choice $>$ }\\std\+::tuple$<$ \mbox{\hyperlink{classdai_1_1ClusterGraph}{Cluster\+Graph}}, std\+::vector$<$ size\+\_\+t $>$ $>$ \mbox{\hyperlink{classdai_1_1ClusterGraph_a2298aa1f67002915ddc6b778980ac61e}{Var\+Elim}} (Elimination\+Choice f, size\+\_\+t max\+States=0) const
+\begin{DoxyCompactList}\small\item\em Performs Variable Elimination, keeping track of the interactions that are created along the way. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Elimination\+Choice $>$ }\\std\+::vector$<$ size\+\_\+t $>$ \mbox{\hyperlink{classdai_1_1ClusterGraph_a76c17644d694f73642559d363fa8658e}{Var\+Elim\+Var\+Order}} (Elimination\+Choice f) const
+\begin{DoxyCompactList}\small\item\em Performs Variable Elimination, keeping track of the interactions that are created along the way. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classdai_1_1BipartiteGraph}{Bipartite\+Graph}} \mbox{\hyperlink{classdai_1_1ClusterGraph_a21b1c2443ba4ed895cb4ea0700f59ef2}{\+\_\+G}}
+\begin{DoxyCompactList}\small\item\em Stores the neighborhood structure. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{classdai_1_1Var}{Var}} $>$ \mbox{\hyperlink{classdai_1_1ClusterGraph_a47c2cb4200b2a6db10315dd60c15383c}{\+\_\+vars}}
+\begin{DoxyCompactList}\small\item\em Stores the variables corresponding to the nodes. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{classdai_1_1VarSet}{Var\+Set}} $>$ \mbox{\hyperlink{classdai_1_1ClusterGraph_a9310ce7101cfe0c16b705e54ce41e1bd}{\+\_\+clusters}}
+\begin{DoxyCompactList}\small\item\em Stores the clusters corresponding to the hyperedges. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Input/\+Ouput}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{classdai_1_1ClusterGraph_ad0542e5f220bcdd61ec4f8717d2546fa}{to\+String}} () const
+\begin{DoxyCompactList}\small\item\em Formats a \doxylink{classdai_1_1ClusterGraph}{Cluster\+Graph} as a string. \end{DoxyCompactList}\item 
+std\+::ostream \& \mbox{\hyperlink{classdai_1_1ClusterGraph_ab8eeaf93400f6cbe7015bec0e0519231}{operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{classdai_1_1ClusterGraph}{Cluster\+Graph}} \&cl)
+\begin{DoxyCompactList}\small\item\em Writes a \doxylink{classdai_1_1ClusterGraph}{Cluster\+Graph} to an output stream. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A \doxylink{classdai_1_1ClusterGraph}{Cluster\+Graph} is a hypergraph with variables as nodes, and "{}clusters"{} (sets of variables) as hyperedges. 
+
+It is implemented as a bipartite graph with variable (\doxylink{classdai_1_1Var}{Var}) nodes and cluster (\doxylink{classdai_1_1VarSet}{Var\+Set}) nodes. One may think of a \doxylink{classdai_1_1ClusterGraph}{Cluster\+Graph} as a \doxylink{classdai_1_1FactorGraph}{Factor\+Graph} without the actual factor values. \begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000002}{Todo}}]Remove the \+\_\+vars and \+\_\+clusters variables and use only the graph and a contextual factor graph. \end{DoxyRefDesc}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classdai_1_1ClusterGraph_ad2e6d97e39753c1524026e8dbe52387a}\label{classdai_1_1ClusterGraph_ad2e6d97e39753c1524026e8dbe52387a} 
+\index{dai::ClusterGraph@{dai::ClusterGraph}!ClusterGraph@{ClusterGraph}}
+\index{ClusterGraph@{ClusterGraph}!dai::ClusterGraph@{dai::ClusterGraph}}
+\doxysubsubsection{\texorpdfstring{ClusterGraph()}{ClusterGraph()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily dai\+::\+Cluster\+Graph\+::\+Cluster\+Graph (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Default constructor. 
+
+\Hypertarget{classdai_1_1ClusterGraph_a5509e79c9c41d7219104eaf07fce6a36}\label{classdai_1_1ClusterGraph_a5509e79c9c41d7219104eaf07fce6a36} 
+\index{dai::ClusterGraph@{dai::ClusterGraph}!ClusterGraph@{ClusterGraph}}
+\index{ClusterGraph@{ClusterGraph}!dai::ClusterGraph@{dai::ClusterGraph}}
+\doxysubsubsection{\texorpdfstring{ClusterGraph()}{ClusterGraph()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily dai\+::\+Cluster\+Graph\+::\+Cluster\+Graph (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{classdai_1_1VarSet}{Var\+Set}} $>$ \&}]{cls }\end{DoxyParamCaption})}
+
+
+
+Construct from vector of \doxylink{classdai_1_1VarSet}{Var\+Set} \textquotesingle{}s. 
+
+\Hypertarget{classdai_1_1ClusterGraph_a6a80d5a63b0e2c3e9cf81f92fd0456a5}\label{classdai_1_1ClusterGraph_a6a80d5a63b0e2c3e9cf81f92fd0456a5} 
+\index{dai::ClusterGraph@{dai::ClusterGraph}!ClusterGraph@{ClusterGraph}}
+\index{ClusterGraph@{ClusterGraph}!dai::ClusterGraph@{dai::ClusterGraph}}
+\doxysubsubsection{\texorpdfstring{ClusterGraph()}{ClusterGraph()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily dai\+::\+Cluster\+Graph\+::\+Cluster\+Graph (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classdai_1_1FactorGraph}{Factor\+Graph}} \&}]{fg,  }\item[{bool}]{only\+Maximal }\end{DoxyParamCaption})}
+
+
+
+Construct from a factor graph. 
+
+Creates cluster graph which has factors in {\itshape fg} as clusters if {\itshape only\+Maximal} == {\ttfamily false}, and only the maximal factors in {\itshape fg} if {\itshape only\+Maximal} == {\ttfamily true}. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classdai_1_1ClusterGraph_af08b1d198039fcf500c81bc5d082c9ad}\label{classdai_1_1ClusterGraph_af08b1d198039fcf500c81bc5d082c9ad} 
+\index{dai::ClusterGraph@{dai::ClusterGraph}!bipGraph@{bipGraph}}
+\index{bipGraph@{bipGraph}!dai::ClusterGraph@{dai::ClusterGraph}}
+\doxysubsubsection{\texorpdfstring{bipGraph()}{bipGraph()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classdai_1_1BipartiteGraph}{Bipartite\+Graph}} \& dai\+::\+Cluster\+Graph\+::bip\+Graph (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns a constant reference to the graph structure. 
+
+\Hypertarget{classdai_1_1ClusterGraph_aec5d17c114659908489ccd4542a1455d}\label{classdai_1_1ClusterGraph_aec5d17c114659908489ccd4542a1455d} 
+\index{dai::ClusterGraph@{dai::ClusterGraph}!nrVars@{nrVars}}
+\index{nrVars@{nrVars}!dai::ClusterGraph@{dai::ClusterGraph}}
+\doxysubsubsection{\texorpdfstring{nrVars()}{nrVars()}}
+{\footnotesize\ttfamily size\+\_\+t dai\+::\+Cluster\+Graph\+::nr\+Vars (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns number of variables. 
+
+\Hypertarget{classdai_1_1ClusterGraph_a625cdf7946acf79e6c0347329cad5018}\label{classdai_1_1ClusterGraph_a625cdf7946acf79e6c0347329cad5018} 
+\index{dai::ClusterGraph@{dai::ClusterGraph}!vars@{vars}}
+\index{vars@{vars}!dai::ClusterGraph@{dai::ClusterGraph}}
+\doxysubsubsection{\texorpdfstring{vars()}{vars()}}
+{\footnotesize\ttfamily const std\+::vector$<$ \mbox{\hyperlink{classdai_1_1Var}{Var}} $>$ \& dai\+::\+Cluster\+Graph\+::vars (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns a constant reference to the variables. 
+
+\Hypertarget{classdai_1_1ClusterGraph_a6afc12e69b6e3684c5ac149598831738}\label{classdai_1_1ClusterGraph_a6afc12e69b6e3684c5ac149598831738} 
+\index{dai::ClusterGraph@{dai::ClusterGraph}!var@{var}}
+\index{var@{var}!dai::ClusterGraph@{dai::ClusterGraph}}
+\doxysubsubsection{\texorpdfstring{var()}{var()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classdai_1_1Var}{Var}} \& dai\+::\+Cluster\+Graph\+::var (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{i }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns a constant reference to the {\itshape i\textquotesingle{}th} variable. 
+
+\Hypertarget{classdai_1_1ClusterGraph_a2a9a2127ac26b650f3d8d20e743d0315}\label{classdai_1_1ClusterGraph_a2a9a2127ac26b650f3d8d20e743d0315} 
+\index{dai::ClusterGraph@{dai::ClusterGraph}!nrClusters@{nrClusters}}
+\index{nrClusters@{nrClusters}!dai::ClusterGraph@{dai::ClusterGraph}}
+\doxysubsubsection{\texorpdfstring{nrClusters()}{nrClusters()}}
+{\footnotesize\ttfamily size\+\_\+t dai\+::\+Cluster\+Graph\+::nr\+Clusters (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns number of clusters. 
+
+\Hypertarget{classdai_1_1ClusterGraph_a6516b7329af27069ba6100cfe60f3663}\label{classdai_1_1ClusterGraph_a6516b7329af27069ba6100cfe60f3663} 
+\index{dai::ClusterGraph@{dai::ClusterGraph}!clusters@{clusters}}
+\index{clusters@{clusters}!dai::ClusterGraph@{dai::ClusterGraph}}
+\doxysubsubsection{\texorpdfstring{clusters()}{clusters()}}
+{\footnotesize\ttfamily const std\+::vector$<$ \mbox{\hyperlink{classdai_1_1VarSet}{Var\+Set}} $>$ \& dai\+::\+Cluster\+Graph\+::clusters (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns a constant reference to the clusters. 
+
+\Hypertarget{classdai_1_1ClusterGraph_a4c26b7bed7f9d3a3b8dedb48118101c0}\label{classdai_1_1ClusterGraph_a4c26b7bed7f9d3a3b8dedb48118101c0} 
+\index{dai::ClusterGraph@{dai::ClusterGraph}!cluster@{cluster}}
+\index{cluster@{cluster}!dai::ClusterGraph@{dai::ClusterGraph}}
+\doxysubsubsection{\texorpdfstring{cluster()}{cluster()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classdai_1_1VarSet}{Var\+Set}} \& dai\+::\+Cluster\+Graph\+::cluster (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{I }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns a constant reference to the {\itshape I\textquotesingle{}th} cluster. 
+
+\Hypertarget{classdai_1_1ClusterGraph_ac32cf90540f55418bff967f50ac4db38}\label{classdai_1_1ClusterGraph_ac32cf90540f55418bff967f50ac4db38} 
+\index{dai::ClusterGraph@{dai::ClusterGraph}!findVar@{findVar}}
+\index{findVar@{findVar}!dai::ClusterGraph@{dai::ClusterGraph}}
+\doxysubsubsection{\texorpdfstring{findVar()}{findVar()}}
+{\footnotesize\ttfamily size\+\_\+t dai\+::\+Cluster\+Graph\+::find\+Var (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classdai_1_1Var}{Var}} \&}]{n }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the index of variable {\itshape n}. 
+
+\Hypertarget{classdai_1_1ClusterGraph_a26b75bd22667557f7c680b75b9613771}\label{classdai_1_1ClusterGraph_a26b75bd22667557f7c680b75b9613771} 
+\index{dai::ClusterGraph@{dai::ClusterGraph}!findCluster@{findCluster}}
+\index{findCluster@{findCluster}!dai::ClusterGraph@{dai::ClusterGraph}}
+\doxysubsubsection{\texorpdfstring{findCluster()}{findCluster()}}
+{\footnotesize\ttfamily size\+\_\+t dai\+::\+Cluster\+Graph\+::find\+Cluster (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classdai_1_1VarSet}{Var\+Set}} \&}]{cl }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the index of a cluster {\itshape cl}. 
+
+\Hypertarget{classdai_1_1ClusterGraph_a3584e61b27ead2e0daa5893c1d651b23}\label{classdai_1_1ClusterGraph_a3584e61b27ead2e0daa5893c1d651b23} 
+\index{dai::ClusterGraph@{dai::ClusterGraph}!Delta@{Delta}}
+\index{Delta@{Delta}!dai::ClusterGraph@{dai::ClusterGraph}}
+\doxysubsubsection{\texorpdfstring{Delta()}{Delta()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classdai_1_1VarSet}{Var\+Set}} dai\+::\+Cluster\+Graph\+::\+Delta (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{i }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns union of clusters that contain the {\itshape i} \textquotesingle{}th variable. 
+
+\Hypertarget{classdai_1_1ClusterGraph_a1961599a1b019231a0a096afc5010e73}\label{classdai_1_1ClusterGraph_a1961599a1b019231a0a096afc5010e73} 
+\index{dai::ClusterGraph@{dai::ClusterGraph}!delta@{delta}}
+\index{delta@{delta}!dai::ClusterGraph@{dai::ClusterGraph}}
+\doxysubsubsection{\texorpdfstring{delta()}{delta()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classdai_1_1VarSet}{Var\+Set}} dai\+::\+Cluster\+Graph\+::delta (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{i }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns union of clusters that contain the {\itshape i} \textquotesingle{}th (except this variable itself) 
+
+\Hypertarget{classdai_1_1ClusterGraph_a95b379fb6f23a5d70590be73fdf91160}\label{classdai_1_1ClusterGraph_a95b379fb6f23a5d70590be73fdf91160} 
+\index{dai::ClusterGraph@{dai::ClusterGraph}!adj@{adj}}
+\index{adj@{adj}!dai::ClusterGraph@{dai::ClusterGraph}}
+\doxysubsubsection{\texorpdfstring{adj()}{adj()}}
+{\footnotesize\ttfamily bool dai\+::\+Cluster\+Graph\+::adj (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{i1,  }\item[{size\+\_\+t}]{i2 }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns {\ttfamily true} if variables with indices {\itshape i1} and {\itshape i2} are adjacent, i.\+e., both contained in the same cluster. 
+
+\Hypertarget{classdai_1_1ClusterGraph_acefd5b7ece4ac4512ec2c561f780267a}\label{classdai_1_1ClusterGraph_acefd5b7ece4ac4512ec2c561f780267a} 
+\index{dai::ClusterGraph@{dai::ClusterGraph}!isMaximal@{isMaximal}}
+\index{isMaximal@{isMaximal}!dai::ClusterGraph@{dai::ClusterGraph}}
+\doxysubsubsection{\texorpdfstring{isMaximal()}{isMaximal()}}
+{\footnotesize\ttfamily bool dai\+::\+Cluster\+Graph\+::is\+Maximal (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{I }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns {\ttfamily true} if cluster {\itshape I} is not contained in a larger cluster. 
+
+\Hypertarget{classdai_1_1ClusterGraph_a0174fd852e724bd48e040ed9c5a0ca44}\label{classdai_1_1ClusterGraph_a0174fd852e724bd48e040ed9c5a0ca44} 
+\index{dai::ClusterGraph@{dai::ClusterGraph}!insert@{insert}}
+\index{insert@{insert}!dai::ClusterGraph@{dai::ClusterGraph}}
+\doxysubsubsection{\texorpdfstring{insert()}{insert()}}
+{\footnotesize\ttfamily size\+\_\+t dai\+::\+Cluster\+Graph\+::insert (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classdai_1_1VarSet}{Var\+Set}} \&}]{cl }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Inserts a cluster (if it does not already exist) and creates new variables, if necessary. 
+
+\begin{DoxyNote}{Note}
+This function could be better optimized if the index of one variable in {\itshape cl} would be known. If one could assume \+\_\+vars to be ordered, a binary search could be used instead of a linear one. 
+\end{DoxyNote}
+\Hypertarget{classdai_1_1ClusterGraph_a4a86427479d030d6e7c743dd4ab9aa47}\label{classdai_1_1ClusterGraph_a4a86427479d030d6e7c743dd4ab9aa47} 
+\index{dai::ClusterGraph@{dai::ClusterGraph}!eraseNonMaximal@{eraseNonMaximal}}
+\index{eraseNonMaximal@{eraseNonMaximal}!dai::ClusterGraph@{dai::ClusterGraph}}
+\doxysubsubsection{\texorpdfstring{eraseNonMaximal()}{eraseNonMaximal()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classdai_1_1ClusterGraph}{Cluster\+Graph}} \& dai\+::\+Cluster\+Graph\+::erase\+Non\+Maximal (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Erases all clusters that are not maximal. 
+
+\Hypertarget{classdai_1_1ClusterGraph_aebe3d830d62e542f6636152051f51ab7}\label{classdai_1_1ClusterGraph_aebe3d830d62e542f6636152051f51ab7} 
+\index{dai::ClusterGraph@{dai::ClusterGraph}!eraseSubsuming@{eraseSubsuming}}
+\index{eraseSubsuming@{eraseSubsuming}!dai::ClusterGraph@{dai::ClusterGraph}}
+\doxysubsubsection{\texorpdfstring{eraseSubsuming()}{eraseSubsuming()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classdai_1_1ClusterGraph}{Cluster\+Graph}} \& dai\+::\+Cluster\+Graph\+::erase\+Subsuming (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{i }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Erases all clusters that contain the {\itshape i} \textquotesingle{}th variable. 
+
+\Hypertarget{classdai_1_1ClusterGraph_ae2de799b98881bd0c9c2481e23939099}\label{classdai_1_1ClusterGraph_ae2de799b98881bd0c9c2481e23939099} 
+\index{dai::ClusterGraph@{dai::ClusterGraph}!elimVar@{elimVar}}
+\index{elimVar@{elimVar}!dai::ClusterGraph@{dai::ClusterGraph}}
+\doxysubsubsection{\texorpdfstring{elimVar()}{elimVar()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classdai_1_1VarSet}{Var\+Set}} dai\+::\+Cluster\+Graph\+::elim\+Var (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{i }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Eliminates variable with index {\itshape i}, without deleting the variable itself. 
+
+\begin{DoxyNote}{Note}
+This function can be better optimized 
+\end{DoxyNote}
+\Hypertarget{classdai_1_1ClusterGraph_ad0542e5f220bcdd61ec4f8717d2546fa}\label{classdai_1_1ClusterGraph_ad0542e5f220bcdd61ec4f8717d2546fa} 
+\index{dai::ClusterGraph@{dai::ClusterGraph}!toString@{toString}}
+\index{toString@{toString}!dai::ClusterGraph@{dai::ClusterGraph}}
+\doxysubsubsection{\texorpdfstring{toString()}{toString()}}
+{\footnotesize\ttfamily std\+::string dai\+::\+Cluster\+Graph\+::to\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Formats a \doxylink{classdai_1_1ClusterGraph}{Cluster\+Graph} as a string. 
+
+\Hypertarget{classdai_1_1ClusterGraph_a2298aa1f67002915ddc6b778980ac61e}\label{classdai_1_1ClusterGraph_a2298aa1f67002915ddc6b778980ac61e} 
+\index{dai::ClusterGraph@{dai::ClusterGraph}!VarElim@{VarElim}}
+\index{VarElim@{VarElim}!dai::ClusterGraph@{dai::ClusterGraph}}
+\doxysubsubsection{\texorpdfstring{VarElim()}{VarElim()}}
+{\footnotesize\ttfamily template$<$class Elimination\+Choice $>$ \\
+std\+::tuple$<$ \mbox{\hyperlink{classdai_1_1ClusterGraph}{Cluster\+Graph}}, std\+::vector$<$ size\+\_\+t $>$ $>$ dai\+::\+Cluster\+Graph\+::\+Var\+Elim (\begin{DoxyParamCaption}\item[{Elimination\+Choice}]{f,  }\item[{size\+\_\+t}]{max\+States = {\ttfamily 0} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Performs Variable Elimination, keeping track of the interactions that are created along the way. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Elimination\+Choice} & should support "{}size\+\_\+t operator()( const Cluster\+Graph \&cl, const std\+::set$<$size\+\_\+t$>$ \&remaining\+Vars )"{} \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em f} & function object which returns the next variable index to eliminate; for example, a \doxylink{classdai_1_1greedyVariableElimination}{dai\+::greedy\+Variable\+Elimination} object. \\
+\hline
+{\em max\+States} & maximum total number of states of all clusters in the output cluster graph (0 means no limit). \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em OUT\+\_\+\+OF\+\_\+\+MEMORY} & if total number of states becomes larger than max\+States \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{Returns}
+A set of elimination "{}cliques"{}. 
+\end{DoxyReturn}
+\Hypertarget{classdai_1_1ClusterGraph_a76c17644d694f73642559d363fa8658e}\label{classdai_1_1ClusterGraph_a76c17644d694f73642559d363fa8658e} 
+\index{dai::ClusterGraph@{dai::ClusterGraph}!VarElimVarOrder@{VarElimVarOrder}}
+\index{VarElimVarOrder@{VarElimVarOrder}!dai::ClusterGraph@{dai::ClusterGraph}}
+\doxysubsubsection{\texorpdfstring{VarElimVarOrder()}{VarElimVarOrder()}}
+{\footnotesize\ttfamily template$<$class Elimination\+Choice $>$ \\
+std\+::vector$<$ size\+\_\+t $>$ dai\+::\+Cluster\+Graph\+::\+Var\+Elim\+Var\+Order (\begin{DoxyParamCaption}\item[{Elimination\+Choice}]{f }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Performs Variable Elimination, keeping track of the interactions that are created along the way. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Elimination\+Choice} & should support "{}size\+\_\+t operator()( const Cluster\+Graph \&cl, const std\+::set$<$size\+\_\+t$>$ \&remaining\+Vars )"{} \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em f} & function object which returns the next variable index to eliminate; for example, a \doxylink{classdai_1_1greedyVariableElimination}{dai\+::greedy\+Variable\+Elimination} object. \\
+\hline
+{\em max\+States} & maximum total number of states of all clusters in the output cluster graph (0 means no limit). \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em OUT\+\_\+\+OF\+\_\+\+MEMORY} & if total number of states becomes larger than max\+States \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{Returns}
+A set of elimination "{}cliques"{}. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{classdai_1_1ClusterGraph_ab8eeaf93400f6cbe7015bec0e0519231}\label{classdai_1_1ClusterGraph_ab8eeaf93400f6cbe7015bec0e0519231} 
+\index{dai::ClusterGraph@{dai::ClusterGraph}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!dai::ClusterGraph@{dai::ClusterGraph}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily std\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{const \mbox{\hyperlink{classdai_1_1ClusterGraph}{Cluster\+Graph}} \&}]{cl }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Writes a \doxylink{classdai_1_1ClusterGraph}{Cluster\+Graph} to an output stream. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classdai_1_1ClusterGraph_a21b1c2443ba4ed895cb4ea0700f59ef2}\label{classdai_1_1ClusterGraph_a21b1c2443ba4ed895cb4ea0700f59ef2} 
+\index{dai::ClusterGraph@{dai::ClusterGraph}!\_G@{\_G}}
+\index{\_G@{\_G}!dai::ClusterGraph@{dai::ClusterGraph}}
+\doxysubsubsection{\texorpdfstring{\_G}{\_G}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classdai_1_1BipartiteGraph}{Bipartite\+Graph}} dai\+::\+Cluster\+Graph\+::\+\_\+G\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Stores the neighborhood structure. 
+
+\Hypertarget{classdai_1_1ClusterGraph_a47c2cb4200b2a6db10315dd60c15383c}\label{classdai_1_1ClusterGraph_a47c2cb4200b2a6db10315dd60c15383c} 
+\index{dai::ClusterGraph@{dai::ClusterGraph}!\_vars@{\_vars}}
+\index{\_vars@{\_vars}!dai::ClusterGraph@{dai::ClusterGraph}}
+\doxysubsubsection{\texorpdfstring{\_vars}{\_vars}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{classdai_1_1Var}{Var}}$>$ dai\+::\+Cluster\+Graph\+::\+\_\+vars\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Stores the variables corresponding to the nodes. 
+
+\Hypertarget{classdai_1_1ClusterGraph_a9310ce7101cfe0c16b705e54ce41e1bd}\label{classdai_1_1ClusterGraph_a9310ce7101cfe0c16b705e54ce41e1bd} 
+\index{dai::ClusterGraph@{dai::ClusterGraph}!\_clusters@{\_clusters}}
+\index{\_clusters@{\_clusters}!dai::ClusterGraph@{dai::ClusterGraph}}
+\doxysubsubsection{\texorpdfstring{\_clusters}{\_clusters}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{classdai_1_1VarSet}{Var\+Set}}$>$ dai\+::\+Cluster\+Graph\+::\+\_\+clusters\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Stores the clusters corresponding to the hyperedges. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/dai/\mbox{\hyperlink{clustergraph_8h}{clustergraph.\+h}}\item 
+src/clustergraph.\+cpp\end{DoxyCompactItemize}

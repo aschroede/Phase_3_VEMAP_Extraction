@@ -1,0 +1,136 @@
+\doxysection{dai\+::DEdge Class Reference}
+\hypertarget{classdai_1_1DEdge}{}\label{classdai_1_1DEdge}\index{dai::DEdge@{dai::DEdge}}
+
+
+Represents a directed edge.  
+
+
+
+
+{\ttfamily \#include $<$dai/weightedgraph.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classdai_1_1DEdge_af5427cbe19ce225fe7b56dd2d035a7a0}{DEdge}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1DEdge_a0936737355725c765b6902303fb75b04}{DEdge}} (size\+\_\+t m1, size\+\_\+t m2)
+\begin{DoxyCompactList}\small\item\em Constructs a directed edge pointing from {\itshape m1} to {\itshape m2}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classdai_1_1DEdge_a09ee9a9fca29754770b32dfdaf1d1832}{operator==}} (const \mbox{\hyperlink{classdai_1_1DEdge}{DEdge}} \&x) const
+\begin{DoxyCompactList}\small\item\em Tests for equality. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classdai_1_1DEdge_aca04f4baa44b64dffe5b4d8d94276bd3}{operator$<$}} (const \mbox{\hyperlink{classdai_1_1DEdge}{DEdge}} \&x) const
+\begin{DoxyCompactList}\small\item\em Smaller-\/than operator (performs lexicographical comparison) \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classdai_1_1DEdge_ad9cdc4f9288fcea9206ebd2336684391}{to\+String}} () const
+\begin{DoxyCompactList}\small\item\em Formats a directed edge as a string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+size\+\_\+t \mbox{\hyperlink{classdai_1_1DEdge_a78d8f3441eae2368e017d3c87a3d239a}{first}}
+\begin{DoxyCompactList}\small\item\em First node index (source of edge) \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classdai_1_1DEdge_aa9dcdad265a5cd4cf1f30b9a1738781d}{second}}
+\begin{DoxyCompactList}\small\item\em Second node index (target of edge) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \mbox{\hyperlink{classdai_1_1DEdge_a41e132296879cd6a49a167712ac35ecd}{operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{classdai_1_1DEdge}{DEdge}} \&e)
+\begin{DoxyCompactList}\small\item\em Writes a directed edge to an output stream. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a directed edge. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classdai_1_1DEdge_af5427cbe19ce225fe7b56dd2d035a7a0}\label{classdai_1_1DEdge_af5427cbe19ce225fe7b56dd2d035a7a0} 
+\index{dai::DEdge@{dai::DEdge}!DEdge@{DEdge}}
+\index{DEdge@{DEdge}!dai::DEdge@{dai::DEdge}}
+\doxysubsubsection{\texorpdfstring{DEdge()}{DEdge()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily dai\+::\+DEdge\+::\+DEdge (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Default constructor. 
+
+\Hypertarget{classdai_1_1DEdge_a0936737355725c765b6902303fb75b04}\label{classdai_1_1DEdge_a0936737355725c765b6902303fb75b04} 
+\index{dai::DEdge@{dai::DEdge}!DEdge@{DEdge}}
+\index{DEdge@{DEdge}!dai::DEdge@{dai::DEdge}}
+\doxysubsubsection{\texorpdfstring{DEdge()}{DEdge()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily dai\+::\+DEdge\+::\+DEdge (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{m1,  }\item[{size\+\_\+t}]{m2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructs a directed edge pointing from {\itshape m1} to {\itshape m2}. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classdai_1_1DEdge_a09ee9a9fca29754770b32dfdaf1d1832}\label{classdai_1_1DEdge_a09ee9a9fca29754770b32dfdaf1d1832} 
+\index{dai::DEdge@{dai::DEdge}!operator==@{operator==}}
+\index{operator==@{operator==}!dai::DEdge@{dai::DEdge}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool dai\+::\+DEdge\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classdai_1_1DEdge}{DEdge}} \&}]{x }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Tests for equality. 
+
+\Hypertarget{classdai_1_1DEdge_aca04f4baa44b64dffe5b4d8d94276bd3}\label{classdai_1_1DEdge_aca04f4baa44b64dffe5b4d8d94276bd3} 
+\index{dai::DEdge@{dai::DEdge}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!dai::DEdge@{dai::DEdge}}
+\doxysubsubsection{\texorpdfstring{operator$<$()}{operator<()}}
+{\footnotesize\ttfamily bool dai\+::\+DEdge\+::operator$<$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classdai_1_1DEdge}{DEdge}} \&}]{x }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Smaller-\/than operator (performs lexicographical comparison) 
+
+\Hypertarget{classdai_1_1DEdge_ad9cdc4f9288fcea9206ebd2336684391}\label{classdai_1_1DEdge_ad9cdc4f9288fcea9206ebd2336684391} 
+\index{dai::DEdge@{dai::DEdge}!toString@{toString}}
+\index{toString@{toString}!dai::DEdge@{dai::DEdge}}
+\doxysubsubsection{\texorpdfstring{toString()}{toString()}}
+{\footnotesize\ttfamily std\+::string dai\+::\+DEdge\+::to\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Formats a directed edge as a string. 
+
+
+
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{classdai_1_1DEdge_a41e132296879cd6a49a167712ac35ecd}\label{classdai_1_1DEdge_a41e132296879cd6a49a167712ac35ecd} 
+\index{dai::DEdge@{dai::DEdge}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!dai::DEdge@{dai::DEdge}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily std\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{const \mbox{\hyperlink{classdai_1_1DEdge}{DEdge}} \&}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Writes a directed edge to an output stream. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classdai_1_1DEdge_a78d8f3441eae2368e017d3c87a3d239a}\label{classdai_1_1DEdge_a78d8f3441eae2368e017d3c87a3d239a} 
+\index{dai::DEdge@{dai::DEdge}!first@{first}}
+\index{first@{first}!dai::DEdge@{dai::DEdge}}
+\doxysubsubsection{\texorpdfstring{first}{first}}
+{\footnotesize\ttfamily size\+\_\+t dai\+::\+DEdge\+::first}
+
+
+
+First node index (source of edge) 
+
+\Hypertarget{classdai_1_1DEdge_aa9dcdad265a5cd4cf1f30b9a1738781d}\label{classdai_1_1DEdge_aa9dcdad265a5cd4cf1f30b9a1738781d} 
+\index{dai::DEdge@{dai::DEdge}!second@{second}}
+\index{second@{second}!dai::DEdge@{dai::DEdge}}
+\doxysubsubsection{\texorpdfstring{second}{second}}
+{\footnotesize\ttfamily size\+\_\+t dai\+::\+DEdge\+::second}
+
+
+
+Second node index (target of edge) 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/dai/\mbox{\hyperlink{weightedgraph_8h}{weightedgraph.\+h}}\end{DoxyCompactItemize}

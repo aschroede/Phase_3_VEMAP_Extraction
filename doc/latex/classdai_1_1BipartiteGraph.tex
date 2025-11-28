@@ -1,0 +1,640 @@
+\doxysection{dai\+::Bipartite\+Graph Class Reference}
+\hypertarget{classdai_1_1BipartiteGraph}{}\label{classdai_1_1BipartiteGraph}\index{dai::BipartiteGraph@{dai::BipartiteGraph}}
+
+
+Represents the neighborhood structure of nodes in an undirected, bipartite graph.  
+
+
+
+
+{\ttfamily \#include $<$dai/bipgraph.\+h$>$}
+
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structdai_1_1BipartiteGraph_1_1levelType}{level\+Type}}
+\begin{DoxyCompactList}\small\item\em Used internally by \doxylink{classdai_1_1BipartiteGraph_a0ab096954d63f7225a23dff455fe36a8}{is\+Tree()} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{Indent}\textbf{ Constructors and destructors}\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classdai_1_1BipartiteGraph_a24760961ac18ba4de4946d234690d1e0}{Bipartite\+Graph}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor (creates an empty bipartite graph) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1BipartiteGraph_a770b4955fa9d5549673e5a969b347c9f}{Bipartite\+Graph}} (size\+\_\+t nr1, size\+\_\+t nr2)
+\begin{DoxyCompactList}\small\item\em Constructs \doxylink{classdai_1_1BipartiteGraph}{Bipartite\+Graph} with {\itshape nr1} nodes of type 1, {\itshape nr2} nodes of type 2 and no edges. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Edge\+Input\+Iterator $>$ }\\\mbox{\hyperlink{classdai_1_1BipartiteGraph_a7707bc2fc22eb508883dedf0bb5703b0}{Bipartite\+Graph}} (size\+\_\+t \mbox{\hyperlink{classdai_1_1BipartiteGraph_a6b4f272b57126b4dfb572674eba5c035}{nr\+Nodes1}}, size\+\_\+t \mbox{\hyperlink{classdai_1_1BipartiteGraph_a709376c998449338193e10f9c2250e25}{nr\+Nodes2}}, Edge\+Input\+Iterator begin, Edge\+Input\+Iterator end, bool check=true)
+\begin{DoxyCompactList}\small\item\em Constructs \doxylink{classdai_1_1BipartiteGraph}{Bipartite\+Graph} from a range of edges. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Accessors and mutators}\par
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{structdai_1_1Neighbor}{Neighbor}} \& \mbox{\hyperlink{classdai_1_1BipartiteGraph_a0b31bd0db6aff70fe8ba245882783607}{nb1}} (size\+\_\+t i1, size\+\_\+t \+\_\+i2) const
+\begin{DoxyCompactList}\small\item\em Returns constant reference to the {\itshape \+\_\+i2} \textquotesingle{}th neighbor of node {\itshape i1} of type 1. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structdai_1_1Neighbor}{Neighbor}} \& \mbox{\hyperlink{classdai_1_1BipartiteGraph_a838bb39ff2633f045337b326d06ce196}{nb1}} (size\+\_\+t i1, size\+\_\+t \+\_\+i2)
+\begin{DoxyCompactList}\small\item\em Returns reference to the {\itshape \+\_\+i2} \textquotesingle{}th neighbor of node {\itshape i1} of type 1. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{structdai_1_1Neighbor}{Neighbor}} \& \mbox{\hyperlink{classdai_1_1BipartiteGraph_a40516848225be41f68b6381d04f8db25}{nb2}} (size\+\_\+t i2, size\+\_\+t \+\_\+i1) const
+\begin{DoxyCompactList}\small\item\em Returns constant reference to the {\itshape \+\_\+i1} \textquotesingle{}th neighbor of node {\itshape i2} of type 2. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structdai_1_1Neighbor}{Neighbor}} \& \mbox{\hyperlink{classdai_1_1BipartiteGraph_a168d5397a905af99b51eaa3b4648e98f}{nb2}} (size\+\_\+t i2, size\+\_\+t \+\_\+i1)
+\begin{DoxyCompactList}\small\item\em Returns reference to the {\itshape \+\_\+i1} \textquotesingle{}th neighbor of node {\itshape i2} of type 2. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{graph_8h_a14c563f2e5f6acf255903cae5c3b415c}{Neighbors}} \& \mbox{\hyperlink{classdai_1_1BipartiteGraph_ac8f8ce76138f0cae2a5108ba48b3e77c}{nb1}} (size\+\_\+t i1) const
+\begin{DoxyCompactList}\small\item\em Returns constant reference to all neighbors of node {\itshape i1} of type 1. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{graph_8h_a14c563f2e5f6acf255903cae5c3b415c}{Neighbors}} \& \mbox{\hyperlink{classdai_1_1BipartiteGraph_ad6ad18c439409fc7c056900bd6e95b9d}{nb1}} (size\+\_\+t i1)
+\begin{DoxyCompactList}\small\item\em Returns reference to all neighbors of node {\itshape i1} of type 1. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{graph_8h_a14c563f2e5f6acf255903cae5c3b415c}{Neighbors}} \& \mbox{\hyperlink{classdai_1_1BipartiteGraph_a978f6d3644d65d422eb5febade67ef99}{nb2}} (size\+\_\+t i2) const
+\begin{DoxyCompactList}\small\item\em Returns constant reference to all neighbors of node {\itshape i2} of type 2. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{graph_8h_a14c563f2e5f6acf255903cae5c3b415c}{Neighbors}} \& \mbox{\hyperlink{classdai_1_1BipartiteGraph_a412a359fe255ec07c93c413473ae3a61}{nb2}} (size\+\_\+t i2)
+\begin{DoxyCompactList}\small\item\em Returns reference to all neighbors of node {\itshape i2} of type 2. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Adding nodes and edges}\par
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename Edge\+Input\+Iterator $>$ }\\void \mbox{\hyperlink{classdai_1_1BipartiteGraph_a6250d880f74abd043bea6db0e44beffc}{construct}} (size\+\_\+t \mbox{\hyperlink{classdai_1_1BipartiteGraph_a6b4f272b57126b4dfb572674eba5c035}{nr\+Nodes1}}, size\+\_\+t \mbox{\hyperlink{classdai_1_1BipartiteGraph_a709376c998449338193e10f9c2250e25}{nr\+Nodes2}}, Edge\+Input\+Iterator begin, Edge\+Input\+Iterator end, bool check=true)
+\begin{DoxyCompactList}\small\item\em (Re)constructs \doxylink{classdai_1_1BipartiteGraph}{Bipartite\+Graph} from a range of edges. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classdai_1_1BipartiteGraph_a3c2c1c65a254f1971be5c9fd6db23101}{add\+Node1}} ()
+\begin{DoxyCompactList}\small\item\em Adds a node of type 1 without neighbors and returns the index of the added node. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classdai_1_1BipartiteGraph_ac36bfff6ffd2e7083500e0ea25a0a90a}{add\+Node2}} ()
+\begin{DoxyCompactList}\small\item\em Adds a node of type 2 without neighbors and returns the index of the added node. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Node\+Input\+Iterator $>$ }\\size\+\_\+t \mbox{\hyperlink{classdai_1_1BipartiteGraph_ab1ffefa10567411850e495107bcc4777}{add\+Node1}} (Node\+Input\+Iterator begin, Node\+Input\+Iterator end, size\+\_\+t size\+Hint=0)
+\begin{DoxyCompactList}\small\item\em Adds a node of type 1, with neighbors specified by a range of nodes of type 2. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Node\+Input\+Iterator $>$ }\\size\+\_\+t \mbox{\hyperlink{classdai_1_1BipartiteGraph_aaeaf457912edc730a2702f223c507e39}{add\+Node2}} (Node\+Input\+Iterator begin, Node\+Input\+Iterator end, size\+\_\+t size\+Hint=0)
+\begin{DoxyCompactList}\small\item\em Adds a node of type 2, with neighbors specified by a range of nodes of type 1. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1BipartiteGraph}{Bipartite\+Graph}} \& \mbox{\hyperlink{classdai_1_1BipartiteGraph_adaa360aab7175a2510c3f22a708b8930}{add\+Edge}} (size\+\_\+t n1, size\+\_\+t n2, bool check=true)
+\begin{DoxyCompactList}\small\item\em Adds an edge between node {\itshape n1} of type 1 and node {\itshape n2} of type 2. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Erasing nodes and edges}\par
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classdai_1_1BipartiteGraph_a0193175890bf2ca160728ea0e30778b2}{erase\+Node1}} (size\+\_\+t n1)
+\begin{DoxyCompactList}\small\item\em Removes node {\itshape n1} of type 1 and all incident edges; indices of other nodes are changed accordingly. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classdai_1_1BipartiteGraph_afb309f7e1873ab7368d55092264b5e83}{erase\+Node2}} (size\+\_\+t n2)
+\begin{DoxyCompactList}\small\item\em Removes node {\itshape n2} of type 2 and all incident edges; indices of other nodes are changed accordingly. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classdai_1_1BipartiteGraph_ac8f471524e64a8dc2bd1d5031a68acc7}{erase\+Edge}} (size\+\_\+t n1, size\+\_\+t n2)
+\begin{DoxyCompactList}\small\item\em Removes edge between node {\itshape n1} of type 1 and node {\itshape n2} of type 2. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Queries}\par
+\begin{DoxyCompactItemize}
+\item 
+size\+\_\+t \mbox{\hyperlink{classdai_1_1BipartiteGraph_a6b4f272b57126b4dfb572674eba5c035}{nr\+Nodes1}} () const
+\begin{DoxyCompactList}\small\item\em Returns number of nodes of type 1. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classdai_1_1BipartiteGraph_a709376c998449338193e10f9c2250e25}{nr\+Nodes2}} () const
+\begin{DoxyCompactList}\small\item\em Returns number of nodes of type 2. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classdai_1_1BipartiteGraph_a5eb05f26b20896e6b6c9d8a801f92182}{nr\+Edges}} () const
+\begin{DoxyCompactList}\small\item\em Calculates the number of edges, time complexity\+: O(nr\+Nodes1()) \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classdai_1_1BipartiteGraph_acb368c526245b1083e15b4d9d6a41d53}{has\+Edge}} (size\+\_\+t n1, size\+\_\+t n2) const
+\begin{DoxyCompactList}\small\item\em Returns true if the graph contains an edge between node {\itshape n1} of type 1 and node {\itshape n2} of type 2. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classdai_1_1BipartiteGraph_a0e0700ad219eaf4010d390f3d9402975}{find\+Nb1}} (size\+\_\+t n1, size\+\_\+t n2)
+\begin{DoxyCompactList}\small\item\em Returns the index of a given node {\itshape n2} of type 2 amongst the neighbors of node {\itshape n1} of type 1. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classdai_1_1BipartiteGraph_a657c7abd30121b6008a0b128d9bcd9dd}{find\+Nb2}} (size\+\_\+t n1, size\+\_\+t n2)
+\begin{DoxyCompactList}\small\item\em Returns the index of a given node {\itshape n1} of type 1 amongst the neighbors of node {\itshape n2} of type 2. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1SmallSet}{Small\+Set}}$<$ size\+\_\+t $>$ \mbox{\hyperlink{classdai_1_1BipartiteGraph_ab0b6540492c90db547153df72c73972c}{nb1\+Set}} (size\+\_\+t n1) const
+\begin{DoxyCompactList}\small\item\em Returns neighbors of node {\itshape n1} of type 1 as a \doxylink{classdai_1_1SmallSet}{Small\+Set$<$size\+\_\+t$>$}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1SmallSet}{Small\+Set}}$<$ size\+\_\+t $>$ \mbox{\hyperlink{classdai_1_1BipartiteGraph_ac02861eaf61e70951ad4a945ff8091fe}{nb2\+Set}} (size\+\_\+t n2) const
+\begin{DoxyCompactList}\small\item\em Returns neighbors of node {\itshape n2} of type 2 as a \doxylink{classdai_1_1SmallSet}{Small\+Set$<$size\+\_\+t$>$}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1SmallSet}{Small\+Set}}$<$ size\+\_\+t $>$ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a45cfd562148d24c28cea18e5b63d80d1}{delta1}} (size\+\_\+t n1, bool include=false) const
+\begin{DoxyCompactList}\small\item\em Calculates second-\/order neighbors (i.\+e., neighbors of neighbors) of node {\itshape n1} of type 1. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdai_1_1SmallSet}{Small\+Set}}$<$ size\+\_\+t $>$ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a189609a5e5e391a3adee49588e274493}{delta2}} (size\+\_\+t n2, bool include=false) const
+\begin{DoxyCompactList}\small\item\em Calculates second-\/order neighbors (i.\+e., neighbors of neighbors) of node {\itshape n2} of type 2. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classdai_1_1BipartiteGraph_ab570303519db10cefc118f8f894f9886}{is\+Connected}} () const
+\begin{DoxyCompactList}\small\item\em Returns true if the graph is connected. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classdai_1_1BipartiteGraph_a0ab096954d63f7225a23dff455fe36a8}{is\+Tree}} () const
+\begin{DoxyCompactList}\small\item\em Returns true if the graph is a tree, i.\+e., if it is singly connected and connected. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classdai_1_1BipartiteGraph_afc126dc58b4f242c16a9055a6b0db286}{operator==}} (const \mbox{\hyperlink{classdai_1_1BipartiteGraph}{Bipartite\+Graph}} \&x) const
+\begin{DoxyCompactList}\small\item\em Comparison operator which returns true if two graphs are identical. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classdai_1_1BipartiteGraph_aa0d183bd44d3ff5f73c2d33401d3acd4}{check\+Consistency}} () const
+\begin{DoxyCompactList}\small\item\em Asserts internal consistency. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{graph_8h_a14c563f2e5f6acf255903cae5c3b415c}{Neighbors}} $>$ \mbox{\hyperlink{classdai_1_1BipartiteGraph_a913ea0d6c734cc8cde8ddba4db192995}{\+\_\+nb1}}
+\begin{DoxyCompactList}\small\item\em Contains for each node of type 1 a vector of its neighbors. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{graph_8h_a14c563f2e5f6acf255903cae5c3b415c}{Neighbors}} $>$ \mbox{\hyperlink{classdai_1_1BipartiteGraph_aeff78b5b0f22831f98c2c1ebf481779f}{\+\_\+nb2}}
+\begin{DoxyCompactList}\small\item\em Contains for each node of type 2 a vector of its neighbors. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Input and output}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classdai_1_1BipartiteGraph_a17d1603e065bad1eb08064893648dad3}{print\+Dot}} (std\+::ostream \&os) const
+\begin{DoxyCompactList}\small\item\em Writes a \doxylink{classdai_1_1BipartiteGraph}{Bipartite\+Graph} to an output stream in Graph\+Viz .dot syntax. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classdai_1_1BipartiteGraph_a4c80ed7a841456c8bc4661f70dd903e0}{to\+String}} () const
+\begin{DoxyCompactList}\small\item\em Formats a \doxylink{classdai_1_1BipartiteGraph}{Bipartite\+Graph} as a string. \end{DoxyCompactList}\item 
+std\+::ostream \& \mbox{\hyperlink{classdai_1_1BipartiteGraph_a1f7fd6d3681e10e537ee865ac9fcc857}{operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{classdai_1_1BipartiteGraph}{Bipartite\+Graph}} \&g)
+\begin{DoxyCompactList}\small\item\em Writes a \doxylink{classdai_1_1BipartiteGraph}{Bipartite\+Graph} to an output stream. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents the neighborhood structure of nodes in an undirected, bipartite graph. 
+
+A bipartite graph has two types of nodes\+: type 1 and type 2. Edges can occur only between nodes of different type. Nodes are indexed by an unsigned integer. If there are \doxylink{classdai_1_1BipartiteGraph_a6b4f272b57126b4dfb572674eba5c035}{nr\+Nodes1()} nodes of type 1 and \doxylink{classdai_1_1BipartiteGraph_a709376c998449338193e10f9c2250e25}{nr\+Nodes2()} nodes of type 2, the nodes of type 1 are numbered 0,1,2,...,\doxylink{classdai_1_1BipartiteGraph_a6b4f272b57126b4dfb572674eba5c035}{nr\+Nodes1()}-\/1 and the nodes of type 2 are numbered 0,1,2,...,\doxylink{classdai_1_1BipartiteGraph_a709376c998449338193e10f9c2250e25}{nr\+Nodes2()}-\/1. An edge between node {\itshape n1} of type 1 and node {\itshape n2} of type 2 is represented by a Edge({\itshape n1},{\itshape n2}).
+
+A \doxylink{classdai_1_1BipartiteGraph}{Bipartite\+Graph} is implemented as a sparse adjacency list, i.\+e., it stores for each node a list of its neighboring nodes. More precisely\+: it stores for each node of type 1 a vector of \doxylink{structdai_1_1Neighbor}{Neighbor} structures (accessible by the \doxylink{classdai_1_1BipartiteGraph_a0b31bd0db6aff70fe8ba245882783607}{nb1()} method) describing the neighboring nodes of type 2; similarly, for each node of type 2 it stores a vector of \doxylink{structdai_1_1Neighbor}{Neighbor} structures (accessibly by the \doxylink{classdai_1_1BipartiteGraph_a40516848225be41f68b6381d04f8db25}{nb2()} method) describing the neighboring nodes of type 1. Thus, each node has an associated variable of type Bipartite\+Graph\+::\+Neighbors, which is a vector of \doxylink{structdai_1_1Neighbor}{Neighbor} structures, describing its neighboring nodes of the other type. \begin{DoxyRefDesc}{Idea}
+\item[\mbox{\hyperlink{ideas__ideas000001}{Idea}}]Cache second-\/order neighborhoods in \doxylink{classdai_1_1BipartiteGraph}{Bipartite\+Graph}. \end{DoxyRefDesc}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classdai_1_1BipartiteGraph_a24760961ac18ba4de4946d234690d1e0}\label{classdai_1_1BipartiteGraph_a24760961ac18ba4de4946d234690d1e0} 
+\index{dai::BipartiteGraph@{dai::BipartiteGraph}!BipartiteGraph@{BipartiteGraph}}
+\index{BipartiteGraph@{BipartiteGraph}!dai::BipartiteGraph@{dai::BipartiteGraph}}
+\doxysubsubsection{\texorpdfstring{BipartiteGraph()}{BipartiteGraph()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily dai\+::\+Bipartite\+Graph\+::\+Bipartite\+Graph (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Default constructor (creates an empty bipartite graph) 
+
+\Hypertarget{classdai_1_1BipartiteGraph_a770b4955fa9d5549673e5a969b347c9f}\label{classdai_1_1BipartiteGraph_a770b4955fa9d5549673e5a969b347c9f} 
+\index{dai::BipartiteGraph@{dai::BipartiteGraph}!BipartiteGraph@{BipartiteGraph}}
+\index{BipartiteGraph@{BipartiteGraph}!dai::BipartiteGraph@{dai::BipartiteGraph}}
+\doxysubsubsection{\texorpdfstring{BipartiteGraph()}{BipartiteGraph()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily dai\+::\+Bipartite\+Graph\+::\+Bipartite\+Graph (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{nr1,  }\item[{size\+\_\+t}]{nr2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructs \doxylink{classdai_1_1BipartiteGraph}{Bipartite\+Graph} with {\itshape nr1} nodes of type 1, {\itshape nr2} nodes of type 2 and no edges. 
+
+\Hypertarget{classdai_1_1BipartiteGraph_a7707bc2fc22eb508883dedf0bb5703b0}\label{classdai_1_1BipartiteGraph_a7707bc2fc22eb508883dedf0bb5703b0} 
+\index{dai::BipartiteGraph@{dai::BipartiteGraph}!BipartiteGraph@{BipartiteGraph}}
+\index{BipartiteGraph@{BipartiteGraph}!dai::BipartiteGraph@{dai::BipartiteGraph}}
+\doxysubsubsection{\texorpdfstring{BipartiteGraph()}{BipartiteGraph()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$typename Edge\+Input\+Iterator $>$ \\
+dai\+::\+Bipartite\+Graph\+::\+Bipartite\+Graph (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{nr\+Nodes1,  }\item[{size\+\_\+t}]{nr\+Nodes2,  }\item[{Edge\+Input\+Iterator}]{begin,  }\item[{Edge\+Input\+Iterator}]{end,  }\item[{bool}]{check = {\ttfamily true} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructs \doxylink{classdai_1_1BipartiteGraph}{Bipartite\+Graph} from a range of edges. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Edge\+Input\+Iterator} & Iterator that iterates over instances of Edge. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em nr\+Nodes1} & The number of nodes of type 1. \\
+\hline
+{\em nr\+Nodes2} & The number of nodes of type 2. \\
+\hline
+{\em begin} & Points to the first edge. \\
+\hline
+{\em end} & Points just beyond the last edge. \\
+\hline
+{\em check} & Whether to only add an edge if it does not exist already. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classdai_1_1BipartiteGraph_a0b31bd0db6aff70fe8ba245882783607}\label{classdai_1_1BipartiteGraph_a0b31bd0db6aff70fe8ba245882783607} 
+\index{dai::BipartiteGraph@{dai::BipartiteGraph}!nb1@{nb1}}
+\index{nb1@{nb1}!dai::BipartiteGraph@{dai::BipartiteGraph}}
+\doxysubsubsection{\texorpdfstring{nb1()}{nb1()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{structdai_1_1Neighbor}{Neighbor}} \& dai\+::\+Bipartite\+Graph\+::nb1 (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{i1,  }\item[{size\+\_\+t}]{\+\_\+i2 }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns constant reference to the {\itshape \+\_\+i2} \textquotesingle{}th neighbor of node {\itshape i1} of type 1. 
+
+\Hypertarget{classdai_1_1BipartiteGraph_a838bb39ff2633f045337b326d06ce196}\label{classdai_1_1BipartiteGraph_a838bb39ff2633f045337b326d06ce196} 
+\index{dai::BipartiteGraph@{dai::BipartiteGraph}!nb1@{nb1}}
+\index{nb1@{nb1}!dai::BipartiteGraph@{dai::BipartiteGraph}}
+\doxysubsubsection{\texorpdfstring{nb1()}{nb1()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structdai_1_1Neighbor}{Neighbor}} \& dai\+::\+Bipartite\+Graph\+::nb1 (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{i1,  }\item[{size\+\_\+t}]{\+\_\+i2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns reference to the {\itshape \+\_\+i2} \textquotesingle{}th neighbor of node {\itshape i1} of type 1. 
+
+\Hypertarget{classdai_1_1BipartiteGraph_a40516848225be41f68b6381d04f8db25}\label{classdai_1_1BipartiteGraph_a40516848225be41f68b6381d04f8db25} 
+\index{dai::BipartiteGraph@{dai::BipartiteGraph}!nb2@{nb2}}
+\index{nb2@{nb2}!dai::BipartiteGraph@{dai::BipartiteGraph}}
+\doxysubsubsection{\texorpdfstring{nb2()}{nb2()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{structdai_1_1Neighbor}{Neighbor}} \& dai\+::\+Bipartite\+Graph\+::nb2 (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{i2,  }\item[{size\+\_\+t}]{\+\_\+i1 }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns constant reference to the {\itshape \+\_\+i1} \textquotesingle{}th neighbor of node {\itshape i2} of type 2. 
+
+\Hypertarget{classdai_1_1BipartiteGraph_a168d5397a905af99b51eaa3b4648e98f}\label{classdai_1_1BipartiteGraph_a168d5397a905af99b51eaa3b4648e98f} 
+\index{dai::BipartiteGraph@{dai::BipartiteGraph}!nb2@{nb2}}
+\index{nb2@{nb2}!dai::BipartiteGraph@{dai::BipartiteGraph}}
+\doxysubsubsection{\texorpdfstring{nb2()}{nb2()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structdai_1_1Neighbor}{Neighbor}} \& dai\+::\+Bipartite\+Graph\+::nb2 (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{i2,  }\item[{size\+\_\+t}]{\+\_\+i1 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns reference to the {\itshape \+\_\+i1} \textquotesingle{}th neighbor of node {\itshape i2} of type 2. 
+
+\Hypertarget{classdai_1_1BipartiteGraph_ac8f8ce76138f0cae2a5108ba48b3e77c}\label{classdai_1_1BipartiteGraph_ac8f8ce76138f0cae2a5108ba48b3e77c} 
+\index{dai::BipartiteGraph@{dai::BipartiteGraph}!nb1@{nb1}}
+\index{nb1@{nb1}!dai::BipartiteGraph@{dai::BipartiteGraph}}
+\doxysubsubsection{\texorpdfstring{nb1()}{nb1()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{graph_8h_a14c563f2e5f6acf255903cae5c3b415c}{Neighbors}} \& dai\+::\+Bipartite\+Graph\+::nb1 (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{i1 }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns constant reference to all neighbors of node {\itshape i1} of type 1. 
+
+\Hypertarget{classdai_1_1BipartiteGraph_ad6ad18c439409fc7c056900bd6e95b9d}\label{classdai_1_1BipartiteGraph_ad6ad18c439409fc7c056900bd6e95b9d} 
+\index{dai::BipartiteGraph@{dai::BipartiteGraph}!nb1@{nb1}}
+\index{nb1@{nb1}!dai::BipartiteGraph@{dai::BipartiteGraph}}
+\doxysubsubsection{\texorpdfstring{nb1()}{nb1()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{graph_8h_a14c563f2e5f6acf255903cae5c3b415c}{Neighbors}} \& dai\+::\+Bipartite\+Graph\+::nb1 (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{i1 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns reference to all neighbors of node {\itshape i1} of type 1. 
+
+\Hypertarget{classdai_1_1BipartiteGraph_a978f6d3644d65d422eb5febade67ef99}\label{classdai_1_1BipartiteGraph_a978f6d3644d65d422eb5febade67ef99} 
+\index{dai::BipartiteGraph@{dai::BipartiteGraph}!nb2@{nb2}}
+\index{nb2@{nb2}!dai::BipartiteGraph@{dai::BipartiteGraph}}
+\doxysubsubsection{\texorpdfstring{nb2()}{nb2()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{graph_8h_a14c563f2e5f6acf255903cae5c3b415c}{Neighbors}} \& dai\+::\+Bipartite\+Graph\+::nb2 (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{i2 }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns constant reference to all neighbors of node {\itshape i2} of type 2. 
+
+\Hypertarget{classdai_1_1BipartiteGraph_a412a359fe255ec07c93c413473ae3a61}\label{classdai_1_1BipartiteGraph_a412a359fe255ec07c93c413473ae3a61} 
+\index{dai::BipartiteGraph@{dai::BipartiteGraph}!nb2@{nb2}}
+\index{nb2@{nb2}!dai::BipartiteGraph@{dai::BipartiteGraph}}
+\doxysubsubsection{\texorpdfstring{nb2()}{nb2()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{graph_8h_a14c563f2e5f6acf255903cae5c3b415c}{Neighbors}} \& dai\+::\+Bipartite\+Graph\+::nb2 (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{i2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns reference to all neighbors of node {\itshape i2} of type 2. 
+
+\Hypertarget{classdai_1_1BipartiteGraph_a6250d880f74abd043bea6db0e44beffc}\label{classdai_1_1BipartiteGraph_a6250d880f74abd043bea6db0e44beffc} 
+\index{dai::BipartiteGraph@{dai::BipartiteGraph}!construct@{construct}}
+\index{construct@{construct}!dai::BipartiteGraph@{dai::BipartiteGraph}}
+\doxysubsubsection{\texorpdfstring{construct()}{construct()}}
+{\footnotesize\ttfamily template$<$typename Edge\+Input\+Iterator $>$ \\
+void dai\+::\+Bipartite\+Graph\+::construct (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{nr\+Nodes1,  }\item[{size\+\_\+t}]{nr\+Nodes2,  }\item[{Edge\+Input\+Iterator}]{begin,  }\item[{Edge\+Input\+Iterator}]{end,  }\item[{bool}]{check = {\ttfamily true} }\end{DoxyParamCaption})}
+
+
+
+(Re)constructs \doxylink{classdai_1_1BipartiteGraph}{Bipartite\+Graph} from a range of edges. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Edge\+Input\+Iterator} & Iterator that iterates over instances of Edge. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em nr\+Nodes1} & The number of nodes of type 1. \\
+\hline
+{\em nr\+Nodes2} & The number of nodes of type 2. \\
+\hline
+{\em begin} & Points to the first edge. \\
+\hline
+{\em end} & Points just beyond the last edge. \\
+\hline
+{\em check} & Whether to only add an edge if it does not exist already. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classdai_1_1BipartiteGraph_a3c2c1c65a254f1971be5c9fd6db23101}\label{classdai_1_1BipartiteGraph_a3c2c1c65a254f1971be5c9fd6db23101} 
+\index{dai::BipartiteGraph@{dai::BipartiteGraph}!addNode1@{addNode1}}
+\index{addNode1@{addNode1}!dai::BipartiteGraph@{dai::BipartiteGraph}}
+\doxysubsubsection{\texorpdfstring{addNode1()}{addNode1()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily size\+\_\+t dai\+::\+Bipartite\+Graph\+::add\+Node1 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Adds a node of type 1 without neighbors and returns the index of the added node. 
+
+\Hypertarget{classdai_1_1BipartiteGraph_ac36bfff6ffd2e7083500e0ea25a0a90a}\label{classdai_1_1BipartiteGraph_ac36bfff6ffd2e7083500e0ea25a0a90a} 
+\index{dai::BipartiteGraph@{dai::BipartiteGraph}!addNode2@{addNode2}}
+\index{addNode2@{addNode2}!dai::BipartiteGraph@{dai::BipartiteGraph}}
+\doxysubsubsection{\texorpdfstring{addNode2()}{addNode2()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily size\+\_\+t dai\+::\+Bipartite\+Graph\+::add\+Node2 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Adds a node of type 2 without neighbors and returns the index of the added node. 
+
+\Hypertarget{classdai_1_1BipartiteGraph_ab1ffefa10567411850e495107bcc4777}\label{classdai_1_1BipartiteGraph_ab1ffefa10567411850e495107bcc4777} 
+\index{dai::BipartiteGraph@{dai::BipartiteGraph}!addNode1@{addNode1}}
+\index{addNode1@{addNode1}!dai::BipartiteGraph@{dai::BipartiteGraph}}
+\doxysubsubsection{\texorpdfstring{addNode1()}{addNode1()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Node\+Input\+Iterator $>$ \\
+size\+\_\+t dai\+::\+Bipartite\+Graph\+::add\+Node1 (\begin{DoxyParamCaption}\item[{Node\+Input\+Iterator}]{begin,  }\item[{Node\+Input\+Iterator}]{end,  }\item[{size\+\_\+t}]{size\+Hint = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Adds a node of type 1, with neighbors specified by a range of nodes of type 2. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Node\+Input\+Iterator} & Iterator that iterates over instances of {\ttfamily size\+\_\+t}. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em begin} & Points to the first index of the nodes of type 2 that should become neighbors of the added node. \\
+\hline
+{\em end} & Points just beyond the last index of the nodes of type 2 that should become neighbors of the added node. \\
+\hline
+{\em size\+Hint} & For improved efficiency, the size of the range may be specified by {\itshape size\+Hint}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Index of the added node. 
+\end{DoxyReturn}
+\Hypertarget{classdai_1_1BipartiteGraph_aaeaf457912edc730a2702f223c507e39}\label{classdai_1_1BipartiteGraph_aaeaf457912edc730a2702f223c507e39} 
+\index{dai::BipartiteGraph@{dai::BipartiteGraph}!addNode2@{addNode2}}
+\index{addNode2@{addNode2}!dai::BipartiteGraph@{dai::BipartiteGraph}}
+\doxysubsubsection{\texorpdfstring{addNode2()}{addNode2()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Node\+Input\+Iterator $>$ \\
+size\+\_\+t dai\+::\+Bipartite\+Graph\+::add\+Node2 (\begin{DoxyParamCaption}\item[{Node\+Input\+Iterator}]{begin,  }\item[{Node\+Input\+Iterator}]{end,  }\item[{size\+\_\+t}]{size\+Hint = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Adds a node of type 2, with neighbors specified by a range of nodes of type 1. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Node\+Input\+Iterator} & Iterator that iterates over instances of {\ttfamily size\+\_\+t}. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em begin} & Points to the first index of the nodes of type 1 that should become neighbors of the added node. \\
+\hline
+{\em end} & Points just beyond the last index of the nodes of type 1 that should become neighbors of the added node. \\
+\hline
+{\em size\+Hint} & For improved efficiency, the size of the range may be specified by {\itshape size\+Hint}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Index of the added node. 
+\end{DoxyReturn}
+\Hypertarget{classdai_1_1BipartiteGraph_adaa360aab7175a2510c3f22a708b8930}\label{classdai_1_1BipartiteGraph_adaa360aab7175a2510c3f22a708b8930} 
+\index{dai::BipartiteGraph@{dai::BipartiteGraph}!addEdge@{addEdge}}
+\index{addEdge@{addEdge}!dai::BipartiteGraph@{dai::BipartiteGraph}}
+\doxysubsubsection{\texorpdfstring{addEdge()}{addEdge()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classdai_1_1BipartiteGraph}{Bipartite\+Graph}} \& dai\+::\+Bipartite\+Graph\+::add\+Edge (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{n1,  }\item[{size\+\_\+t}]{n2,  }\item[{bool}]{check = {\ttfamily true} }\end{DoxyParamCaption})}
+
+
+
+Adds an edge between node {\itshape n1} of type 1 and node {\itshape n2} of type 2. 
+
+If {\itshape check} == {\ttfamily true}, only adds the edge if it does not exist already. \Hypertarget{classdai_1_1BipartiteGraph_a0193175890bf2ca160728ea0e30778b2}\label{classdai_1_1BipartiteGraph_a0193175890bf2ca160728ea0e30778b2} 
+\index{dai::BipartiteGraph@{dai::BipartiteGraph}!eraseNode1@{eraseNode1}}
+\index{eraseNode1@{eraseNode1}!dai::BipartiteGraph@{dai::BipartiteGraph}}
+\doxysubsubsection{\texorpdfstring{eraseNode1()}{eraseNode1()}}
+{\footnotesize\ttfamily void dai\+::\+Bipartite\+Graph\+::erase\+Node1 (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{n1 }\end{DoxyParamCaption})}
+
+
+
+Removes node {\itshape n1} of type 1 and all incident edges; indices of other nodes are changed accordingly. 
+
+\Hypertarget{classdai_1_1BipartiteGraph_afb309f7e1873ab7368d55092264b5e83}\label{classdai_1_1BipartiteGraph_afb309f7e1873ab7368d55092264b5e83} 
+\index{dai::BipartiteGraph@{dai::BipartiteGraph}!eraseNode2@{eraseNode2}}
+\index{eraseNode2@{eraseNode2}!dai::BipartiteGraph@{dai::BipartiteGraph}}
+\doxysubsubsection{\texorpdfstring{eraseNode2()}{eraseNode2()}}
+{\footnotesize\ttfamily void dai\+::\+Bipartite\+Graph\+::erase\+Node2 (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{n2 }\end{DoxyParamCaption})}
+
+
+
+Removes node {\itshape n2} of type 2 and all incident edges; indices of other nodes are changed accordingly. 
+
+\Hypertarget{classdai_1_1BipartiteGraph_ac8f471524e64a8dc2bd1d5031a68acc7}\label{classdai_1_1BipartiteGraph_ac8f471524e64a8dc2bd1d5031a68acc7} 
+\index{dai::BipartiteGraph@{dai::BipartiteGraph}!eraseEdge@{eraseEdge}}
+\index{eraseEdge@{eraseEdge}!dai::BipartiteGraph@{dai::BipartiteGraph}}
+\doxysubsubsection{\texorpdfstring{eraseEdge()}{eraseEdge()}}
+{\footnotesize\ttfamily void dai\+::\+Bipartite\+Graph\+::erase\+Edge (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{n1,  }\item[{size\+\_\+t}]{n2 }\end{DoxyParamCaption})}
+
+
+
+Removes edge between node {\itshape n1} of type 1 and node {\itshape n2} of type 2. 
+
+\Hypertarget{classdai_1_1BipartiteGraph_a6b4f272b57126b4dfb572674eba5c035}\label{classdai_1_1BipartiteGraph_a6b4f272b57126b4dfb572674eba5c035} 
+\index{dai::BipartiteGraph@{dai::BipartiteGraph}!nrNodes1@{nrNodes1}}
+\index{nrNodes1@{nrNodes1}!dai::BipartiteGraph@{dai::BipartiteGraph}}
+\doxysubsubsection{\texorpdfstring{nrNodes1()}{nrNodes1()}}
+{\footnotesize\ttfamily size\+\_\+t dai\+::\+Bipartite\+Graph\+::nr\+Nodes1 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns number of nodes of type 1. 
+
+\Hypertarget{classdai_1_1BipartiteGraph_a709376c998449338193e10f9c2250e25}\label{classdai_1_1BipartiteGraph_a709376c998449338193e10f9c2250e25} 
+\index{dai::BipartiteGraph@{dai::BipartiteGraph}!nrNodes2@{nrNodes2}}
+\index{nrNodes2@{nrNodes2}!dai::BipartiteGraph@{dai::BipartiteGraph}}
+\doxysubsubsection{\texorpdfstring{nrNodes2()}{nrNodes2()}}
+{\footnotesize\ttfamily size\+\_\+t dai\+::\+Bipartite\+Graph\+::nr\+Nodes2 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns number of nodes of type 2. 
+
+\Hypertarget{classdai_1_1BipartiteGraph_a5eb05f26b20896e6b6c9d8a801f92182}\label{classdai_1_1BipartiteGraph_a5eb05f26b20896e6b6c9d8a801f92182} 
+\index{dai::BipartiteGraph@{dai::BipartiteGraph}!nrEdges@{nrEdges}}
+\index{nrEdges@{nrEdges}!dai::BipartiteGraph@{dai::BipartiteGraph}}
+\doxysubsubsection{\texorpdfstring{nrEdges()}{nrEdges()}}
+{\footnotesize\ttfamily size\+\_\+t dai\+::\+Bipartite\+Graph\+::nr\+Edges (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Calculates the number of edges, time complexity\+: O(nr\+Nodes1()) 
+
+\Hypertarget{classdai_1_1BipartiteGraph_acb368c526245b1083e15b4d9d6a41d53}\label{classdai_1_1BipartiteGraph_acb368c526245b1083e15b4d9d6a41d53} 
+\index{dai::BipartiteGraph@{dai::BipartiteGraph}!hasEdge@{hasEdge}}
+\index{hasEdge@{hasEdge}!dai::BipartiteGraph@{dai::BipartiteGraph}}
+\doxysubsubsection{\texorpdfstring{hasEdge()}{hasEdge()}}
+{\footnotesize\ttfamily bool dai\+::\+Bipartite\+Graph\+::has\+Edge (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{n1,  }\item[{size\+\_\+t}]{n2 }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns true if the graph contains an edge between node {\itshape n1} of type 1 and node {\itshape n2} of type 2. 
+
+\begin{DoxyNote}{Note}
+The time complexity is linear in the number of neighbors of {\itshape n1} or {\itshape n2} 
+\end{DoxyNote}
+\Hypertarget{classdai_1_1BipartiteGraph_a0e0700ad219eaf4010d390f3d9402975}\label{classdai_1_1BipartiteGraph_a0e0700ad219eaf4010d390f3d9402975} 
+\index{dai::BipartiteGraph@{dai::BipartiteGraph}!findNb1@{findNb1}}
+\index{findNb1@{findNb1}!dai::BipartiteGraph@{dai::BipartiteGraph}}
+\doxysubsubsection{\texorpdfstring{findNb1()}{findNb1()}}
+{\footnotesize\ttfamily size\+\_\+t dai\+::\+Bipartite\+Graph\+::find\+Nb1 (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{n1,  }\item[{size\+\_\+t}]{n2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the index of a given node {\itshape n2} of type 2 amongst the neighbors of node {\itshape n1} of type 1. 
+
+\begin{DoxyNote}{Note}
+The time complexity is linear in the number of neighbors of {\itshape n1} 
+\end{DoxyNote}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em OBJECT\+\_\+\+NOT\+\_\+\+FOUND} & if {\itshape n2} is not a neighbor of {\itshape n1} \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classdai_1_1BipartiteGraph_a657c7abd30121b6008a0b128d9bcd9dd}\label{classdai_1_1BipartiteGraph_a657c7abd30121b6008a0b128d9bcd9dd} 
+\index{dai::BipartiteGraph@{dai::BipartiteGraph}!findNb2@{findNb2}}
+\index{findNb2@{findNb2}!dai::BipartiteGraph@{dai::BipartiteGraph}}
+\doxysubsubsection{\texorpdfstring{findNb2()}{findNb2()}}
+{\footnotesize\ttfamily size\+\_\+t dai\+::\+Bipartite\+Graph\+::find\+Nb2 (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{n1,  }\item[{size\+\_\+t}]{n2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the index of a given node {\itshape n1} of type 1 amongst the neighbors of node {\itshape n2} of type 2. 
+
+\begin{DoxyNote}{Note}
+The time complexity is linear in the number of neighbors of {\itshape n2} 
+\end{DoxyNote}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em OBJECT\+\_\+\+NOT\+\_\+\+FOUND} & if {\itshape n1} is not a neighbor of {\itshape n2} \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classdai_1_1BipartiteGraph_ab0b6540492c90db547153df72c73972c}\label{classdai_1_1BipartiteGraph_ab0b6540492c90db547153df72c73972c} 
+\index{dai::BipartiteGraph@{dai::BipartiteGraph}!nb1Set@{nb1Set}}
+\index{nb1Set@{nb1Set}!dai::BipartiteGraph@{dai::BipartiteGraph}}
+\doxysubsubsection{\texorpdfstring{nb1Set()}{nb1Set()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classdai_1_1SmallSet}{Small\+Set}}$<$ size\+\_\+t $>$ dai\+::\+Bipartite\+Graph\+::nb1\+Set (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{n1 }\end{DoxyParamCaption}) const}
+
+
+
+Returns neighbors of node {\itshape n1} of type 1 as a \doxylink{classdai_1_1SmallSet}{Small\+Set$<$size\+\_\+t$>$}. 
+
+\Hypertarget{classdai_1_1BipartiteGraph_ac02861eaf61e70951ad4a945ff8091fe}\label{classdai_1_1BipartiteGraph_ac02861eaf61e70951ad4a945ff8091fe} 
+\index{dai::BipartiteGraph@{dai::BipartiteGraph}!nb2Set@{nb2Set}}
+\index{nb2Set@{nb2Set}!dai::BipartiteGraph@{dai::BipartiteGraph}}
+\doxysubsubsection{\texorpdfstring{nb2Set()}{nb2Set()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classdai_1_1SmallSet}{Small\+Set}}$<$ size\+\_\+t $>$ dai\+::\+Bipartite\+Graph\+::nb2\+Set (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{n2 }\end{DoxyParamCaption}) const}
+
+
+
+Returns neighbors of node {\itshape n2} of type 2 as a \doxylink{classdai_1_1SmallSet}{Small\+Set$<$size\+\_\+t$>$}. 
+
+\Hypertarget{classdai_1_1BipartiteGraph_a45cfd562148d24c28cea18e5b63d80d1}\label{classdai_1_1BipartiteGraph_a45cfd562148d24c28cea18e5b63d80d1} 
+\index{dai::BipartiteGraph@{dai::BipartiteGraph}!delta1@{delta1}}
+\index{delta1@{delta1}!dai::BipartiteGraph@{dai::BipartiteGraph}}
+\doxysubsubsection{\texorpdfstring{delta1()}{delta1()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classdai_1_1SmallSet}{Small\+Set}}$<$ size\+\_\+t $>$ dai\+::\+Bipartite\+Graph\+::delta1 (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{n1,  }\item[{bool}]{include = {\ttfamily false} }\end{DoxyParamCaption}) const}
+
+
+
+Calculates second-\/order neighbors (i.\+e., neighbors of neighbors) of node {\itshape n1} of type 1. 
+
+If {\itshape include} == {\ttfamily true}, includes {\itshape n1} itself, otherwise excludes {\itshape n1}. \begin{DoxyNote}{Note}
+In lib\+DAI versions 0.\+2.\+4 and earlier, this function used to return a std\+::vector$<$size\+\_\+t$>$ 
+\end{DoxyNote}
+\Hypertarget{classdai_1_1BipartiteGraph_a189609a5e5e391a3adee49588e274493}\label{classdai_1_1BipartiteGraph_a189609a5e5e391a3adee49588e274493} 
+\index{dai::BipartiteGraph@{dai::BipartiteGraph}!delta2@{delta2}}
+\index{delta2@{delta2}!dai::BipartiteGraph@{dai::BipartiteGraph}}
+\doxysubsubsection{\texorpdfstring{delta2()}{delta2()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classdai_1_1SmallSet}{Small\+Set}}$<$ size\+\_\+t $>$ dai\+::\+Bipartite\+Graph\+::delta2 (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{n2,  }\item[{bool}]{include = {\ttfamily false} }\end{DoxyParamCaption}) const}
+
+
+
+Calculates second-\/order neighbors (i.\+e., neighbors of neighbors) of node {\itshape n2} of type 2. 
+
+If {\itshape include} == {\ttfamily true}, includes {\itshape n2} itself, otherwise excludes {\itshape n2}. \begin{DoxyNote}{Note}
+In lib\+DAI versions 0.\+2.\+4 and earlier, this function used to return a std\+::vector$<$size\+\_\+t$>$ 
+\end{DoxyNote}
+\Hypertarget{classdai_1_1BipartiteGraph_ab570303519db10cefc118f8f894f9886}\label{classdai_1_1BipartiteGraph_ab570303519db10cefc118f8f894f9886} 
+\index{dai::BipartiteGraph@{dai::BipartiteGraph}!isConnected@{isConnected}}
+\index{isConnected@{isConnected}!dai::BipartiteGraph@{dai::BipartiteGraph}}
+\doxysubsubsection{\texorpdfstring{isConnected()}{isConnected()}}
+{\footnotesize\ttfamily bool dai\+::\+Bipartite\+Graph\+::is\+Connected (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns true if the graph is connected. 
+
+\Hypertarget{classdai_1_1BipartiteGraph_a0ab096954d63f7225a23dff455fe36a8}\label{classdai_1_1BipartiteGraph_a0ab096954d63f7225a23dff455fe36a8} 
+\index{dai::BipartiteGraph@{dai::BipartiteGraph}!isTree@{isTree}}
+\index{isTree@{isTree}!dai::BipartiteGraph@{dai::BipartiteGraph}}
+\doxysubsubsection{\texorpdfstring{isTree()}{isTree()}}
+{\footnotesize\ttfamily bool dai\+::\+Bipartite\+Graph\+::is\+Tree (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns true if the graph is a tree, i.\+e., if it is singly connected and connected. 
+
+\Hypertarget{classdai_1_1BipartiteGraph_afc126dc58b4f242c16a9055a6b0db286}\label{classdai_1_1BipartiteGraph_afc126dc58b4f242c16a9055a6b0db286} 
+\index{dai::BipartiteGraph@{dai::BipartiteGraph}!operator==@{operator==}}
+\index{operator==@{operator==}!dai::BipartiteGraph@{dai::BipartiteGraph}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool dai\+::\+Bipartite\+Graph\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classdai_1_1BipartiteGraph}{Bipartite\+Graph}} \&}]{x }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Comparison operator which returns true if two graphs are identical. 
+
+\begin{DoxyNote}{Note}
+Two graphs are called identical if they have the same number of nodes of both types and the same edges (i.\+e., {\itshape x} has an edge between nodes {\itshape n1} and {\itshape n2} if and only if {\ttfamily \texorpdfstring{$\ast$}{*}this} has an edge between nodes {\itshape n1} and {\itshape n2}). 
+\end{DoxyNote}
+\Hypertarget{classdai_1_1BipartiteGraph_aa0d183bd44d3ff5f73c2d33401d3acd4}\label{classdai_1_1BipartiteGraph_aa0d183bd44d3ff5f73c2d33401d3acd4} 
+\index{dai::BipartiteGraph@{dai::BipartiteGraph}!checkConsistency@{checkConsistency}}
+\index{checkConsistency@{checkConsistency}!dai::BipartiteGraph@{dai::BipartiteGraph}}
+\doxysubsubsection{\texorpdfstring{checkConsistency()}{checkConsistency()}}
+{\footnotesize\ttfamily void dai\+::\+Bipartite\+Graph\+::check\+Consistency (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Asserts internal consistency. 
+
+\Hypertarget{classdai_1_1BipartiteGraph_a17d1603e065bad1eb08064893648dad3}\label{classdai_1_1BipartiteGraph_a17d1603e065bad1eb08064893648dad3} 
+\index{dai::BipartiteGraph@{dai::BipartiteGraph}!printDot@{printDot}}
+\index{printDot@{printDot}!dai::BipartiteGraph@{dai::BipartiteGraph}}
+\doxysubsubsection{\texorpdfstring{printDot()}{printDot()}}
+{\footnotesize\ttfamily void dai\+::\+Bipartite\+Graph\+::print\+Dot (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os }\end{DoxyParamCaption}) const}
+
+
+
+Writes a \doxylink{classdai_1_1BipartiteGraph}{Bipartite\+Graph} to an output stream in Graph\+Viz .dot syntax. 
+
+\Hypertarget{classdai_1_1BipartiteGraph_a4c80ed7a841456c8bc4661f70dd903e0}\label{classdai_1_1BipartiteGraph_a4c80ed7a841456c8bc4661f70dd903e0} 
+\index{dai::BipartiteGraph@{dai::BipartiteGraph}!toString@{toString}}
+\index{toString@{toString}!dai::BipartiteGraph@{dai::BipartiteGraph}}
+\doxysubsubsection{\texorpdfstring{toString()}{toString()}}
+{\footnotesize\ttfamily std\+::string dai\+::\+Bipartite\+Graph\+::to\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Formats a \doxylink{classdai_1_1BipartiteGraph}{Bipartite\+Graph} as a string. 
+
+
+
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{classdai_1_1BipartiteGraph_a1f7fd6d3681e10e537ee865ac9fcc857}\label{classdai_1_1BipartiteGraph_a1f7fd6d3681e10e537ee865ac9fcc857} 
+\index{dai::BipartiteGraph@{dai::BipartiteGraph}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!dai::BipartiteGraph@{dai::BipartiteGraph}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily std\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{const \mbox{\hyperlink{classdai_1_1BipartiteGraph}{Bipartite\+Graph}} \&}]{g }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Writes a \doxylink{classdai_1_1BipartiteGraph}{Bipartite\+Graph} to an output stream. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classdai_1_1BipartiteGraph_a913ea0d6c734cc8cde8ddba4db192995}\label{classdai_1_1BipartiteGraph_a913ea0d6c734cc8cde8ddba4db192995} 
+\index{dai::BipartiteGraph@{dai::BipartiteGraph}!\_nb1@{\_nb1}}
+\index{\_nb1@{\_nb1}!dai::BipartiteGraph@{dai::BipartiteGraph}}
+\doxysubsubsection{\texorpdfstring{\_nb1}{\_nb1}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{graph_8h_a14c563f2e5f6acf255903cae5c3b415c}{Neighbors}}$>$ dai\+::\+Bipartite\+Graph\+::\+\_\+nb1\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Contains for each node of type 1 a vector of its neighbors. 
+
+\Hypertarget{classdai_1_1BipartiteGraph_aeff78b5b0f22831f98c2c1ebf481779f}\label{classdai_1_1BipartiteGraph_aeff78b5b0f22831f98c2c1ebf481779f} 
+\index{dai::BipartiteGraph@{dai::BipartiteGraph}!\_nb2@{\_nb2}}
+\index{\_nb2@{\_nb2}!dai::BipartiteGraph@{dai::BipartiteGraph}}
+\doxysubsubsection{\texorpdfstring{\_nb2}{\_nb2}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{graph_8h_a14c563f2e5f6acf255903cae5c3b415c}{Neighbors}}$>$ dai\+::\+Bipartite\+Graph\+::\+\_\+nb2\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Contains for each node of type 2 a vector of its neighbors. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/dai/\mbox{\hyperlink{bipgraph_8h}{bipgraph.\+h}}\item 
+src/bipgraph.\+cpp\end{DoxyCompactItemize}
