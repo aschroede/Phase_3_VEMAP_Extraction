@@ -31,10 +31,11 @@ namespace dai {
 
     std::pair<size_t, BigInt> getElimOrderTreeWidth(dai::FactorGraph fg, vector<size_t> elimOrder);
 
-    tuple<map<Var, unsigned long>, double> get_map_ve(dai::FactorGraph fg, std::vector<unsigned int> map_vars,
+    std::vector<unsigned long int> get_map_ve(dai::FactorGraph fg, std::vector<unsigned int> map_vars,
                                                       std::vector<unsigned int> evidence_vars,
                                                       std::vector<unsigned int> evidence_values, bool mapList,
                                                       LibLogger& logger);
+
 
     std::vector<unsigned long int> get_map_jt(dai::FactorGraph fg, std::vector<unsigned int> hypothesis_vars, std::vector<unsigned int> evidence_vars,
         std::vector<unsigned int> evidence_values, bool mapList, LibLogger &logger);

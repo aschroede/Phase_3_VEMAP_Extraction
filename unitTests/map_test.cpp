@@ -266,7 +266,7 @@ BOOST_AUTO_TEST_CASE(TestConstrainedStandardMAP) {
     // Phase 1 (Non-MAP: {0, 3, 4, 5})
     // Min-Fill order on this set: (0, 4, 5, 3)
 
-    std::vector<size_t> expectedOrder = {0, 4, 5, 3};
+    std::vector<size_t> expectedOrder = {0, 4, 5, 3, 1, 2};
 
     BOOST_CHECK_EQUAL_COLLECTIONS(actualOrder.begin(), actualOrder.end(),
                                   expectedOrder.begin(), expectedOrder.end());
@@ -289,7 +289,7 @@ BOOST_AUTO_TEST_CASE(TestConstrainedMapAndEvidence) {
     // Now 1 is connected to 2 (degree 1 in residual graph). 4 is connected to 2 (degree 1).
     // Min-Fill picks lowest index first: (1, 4)
 
-    std::vector<size_t> expectedOrder = {4, 1};
+    std::vector<size_t> expectedOrder = {4, 1, 2, 3};
 
     BOOST_CHECK_EQUAL_COLLECTIONS(actualOrder.begin(), actualOrder.end(),
                                   expectedOrder.begin(), expectedOrder.end());
@@ -311,7 +311,7 @@ BOOST_AUTO_TEST_CASE(TestConstrainedOnlyMAP) {
 
     // This is equivalent to the fully unconstrained case (Test 5), just limited to the MAP set.
     // Multiple correct answers here
-    std::vector<size_t> expectedOrder = {};
+    std::vector<size_t> expectedOrder = {0, 4, 2, 1, 3, 5};
 
     BOOST_CHECK_EQUAL_COLLECTIONS(actualOrder.begin(), actualOrder.end(),
                                   expectedOrder.begin(), expectedOrder.end());
@@ -494,10 +494,12 @@ BOOST_AUTO_TEST_CASE(TestGetMapVE_SingleVarGivenEvidence)
     std::vector<unsigned int> map_vars = {0};
     std::vector<unsigned int> evidence_vars = {4};
     std::vector<unsigned int> evidence_values = {1};
-    tuple<map<Var, unsigned long>, double> map = dai::get_map_ve(fg, map_vars, evidence_vars, evidence_values, false, logger);
+    vector<unsigned long int> map = dai::get_map_ve(fg, map_vars, evidence_vars, evidence_values, false, logger);
 
-    BOOST_CHECK_EQUAL(std::get<0>(map).size(), 1);
-    BOOST_CHECK_EQUAL(std::get<0>(map).begin()->second, 1);
+    BOOST_CHECK_EQUAL(map.size(), 1);
+    BOOST_CHECK_EQUAL(map[0], 1);
+    //BOOST_CHECK_EQUAL(std::get<0>(map).size(), 1);
+    //BOOST_CHECK_EQUAL(std::get<0>(map).begin()->second, 1);
 }
 
 //// Test: get_map_jt should compute MAP using the Junction Tree algorithm (same evidence-driven case)

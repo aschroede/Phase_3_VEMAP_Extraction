@@ -156,17 +156,17 @@ void VEMap(dai::FactorGraph &fg, LibLogger &logger)
     auto start = std::chrono::steady_clock::now();
 
     // Perform VE Map
-    tuple<map<Var,unsigned long>,double> map = get_map_ve(fg, hypothesisVars, evidenceVars, evidenceValues, false, logger);
+    std::vector<unsigned long int> map = get_map_ve(fg, hypothesisVars, evidenceVars, evidenceValues, false, logger);
 
     // Stop clock
     auto end = std::chrono::steady_clock::now();
 
-    std::cout << "MAP Assignment: ";
-    for (const auto &entry : std::get<0>(map))
-    {
-        std::cout << "X" << entry.first.label() << "=" << entry.second << ", ";
-    }
-    std::cout << " with probability " << std::get<1>(map) << std::endl;
+//    std::cout << "MAP Assignment: ";
+//    for (const auto &entry : std::get<0>(map))
+//    {
+//        std::cout << "X" << entry.first.label() << "=" << entry.second << ", ";
+//    }
+//    std::cout << " with probability " << std::get<1>(map) << std::endl;
 
 }
 
