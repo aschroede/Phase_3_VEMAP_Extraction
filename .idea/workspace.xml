@@ -14,15 +14,7 @@
   </component>
   <component name="CMakeRunConfigurationManager">
     <generated>
-      <config projectName="Phase_3_VEMAP_Extraction" targetName="obj" />
-      <config projectName="Phase_3_VEMAP_Extraction" targetName="doc" />
-      <config projectName="Phase_3_VEMAP_Extraction" targetName="README" />
-      <config projectName="Phase_3_VEMAP_Extraction" targetName="lib" />
       <config projectName="Phase_3_VEMAP_Extraction" targetName="unittests" />
-      <config projectName="Phase_3_VEMAP_Extraction" targetName="TAGS" />
-      <config projectName="Phase_3_VEMAP_Extraction" targetName="all" />
-      <config projectName="Phase_3_VEMAP_Extraction" targetName="Makefile" />
-      <config projectName="Phase_3_VEMAP_Extraction" targetName="examples" />
     </generated>
   </component>
   <component name="CMakeSettings">
@@ -32,18 +24,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="25ae54f2-4d07-4be3-bb2b-47d1ad3cb969" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/customdoxygen.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doxygen.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cli_tests.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/editor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/editor.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UnitTestLog" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTestLog" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/example_map" beforeDir="false" afterPath="$PROJECT_DIR$/examples/example_map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/example_map.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/examples/example_map.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/dai/logger.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/dai/logger.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/dai/map.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/dai/map.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/map.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/map.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unitTests/map_test" beforeDir="false" afterPath="$PROJECT_DIR$/unitTests/map_test" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unitTests/map_test.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/unitTests/map_test.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,8 +116,11 @@
     &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;SHELLCHECK.PATH&quot;: &quot;/home/andrew/.local/share/JetBrains/CLion2025.2/Shell Script/shellcheck&quot;,
     &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;/home/andrew/Documents/School/Semester_1/libDAI/Phase_3_VEMAP_Extraction&quot;,
@@ -157,43 +143,8 @@
       <recent name="$PROJECT_DIR$/UnitTests" />
     </key>
   </component>
-  <component name="RunManager" selected="Native Application.unittests">
-    <configuration name="Makefile" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Phase_3_VEMAP_Extraction" TARGET_NAME="Makefile" CONFIG_NAME="Makefile" version="1">
-      <method v="2">
-        <option name="CLION.COMPOUND.BUILD" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="README" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Phase_3_VEMAP_Extraction" TARGET_NAME="README" CONFIG_NAME="README" version="1">
-      <method v="2">
-        <option name="CLION.COMPOUND.BUILD" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TAGS" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Phase_3_VEMAP_Extraction" TARGET_NAME="TAGS" CONFIG_NAME="TAGS" version="1">
-      <method v="2">
-        <option name="CLION.COMPOUND.BUILD" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="all" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Phase_3_VEMAP_Extraction" TARGET_NAME="all" CONFIG_NAME="all" version="1">
-      <method v="2">
-        <option name="CLION.COMPOUND.BUILD" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="doc" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Phase_3_VEMAP_Extraction" TARGET_NAME="doc" CONFIG_NAME="doc" version="1">
-      <method v="2">
-        <option name="CLION.COMPOUND.BUILD" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="examples" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Phase_3_VEMAP_Extraction" TARGET_NAME="examples" CONFIG_NAME="examples" version="1">
-      <method v="2">
-        <option name="CLION.COMPOUND.BUILD" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="lib" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Phase_3_VEMAP_Extraction" TARGET_NAME="lib" CONFIG_NAME="lib" version="1">
-      <method v="2">
-        <option name="CLION.COMPOUND.BUILD" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="obj" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Phase_3_VEMAP_Extraction" TARGET_NAME="obj" CONFIG_NAME="obj" version="1">
+  <component name="RunManager">
+    <configuration name="unittests" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Phase_3_VEMAP_Extraction" TARGET_NAME="unittests" CONFIG_NAME="unittests" version="1" RUN_PATH="$PROJECT_DIR$/unitTests/map_test">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
@@ -208,17 +159,6 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <list>
-      <item itemvalue="Native Application.all" />
-      <item itemvalue="Native Application.doc" />
-      <item itemvalue="Native Application.examples" />
-      <item itemvalue="Native Application.lib" />
-      <item itemvalue="Native Application.Makefile" />
-      <item itemvalue="Native Application.obj" />
-      <item itemvalue="Native Application.README" />
-      <item itemvalue="Native Application.TAGS" />
-      <item itemvalue="Native Application.unittests" />
-    </list>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -236,7 +176,8 @@
       <workItem from="1761396172698" duration="9046000" />
       <workItem from="1761469757728" duration="4664000" />
       <workItem from="1762624333348" duration="10170000" />
-      <workItem from="1764317691305" duration="6529000" />
+      <workItem from="1764317691305" duration="19021000" />
+      <workItem from="1766042478757" duration="2974000" />
     </task>
     <servers />
   </component>
@@ -264,5 +205,13 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="github-copilot-workspace">
+    <instructionFileLocations>
+      <option value=".github/instructions" />
+    </instructionFileLocations>
+    <promptFileLocations>
+      <option value=".github/prompts" />
+    </promptFileLocations>
   </component>
 </project>
