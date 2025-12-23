@@ -3,6 +3,11 @@ This project was commissioned by Dr. Johan Kwisthout from Radboud University. Dr
 
 Because the junction tree approach did not take advantage of the independence of the MAP variables, it was decided to implement the variable elimination algorithm in libDAI to compute MAP exactly. The algorithm was implemented and can compute the instantiations, however on some problem instances it takes significantly longer than the initial junction tree algorithm - see the test data in [final_test_runs.xlsx](final_test_runs.xlsx). So while the goal of implementing exact MAP was achieved, the goal of improving the speed was not. The rest of this document explains how to run variable elimination and also contains a long list of notes and to-do items for future work.  
 
+# 2025 Updates
+Johan requested that to the extent possible, the MAP implementation be extracted from the libdai code-base for reference. However the MAP implementation is heavily dependent on some libdai classes such as `factor.cpp` and `clustergraph.cpp`. The dependencies that could be removed were removed and the main map implementation is in `map.cpp`. Additionally the following were done:
+- 17 unit tests were added in `unitTests\map_test.cpp` to test the functions of `map.cpp`
+- Back-tracking was implemented to find the MAP instantiation rather than creating a whole new column in each factor where the maximised variable is instantiated.
+
 # Running
 ## Building
 Inside the LIBDAI MODIFIED directory, open a terminal and enter this command to build all of libDAI:

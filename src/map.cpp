@@ -161,7 +161,7 @@ std::pair<size_t,BigInt> calculateEliminationWidth(dai::FactorGraph fg, vector<s
  *
  * @tparam EliminationChoice A class representing the elimination heuristic (e.g., `greedyVariableElimination`).
  * @param fg The input factor graph.
- * @param f The elimination heuristic object. TODO: what is this and what options are there?
+ * @param f The elimination heuristic object.
  * @param query_vars A vector of indices for the query variables.
  * @param evidence_vars A vector of indices for the evidence variables.
  * @return A vector of `size_t` representing the variable elimination order.
@@ -511,8 +511,6 @@ std::vector<unsigned long int> get_map_ve(dai::FactorGraph fg, std::vector<unsig
                        std::vector<unsigned int> evidence_values, bool mapList, LibLogger &logger)
 {
 
-    // TODO: PruneNetwork
-
     // Clamp evidence
     auto start = std::chrono::steady_clock::now();
     for (int i = 0; i < evidence_vars.size(); i++){
@@ -742,12 +740,6 @@ std::vector<unsigned long int> get_map_ve(dai::FactorGraph fg, std::vector<unsig
 
         // Record chosen value (if nothing matched, default to 0)
         assignmentByLabel[targetVarLabel] = bestVal;
-        //logger.log(LogLevel::INFO, "[MAP-BT] Chosen var " + std::to_string(targetVarLabel) + " = " + std::to_string(bestVal) + " (p=" + (std::ostringstream() << std::scientific << std::setprecision(5) << bestP).str() + ")");
-        //logger.log(LogLevel::INFO, "[MAP-BT] p = " + (std::ostringstream() << std::scientific << std::setprecision(5) << bestP).str());
-
-        //std:string exactly_zero = "false";
-        //if (bestP == 0.0) {exactly_zero = "true";}
-        //logger.log(LogLevel::INFO, "Is prob exactly zero? " + exactly_zero);
     }
 
     // Assemble final MAP instantiation in the order of map_vars

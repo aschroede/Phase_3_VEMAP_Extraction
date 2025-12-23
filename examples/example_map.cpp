@@ -160,6 +160,8 @@ void VEMap(dai::FactorGraph &fg, LibLogger &logger)
 
     // Stop clock
     auto end = std::chrono::steady_clock::now();
+    logger.log(LogLevel::INFO, std::string("Total Time ") + std::to_string(std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count()) + " ns");
+
 
 //    std::cout << "MAP Assignment: ";
 //    for (const auto &entry : std::get<0>(map))
@@ -175,8 +177,13 @@ void JTMap(dai::FactorGraph &fg, LibLogger &logger)
     logger.log(LogLevel::INFO, "\n[MAP] Computing MAP with Junction Tree: ");
 
     // Perform VE Map
+
+	auto start = std::chrono::steady_clock::now();
+
     std::vector<unsigned long int> MAP = get_map_jt(fg, hypothesisVars, evidenceVars, evidenceValues, false, logger);
 
+    auto end = std::chrono::steady_clock::now();
+	logger.log(LogLevel::INFO, std::string("Total Time ") + std::to_string(std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count()) + " ns");
 }
 
 void VE(dai::FactorGraph &fg, LibLogger &logger)
